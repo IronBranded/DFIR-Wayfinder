@@ -1,0 +1,93 @@
+site_name: Enterprise DFIR Field Guide
+site_description: >-
+  An interactive, data-driven guide to enterprise digital forensics and
+  incident response - Windows endpoints, memory, Active Directory, and
+  hybrid/cloud identity.
+site_url: https://YOUR-USERNAME.github.io/dfir-field-guide/
+repo_url: https://github.com/YOUR-USERNAME/dfir-field-guide
+repo_name: dfir-field-guide
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - attr_list
+  - md_in_html
+  - footnotes
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Foundations:
+      - Overview: 00-foundations/index.md
+      - IR Lifecycle: 00-foundations/ir-lifecycle.md
+      - Order of Volatility: 00-foundations/order-of-volatility.md
+      - MITRE ATT&CK Primer: 00-foundations/attack-primer.md
+      - Pyramid of Pain: 00-foundations/pyramid-of-pain.md
+      - Diamond Model: 00-foundations/diamond-model.md
+      - Evidence Handling & Chain of Custody: 00-foundations/evidence-handling.md
+  - Windows Endpoint Forensics:
+      - Overview: 01-windows-endpoint/index.md
+      - "Artifact: Prefetch": 01-windows-endpoint/prefetch.md
+  - Active Directory & Domain Controllers: 02-active-directory/index.md
+  - Windows Memory Forensics: 03-memory-forensics/index.md
+  - PowerShell Forensics: 04-powershell-forensics/index.md
+  - Persistence Catalog: 05-persistence/index.md
+  - Cloud Identity (Entra ID / Hybrid): 06-cloud-identity/index.md
+  - Microsoft Defender Suite: 07-defender-suite/index.md
+  - Investigation Playbooks: 08-playbooks/index.md

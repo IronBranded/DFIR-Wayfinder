@@ -1,0 +1,44 @@
+:root {
+  --md-primary-fg-color: #10151b;
+  --md-accent-fg-color: #2dd4bf;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0d1117;
+  --md-default-fg-color: #c9d1d9;
+  --md-default-fg-color--light: #8b949e;
+}
+
+/* Reinforce the guide's semantic callout language throughout every module:
+   success = Baseline / expected behavior
+   danger  = Red Flag / deviation worth investigating */
+.md-typeset .admonition.success,
+.md-typeset details.success {
+  border-color: #2dd4bf;
+}
+.md-typeset .admonition.success > .admonition-title,
+.md-typeset details.success > summary {
+  background-color: rgba(45, 212, 191, 0.1);
+}
+.md-typeset .admonition.success > .admonition-title::before,
+.md-typeset details.success > summary::before {
+  background-color: #2dd4bf;
+}
+
+.md-typeset .admonition.danger,
+.md-typeset details.danger {
+  border-color: #f59e0b;
+}
+.md-typeset .admonition.danger > .admonition-title,
+.md-typeset details.danger > summary {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+.md-typeset .admonition.danger > .admonition-title::before,
+.md-typeset details.danger > summary::before {
+  background-color: #f59e0b;
+}
+
+/* Checklist-style task lists on module index pages */
+.md-typeset .task-list-item [type="checkbox"] {
+  margin-right: 0.5em;
+}
