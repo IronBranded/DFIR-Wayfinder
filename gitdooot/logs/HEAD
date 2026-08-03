@@ -1,2 +1,0 @@
-0000000000000000000000000000000000000000 a82f54843d32e6fe18f17e59fc4a0e26bb173cb8 DFIR Field Guide Builder <builder@dfir-field-guide.local> 1785761231 +0000	commit (initial): Initial commit: full guide content through this build session
-a82f54843d32e6fe18f17e59fc4a0e26bb173cb8 f49acb8309aed45561c1891c1cda75e4005c2db9 DFIR Field Guide Builder <builder@dfir-field-guide.local> 1785762218 +0000	commit: Add UX/functionality improvements: contrast fix, tags, backlinks, breadcrumbs, revision dates, PDF export, dead-link CI
