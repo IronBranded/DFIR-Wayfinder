@@ -6,25 +6,26 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="An interactive, data-driven guide to enterprise digital forensics and incident response - Windows endpoints, memory, Active Directory, and hybrid/cloud identity." name="description"/>
-<link href="https://YOUR-USERNAME.github.io/dfir-field-guide/" rel="canonical"/>
-<link href="00-foundations/" rel="next"/>
-<link href="assets/images/favicon.png" rel="icon"/>
+<link href="https://YOUR-USERNAME.github.io/dfir-field-guide/06-cloud-identity/entra-connect-as-target/" rel="canonical"/>
+<link href="../hybrid-sync-mechanics/" rel="prev"/>
+<link href="../../anti-forensics/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
-<title>Enterprise DFIR Field Guide</title>
-<link href="assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<title>The Entra Connect Server: A Target in Its Own Right - Enterprise DFIR Field Guide</title>
+<link href="../../assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
-<link href="stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<link href="pdf/enterprise-dfir-field-guide.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../pdf/enterprise-dfir-field-guide.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="black" data-md-color-scheme="slate" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#enterprise-dfir-field-guide">
+<a class="md-skip" href="#the-entra-connect-server-a-target-in-its-own-right">
           Skip to content
         </a>
 </div>
@@ -32,7 +33,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Enterprise DFIR Field Guide" class="md-header__button md-logo" data-md-component="logo" href="." title="Enterprise DFIR Field Guide">
+<a aria-label="Enterprise DFIR Field Guide" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Enterprise DFIR Field Guide">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -48,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Home
+              The Entra Connect Server: A Target in Its Own Right
             
           </span>
 </div>
@@ -106,7 +107,7 @@
   </div>
 </a>
 </div>
-<a class="md-header-nav__button md-icon" href="pdf/enterprise-dfir-field-guide.pdf" title="PDF">
+<a class="md-header-nav__button md-icon" href="../../pdf/enterprise-dfir-field-guide.pdf" title="PDF">
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
 <path d="M128,0c-17.6,0-32,14.4-32,32v448c0,17.6,14.4,32,32,32h320c17.6,0,32-14.4,32-32V128L352,0H128z" fill="#E2E5E7"></path>
 <path d="m384 128h96l-128-128v96c0 17.6 14.4 32 32 32z" fill="#B0B7BD"></path>
@@ -123,8 +124,8 @@
 <nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
 <div class="md-grid">
 <ul class="md-tabs__list">
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href=".">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
         
   
   
@@ -135,7 +136,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="00-foundations/">
+<a class="md-tabs__link" href="../../00-foundations/">
           
   
   
@@ -146,7 +147,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="01-windows-endpoint/index.md">
+<a class="md-tabs__link" href="../../01-windows-endpoint/index.md">
           
   
   
@@ -157,7 +158,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="02-active-directory/index.md">
+<a class="md-tabs__link" href="../../02-active-directory/index.md">
           
   
   
@@ -168,7 +169,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="03-memory-forensics/">
+<a class="md-tabs__link" href="../../03-memory-forensics/">
           
   
   
@@ -179,7 +180,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="04-powershell-forensics/">
+<a class="md-tabs__link" href="../../04-powershell-forensics/">
           
   
   
@@ -190,7 +191,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="05-persistence/index.md">
+<a class="md-tabs__link" href="../../05-persistence/index.md">
           
   
   
@@ -200,8 +201,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="06-cloud-identity/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
   
@@ -212,7 +213,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="07-defender-suite/index.md">
+<a class="md-tabs__link" href="../../07-defender-suite/index.md">
           
   
   
@@ -223,7 +224,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="network-analysis/index.md">
+<a class="md-tabs__link" href="../../network-analysis/index.md">
           
   
   
@@ -234,7 +235,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="anti-forensics/">
+<a class="md-tabs__link" href="../../anti-forensics/">
           
   
   
@@ -245,7 +246,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="case-studies/index.md">
+<a class="md-tabs__link" href="../../case-studies/index.md">
           
   
   
@@ -256,7 +257,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="08-playbooks/">
+<a class="md-tabs__link" href="../../08-playbooks/">
           
   
   
@@ -267,7 +268,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="practice-drills/index.md">
+<a class="md-tabs__link" href="../../practice-drills/index.md">
           
   
   
@@ -278,7 +279,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="quick-reference/windows-ir-poster.md">
+<a class="md-tabs__link" href="../../quick-reference/windows-ir-poster.md">
         
   
   
@@ -289,7 +290,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="glossary/">
+<a class="md-tabs__link" href="../../glossary/">
         
   
   
@@ -300,7 +301,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="tags/">
+<a class="md-tabs__link" href="../../tags/">
         
   
   
@@ -322,7 +323,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Enterprise DFIR Field Guide" class="md-nav__button md-logo" data-md-component="logo" href="." title="Enterprise DFIR Field Guide">
+<a aria-label="Enterprise DFIR Field Guide" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Enterprise DFIR Field Guide">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
     Enterprise DFIR Field Guide
@@ -338,20 +339,8 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href=".">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     
   
@@ -361,55 +350,11 @@
     
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-this-guide-is-organized">
-<span class="md-ellipsis">
-      
-        How this guide is organized
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#scope">
-<span class="md-ellipsis">
-      
-        Scope
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-modules">
-<span class="md-ellipsis">
-      
-        The modules
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#a-note-on-sources">
-<span class="md-ellipsis">
-      
-        A note on sources
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="00-foundations/">
+<a class="md-nav__link" href="../../00-foundations/">
 <span class="md-ellipsis">
     
   
@@ -434,7 +379,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/ir-lifecycle/">
+<a class="md-nav__link" href="../../00-foundations/ir-lifecycle/">
 <span class="md-ellipsis">
     
   
@@ -446,7 +391,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/order-of-volatility/">
+<a class="md-nav__link" href="../../00-foundations/order-of-volatility/">
 <span class="md-ellipsis">
     
   
@@ -458,7 +403,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/attack-primer/">
+<a class="md-nav__link" href="../../00-foundations/attack-primer/">
 <span class="md-ellipsis">
     
   
@@ -470,7 +415,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/pyramid-of-pain/">
+<a class="md-nav__link" href="../../00-foundations/pyramid-of-pain/">
 <span class="md-ellipsis">
     
   
@@ -482,7 +427,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/diamond-model/">
+<a class="md-nav__link" href="../../00-foundations/diamond-model/">
 <span class="md-ellipsis">
     
   
@@ -494,7 +439,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/evidence-handling/">
+<a class="md-nav__link" href="../../00-foundations/evidence-handling/">
 <span class="md-ellipsis">
     
   
@@ -506,7 +451,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/timeline-construction/">
+<a class="md-nav__link" href="../../00-foundations/timeline-construction/">
 <span class="md-ellipsis">
     
   
@@ -518,7 +463,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/threat-intelligence-operationalization/">
+<a class="md-nav__link" href="../../00-foundations/threat-intelligence-operationalization/">
 <span class="md-ellipsis">
     
   
@@ -530,7 +475,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/attack-coverage-map/">
+<a class="md-nav__link" href="../../00-foundations/attack-coverage-map/">
 <span class="md-ellipsis">
     
   
@@ -542,7 +487,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-foundations/reporting-and-communication/">
+<a class="md-nav__link" href="../../00-foundations/reporting-and-communication/">
 <span class="md-ellipsis">
     
   
@@ -580,7 +525,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/index.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/index.md">
 <span class="md-ellipsis">
     
   
@@ -592,7 +537,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/prefetch.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/prefetch.md">
 <span class="md-ellipsis">
     
   
@@ -604,7 +549,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/mft.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/mft.md">
 <span class="md-ellipsis">
     
   
@@ -616,7 +561,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/usn-journal.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/usn-journal.md">
 <span class="md-ellipsis">
     
   
@@ -628,7 +573,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/amcache.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/amcache.md">
 <span class="md-ellipsis">
     
   
@@ -640,7 +585,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/shimcache.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/shimcache.md">
 <span class="md-ellipsis">
     
   
@@ -652,7 +597,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/registry-hives.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/registry-hives.md">
 <span class="md-ellipsis">
     
   
@@ -664,7 +609,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/shellbags.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/shellbags.md">
 <span class="md-ellipsis">
     
   
@@ -676,7 +621,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/userassist.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/userassist.md">
 <span class="md-ellipsis">
     
   
@@ -688,7 +633,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/event-log-key-ids.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/event-log-key-ids.md">
 <span class="md-ellipsis">
     
   
@@ -700,7 +645,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01-windows-endpoint/process-trees.md">
+<a class="md-nav__link" href="../../01-windows-endpoint/process-trees.md">
 <span class="md-ellipsis">
     
   
@@ -738,7 +683,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/index.md">
+<a class="md-nav__link" href="../../02-active-directory/index.md">
 <span class="md-ellipsis">
     
   
@@ -750,7 +695,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/ntds-dit.md">
+<a class="md-nav__link" href="../../02-active-directory/ntds-dit.md">
 <span class="md-ellipsis">
     
   
@@ -762,7 +707,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/sysvol-gpo.md">
+<a class="md-nav__link" href="../../02-active-directory/sysvol-gpo.md">
 <span class="md-ellipsis">
     
   
@@ -774,7 +719,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/replication-metadata.md">
+<a class="md-nav__link" href="../../02-active-directory/replication-metadata.md">
 <span class="md-ellipsis">
     
   
@@ -786,7 +731,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/krbtgt.md">
+<a class="md-nav__link" href="../../02-active-directory/krbtgt.md">
 <span class="md-ellipsis">
     
   
@@ -798,7 +743,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/dcsync-detection.md">
+<a class="md-nav__link" href="../../02-active-directory/dcsync-detection.md">
 <span class="md-ellipsis">
     
   
@@ -810,7 +755,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/golden-silver-ticket.md">
+<a class="md-nav__link" href="../../02-active-directory/golden-silver-ticket.md">
 <span class="md-ellipsis">
     
   
@@ -822,7 +767,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/adminsdholder.md">
+<a class="md-nav__link" href="../../02-active-directory/adminsdholder.md">
 <span class="md-ellipsis">
     
   
@@ -834,7 +779,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/kerberoasting.md">
+<a class="md-nav__link" href="../../02-active-directory/kerberoasting.md">
 <span class="md-ellipsis">
     
   
@@ -846,7 +791,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/adcs-abuse.md">
+<a class="md-nav__link" href="../../02-active-directory/adcs-abuse.md">
 <span class="md-ellipsis">
     
   
@@ -858,7 +803,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02-active-directory/acl-delegation-abuse.md">
+<a class="md-nav__link" href="../../02-active-directory/acl-delegation-abuse.md">
 <span class="md-ellipsis">
     
   
@@ -875,7 +820,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="03-memory-forensics/">
+<a class="md-nav__link" href="../../03-memory-forensics/">
 <span class="md-ellipsis">
     
   
@@ -900,7 +845,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/acquisition/">
+<a class="md-nav__link" href="../../03-memory-forensics/acquisition/">
 <span class="md-ellipsis">
     
   
@@ -912,7 +857,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/volatility-process-analysis/">
+<a class="md-nav__link" href="../../03-memory-forensics/volatility-process-analysis/">
 <span class="md-ellipsis">
     
   
@@ -924,7 +869,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/eprocess-internals/">
+<a class="md-nav__link" href="../../03-memory-forensics/eprocess-internals/">
 <span class="md-ellipsis">
     
   
@@ -936,7 +881,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/injected-code-detection/">
+<a class="md-nav__link" href="../../03-memory-forensics/injected-code-detection/">
 <span class="md-ellipsis">
     
   
@@ -948,7 +893,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/injection-techniques/">
+<a class="md-nav__link" href="../../03-memory-forensics/injection-techniques/">
 <span class="md-ellipsis">
     
   
@@ -960,7 +905,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/thread-analysis/">
+<a class="md-nav__link" href="../../03-memory-forensics/thread-analysis/">
 <span class="md-ellipsis">
     
   
@@ -972,7 +917,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/mutex-analysis/">
+<a class="md-nav__link" href="../../03-memory-forensics/mutex-analysis/">
 <span class="md-ellipsis">
     
   
@@ -984,7 +929,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/lsass-memory-analysis/">
+<a class="md-nav__link" href="../../03-memory-forensics/lsass-memory-analysis/">
 <span class="md-ellipsis">
     
   
@@ -996,7 +941,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/network-memory-artifacts/">
+<a class="md-nav__link" href="../../03-memory-forensics/network-memory-artifacts/">
 <span class="md-ellipsis">
     
   
@@ -1008,7 +953,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03-memory-forensics/malware-triage-methodology/">
+<a class="md-nav__link" href="../../03-memory-forensics/malware-triage-methodology/">
 <span class="md-ellipsis">
     
   
@@ -1025,7 +970,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="04-powershell-forensics/">
+<a class="md-nav__link" href="../../04-powershell-forensics/">
 <span class="md-ellipsis">
     
   
@@ -1050,7 +995,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="04-powershell-forensics/powershell-logging/">
+<a class="md-nav__link" href="../../04-powershell-forensics/powershell-logging/">
 <span class="md-ellipsis">
     
   
@@ -1062,7 +1007,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="04-powershell-forensics/obfuscation-decoding/">
+<a class="md-nav__link" href="../../04-powershell-forensics/obfuscation-decoding/">
 <span class="md-ellipsis">
     
   
@@ -1074,7 +1019,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="04-powershell-forensics/evasion-detection/">
+<a class="md-nav__link" href="../../04-powershell-forensics/evasion-detection/">
 <span class="md-ellipsis">
     
   
@@ -1086,7 +1031,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="04-powershell-forensics/powershell-malicious-patterns/">
+<a class="md-nav__link" href="../../04-powershell-forensics/powershell-malicious-patterns/">
 <span class="md-ellipsis">
     
   
@@ -1124,7 +1069,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/index.md">
+<a class="md-nav__link" href="../../05-persistence/index.md">
 <span class="md-ellipsis">
     
   
@@ -1136,7 +1081,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/registry-run-keys.md">
+<a class="md-nav__link" href="../../05-persistence/registry-run-keys.md">
 <span class="md-ellipsis">
     
   
@@ -1148,7 +1093,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/scheduled-tasks.md">
+<a class="md-nav__link" href="../../05-persistence/scheduled-tasks.md">
 <span class="md-ellipsis">
     
   
@@ -1160,7 +1105,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/windows-services.md">
+<a class="md-nav__link" href="../../05-persistence/windows-services.md">
 <span class="md-ellipsis">
     
   
@@ -1172,7 +1117,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/wmi-subscriptions.md">
+<a class="md-nav__link" href="../../05-persistence/wmi-subscriptions.md">
 <span class="md-ellipsis">
     
   
@@ -1184,7 +1129,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/com-dll-hijacking.md">
+<a class="md-nav__link" href="../../05-persistence/com-dll-hijacking.md">
 <span class="md-ellipsis">
     
   
@@ -1196,7 +1141,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/appinit-ifeo.md">
+<a class="md-nav__link" href="../../05-persistence/appinit-ifeo.md">
 <span class="md-ellipsis">
     
   
@@ -1208,7 +1153,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/lsa-ssp.md">
+<a class="md-nav__link" href="../../05-persistence/lsa-ssp.md">
 <span class="md-ellipsis">
     
   
@@ -1220,7 +1165,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/bits-jobs.md">
+<a class="md-nav__link" href="../../05-persistence/bits-jobs.md">
 <span class="md-ellipsis">
     
   
@@ -1232,7 +1177,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/winlogon-helper.md">
+<a class="md-nav__link" href="../../05-persistence/winlogon-helper.md">
 <span class="md-ellipsis">
     
   
@@ -1244,7 +1189,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/oauth-consent-grants.md">
+<a class="md-nav__link" href="../../05-persistence/oauth-consent-grants.md">
 <span class="md-ellipsis">
     
   
@@ -1256,7 +1201,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/backdoor-app-registrations.md">
+<a class="md-nav__link" href="../../05-persistence/backdoor-app-registrations.md">
 <span class="md-ellipsis">
     
   
@@ -1268,7 +1213,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/mailbox-forwarding-rules.md">
+<a class="md-nav__link" href="../../05-persistence/mailbox-forwarding-rules.md">
 <span class="md-ellipsis">
     
   
@@ -1280,7 +1225,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/golden-saml.md">
+<a class="md-nav__link" href="../../05-persistence/golden-saml.md">
 <span class="md-ellipsis">
     
   
@@ -1292,7 +1237,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05-persistence/break-glass-abuse.md">
+<a class="md-nav__link" href="../../05-persistence/break-glass-abuse.md">
 <span class="md-ellipsis">
     
   
@@ -1306,10 +1251,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="06-cloud-identity/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     
   
@@ -1319,11 +1264,11 @@
     
   </span>
 </a>
-<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
             
@@ -1334,7 +1279,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="06-cloud-identity/sign-in-vs-audit-logs/">
+<a class="md-nav__link" href="../sign-in-vs-audit-logs/">
 <span class="md-ellipsis">
     
   
@@ -1346,7 +1291,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="06-cloud-identity/conditional-access-investigation/">
+<a class="md-nav__link" href="../conditional-access-investigation/">
 <span class="md-ellipsis">
     
   
@@ -1358,7 +1303,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="06-cloud-identity/identity-protection-risk-signals/">
+<a class="md-nav__link" href="../identity-protection-risk-signals/">
 <span class="md-ellipsis">
     
   
@@ -1370,7 +1315,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="06-cloud-identity/hybrid-sync-mechanics/">
+<a class="md-nav__link" href="../hybrid-sync-mechanics/">
 <span class="md-ellipsis">
     
   
@@ -1381,8 +1326,20 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="06-cloud-identity/entra-connect-as-target/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    The Entra Connect Server: A Target in Its Own Right
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -1392,6 +1349,95 @@
     
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-this-page-exists">
+<span class="md-ellipsis">
+      
+        Why this page exists
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-entra-connects-on-prem-account-can-actually-do">
+<span class="md-ellipsis">
+      
+        What Entra Connect's on-prem account can actually do
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-cloud-side-carries-its-own-privilege">
+<span class="md-ellipsis">
+      
+        The cloud side carries its own privilege
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-this-doesnt-get-the-same-attention-a-dc-does">
+<span class="md-ellipsis">
+      
+        Why this doesn't get the same attention a DC does
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#where-the-evidence-lives-and-what-to-check">
+<span class="md-ellipsis">
+      
+        Where the evidence lives, and what to check
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#turning-this-into-report-language">
+<span class="md-ellipsis">
+      
+        Turning this into report language
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#attck-mapping">
+<span class="md-ellipsis">
+      
+        ATT&amp;CK mapping
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referenced-from">
+<span class="md-ellipsis">
+      
+        Referenced From
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sources">
+<span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1420,7 +1466,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="07-defender-suite/index.md">
+<a class="md-nav__link" href="../../07-defender-suite/index.md">
 <span class="md-ellipsis">
     
   
@@ -1432,7 +1478,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="07-defender-suite/advanced-hunting-kql.md">
+<a class="md-nav__link" href="../../07-defender-suite/advanced-hunting-kql.md">
 <span class="md-ellipsis">
     
   
@@ -1444,7 +1490,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="07-defender-suite/detection-engineering.md">
+<a class="md-nav__link" href="../../07-defender-suite/detection-engineering.md">
 <span class="md-ellipsis">
     
   
@@ -1456,7 +1502,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="07-defender-suite/defender-for-identity-mapping.md">
+<a class="md-nav__link" href="../../07-defender-suite/defender-for-identity-mapping.md">
 <span class="md-ellipsis">
     
   
@@ -1468,7 +1514,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="07-defender-suite/defender-cloud-apps-oauth.md">
+<a class="md-nav__link" href="../../07-defender-suite/defender-cloud-apps-oauth.md">
 <span class="md-ellipsis">
     
   
@@ -1480,7 +1526,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="07-defender-suite/automated-investigation-remediation.md">
+<a class="md-nav__link" href="../../07-defender-suite/automated-investigation-remediation.md">
 <span class="md-ellipsis">
     
   
@@ -1518,7 +1564,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="network-analysis/index.md">
+<a class="md-nav__link" href="../../network-analysis/index.md">
 <span class="md-ellipsis">
     
   
@@ -1530,7 +1576,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="network-analysis/dns-analysis.md">
+<a class="md-nav__link" href="../../network-analysis/dns-analysis.md">
 <span class="md-ellipsis">
     
   
@@ -1542,7 +1588,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="network-analysis/proxy-firewall-triage.md">
+<a class="md-nav__link" href="../../network-analysis/proxy-firewall-triage.md">
 <span class="md-ellipsis">
     
   
@@ -1559,7 +1605,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="anti-forensics/">
+<a class="md-nav__link" href="../../anti-forensics/">
 <span class="md-ellipsis">
     
   
@@ -1584,7 +1630,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="anti-forensics/file-carving/">
+<a class="md-nav__link" href="../../anti-forensics/file-carving/">
 <span class="md-ellipsis">
     
   
@@ -1596,7 +1642,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="anti-forensics/alternate-data-streams/">
+<a class="md-nav__link" href="../../anti-forensics/alternate-data-streams/">
 <span class="md-ellipsis">
     
   
@@ -1608,7 +1654,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="anti-forensics/log-artifact-recovery/">
+<a class="md-nav__link" href="../../anti-forensics/log-artifact-recovery/">
 <span class="md-ellipsis">
     
   
@@ -1620,7 +1666,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="anti-forensics/volume-shadow-copy-recovery/">
+<a class="md-nav__link" href="../../anti-forensics/volume-shadow-copy-recovery/">
 <span class="md-ellipsis">
     
   
@@ -1632,7 +1678,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="anti-forensics/memory-based-file-recovery/">
+<a class="md-nav__link" href="../../anti-forensics/memory-based-file-recovery/">
 <span class="md-ellipsis">
     
   
@@ -1670,7 +1716,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="case-studies/index.md">
+<a class="md-nav__link" href="../../case-studies/index.md">
 <span class="md-ellipsis">
     
   
@@ -1682,7 +1728,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="case-studies/domain-compromise-case-study.md">
+<a class="md-nav__link" href="../../case-studies/domain-compromise-case-study.md">
 <span class="md-ellipsis">
     
   
@@ -1694,7 +1740,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="case-studies/bec-case-study.md">
+<a class="md-nav__link" href="../../case-studies/bec-case-study.md">
 <span class="md-ellipsis">
     
   
@@ -1711,7 +1757,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_13" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="08-playbooks/">
+<a class="md-nav__link" href="../../08-playbooks/">
 <span class="md-ellipsis">
     
   
@@ -1736,7 +1782,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="08-playbooks/business-email-compromise/">
+<a class="md-nav__link" href="../../08-playbooks/business-email-compromise/">
 <span class="md-ellipsis">
     
   
@@ -1748,7 +1794,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="08-playbooks/domain-compromise/">
+<a class="md-nav__link" href="../../08-playbooks/domain-compromise/">
 <span class="md-ellipsis">
     
   
@@ -1760,7 +1806,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="08-playbooks/ransomware/">
+<a class="md-nav__link" href="../../08-playbooks/ransomware/">
 <span class="md-ellipsis">
     
   
@@ -1772,7 +1818,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="08-playbooks/insider-threat/">
+<a class="md-nav__link" href="../../08-playbooks/insider-threat/">
 <span class="md-ellipsis">
     
   
@@ -1784,7 +1830,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="08-playbooks/data-exfiltration/">
+<a class="md-nav__link" href="../../08-playbooks/data-exfiltration/">
 <span class="md-ellipsis">
     
   
@@ -1796,7 +1842,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="08-playbooks/phishing/">
+<a class="md-nav__link" href="../../08-playbooks/phishing/">
 <span class="md-ellipsis">
     
   
@@ -1808,7 +1854,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="08-playbooks/web-shell-compromise/">
+<a class="md-nav__link" href="../../08-playbooks/web-shell-compromise/">
 <span class="md-ellipsis">
     
   
@@ -1846,7 +1892,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="practice-drills/index.md">
+<a class="md-nav__link" href="../../practice-drills/index.md">
 <span class="md-ellipsis">
     
   
@@ -1858,7 +1904,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="practice-drills/prefetch-drill.md">
+<a class="md-nav__link" href="../../practice-drills/prefetch-drill.md">
 <span class="md-ellipsis">
     
   
@@ -1870,7 +1916,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="practice-drills/process-tree-drill.md">
+<a class="md-nav__link" href="../../practice-drills/process-tree-drill.md">
 <span class="md-ellipsis">
     
   
@@ -1882,7 +1928,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="practice-drills/registry-persistence-drill.md">
+<a class="md-nav__link" href="../../practice-drills/registry-persistence-drill.md">
 <span class="md-ellipsis">
     
   
@@ -1894,7 +1940,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="practice-drills/powershell-decode-drill.md">
+<a class="md-nav__link" href="../../practice-drills/powershell-decode-drill.md">
 <span class="md-ellipsis">
     
   
@@ -1906,7 +1952,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="practice-drills/event-log-drill.md">
+<a class="md-nav__link" href="../../practice-drills/event-log-drill.md">
 <span class="md-ellipsis">
     
   
@@ -1918,7 +1964,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="practice-drills/timeline-correlation-drill.md">
+<a class="md-nav__link" href="../../practice-drills/timeline-correlation-drill.md">
 <span class="md-ellipsis">
     
   
@@ -1933,7 +1979,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="quick-reference/windows-ir-poster.md">
+<a class="md-nav__link" href="../../quick-reference/windows-ir-poster.md">
 <span class="md-ellipsis">
     
   
@@ -1945,7 +1991,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="glossary/">
+<a class="md-nav__link" href="../../glossary/">
 <span class="md-ellipsis">
     
   
@@ -1957,7 +2003,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tags/">
+<a class="md-nav__link" href="../../tags/">
 <span class="md-ellipsis">
     
   
@@ -1983,37 +2029,82 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-this-guide-is-organized">
+<a class="md-nav__link" href="#why-this-page-exists">
 <span class="md-ellipsis">
       
-        How this guide is organized
+        Why this page exists
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#scope">
+<a class="md-nav__link" href="#what-entra-connects-on-prem-account-can-actually-do">
 <span class="md-ellipsis">
       
-        Scope
+        What Entra Connect's on-prem account can actually do
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-modules">
+<a class="md-nav__link" href="#the-cloud-side-carries-its-own-privilege">
 <span class="md-ellipsis">
       
-        The modules
+        The cloud side carries its own privilege
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#a-note-on-sources">
+<a class="md-nav__link" href="#why-this-doesnt-get-the-same-attention-a-dc-does">
 <span class="md-ellipsis">
       
-        A note on sources
+        Why this doesn't get the same attention a DC does
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#where-the-evidence-lives-and-what-to-check">
+<span class="md-ellipsis">
+      
+        Where the evidence lives, and what to check
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#turning-this-into-report-language">
+<span class="md-ellipsis">
+      
+        Turning this into report language
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#attck-mapping">
+<span class="md-ellipsis">
+      
+        ATT&amp;CK mapping
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referenced-from">
+<span class="md-ellipsis">
+      
+        Referenced From
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sources">
+<span class="md-ellipsis">
+      
+        Sources
       
     </span>
 </a>
@@ -2024,73 +2115,72 @@
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<h1 id="enterprise-dfir-field-guide">Enterprise DFIR Field Guide<a class="headerlink" href="#enterprise-dfir-field-guide" title="Permanent link">¶</a></h1>
-<p>An interactive, data-driven reference for enterprise digital forensics and incident response — built for defenders working across Windows endpoints, memory, Active Directory, and hybrid/cloud identity.</p>
-<p>This is not written for criminal-prosecution workflows. It's built for the SOC analyst, incident responder, and threat hunter who needs to answer one question fast: <strong>is this normal, or is this an incident?</strong></p>
-<h2 id="how-this-guide-is-organized">How this guide is organized<a class="headerlink" href="#how-this-guide-is-organized" title="Permanent link">¶</a></h2>
-<p>Three layers, built to work together:</p>
-<p><strong>Knowledge Base</strong> (Modules 0–7) — one canonical page per artifact, log source, or mechanism. Each page follows the same shape: what it is, what normal looks like, what a red flag looks like, how to collect it, and how it maps to <a href="00-foundations/attack-primer/">MITRE ATT&amp;CK</a>.</p>
-<p><strong>Case Studies</strong> — full, narrated investigations showing the reasoning <em>between</em> the reference pages: why one finding sends you to check a specific next thing, how you catch a timestamp lying to you, how much corroboration is actually enough. The Knowledge Base teaches recognition; these teach synthesis.</p>
-<p><strong>Investigation Playbooks</strong> (Module 8) — scenario-driven workflows (Business Email Compromise, ransomware, insider threat, domain compromise, data exfiltration...) that link into the Knowledge Base rather than repeating it.</p>
-<p>New to DFIR? Start at <a href="00-foundations/">Module 0: Foundations</a> — everything downstream assumes the vocabulary and frameworks introduced there, including <a href="00-foundations/timeline-construction/">Timeline Construction &amp; Correlation</a>, which the Case Studies lean on directly.</p>
-<p>Already investigating something specific? Jump straight to the relevant page in <a href="08-playbooks/">Investigation Playbooks</a>.</p>
-<h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>In scope</th>
-<th>Not covered here</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Windows workstations, laptops, servers, VMs</td>
-<td>macOS / Linux endpoint forensics</td>
-</tr>
-<tr>
-<td>Active Directory &amp; Domain Controllers</td>
-<td>Non-Microsoft cloud (AWS/GCP) IAM forensics</td>
-</tr>
-<tr>
-<td>Windows memory forensics</td>
-<td>Mobile device forensics</td>
-</tr>
-<tr>
-<td>Entra ID, hybrid identity, Microsoft 365</td>
-<td>Network packet-level forensics (see SANS FOR572)</td>
-</tr>
-<tr>
-<td>Microsoft Defender suite (AV through XDR)</td>
-<td>Legal / chain-of-custody procedure for litigation</td>
-</tr>
-</tbody>
-</table>
-<h2 id="the-modules">The modules<a class="headerlink" href="#the-modules" title="Permanent link">¶</a></h2>
-<ol>
-<li><a href="00-foundations/">Foundations</a> — methodology and shared frameworks</li>
-<li><a href="01-windows-endpoint/index.md">Windows Endpoint Forensics</a> — filesystem, registry, event logs, process trees</li>
-<li><a href="02-active-directory/index.md">Active Directory &amp; Domain Controllers</a></li>
-<li><a href="03-memory-forensics/">Windows Memory Forensics</a></li>
-<li><a href="04-powershell-forensics/">PowerShell Forensics</a> — logging, obfuscation, decoding, fileless execution</li>
-<li><a href="05-persistence/index.md">Persistence Catalog</a> — every mechanism, endpoint and cloud, ATT&amp;CK-tagged</li>
-<li><a href="06-cloud-identity/">Cloud Identity (Entra ID / Hybrid)</a></li>
-<li><a href="07-defender-suite/index.md">Microsoft Defender Suite for IR</a></li>
-<li><a href="network-analysis/index.md">Network &amp; Perimeter Log Analysis</a> — DNS and proxy/firewall log triage (not full packet forensics — that's out of scope by design)</li>
-<li><a href="anti-forensics/">Anti-Forensics &amp; Data Recovery</a> — what attackers do to destroy or hide evidence, and what's still recoverable anyway</li>
-<li><a href="case-studies/index.md">Case Studies</a> — full narrated investigations connecting the dots across modules</li>
-<li><a href="08-playbooks/">Investigation Playbooks</a> — the scenario layer</li>
-<li><a href="practice-drills/index.md">Practice Drills</a> — hands-on exercises with simulated data, answers included</li>
+<nav aria-label="Navigation" class="md-path">
+<ol class="md-path__list">
+<li class="md-path__item">
+<a class="md-path__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../">
+<span class="md-ellipsis">
+    Cloud Identity (Entra ID / Hybrid)
+  </span>
+</a>
+</li>
 </ol>
-<p>Two standing references, useful throughout rather than tied to one module: the <a href="quick-reference/windows-ir-poster.md">Windows IR Quick Reference</a> (a single dense page for an active incident) and the <a href="glossary/">Glossary</a>.</p>
-<h2 id="a-note-on-sources">A note on sources<a class="headerlink" href="#a-note-on-sources" title="Permanent link">¶</a></h2>
-<p>Every page here is original writing, built from the facts, structures, and taxonomies published by SANS (course material and posters), Microsoft Learn/MSTIC, and the wider DFIR community (including practitioners like 13cubed). Nothing is reproduced verbatim — each page links to primary sources for readers who want the original.</p>
+</nav>
+<article class="md-content__inner md-typeset">
+<nav class="md-tags">
+<a class="md-tag" href="../../tags/#tag:cloud-identity">Cloud Identity</a>
+<a class="md-tag" href="../../tags/#tag:t1003">T1003</a>
+<a class="md-tag" href="../../tags/#tag:t1003006">T1003.006</a>
+</nav>
+<h1 id="the-entra-connect-server-a-target-in-its-own-right">The Entra Connect Server: A Target in Its Own Right<a class="headerlink" href="#the-entra-connect-server-a-target-in-its-own-right" title="Permanent link">¶</a></h1>
+<h2 id="why-this-page-exists">Why this page exists<a class="headerlink" href="#why-this-page-exists" title="Permanent link">¶</a></h2>
+<p>Every other page in this module treats individual accounts and sign-ins as the unit of compromise. This page is about a single server that, if compromised, can be worse than compromising most individual Domain Controllers — and that this guide hasn't yet treated with the scrutiny it treats an actual DC.</p>
+<h2 id="what-entra-connects-on-prem-account-can-actually-do">What Entra Connect's on-prem account can actually do<a class="headerlink" href="#what-entra-connects-on-prem-account-can-actually-do" title="Permanent link">¶</a></h2>
+<p>Entra Connect (formerly Azure AD Connect) uses several distinct accounts, but the one that matters most for this page is the <strong>AD DS Connector account</strong> — the on-premises account it uses to read directory data for synchronization. That account is granted <strong>Replicating Directory Changes and Replicating Directory Changes All</strong> — the exact same extended rights documented on the <a href="../02-active-directory/dcsync-detection.md">DCSync Detection</a> page, granted permanently and legitimately as a normal, required part of how hybrid sync functions, not as an anomaly to detect.</p>
+<p>This means the Entra Connect server's service account is, by design, in the same rights class as a Domain Controller for the purpose of reading directory secrets. An attacker who compromises the Entra Connect server doesn't need to steal a separate DCSync-capable credential — the server they're already standing on has one.</p>
+<h2 id="the-cloud-side-carries-its-own-privilege">The cloud side carries its own privilege<a class="headerlink" href="#the-cloud-side-carries-its-own-privilege" title="Permanent link">¶</a></h2>
+<p>The cloud-facing account — visible in Entra ID as "On-Premises Directory Synchronization Service Account," assigned the <strong>Directory Synchronization Accounts</strong> role — is not a narrow, purpose-built role either. It carries privileges in an undocumented internal synchronization API, and security research has demonstrated paths from that role to Global Administrator. Password writeback (where a cloud-side password change syncs back to on-prem AD) is a legitimate feature of the same account, meaning compromise here can also mean the ability to push a chosen password to an on-prem account, not just read data from one.</p>
+<h2 id="why-this-doesnt-get-the-same-attention-a-dc-does">Why this doesn't get the same attention a DC does<a class="headerlink" href="#why-this-doesnt-get-the-same-attention-a-dc-does" title="Permanent link">¶</a></h2>
+<p>Domain Controllers are reflexively treated as tier-0 infrastructure — locked down, monitored, patched aggressively. The Entra Connect server frequently isn't held to the same standard, partly because it's conceptually filed under "identity sync tooling" rather than "authentication infrastructure," even though its actual privilege level says otherwise. Microsoft's own guidance is explicit that this account should never be granted Domain Admin and should run as a Group Managed Service Account with least-privilege scoping — the fact that this needs to be stated as guidance is itself evidence of how often it isn't followed in practice.</p>
+<h2 id="where-the-evidence-lives-and-what-to-check">Where the evidence lives, and what to check<a class="headerlink" href="#where-the-evidence-lives-and-what-to-check" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>On the server itself:</strong> treat it like a Domain Controller for triage purposes — <a href="../01-windows-endpoint/process-trees.md">process tree baseline</a>, <a href="../01-windows-endpoint/prefetch.md">Prefetch</a>/<a href="../01-windows-endpoint/amcache.md">Amcache</a> for execution evidence, and the same <a href="../05-persistence/index.md">persistence catalog</a> checks you'd run against any tier-0 asset.</li>
+<li><strong>In Entra ID:</strong> audit changes to the Directory Synchronization Accounts role assignment and any unexpected principal added to it — this is a durable, cloud-side persistence mechanism in its own right, structurally similar in spirit to <a href="../02-active-directory/adminsdholder.md">AdminSDHolder abuse</a> on the on-prem side.</li>
+<li><strong>Sign-in activity for the "On-Premises Directory Synchronization Service Account"</strong> outside its normal, automated sync pattern — this account authenticating interactively, or from a location other than the known Entra Connect server, is a strong signal on its own.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Red flag</p>
+<p>Any interactive sign-in by the Entra Connect service account, an unexpected principal holding the Directory Synchronization Accounts role, or endpoint-level compromise indicators on the Entra Connect server itself.</p>
+</div>
+<h2 id="turning-this-into-report-language">Turning this into report language<a class="headerlink" href="#turning-this-into-report-language" title="Permanent link">¶</a></h2>
+<p>"The sync server was compromised" understates the exposure unless the reader understands what that server can do. "The compromised host was the organization's Entra Connect server; its on-premises service account holds Replicating Directory Changes All rights — the same directory-replication privilege documented for DCSync attacks — meaning this compromise carries equivalent risk to a Domain Controller compromise, not a lesser one, regardless of the server's 'identity sync' classification in asset inventory" makes the severity legible to a reader who would otherwise reasonably assume a sync utility server is lower-stakes than a DC.</p>
+<h2 id="attck-mapping">ATT&amp;CK mapping<a class="headerlink" href="#attck-mapping" title="Permanent link">¶</a></h2>
+<p><a href="https://attack.mitre.org/techniques/T1003/006/">T1003.006 (DCSync)</a> — the mechanism is identical regardless of which asset the attacker is standing on when they invoke it.</p>
+<!-- BACKLINKS:START -->
+<h2 id="referenced-from">Referenced From<a class="headerlink" href="#referenced-from" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../">Module 6: Cloud Identity (Entra ID / Hybrid)</a></li>
+<li><a href="../../glossary/">Glossary</a></li>
+</ul>
+<!-- BACKLINKS:END -->
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/reference-connect-accounts-permissions">Microsoft Learn — Microsoft Entra Connect: Accounts and permissions</a></li>
+<li>Tenable TechBlog — research on Directory Synchronization Accounts role privilege escalation paths</li>
+</ul>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 13:46:52 UTC">August 3, 2026</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 13:48:18 UTC">August 3, 2026</span>
 </span>
 </aside>
 </article>
@@ -2105,7 +2195,20 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Next: Overview" class="md-footer__link md-footer__link--next" href="00-foundations/">
+<a aria-label="Previous: Hybrid Sync Mechanics" class="md-footer__link md-footer__link--prev" href="../hybrid-sync-mechanics/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Hybrid Sync Mechanics
+              </div>
+</div>
+</a>
+<a aria-label="Next: Overview" class="md-footer__link md-footer__link--next" href="../../anti-forensics/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
@@ -2136,7 +2239,7 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
 </body>
 </html>
