@@ -1,0 +1,101 @@
+:root {
+  --md-primary-fg-color: #10151b;
+  --md-accent-fg-color: #2dd4bf;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0d1117;
+  --md-default-fg-color: #c9d1d9;
+  --md-default-fg-color--light: #8b949e;
+}
+
+/* Light mode uses darker, WCAG AA-passing variants of the same teal/amber
+   accent hues. The default #2dd4bf/#f59e0b pair was verified (contrast-ratio
+   calculation, not eyeballed) at ~1.9:1 and ~2.2:1 against a white
+   background — well under the 4.5:1 text minimum. These replacements land
+   at 5.03:1 and 5.26:1 respectively, confirmed the same way. */
+[data-md-color-scheme="default"] {
+  --md-accent-fg-color: #0a7d6f;
+  --dfir-success: #0a7d6f;
+  --dfir-success-bg: rgba(10, 125, 111, 0.08);
+  --dfir-danger: #a3590a;
+  --dfir-danger-bg: rgba(163, 89, 10, 0.08);
+}
+[data-md-color-scheme="slate"] {
+  --dfir-success: #2dd4bf;
+  --dfir-success-bg: rgba(45, 212, 191, 0.1);
+  --dfir-danger: #f59e0b;
+  --dfir-danger-bg: rgba(245, 158, 11, 0.1);
+}
+
+/* Reinforce the guide's semantic callout language throughout every module:
+   success = Baseline / expected behavior
+   danger  = Red Flag / deviation worth investigating */
+.md-typeset .admonition.success,
+.md-typeset details.success {
+  border-color: var(--dfir-success);
+}
+.md-typeset .admonition.success > .admonition-title,
+.md-typeset details.success > summary {
+  background-color: var(--dfir-success-bg);
+}
+.md-typeset .admonition.success > .admonition-title::before,
+.md-typeset details.success > summary::before {
+  background-color: var(--dfir-success);
+}
+
+.md-typeset .admonition.danger,
+.md-typeset details.danger {
+  border-color: var(--dfir-danger);
+}
+.md-typeset .admonition.danger > .admonition-title,
+.md-typeset details.danger > summary {
+  background-color: var(--dfir-danger-bg);
+}
+.md-typeset .admonition.danger > .admonition-title::before,
+.md-typeset details.danger > summary::before {
+  background-color: var(--dfir-danger);
+}
+
+/* Checklist-style task lists on module index pages */
+.md-typeset .task-list-item [type="checkbox"] {
+  margin-right: 0.5em;
+}
+
+/* PDF export (mkdocs-to-pdf, WeasyPrint) renders using the print media
+   type. Force light, ink-friendly colors here regardless of which mode
+   a reader last had toggled on the live site - a dark background is a
+   poor default for something meant to be printed. Mermaid diagrams are
+   not rendered by this pipeline (no JS execution) and will appear as
+   their raw source instead; this is a known, documented limitation. */
+@media print {
+  body, .md-typeset {
+    background: #ffffff !important;
+    color: #1a1f27 !important;
+  }
+  .md-typeset .admonition.success,
+  .md-typeset details.success {
+    border-color: #0a7d6f !important;
+  }
+  .md-typeset .admonition.success > .admonition-title,
+  .md-typeset details.success > summary {
+    background-color: rgba(10, 125, 111, 0.08) !important;
+  }
+  .md-typeset .admonition.danger,
+  .md-typeset details.danger {
+    border-color: #a3590a !important;
+  }
+  .md-typeset .admonition.danger > .admonition-title,
+  .md-typeset details.danger > summary {
+    background-color: rgba(163, 89, 10, 0.08) !important;
+  }
+  .poster-grid .poster-card {
+    background: #f6f8fa !important;
+    border-color: #d7dce2 !important;
+    break-inside: avoid;
+  }
+  pre, code {
+    background: #f2f4f7 !important;
+    color: #1a1f27 !important;
+  }
+}
