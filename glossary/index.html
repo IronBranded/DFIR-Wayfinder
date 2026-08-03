@@ -6,10 +6,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="An interactive, data-driven guide to enterprise digital forensics and incident response - Windows endpoints, memory, Active Directory, and hybrid/cloud identity." name="description"/>
-<link href="https://YOUR-USERNAME.github.io/dfir-field-guide/Posterchild/" rel="canonical"/>
+<link href="https://YOUR-USERNAME.github.io/dfir-field-guide/glossary/" rel="canonical"/>
+<link href=".." rel="prev"/>
+<link href="../tags/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
-<title>Posterchild - Enterprise DFIR Field Guide</title>
+<title>Glossary - Enterprise DFIR Field Guide</title>
 <link href="../assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,6 +25,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#glossary">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -44,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Posterchild
+              Glossary
             
           </span>
 </div>
@@ -120,7 +125,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../index.md">
+<a class="md-tabs__link" href="..">
         
   
   
@@ -284,8 +289,8 @@
 
       </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../glossary.md">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
         
   
   
@@ -296,7 +301,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../tags.md">
+<a class="md-tabs__link" href="../tags/">
         
   
   
@@ -335,7 +340,7 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../index.md">
+<a class="md-nav__link" href="..">
 <span class="md-ellipsis">
     
   
@@ -1932,8 +1937,20 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../glossary.md">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -1943,9 +1960,26 @@
     
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referenced-from">
+<span class="md-ellipsis">
+      
+        Referenced From
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tags.md">
+<a class="md-nav__link" href="../tags/">
 <span class="md-ellipsis">
     
   
@@ -1965,19 +1999,78 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referenced-from">
+<span class="md-ellipsis">
+      
+        Referenced From
+      
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>Posterchild</h1>
+<h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">¶</a></h1>
+<p>A single lookup point for the acronyms and terms used throughout this guide. Each entry links to the page that covers it in depth — this page defines, it doesn't re-teach.</p>
+<p><strong>ADS (Alternate Data Stream)</strong> — an NTFS feature allowing a file to carry additional, named, normally-invisible data streams. See <a href="anti-forensics/alternate-data-streams.md">Alternate Data Streams</a>.</p>
+<p><strong>AIR (Automated Investigation and Remediation)</strong> — Defender for Endpoint's capability to automatically investigate and, for high-confidence verdicts, remediate alerts. See <a href="07-defender-suite/automated-investigation-remediation.md">Automated Investigation &amp; Remediation</a>.</p>
+<p><strong>AMSI (Antimalware Scan Interface)</strong> — the interface letting AV/EDR engines inspect script content immediately before execution, after any obfuscation has already been unwound. See <a href="04-powershell-forensics/evasion-detection.md">Evasion Detection</a>.</p>
+<p><strong>AD CS (Active Directory Certificate Services)</strong> — AD's built-in PKI; misconfigurations here (the "ESC" family) allow certificate-based authentication as another user. See <a href="02-active-directory/adcs-abuse.md">AD CS Abuse</a>.</p>
+<p><strong>ATT&amp;CK</strong> — MITRE's knowledge base of adversary tactics and techniques, used throughout this guide as a tagging system. See <a href="00-foundations/attack-primer.md">ATT&amp;CK Primer</a>.</p>
+<p><strong>Body file</strong> — a standardized intermediate format (MACtime) for filesystem timeline data, consumable by <code>plaso</code>. See <a href="00-foundations/timeline-construction.md">Timeline Construction &amp; Correlation</a>.</p>
+<p><strong>CLM (Constrained Language Mode)</strong> — a PowerShell execution restriction blocking direct .NET/COM access, commonly paired with AppLocker/WDAC. See <a href="04-powershell-forensics/evasion-detection.md">Evasion Detection</a>.</p>
+<p><strong>DCSync</strong> — abuse of the AD replication protocol to request password hashes for any account without executing on a Domain Controller. See <a href="02-active-directory/dcsync-detection.md">DCSync Detection</a>.</p>
+<p><strong>DGA (Domain Generation Algorithm)</strong> — malware technique generating many candidate C2 domains algorithmically to defeat static blocklisting. See <a href="network-analysis/dns-analysis.md">DNS Analysis</a>.</p>
+<p><strong>DKOM (Direct Kernel Object Manipulation)</strong> — a rootkit technique unlinking a process from the OS's own tracking structures to hide it from list-based enumeration. See <a href="03-memory-forensics/volatility-process-analysis.md">Process Analysis</a>.</p>
+<p><strong>EPROCESS</strong> — the Windows kernel structure representing a running process. See <a href="03-memory-forensics/eprocess-internals.md">EPROCESS Internals</a>.</p>
+<p><strong>ESC1 / ESC4 / ESC8</strong> — specific AD CS misconfiguration classes enabling certificate-based privilege escalation. See <a href="02-active-directory/adcs-abuse.md">AD CS Abuse</a>.</p>
+<p><strong>ETHREAD</strong> — the kernel structure representing a thread; its start address is the key forensic field. See <a href="03-memory-forensics/thread-analysis.md">Thread Analysis</a>.</p>
+<p><strong>EVTX</strong> — the Windows Event Log file format. See <a href="01-windows-endpoint/event-log-key-ids.md">Event Log Key IDs Reference</a> and, for recovery after tampering, <a href="anti-forensics/log-artifact-recovery.md">Log &amp; Artifact Recovery</a>.</p>
+<p><strong>FILETIME</strong> — the underlying Windows timestamp format: 100-nanosecond intervals since January 1, 1601 UTC. See <a href="00-foundations/timeline-construction.md">Timeline Construction &amp; Correlation</a>.</p>
+<p><strong>gMSA (Group Managed Service Account)</strong> — a service account type with automatically-rotated, unknowable passwords, recommended for high-privilege service accounts. Referenced in <a href="02-active-directory/kerberoasting.md">Kerberoasting</a> mitigations and <a href="06-cloud-identity/entra-connect-as-target.md">Entra Connect as Target</a>.</p>
+<p><strong>IOC (Indicator of Compromise)</strong> — a specific, low-durability artifact of an attack (a hash, domain, IP). See <a href="00-foundations/pyramid-of-pain.md">Pyramid of Pain</a> for why these rank lowest in detection value.</p>
+<p><strong>JA3 / JA4</strong> — TLS client fingerprinting techniques; JA3 is now considered unreliable against modern browsers, JA4 is current. See <a href="network-analysis/proxy-firewall-triage.md">Proxy &amp; Firewall Log Triage</a>.</p>
+<p><strong>KQL (Kusto Query Language)</strong> — the query language used in Defender XDR's Advanced Hunting. See <a href="07-defender-suite/advanced-hunting-kql.md">Advanced Hunting with KQL</a>.</p>
+<p><strong>LOLBin (Living-off-the-Land Binary)</strong> — a legitimate, signed Windows binary abused for malicious purposes (e.g., <code>rundll32.exe</code>, <code>comsvcs.dll</code>). See <a href="03-memory-forensics/lsass-memory-analysis.md">LSASS Memory Analysis</a>.</p>
+<p><strong>MDE (Microsoft Defender for Endpoint)</strong> — the cloud-backed EDR component of the Defender suite, formerly Windows Defender ATP. See <a href="07-defender-suite/index.md">Microsoft Defender Suite</a>.</p>
+<p><strong>MDI (Microsoft Defender for Identity)</strong> — monitors on-prem AD signals for identity attacks. See <a href="07-defender-suite/defender-for-identity-mapping.md">Defender for Identity Mapping</a>.</p>
+<p><strong>MFT (Master File Table)</strong> — the NTFS structure indexing every file and directory on a volume. See <a href="01-windows-endpoint/mft.md">$MFT &amp; Timestomping</a>.</p>
+<p><strong>NRT (Near Real-Time)</strong> — a Defender custom detection rule frequency running continuously rather than on a fixed schedule. See <a href="07-defender-suite/detection-engineering.md">Detection Engineering</a>.</p>
+<p><strong>NTLM relay</strong> — forwarding a captured NTLM authentication attempt to a different service to authenticate as the victim, without cracking the credential. Referenced in <a href="02-active-directory/adcs-abuse.md">AD CS Abuse</a> (ESC8).</p>
+<p><strong>PICERL</strong> — SANS's six-phase incident response model: Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned. See <a href="00-foundations/ir-lifecycle.md">IR Lifecycle</a>.</p>
+<p><strong>Plaso / log2timeline</strong> — the standard tool for merging multiple artifact sources into one normalized "super timeline." See <a href="00-foundations/timeline-construction.md">Timeline Construction &amp; Correlation</a>.</p>
+<p><strong>PPL (Protected Process Light)</strong> — a Windows protection mechanism that, applied to <code>lsass.exe</code>, raises the bar against direct memory-read credential theft. See <a href="03-memory-forensics/lsass-memory-analysis.md">LSASS Memory Analysis</a>.</p>
+<p><strong>Shimcache / AppCompatCache</strong> — a registry-based cache of executables Windows evaluated for compatibility shimming; proves presence, not confirmed execution, on Windows 10/11. See <a href="01-windows-endpoint/shimcache.md">Shimcache</a>.</p>
+<p><strong>SSP (Security Support Provider)</strong> — a DLL loaded into <code>lsass.exe</code> to handle an authentication package; a rogue SSP is a durable credential-theft persistence mechanism. See <a href="05-persistence/lsa-ssp.md">LSA Provider / SSP Abuse</a>.</p>
+<p><strong>TGT / TGS</strong> — Kerberos Ticket Granting Ticket / Ticket Granting Service ticket. See <a href="02-active-directory/golden-silver-ticket.md">Golden Ticket &amp; Silver Ticket Indicators</a>.</p>
+<p><strong>TTP (Tactics, Techniques, and Procedures)</strong> — the highest-durability level of threat intelligence, per the <a href="00-foundations/pyramid-of-pain.md">Pyramid of Pain</a>.</p>
+<p><strong>UAL (Unified Audit Log)</strong> — Microsoft Purview's cross-workload audit log, with meaningfully longer retention but real ingestion latency compared to Entra ID's native logs. See <a href="06-cloud-identity/sign-in-vs-audit-logs.md">Sign-In Logs vs. Audit Logs</a>.</p>
+<p><strong>VAD (Virtual Address Descriptor)</strong> — the structure describing a process's memory regions and their permissions; what <code>vadinfo</code>/<code>malfind</code> actually read. See <a href="03-memory-forensics/injected-code-detection.md">Injected Code Detection</a>.</p>
+<p><strong>VSS (Volume Shadow Copy Service)</strong> — Windows' point-in-time volume snapshot mechanism, useful for recovering pre-tampering data. See <a href="anti-forensics/volume-shadow-copy-recovery.md">Volume Shadow Copy Recovery</a>.</p>
+<p><strong>XDR (Extended Detection and Response)</strong> — Microsoft's cross-product correlation layer unifying Defender for Endpoint, Identity, Office 365, and Cloud Apps. See <a href="07-defender-suite/index.md">Microsoft Defender Suite</a>.</p>
+<p><strong>Zone.Identifier</strong> — the alternate data stream Windows automatically writes to downloaded files (the "Mark of the Web"), recording download origin. See <a href="anti-forensics/alternate-data-streams.md">Alternate Data Streams</a>.</p>
+<!-- BACKLINKS:START -->
+<h2 id="referenced-from">Referenced From<a class="headerlink" href="#referenced-from" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../">Enterprise DFIR Field Guide</a></li>
+</ul>
+<!-- BACKLINKS:END -->
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 13:46:10 UTC">August 3, 2026</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 13:46:52 UTC">August 3, 2026</span>
 </span>
 </aside>
 </article>
@@ -1991,6 +2084,34 @@
 </button>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Home" class="md-footer__link md-footer__link--prev" href="..">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Home
+              </div>
+</div>
+</a>
+<a aria-label="Next: Tags Index" class="md-footer__link md-footer__link--next" href="../tags/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Tags Index
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
