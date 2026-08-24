@@ -2,430 +2,430 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/glossary/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/tags/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/attack-coverage-map/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/attack-primer/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/diamond-model/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/evidence-handling/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/ir-lifecycle/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/order-of-volatility/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/pyramid-of-pain/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/reporting-and-communication/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/threat-intelligence-operationalization/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/00-foundations/timeline-construction/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/amcache/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/event-log-key-ids/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/mft/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/prefetch/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/process-trees/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/registry-hives/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/shellbags/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/shimcache/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/userassist/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/01-windows-endpoint/usn-journal/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/acl-delegation-abuse/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/adcs-abuse/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/adminsdholder/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/dcsync-detection/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/golden-silver-ticket/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/kerberoasting/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/krbtgt/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/ntds-dit/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/replication-metadata/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/02-active-directory/sysvol-gpo/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/acquisition/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/eprocess-internals/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/injected-code-detection/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/injection-techniques/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/lsass-memory-analysis/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/malware-triage-methodology/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/mutex-analysis/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/network-memory-artifacts/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/thread-analysis/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/03-memory-forensics/volatility-process-analysis/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/04-powershell-forensics/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/04-powershell-forensics/evasion-detection/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/04-powershell-forensics/obfuscation-decoding/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/04-powershell-forensics/powershell-logging/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/04-powershell-forensics/powershell-malicious-patterns/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/appinit-ifeo/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/backdoor-app-registrations/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/bits-jobs/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/break-glass-abuse/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/com-dll-hijacking/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/golden-saml/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/lsa-ssp/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/mailbox-forwarding-rules/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/oauth-consent-grants/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/registry-run-keys/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/scheduled-tasks/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/windows-services/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/winlogon-helper/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/05-persistence/wmi-subscriptions/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/06-cloud-identity/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/06-cloud-identity/conditional-access-investigation/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/06-cloud-identity/entra-connect-as-target/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/06-cloud-identity/hybrid-sync-mechanics/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/06-cloud-identity/identity-protection-risk-signals/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/06-cloud-identity/sign-in-vs-audit-logs/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/07-defender-suite/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/07-defender-suite/advanced-hunting-kql/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/07-defender-suite/automated-investigation-remediation/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/07-defender-suite/defender-cloud-apps-oauth/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/07-defender-suite/defender-for-identity-mapping/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/07-defender-suite/detection-engineering/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/08-playbooks/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/08-playbooks/business-email-compromise/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/08-playbooks/data-exfiltration/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/08-playbooks/domain-compromise/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/08-playbooks/insider-threat/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/08-playbooks/phishing/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/08-playbooks/ransomware/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/08-playbooks/web-shell-compromise/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/anti-forensics/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/anti-forensics/alternate-data-streams/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/anti-forensics/file-carving/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/anti-forensics/log-artifact-recovery/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/anti-forensics/memory-based-file-recovery/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/anti-forensics/volume-shadow-copy-recovery/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/case-studies/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/case-studies/bec-case-study/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/case-studies/domain-compromise-case-study/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/network-analysis/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/network-analysis/dns-analysis/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/network-analysis/proxy-firewall-triage/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/practice-drills/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/practice-drills/event-log-drill/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/practice-drills/powershell-decode-drill/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/practice-drills/prefetch-drill/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/practice-drills/process-tree-drill/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/practice-drills/registry-persistence-drill/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/practice-drills/timeline-correlation-drill/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
     <url>
          <loc>https://YOUR-USERNAME.github.io/dfir-field-guide/quick-reference/windows-ir-poster/</loc>
-         <lastmod>2026-08-03</lastmod>
+         <lastmod>2026-08-23</lastmod>
     </url>
 </urlset>
