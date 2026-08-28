@@ -33,7 +33,8 @@
   --signal-red-dim: #7a1620;
   --signal-blue: #4fa3ff;
   --signal-blue-dim: #123152;
-  --signal-green: #35d68a;   /* decorative traffic-light dots only, not a brand semantic */
+  --signal-green: #35d68a;   /* success / correct-answer / tip-callout semantic, plus traffic-light dots */
+  --signal-purple: #b18cff;  /* callout--important only */
 
   /* ---- Text --------------------------------------------------------- */
   --text-primary: #f0f4f3;

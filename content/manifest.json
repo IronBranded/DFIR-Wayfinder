@@ -411,10 +411,19 @@
           "title": "PowerShell Logging",
           "summary": "Module logging, script block logging, and transcription -- three different log sources capturing three different slices of what actually ran, and why you usually need more than one turned on.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "powershell",
-            "logging"
+            "logging",
+            "t1059.001"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/01-powershell-logging.md",
+          "quizPath": "content/levels/03-powershell-persistence/01-powershell-logging.quiz.json",
+          "objectives": [
+            "Name the three PowerShell logging sources and what distinct slice of activity each one captures",
+            "Explain why Script Block Logging (4104) defeats most obfuscation automatically, without additional decoding",
+            "Locate PSReadLine's console history file and explain what makes it different from the event log sources",
+            "Identify the GPO settings that must be explicitly enabled before this evidence exists, and why their absence is itself a finding"
           ]
         },
         {
@@ -423,11 +432,20 @@
           "title": "Obfuscation & Decoding",
           "summary": "-EncodedCommand, compression layers, and string-reassembly tricks decoded step by step -- the exact skill that turns an unreadable blob into a readable command.",
           "estimatedMinutes": 26,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "powershell",
             "obfuscation",
-            "decoding"
+            "decoding",
+            "t1027"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/02-powershell-obfuscation.md",
+          "quizPath": "content/levels/03-powershell-persistence/02-powershell-obfuscation.quiz.json",
+          "objectives": [
+            "Decode a Base64/UTF-16LE -EncodedCommand payload by hand and explain why the encoding step is separate from any obfuscation layered on top of it",
+            "Recognize compression, string-reconstruction, and framework-based (Invoke-Obfuscation-style) obfuscation patterns at a glance",
+            "Explain why Script Block Logging often makes manual decoding unnecessary, and when manual decoding is still required",
+            "Identify the command-line truncation limitation in process-creation logging and the log source that avoids it"
           ]
         },
         {
@@ -436,11 +454,20 @@
           "title": "Evasion Detection",
           "summary": "AMSI bypass patterns and the logging gaps attackers specifically target -- recognized at the detection-signature level, not built.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "powershell",
             "evasion",
-            "amsi"
+            "amsi",
+            "t1562.001"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/03-powershell-evasion.md",
+          "quizPath": "content/levels/03-powershell-persistence/03-powershell-evasion.quiz.json",
+          "objectives": [
+            "Explain what AMSI is and at what point in PowerShell's execution pipeline it gets invoked",
+            "Recognize the canonical reflection-based AMSI bypass pattern in a decoded script block",
+            "Explain why -ExecutionPolicy Bypass is not a security boundary, and what it actually controls",
+            "Identify a PowerShell v2 downgrade attempt and explain what logging capability it specifically evades"
           ]
         },
         {
@@ -449,10 +476,19 @@
           "title": "Malicious Cmdlet Patterns",
           "summary": "The specific cmdlets and argument patterns that show up in real intrusions constantly enough to be worth pattern-matching on sight.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "powershell",
-            "detection-patterns"
+            "detection-patterns",
+            "t1105"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/04-powershell-malicious-patterns.md",
+          "quizPath": "content/levels/03-powershell-persistence/04-powershell-malicious-patterns.quiz.json",
+          "objectives": [
+            "Recognize the download-cradle pattern (IEX combined with DownloadString/DownloadFile) and explain why it leaves so little on disk",
+            "Name the specific Set-MpPreference/Add-MpPreference cmdlets used to tamper with Defender, and why they're a high-confidence indicator",
+            "Explain how PowerShell's automation engine can execute without a powershell.exe process ever appearing in process-creation logs",
+            "Distinguish an individually-benign flag (like -NoProfile) from the same flag appearing as part of a suspicious cluster"
           ]
         },
         {
@@ -1022,10 +1058,10 @@
     {
       "id": "06-cloud-identity-email-defender",
       "number": 6,
-      "title": "Cloud Identity, Email & the Defender Suite",
-      "tagline": "Where most enterprise intrusions actually live today: a mailbox, a token, and Microsoft's own telemetry about both.",
+      "title": "Email Forensics, Hybrid Response & Microsoft Defender",
+      "tagline": "A mailbox, a hybrid identity, and the endpoint security product doing the most work on every host in this academy's scope.",
       "difficulty": "Intermediate-Advanced",
-      "description": "Entra ID and hybrid identity investigation (including the double-reset-plus-token-revocation runbook this academy is built around), reading and authenticating email headers forensically, and the Defender product family's own telemetry for all of it.",
+      "description": "The hybrid account-compromise runbook this academy is built around, email header/message forensics, and Microsoft Defender's antivirus and endpoint-protection mechanics -- how it operates, mitigates, quarantines, and what an attempt to evade or disable it looks like forensically. Deep Entra/Conditional Access/hybrid-sync investigation now lives in a separate cloud-DFIR project; this level keeps only what's genuinely hybrid or endpoint-adjacent.",
       "lessons": [
         {
           "id": "l6-01-hybrid-runbook",
@@ -1046,67 +1082,6 @@
             "State exactly what Revoke-MgUserSignInSession invalidates that a GUI-only reset does not",
             "Explain why hybrid (AD-synced) accounts specifically require resetting the password twice",
             "Sequence a full hybrid account-compromise response in the correct order"
-          ]
-        },
-        {
-          "id": "l6-02-sign-in-vs-audit-logs",
-          "module": "Cloud Identity",
-          "title": "Sign-In Logs vs. Audit Logs",
-          "summary": "Two separate logs answering two different questions -- and the retention trap between them that leaves investigations blind if Diagnostic Settings export was never configured ahead of time.",
-          "estimatedMinutes": 20,
-          "status": "coming-soon",
-          "tags": [
-            "cloud-identity",
-            "logging",
-            "retention"
-          ]
-        },
-        {
-          "id": "l6-03-conditional-access-investigation",
-          "module": "Cloud Identity",
-          "title": "Conditional Access in an Investigation",
-          "summary": "Reading which policies actually evaluated (and how) for a specific sign-in, not just whether MFA happened.",
-          "estimatedMinutes": 18,
-          "status": "coming-soon",
-          "tags": [
-            "cloud-identity",
-            "conditional-access"
-          ]
-        },
-        {
-          "id": "l6-04-identity-protection-risk",
-          "module": "Cloud Identity",
-          "title": "Identity Protection Risk Signals",
-          "summary": "Entra ID's own machine-learning-driven risk detections -- what triggers them, and how much to trust a single signal alone.",
-          "estimatedMinutes": 18,
-          "status": "coming-soon",
-          "tags": [
-            "cloud-identity",
-            "identity-protection"
-          ]
-        },
-        {
-          "id": "l6-05-hybrid-sync-mechanics",
-          "module": "Cloud Identity",
-          "title": "Hybrid Sync Mechanics",
-          "summary": "Password Hash Sync, Pass-Through Auth, and Federation compared -- because the right response playbook depends entirely on which one a tenant actually runs.",
-          "estimatedMinutes": 22,
-          "status": "coming-soon",
-          "tags": [
-            "cloud-identity",
-            "hybrid-sync"
-          ]
-        },
-        {
-          "id": "l6-06-entra-connect-as-target",
-          "module": "Cloud Identity",
-          "title": "The Entra Connect Server: A Target in Its Own Right",
-          "summary": "Why this one on-prem server, if compromised, can be worse than a Domain Admin credential -- it's the trust boundary between AD and the cloud.",
-          "estimatedMinutes": 20,
-          "status": "coming-soon",
-          "tags": [
-            "cloud-identity",
-            "entra-connect"
           ]
         },
         {
@@ -1137,10 +1112,97 @@
           ]
         },
         {
+          "id": "l6-18-defender-av-mechanics",
+          "module": "Microsoft Defender for Endpoint",
+          "title": "Defender AV & MDE: Core Mechanics",
+          "summary": "The three protection layers, passive vs. active mode, and the 1116/1117 detection-and-action event pair that anchors most Defender-driven timelines.",
+          "estimatedMinutes": 20,
+          "status": "ready",
+          "tags": [
+            "defender",
+            "mde",
+            "event-ids"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/18-defender-av-mechanics.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/18-defender-av-mechanics.quiz.json",
+          "objectives": [
+            "Name the three protection layers and which one intercepts fileless, in-memory activity specifically",
+            "Interpret a 1116 event with no matching 1117 remediation correctly",
+            "Distinguish passive mode from active mode and why it changes how you read the event pair",
+            "Explain why zero detection history across a fleet is itself worth investigating"
+          ]
+        },
+        {
+          "id": "l6-19-attack-surface-reduction",
+          "module": "Microsoft Defender for Endpoint",
+          "title": "Attack Surface Reduction & Tamper Protection",
+          "summary": "The named rule that blocks LSASS credential theft directly, the 1121/1122 block-vs-audit event pair, and why Tamper Protection is built to resist even a local administrator.",
+          "estimatedMinutes": 20,
+          "status": "ready",
+          "tags": [
+            "defender",
+            "asr",
+            "tamper-protection",
+            "t1562.001"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/19-attack-surface-reduction.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/19-attack-surface-reduction.quiz.json",
+          "objectives": [
+            "Name the ASR rule that directly protects the LSASS-access surface covered in Level 5",
+            "Distinguish what a 1121 event confirms versus what a 1122 event only suggests",
+            "Explain why Tamper Protection specifically targets the local-administrator threat model",
+            "Recognize the exclusion-added-right-after-a-block pattern as deliberate evasion"
+          ]
+        },
+        {
+          "id": "l6-13-automated-investigation-remediation",
+          "module": "Microsoft Defender for Endpoint",
+          "title": "Automated Investigation, Remediation & Live Response",
+          "summary": "Quarantine mechanics, what AIR actually automates, the September 2026 change that folded it into always-on antivirus, and Live Response as the manual complement.",
+          "estimatedMinutes": 22,
+          "status": "ready",
+          "tags": [
+            "defender",
+            "air",
+            "quarantine",
+            "live-response"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/13-automated-investigation-remediation.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/13-automated-investigation-remediation.quiz.json",
+          "objectives": [
+            "Explain why a quarantined file requires a decoding tool like DeXRAY before it can be analyzed further",
+            "State what changed for AIR specifically on September 1, 2026, and what stayed the same",
+            "Explain why Microsoft's own guidance advises against the \"no automation\" AIR level",
+            "Identify Live Response as a manual, auditable complement to AIR's automation"
+          ]
+        },
+        {
+          "id": "l6-20-observable-evasion-bypass",
+          "module": "Microsoft Defender for Endpoint",
+          "title": "Observable Evasion & Bypass Techniques",
+          "summary": "What an attempt to disable, blind, or route around Defender looks like forensically -- PowerShell tampering, BYOVD as EDR-blinding, registry-based disabling, and Tamper Protection bypass attempts, tied back to Level 2 and Level 3.",
+          "estimatedMinutes": 24,
+          "status": "ready",
+          "tags": [
+            "defender",
+            "evasion",
+            "t1562.001",
+            "byovd"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/20-observable-evasion-bypass.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/20-observable-evasion-bypass.quiz.json",
+          "objectives": [
+            "Distinguish kernel-level EDR-blinding (BYOVD) from user-mode tampering, and why Tamper Protection only stops the latter",
+            "Explain why a silent gap in Defender's log is a stronger signal than a logged 5001 disable event",
+            "Identify the registry-based disabling route as a separate blind spot from PowerShell-focused monitoring",
+            "Explain why a failed tampering attempt against a Tamper-Protected host still warrants full investigation"
+          ]
+        },
+        {
           "id": "l6-09-advanced-hunting-kql",
-          "module": "Defender Suite",
+          "module": "Microsoft Defender for Endpoint",
           "title": "Advanced Hunting with KQL",
-          "summary": "Querying Defender's own telemetry directly -- the query patterns that come up constantly enough to memorize.",
+          "summary": "Querying Defender's Device* tables directly (DeviceProcessEvents, DeviceNetworkEvents, DeviceFileEvents, DeviceRegistryEvents, DeviceImageLoadEvents) -- the query patterns that come up constantly enough to memorize.",
           "estimatedMinutes": 22,
           "status": "coming-soon",
           "tags": [
@@ -1151,9 +1213,9 @@
         },
         {
           "id": "l6-10-detection-engineering",
-          "module": "Defender Suite",
+          "module": "Microsoft Defender for Endpoint",
           "title": "Detection Engineering",
-          "summary": "Turning a one-off hunt query into a standing detection rule that fires automatically on the next occurrence.",
+          "summary": "Turning a one-off endpoint hunt query into a standing Sigma-style detection rule that fires automatically on the next occurrence.",
           "estimatedMinutes": 20,
           "status": "coming-soon",
           "tags": [
@@ -1163,7 +1225,7 @@
         },
         {
           "id": "l6-11-defender-for-identity",
-          "module": "Defender Suite",
+          "module": "Microsoft Defender for Endpoint",
           "title": "Defender for Identity Mapping",
           "summary": "Mapping Defender for Identity's own alert catalog back onto the AD attack techniques earlier in this academy -- DCSync and Golden Ticket both have a specific alert name to know.",
           "estimatedMinutes": 18,
@@ -1171,118 +1233,6 @@
           "tags": [
             "defender",
             "identity"
-          ]
-        },
-        {
-          "id": "l6-12-defender-cloud-apps-oauth",
-          "module": "Defender Suite",
-          "title": "Defender for Cloud Apps OAuth Alerts",
-          "summary": "Catching malicious OAuth consent grants and risky app behavior at the SaaS layer, beyond what Entra ID's own logs surface alone.",
-          "estimatedMinutes": 18,
-          "status": "coming-soon",
-          "tags": [
-            "defender",
-            "cloud-apps",
-            "oauth"
-          ]
-        },
-        {
-          "id": "l6-13-automated-investigation-remediation",
-          "module": "Defender Suite",
-          "title": "Automated Investigation & Remediation",
-          "summary": "What AIR actually does and doesn't do -- and the September 2026 platform change that folds it into always-on antivirus for Defender for Endpoint specifically.",
-          "estimatedMinutes": 20,
-          "status": "coming-soon",
-          "tags": [
-            "defender",
-            "air",
-            "automation"
-          ]
-        },
-        {
-          "id": "l6-14-cloud-discovery-entra-enumeration",
-          "module": "Cloud Identity",
-          "title": "Cloud-Side Discovery: Entra Enumeration",
-          "summary": "AzureHound and Graph API-based tenant enumeration \u2014 the cloud-native counterpart to Level 2's Windows discovery commands.",
-          "estimatedMinutes": 18,
-          "status": "ready",
-          "tags": [
-            "discovery",
-            "azurehound",
-            "t1087.004"
-          ],
-          "contentPath": "content/levels/06-cloud-identity-email-defender/14-cloud-discovery-entra-enumeration.md",
-          "quizPath": "content/levels/06-cloud-identity-email-defender/14-cloud-discovery-entra-enumeration.quiz.json",
-          "objectives": [
-            "Explain what AzureHound enumerates and which legitimate APIs it uses to do so",
-            "Identify the default User-Agent indicator for unmodified AzureHound usage",
-            "Explain why AzureHound doesn't need to run from inside the victim's network",
-            "Map cloud-side discovery to its ATT&CK sub-techniques"
-          ]
-        },
-        {
-          "id": "l6-15-mailbox-message-trace-forensics",
-          "module": "Email Forensics",
-          "title": "Mailbox & Message-Trace Forensics",
-          "summary": "Get-MessageTrace, mailbox audit logging, and offline PST/OST/MBOX artifacts \u2014 finding messages and reconstructing mailbox activity, not just reading one message you already have.",
-          "estimatedMinutes": 22,
-          "status": "ready",
-          "tags": [
-            "message-trace",
-            "mailbox-audit",
-            "pst",
-            "ost"
-          ],
-          "contentPath": "content/levels/06-cloud-identity-email-defender/15-mailbox-message-trace-forensics.md",
-          "quizPath": "content/levels/06-cloud-identity-email-defender/15-mailbox-message-trace-forensics.quiz.json",
-          "objectives": [
-            "Distinguish what Get-MessageTrace shows versus what mailbox audit logging shows",
-            "Explain the significance of the MailItemsAccessed operation in a BEC investigation",
-            "Distinguish PST, OST, and MBOX formats and identify libpff as the standard offline parsing tool",
-            "Connect mailbox audit log retention to the same retention trap covered in Level 6's logging lesson"
-          ]
-        },
-        {
-          "id": "l6-16-legacy-authentication-ca-bypass",
-          "module": "Cloud Identity",
-          "title": "Legacy Authentication: The Conditional Access Bypass",
-          "summary": "SMTP AUTH, POP3, and IMAP4 never touch the modern auth stack Conditional Access evaluates \u2014 a live, currently exploitable gap in most existing tenants today.",
-          "estimatedMinutes": 18,
-          "status": "ready",
-          "tags": [
-            "conditional-access",
-            "legacy-auth",
-            "t1078.004"
-          ],
-          "contentPath": "content/levels/06-cloud-identity-email-defender/16-legacy-authentication-ca-bypass.md",
-          "quizPath": "content/levels/06-cloud-identity-email-defender/16-legacy-authentication-ca-bypass.quiz.json",
-          "objectives": [
-            "Explain why legacy authentication protocols bypass Conditional Access entirely",
-            "State the current default status of SMTP AUTH Basic Authentication for existing tenants",
-            "Distinguish Security Defaults from custom Conditional Access regarding legacy auth coverage",
-            "Identify where exception lists commonly reopen this gap in mature environments"
-          ]
-        },
-        {
-          "id": "l6-17-sharepoint-onedrive-exfiltration",
-          "module": "Email Forensics",
-          "title": "SharePoint & OneDrive Exfiltration Signals",
-          "summary": "FileDownloaded, FileSyncDownloadedFull, and the CSOM-based evasion that generates FileAccessed instead \u2014 detecting bulk data leaving through the other M365 exfiltration path.",
-          "estimatedMinutes": 20,
-          "status": "ready",
-          "tags": [
-            "sharepoint",
-            "onedrive",
-            "t1530",
-            "exfiltration"
-          ],
-          "contentPath": "content/levels/06-cloud-identity-email-defender/17-sharepoint-onedrive-exfiltration.md",
-          "quizPath": "content/levels/06-cloud-identity-email-defender/17-sharepoint-onedrive-exfiltration.quiz.json",
-          "objectives": [
-            "Name the key SharePoint/OneDrive audit operations relevant to exfiltration",
-            "Explain the FileAccessed evasion technique and why it matters for detection coverage",
-            "Identify the mass-download detection threshold and the zip-download User-Agent tell",
-            "Distinguish the download-based and sharing-link-based exfiltration paths"
           ]
         }
       ]
@@ -1719,18 +1669,13 @@
       ]
     },
     {
-      "id": "cloud-identity-track",
-      "title": "Cloud & Hybrid Identity Track",
-      "description": "Everything Entra ID, hybrid sync, and email \u2014 for responders whose incidents are overwhelmingly M365/Entra-based rather than on-prem endpoint compromises.",
+      "id": "hybrid-identity-email-track",
+      "title": "Hybrid Identity & Email Compromise Track",
+      "description": "The hybrid account-compromise runbook, email-based attack forensics, and the cloud-touching persistence techniques attackers use most often against both.",
       "icon": "cloud",
-      "estimatedHours": 3.6,
+      "estimatedHours": 2.4,
       "lessonIds": [
         "l6-01-hybrid-runbook",
-        "l6-02-sign-in-vs-audit-logs",
-        "l6-03-conditional-access-investigation",
-        "l6-04-identity-protection-risk",
-        "l6-05-hybrid-sync-mechanics",
-        "l6-06-entra-connect-as-target",
         "l6-07-email-headers-authentication",
         "l6-08-message-source-attachments",
         "l3-14-oauth-consent-grants",

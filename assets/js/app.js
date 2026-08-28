@@ -64,6 +64,10 @@
   function findLevel(levelId) {
     return MANIFEST.levels.find((lv) => lv.id === levelId) || null;
   }
+  const NUMBER_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+  function numberWord(n) {
+    return NUMBER_WORDS[n] || String(n);
+  }
 
   /* ---------------------------------------------------------------------- */
   /* Router                                                                  */
@@ -167,20 +171,20 @@
             <h4>I'm completely new</h4>
             <p>Start at Level 01. No security background assumed — you'll build your lab and run your first triage in the first sitting.</p>
           </a>
-          <a class="path-card" href="#/level/02-static-analysis">
+          <a class="path-card" href="#/level/02-windows-endpoint">
             ${icon("layers")}
             <h4>I know IT/dev basics</h4>
-            <p>Skim Level 01, then move into PE internals, strings and YARA in Level 02.</p>
+            <p>Skim Level 01, then move straight into execution evidence, filesystem artifacts, and process trees in Level 02.</p>
           </a>
-          <a class="path-card" href="#/level/06-specialized-topics">
+          <a class="path-card" href="#/level/04-active-directory">
             ${icon("target")}
             <h4>I want specific skills</h4>
-            <p>Jump straight to Active Directory compromise, cloud identity attacks, or the investigation playbooks in later levels.</p>
+            <p>Jump straight to Active Directory compromise, PowerShell forensics and Defender internals, or the investigation playbooks in later levels.</p>
           </a>
-          <a class="path-card" href="#/lesson/l7-02-cert-roadmap">
+          <a class="path-card" href="#/lesson/l8-16-certification-roadmap">
             ${icon("book")}
-            <h4>I'm prepping for GREM / PMAT</h4>
-            <p>See how this curriculum maps to SANS FOR610 and TCM's PMAT so you can study with intent.</p>
+            <h4>I'm prepping for GCFE / GCFA</h4>
+            <p>See how this curriculum maps to SANS GIAC certifications (GCFE, GCFA, GNFA, GCTI) so you can study with intent.</p>
           </a>
         </div>
 
@@ -200,7 +204,7 @@
             .join("")}
         </div>
 
-        <div class="section-head"><h2>The seven levels</h2></div>
+        <div class="section-head"><h2>The ${numberWord(MANIFEST.levels.length)} levels</h2></div>
         <div class="path-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
           ${MANIFEST.levels.map((level) => levelCardHTML(level)).join("")}
         </div>
