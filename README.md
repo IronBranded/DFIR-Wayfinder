@@ -3,7 +3,7 @@
 An interactive, data-driven reference for enterprise digital forensics and incident response — Windows endpoints, memory, Active Directory, and hybrid/cloud identity. Built for SOC analysts, incident responders, and threat hunters. Not written for criminal-prosecution workflows.
 
 <h3 align="center">
-  <a href="https://ironbranded.github.io/Microsoft-DFIR-Wayfinder/" target="_blank" rel="noopener noreferrer">
+  <a href="https://ironbranded.github.io/Microsoft-DFIR-Academy/" target="_blank" rel="noopener noreferrer">
     🟢 FIND YOUR DFIR WAY 🟢
   </a>
 </h3>
