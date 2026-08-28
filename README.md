@@ -1,5 +1,11 @@
 # DFIR Analysis Academy
 
+<h3 align="center">
+  <a href="https://ironbranded.github.io/Microsoft-DFIR-Academy/" target="_blank" rel="noopener noreferrer">
+    🟢 FIND YOUR DFIR WAY 🟢
+  </a>
+</h3>
+
 ## Objective
 
 A free, self-paced, interactive curriculum for **enterprise digital forensics and incident response** — built to take someone from zero to competent across Windows endpoints, memory, Active Directory, hybrid/cloud identity, email, and network forensics, not just serve as a lookup reference.
