@@ -1,0 +1,58 @@
+[
+  {
+    "name": "MFTECmd",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Eric Zimmerman's $MFT parser, outputting SI and FN timestamp sets side by side plus the SI<FN, Copied, and uSecZeros flags used throughout Level 2.",
+    "url": "https://binaryforay.blogspot.com/2018/06/introducing-mftecmd.html"
+  },
+  {
+    "name": "KAPE",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Kroll's targeted collection and processing tool, used to gather and parse endpoint artifacts at scale during triage.",
+    "url": "https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape"
+  },
+  {
+    "name": "Volatility 3",
+    "category": "Memory Forensics",
+    "platform": "Cross-platform",
+    "description": "The standard open-source memory-forensics framework used throughout Level 5's process, injection, and LSASS analysis lessons.",
+    "url": "https://volatilityfoundation.org/"
+  },
+  {
+    "name": "Timeline Explorer",
+    "category": "Timeline Analysis",
+    "platform": "Windows",
+    "description": "Eric Zimmerman's fast CSV/timeline viewer, used for filtering and sorting parsed artifact output across nearly every Level 2 and 3 lesson.",
+    "url": "https://ericzimmerman.github.io/#!index.md"
+  },
+  {
+    "name": "Microsoft Graph PowerShell SDK",
+    "category": "Cloud Identity",
+    "platform": "Cross-platform",
+    "description": "The current, supported PowerShell module for Entra ID administration and investigation \u2014 including Revoke-MgUserSignInSession, central to Level 6's hybrid runbook.",
+    "url": "https://learn.microsoft.com/en-us/powershell/microsoftgraph/"
+  },
+  {
+    "name": "CyberChef",
+    "category": "Decoding",
+    "platform": "Web / Cross-platform",
+    "description": "A browser-based data-manipulation toolkit used throughout Level 3 for decoding obfuscated PowerShell and extracting MIME attachments.",
+    "url": "https://gchq.github.io/CyberChef/"
+  },
+  {
+    "name": "Sysinternals Suite",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Microsoft's own process, autoruns, and system-internals utilities \u2014 baseline tooling referenced across the Windows Endpoint and Persistence levels.",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/"
+  },
+  {
+    "name": "Registry Explorer",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Eric Zimmerman's offline registry-hive viewer, used across the Registry Hives, ShellBags, and UserAssist lessons in Level 2.",
+    "url": "https://ericzimmerman.github.io/#!index.md"
+  }
+]

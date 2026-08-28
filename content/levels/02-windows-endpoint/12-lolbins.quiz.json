@@ -1,0 +1,57 @@
+{
+  "lessonId": "l2-12-lolbins",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What makes a LOLBin attack difficult for file-based application allowlisting to catch?",
+      "options": [
+        "LOLBins are unsigned executables",
+        "The binary itself is legitimate and Microsoft-signed \u2014 the malicious part is in how it's invoked, not what file is on disk",
+        "LOLBins only run on Linux",
+        "Application allowlisting always blocks them by default"
+      ],
+      "correctIndex": 1,
+      "explanation": "A LOLBin is a completely legitimate, signed binary an allowlist would already trust \u2014 detection has to come from behavior (arguments, parent process, network activity), not file identity."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "In the \"Squiblydoo\" technique, why does the payload never touch disk?",
+      "options": [
+        "regsvr32 refuses to write files",
+        "regsvr32's /i: flag with scrobj.dll can execute a COM scriptlet fetched directly from a remote URL",
+        "The technique only works on read-only file systems",
+        "Windows Defender deletes it immediately after download"
+      ],
+      "correctIndex": 1,
+      "explanation": "regsvr32 /i:<URL> scrobj.dll pulls and executes the scriptlet directly from the URL, with no file ever written to the local disk \u2014 exactly why file-based detection misses it."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why is certutil.exe making an outbound network connection considered a strong red flag regardless of its specific arguments?",
+      "options": [
+        "certutil is never allowed to run at all in a healthy environment",
+        "A certificate management utility has essentially no legitimate reason to reach the internet on its own",
+        "certutil can only be run by Domain Admins",
+        "Network connections from certutil are always encrypted maliciously"
+      ],
+      "correctIndex": 1,
+      "explanation": "certutil's legitimate purpose is local certificate management \u2014 outbound network activity from it is inherently anomalous, independent of the specific command-line flags used."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What's the significance of the LOLBAS project referenced in this lesson?",
+      "options": [
+        "It's a Microsoft tool for blocking LOLBin abuse automatically",
+        "It's the canonical, community-maintained catalog of LOLBins beyond the five covered here \u2014 cited directly in MITRE's own technique references",
+        "It's a certification exam covering LOLBin detection",
+        "It only covers Linux binaries, not Windows"
+      ],
+      "correctIndex": 1,
+      "explanation": "LOLBAS (lolbas-project.github.io) is the community reference MITRE ATT&CK itself cites for T1218.010 \u2014 the authoritative place to look beyond this lesson's five highlighted binaries."
+    }
+  ]
+}

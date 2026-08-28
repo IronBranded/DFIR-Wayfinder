@@ -1,0 +1,1758 @@
+{
+  "siteTitle": "DFIR Analysis Academy",
+  "scope": "Enterprise DFIR",
+  "levels": [
+    {
+      "id": "01-foundations",
+      "number": 1,
+      "title": "Foundations",
+      "tagline": "Mindset, methodology, and the frameworks every later level assumes.",
+      "difficulty": "Novice",
+      "description": "Start here regardless of background. You'll learn how IR actually runs as a lifecycle, the order evidence disappears in, the frameworks (ATT&CK, Pyramid of Pain, Diamond Model) every later artifact page leans on without re-explaining, and how to write up findings two audiences can both use.",
+      "lessons": [
+        {
+          "id": "l1-01-ir-lifecycle",
+          "module": "Orientation",
+          "title": "The Incident Response Lifecycle",
+          "summary": "Preparation through lessons-learned as an actual operating cycle, not a poster on a wall -- and why skipping straight to eradication is the most common real-world mistake.",
+          "estimatedMinutes": 18,
+          "status": "ready",
+          "tags": [
+            "methodology",
+            "ir-lifecycle"
+          ],
+          "contentPath": "content/levels/01-foundations/01-ir-lifecycle.md",
+          "quizPath": "content/levels/01-foundations/01-ir-lifecycle.quiz.json",
+          "objectives": [
+            "Name the six phases of the IR lifecycle in order and what each one actually produces",
+            "Explain why containment and eradication are distinct decisions, not one step",
+            "Identify the one phase most real incidents shortchange, and why that costs you later",
+            "Connect the lifecycle to where the rest of this academy's artifact lessons plug in"
+          ]
+        },
+        {
+          "id": "l1-02-order-of-volatility",
+          "module": "Orientation",
+          "title": "Order of Volatility",
+          "summary": "Which evidence disappears first, and why collection order is a decision you make once, under pressure, with no do-overs.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "methodology",
+            "evidence-handling"
+          ]
+        },
+        {
+          "id": "l1-03-attack-primer",
+          "module": "Frameworks",
+          "title": "MITRE ATT&CK Primer",
+          "summary": "Tactics vs. techniques vs. sub-techniques, and how to read a technique ID (T1055.012) as more than a label -- the shared vocabulary every artifact page in this academy maps back to.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "attack",
+            "frameworks"
+          ]
+        },
+        {
+          "id": "l1-04-pyramid-of-pain",
+          "module": "Frameworks",
+          "title": "Pyramid of Pain",
+          "summary": "Why a hash is a cheap indicator and a TTP is an expensive one for the adversary to change -- and what that means for where you should actually invest detection effort.",
+          "estimatedMinutes": 14,
+          "status": "coming-soon",
+          "tags": [
+            "frameworks",
+            "detection-strategy"
+          ]
+        },
+        {
+          "id": "l1-05-diamond-model",
+          "module": "Frameworks",
+          "title": "The Diamond Model",
+          "summary": "Adversary, capability, infrastructure, victim -- the four vertices that turn a pile of indicators into an analyzable intrusion, with the pivoting logic that makes it useful mid-investigation.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "frameworks",
+            "threat-intel"
+          ]
+        },
+        {
+          "id": "l1-06-evidence-handling",
+          "module": "Evidence Discipline",
+          "title": "Evidence Handling & Chain of Custody",
+          "summary": "What actually needs documenting in enterprise IR (versus what's theater left over from criminal-prosecution workflows this academy isn't built for), and where hashing fits.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "evidence-handling",
+            "chain-of-custody"
+          ]
+        },
+        {
+          "id": "l1-07-timeline-construction",
+          "module": "Evidence Discipline",
+          "title": "Timeline Construction & Correlation",
+          "summary": "Building a super-timeline from multiple sources with different clocks, different precision, and the clock-skew calibration trick that makes cross-source correlation actually trustworthy.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "timeline",
+            "correlation"
+          ]
+        },
+        {
+          "id": "l1-08-threat-intel-operationalization",
+          "module": "Evidence Discipline",
+          "title": "Operationalizing Threat Intelligence",
+          "summary": "Turning a feed of indicators into something that actually changes what your SOC does today, not a PDF nobody opens.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "threat-intel",
+            "operationalization"
+          ]
+        },
+        {
+          "id": "l1-09-attack-coverage-map",
+          "module": "Frameworks",
+          "title": "Building an ATT&CK Coverage Map",
+          "summary": "Turning this academy's own artifact-by-artifact coverage into a single tactic-level view -- and why naming your own gaps openly is more useful than pretending you don't have any.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "attack",
+            "self-assessment"
+          ]
+        },
+        {
+          "id": "l1-10-reporting-communication",
+          "module": "Evidence Discipline",
+          "title": "Reporting & Communication",
+          "summary": "The same finding, written twice -- once for the engineer who has to fix it, once for the executive who has to decide something because of it -- and why conflating the two audiences is how good findings get ignored.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "reporting",
+            "dual-audience"
+          ]
+        },
+        {
+          "id": "l1-11-sysmon-deployment",
+          "module": "Instrumentation",
+          "title": "Sysmon Deployment & Configuration",
+          "summary": "What Sysmon actually is, the event IDs referenced constantly across this academy, and how to deploy it without drowning in noise.",
+          "estimatedMinutes": 20,
+          "status": "ready",
+          "tags": [
+            "sysmon",
+            "instrumentation",
+            "logging"
+          ],
+          "contentPath": "content/levels/01-foundations/11-sysmon-deployment.md",
+          "quizPath": "content/levels/01-foundations/11-sysmon-deployment.quiz.json",
+          "objectives": [
+            "Explain what gap Sysmon fills beyond native Windows Event ID 4688",
+            "Map Sysmon Event IDs 1, 3, 6, 7, 8, 10, 11, 17/18, and 22 to the academy lessons that depend on each",
+            "Explain why an untuned default Sysmon configuration can be counterproductive",
+            "Identify why local-only Sysmon logs defeat much of their investigative value"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02-windows-endpoint",
+      "number": 2,
+      "title": "Windows Endpoint Forensics",
+      "tagline": "What ran, what touched disk, and what a normal machine looks like before you can spot an abnormal one.",
+      "difficulty": "Beginner",
+      "description": "The core host-based artifact set: execution evidence (Prefetch, Shimcache, Amcache, UserAssist), the filesystem's own record of itself ($MFT, USN Journal), and the registry/process baseline everything else in this academy gets compared against.",
+      "lessons": [
+        {
+          "id": "l2-01-prefetch",
+          "module": "Execution Evidence",
+          "title": "Artifact: Prefetch",
+          "summary": "Proof a program ran, when, how many times, and what files/DLLs it touched on first launch -- and the one registry key that silently turns this artifact off on servers.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "prefetch",
+            "execution-evidence"
+          ]
+        },
+        {
+          "id": "l2-02-mft-timestomping",
+          "module": "Filesystem Evidence",
+          "title": "Artifact: $MFT & Timestomping",
+          "summary": "MACB timestamps split across two attributes ($SI and $FN) that update on different rules -- and why that split is exactly what makes timestomping detectable.",
+          "estimatedMinutes": 26,
+          "status": "coming-soon",
+          "tags": [
+            "mft",
+            "timestomping",
+            "macb"
+          ]
+        },
+        {
+          "id": "l2-03-usn-journal",
+          "module": "Filesystem Evidence",
+          "title": "Artifact: USN Journal",
+          "summary": "The append-only change log that survives even when the $MFT record it's describing gets rewritten -- reason codes, and why it's the corroborating source of first resort.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "usn-journal",
+            "corroboration"
+          ]
+        },
+        {
+          "id": "l2-04-amcache",
+          "module": "Execution Evidence",
+          "title": "Artifact: Amcache",
+          "summary": "First-execution evidence with a SHA-1 hash attached -- and the specific ways it disagrees with Prefetch that tell you something real.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "amcache",
+            "execution-evidence"
+          ]
+        },
+        {
+          "id": "l2-05-shimcache",
+          "module": "Execution Evidence",
+          "title": "Artifact: Shimcache",
+          "summary": "Evidence of presence, not necessarily execution -- the nuance that trips up almost everyone the first time they use this artifact in a report.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "shimcache",
+            "execution-evidence"
+          ]
+        },
+        {
+          "id": "l2-06-registry-hives",
+          "module": "Configuration Evidence",
+          "title": "Artifact: Registry Hives",
+          "summary": "Where the hives actually live on disk, ControlSet numbering and which one was actually live at boot, and reading raw hives from an offline image.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "registry",
+            "controlsets"
+          ]
+        },
+        {
+          "id": "l2-07-shellbags",
+          "module": "Filesystem Evidence",
+          "title": "Artifact: ShellBags",
+          "summary": "Folder-access history that survives folder deletion -- proof a user (or an attacker with that user's session) browsed to a path that no longer exists.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "shellbags",
+            "user-activity"
+          ]
+        },
+        {
+          "id": "l2-08-userassist",
+          "module": "Execution Evidence",
+          "title": "Artifact: UserAssist",
+          "summary": "GUI-launched program history with a ROT13-encoded key and a run count -- what it captures that Prefetch doesn't, and vice versa.",
+          "estimatedMinutes": 14,
+          "status": "coming-soon",
+          "tags": [
+            "userassist",
+            "execution-evidence"
+          ]
+        },
+        {
+          "id": "l2-09-event-log-key-ids",
+          "module": "Reference",
+          "title": "Event Log Key IDs Reference",
+          "summary": "The Event IDs worth memorizing cold -- 4624/4625, 4688, 7045, 4104 -- and what each one actually guarantees versus merely suggests.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "event-logs",
+            "reference"
+          ]
+        },
+        {
+          "id": "l2-10-process-trees",
+          "module": "Reference",
+          "title": "Baseline Process Trees",
+          "summary": "What a normal parent-child chain looks like for the processes attackers abuse most (services.exe, explorer.exe spawning shells) -- the baseline every 'weird process tree' red flag in this academy is measured against.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "process-trees",
+            "baseline"
+          ]
+        },
+        {
+          "id": "l2-11-discovery",
+          "module": "Reconnaissance",
+          "title": "Discovery: Recognizing Attacker Recon",
+          "summary": "The five Windows-native commands worth recognizing on sight, and why the pattern of several run together matters more than any single one.",
+          "estimatedMinutes": 18,
+          "status": "ready",
+          "tags": [
+            "discovery",
+            "ta0007",
+            "recon"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/11-discovery.md",
+          "quizPath": "content/levels/02-windows-endpoint/11-discovery.quiz.json",
+          "objectives": [
+            "Name the five most common Windows-native discovery commands and their ATT&CK mappings",
+            "Explain why a single discovery command in a log is rarely suspicious on its own",
+            "Identify what makes nltest /domain_trusts higher-signal than the other four",
+            "Explain why Discovery is iterative and how that helps scope lateral movement"
+          ]
+        },
+        {
+          "id": "l2-12-lolbins",
+          "module": "Reconnaissance",
+          "title": "LOLBin Catalog",
+          "summary": "Five Microsoft-signed, legitimate binaries attackers proxy execution through \u2014 and the argument/parent-process patterns that separate abuse from normal use.",
+          "estimatedMinutes": 20,
+          "status": "ready",
+          "tags": [
+            "lolbins",
+            "t1218",
+            "execution"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/12-lolbins.md",
+          "quizPath": "content/levels/02-windows-endpoint/12-lolbins.quiz.json",
+          "objectives": [
+            "Name the five most commonly abused LOLBins and their ATT&CK sub-techniques",
+            "Explain the Squiblydoo technique and why it evades file-based detection",
+            "Identify the specific red-flag argument and parent-process patterns for each binary",
+            "Locate the LOLBAS project as the canonical reference beyond this lesson's five"
+          ]
+        },
+        {
+          "id": "l2-13-byovd-loldrivers",
+          "module": "Reconnaissance",
+          "title": "BYOVD & the LOLDrivers Catalog",
+          "summary": "Legitimately signed, genuinely vulnerable drivers attackers exploit for kernel-mode code execution \u2014 usually to kill EDR and antivirus outright.",
+          "estimatedMinutes": 20,
+          "status": "ready",
+          "tags": [
+            "byovd",
+            "loldrivers",
+            "t1068"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/13-byovd-loldrivers.md",
+          "quizPath": "content/levels/02-windows-endpoint/13-byovd-loldrivers.quiz.json",
+          "objectives": [
+            "Explain why signature enforcement alone doesn't stop a BYOVD attack",
+            "Explain why BYOVD is a privilege-escalation technique, not initial access",
+            "Identify the red-flag load locations and known-abused drivers for BYOVD",
+            "Name Sysmon Event ID 6 as the primary detection surface and HVCI as the primary prevention"
+          ]
+        },
+        {
+          "id": "l2-14-local-privilege-escalation",
+          "module": "Reconnaissance",
+          "title": "Local Privilege Escalation",
+          "summary": "Unquoted service paths, weak service permissions, and token impersonation \u2014 turning a low-privilege foothold into SYSTEM before AD is ever touched.",
+          "estimatedMinutes": 22,
+          "status": "ready",
+          "tags": [
+            "privesc",
+            "token-impersonation",
+            "t1134"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/14-local-privilege-escalation.md",
+          "quizPath": "content/levels/02-windows-endpoint/14-local-privilege-escalation.quiz.json",
+          "objectives": [
+            "Explain how an unquoted service path can be hijacked for privilege escalation",
+            "Describe how the Potato exploit family abuses SeImpersonatePrivilege",
+            "Explain why token-impersonation escalation leaves no single dedicated alert event",
+            "Connect local privilege escalation to the Discovery and LOLBin activity it typically precedes"
+          ]
+        },
+        {
+          "id": "l2-15-vss-deletion-ransomware-precursor",
+          "module": "Reconnaissance",
+          "title": "VSS Deletion: The Ransomware Precursor",
+          "summary": "The attacker's side of Volume Shadow Copy \u2014 deliberately destroying the recovery option right before encryption, and the exact commands that give it away.",
+          "estimatedMinutes": 18,
+          "status": "ready",
+          "tags": [
+            "vss",
+            "t1490",
+            "ransomware"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/15-vss-deletion-ransomware-precursor.md",
+          "quizPath": "content/levels/02-windows-endpoint/15-vss-deletion-ransomware-precursor.quiz.json",
+          "objectives": [
+            "Name the five native Windows tools used to inhibit system recovery",
+            "Distinguish the explicit-deletion pattern from the stealthier shadow-storage-resize variant",
+            "Explain why this is primarily a prevention/early-detection topic, not a post-incident one",
+            "Explain the typical timing relationship between T1490 and T1486 in a ransomware timeline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03-powershell-persistence",
+      "number": 3,
+      "title": "PowerShell & Persistence",
+      "tagline": "How attackers stay, and the one tool most of them use to do it.",
+      "difficulty": "Beginner",
+      "description": "PowerShell is how most modern intrusions execute fileless, in memory -- and persistence is how they survive a reboot or a password reset. This level covers decoding what PowerShell actually ran, then the endpoint and cloud mechanisms that keep attackers coming back.",
+      "lessons": [
+        {
+          "id": "l3-01-powershell-logging",
+          "module": "PowerShell Forensics",
+          "title": "PowerShell Logging",
+          "summary": "Module logging, script block logging, and transcription -- three different log sources capturing three different slices of what actually ran, and why you usually need more than one turned on.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "powershell",
+            "logging"
+          ]
+        },
+        {
+          "id": "l3-02-powershell-obfuscation",
+          "module": "PowerShell Forensics",
+          "title": "Obfuscation & Decoding",
+          "summary": "-EncodedCommand, compression layers, and string-reassembly tricks decoded step by step -- the exact skill that turns an unreadable blob into a readable command.",
+          "estimatedMinutes": 26,
+          "status": "coming-soon",
+          "tags": [
+            "powershell",
+            "obfuscation",
+            "decoding"
+          ]
+        },
+        {
+          "id": "l3-03-powershell-evasion",
+          "module": "PowerShell Forensics",
+          "title": "Evasion Detection",
+          "summary": "AMSI bypass patterns and the logging gaps attackers specifically target -- recognized at the detection-signature level, not built.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "powershell",
+            "evasion",
+            "amsi"
+          ]
+        },
+        {
+          "id": "l3-04-powershell-malicious-patterns",
+          "module": "PowerShell Forensics",
+          "title": "Malicious Cmdlet Patterns",
+          "summary": "The specific cmdlets and argument patterns that show up in real intrusions constantly enough to be worth pattern-matching on sight.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "powershell",
+            "detection-patterns"
+          ]
+        },
+        {
+          "id": "l3-05-registry-run-keys",
+          "module": "Endpoint Persistence",
+          "title": "Persistence: Registry Run Keys",
+          "summary": "The oldest, still most common persistence mechanism -- Run/RunOnce, and the baseline of what's normally there versus what isn't.",
+          "estimatedMinutes": 14,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "registry",
+            "t1547.001"
+          ]
+        },
+        {
+          "id": "l3-06-scheduled-tasks",
+          "module": "Endpoint Persistence",
+          "title": "Persistence: Scheduled Tasks",
+          "summary": "Task Scheduler as an attacker's cron -- where the evidence lives beyond just `schtasks /query`.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "scheduled-tasks",
+            "t1053.005"
+          ]
+        },
+        {
+          "id": "l3-07-windows-services",
+          "module": "Endpoint Persistence",
+          "title": "Persistence: Windows Services",
+          "summary": "A malicious service dressed up to look legitimate -- what actually distinguishes it from the 200 real ones on any given host.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "services"
+          ]
+        },
+        {
+          "id": "l3-08-wmi-subscriptions",
+          "module": "Endpoint Persistence",
+          "title": "Persistence: WMI Event Subscriptions",
+          "summary": "Fileless, triggered-by-event persistence that survives a full disk wipe of the file it originally came from.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "wmi"
+          ]
+        },
+        {
+          "id": "l3-09-com-dll-hijacking",
+          "module": "Endpoint Persistence",
+          "title": "Persistence: COM & DLL Hijacking",
+          "summary": "Redirecting a trusted lookup path so legitimate software loads an attacker's code -- and why it's so hard to spot from the process tree alone.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "dll-hijacking"
+          ]
+        },
+        {
+          "id": "l3-10-appinit-ifeo",
+          "module": "Endpoint Persistence",
+          "title": "Persistence: AppInit_DLLs & IFEO",
+          "summary": "Two older but still-live mechanisms for forcing code to load into every process, or hijacking a debugger key to redirect execution entirely.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "ifeo"
+          ]
+        },
+        {
+          "id": "l3-11-lsa-ssp",
+          "module": "Endpoint Persistence",
+          "title": "Persistence: LSA Provider / SSP Abuse",
+          "summary": "Registering a malicious security package that gets loaded directly into LSASS -- persistence with credential-theft built in for free.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "lsass"
+          ]
+        },
+        {
+          "id": "l3-12-bits-jobs",
+          "module": "Endpoint Persistence",
+          "title": "Persistence: BITS Jobs",
+          "summary": "Background Intelligent Transfer Service repurposed as a stealthy, throttled download-and-persist channel.",
+          "estimatedMinutes": 14,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "bits"
+          ]
+        },
+        {
+          "id": "l3-13-winlogon-helper",
+          "module": "Endpoint Persistence",
+          "title": "Persistence: Winlogon Shell/Userinit",
+          "summary": "Hijacking the two registry values that fire on every single logon, before most endpoint monitoring has fully initialized.",
+          "estimatedMinutes": 14,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "winlogon"
+          ]
+        },
+        {
+          "id": "l3-14-oauth-consent-grants",
+          "module": "Cloud Persistence",
+          "title": "Persistence: OAuth Consent Grants",
+          "summary": "Standing access that survives a password reset entirely -- because it was never a password to begin with.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "cloud",
+            "oauth",
+            "t1098.003"
+          ]
+        },
+        {
+          "id": "l3-15-backdoor-app-registrations",
+          "module": "Cloud Persistence",
+          "title": "Persistence: Backdoor App Registrations",
+          "summary": "A malicious app registration hiding among hundreds of legitimate ones -- what actually distinguishes it on inspection.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "cloud",
+            "app-registrations"
+          ]
+        },
+        {
+          "id": "l3-16-mailbox-forwarding-rules",
+          "module": "Cloud Persistence",
+          "title": "Persistence: Mailbox Forwarding Rules",
+          "summary": "The single most common BEC persistence mechanism -- a configuration change that survives being locked out of the account entirely.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "cloud",
+            "bec",
+            "t1114.003"
+          ]
+        },
+        {
+          "id": "l3-17-golden-saml",
+          "module": "Cloud Persistence",
+          "title": "Persistence: Golden SAML",
+          "summary": "Forging SAML assertions with a stolen federation signing certificate -- access that doesn't touch Entra ID's own authentication path at all.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "cloud",
+            "saml",
+            "federation"
+          ]
+        },
+        {
+          "id": "l3-18-break-glass-abuse",
+          "module": "Cloud Persistence",
+          "title": "Persistence: Break-Glass Account Abuse",
+          "summary": "Turning the emergency-access account meant to save you during an outage into the attacker's own permanent backdoor.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "persistence",
+            "cloud",
+            "break-glass"
+          ]
+        },
+        {
+          "id": "l3-19-non-powershell-execution",
+          "module": "PowerShell Forensics",
+          "title": "Non-PowerShell Execution Engines",
+          "summary": "VBScript, JScript, and WMI as execution mechanisms attackers use specifically to route around PowerShell-focused logging.",
+          "estimatedMinutes": 20,
+          "status": "ready",
+          "tags": [
+            "vbscript",
+            "jscript",
+            "wmi",
+            "t1059.005",
+            "t1059.007"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/19-non-powershell-execution.md",
+          "quizPath": "content/levels/03-powershell-persistence/19-non-powershell-execution.quiz.json",
+          "objectives": [
+            "Explain why an attacker would choose VBScript/JScript over PowerShell in a well-logged environment",
+            "Identify the red-flag parent-process and execution-location patterns for wscript.exe/cscript.exe",
+            "Describe how WMI can be used for direct remote command execution",
+            "Name the log source that captures WMI activity independent of standard process-creation logging"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04-active-directory",
+      "number": 4,
+      "title": "Active Directory & Domain Controllers",
+      "tagline": "Domain compromise: the techniques, and the double-reset discipline that actually recovers from them.",
+      "difficulty": "Intermediate",
+      "description": "From NTDS.dit and replication metadata as raw evidence, through the credential-theft and ticket-forgery techniques that define domain compromise, to the delegation and certificate-services abuse paths that let a low-privilege account become Domain Admin.",
+      "lessons": [
+        {
+          "id": "l4-01-ntds-dit",
+          "module": "AD Evidence",
+          "title": "Artifact: NTDS.dit",
+          "summary": "The database holding every domain credential -- how it's actually extracted (and why doing so live is itself a red flag), and what the extraction methods themselves leave behind.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "ntds",
+            "credential-theft"
+          ]
+        },
+        {
+          "id": "l4-02-sysvol-gpo",
+          "module": "AD Evidence",
+          "title": "Artifact: SYSVOL & GPO Abuse",
+          "summary": "Group Policy as a domain-wide code execution mechanism -- and how to tell a legitimate GPO change from one that just pushed a backdoor to every machine in an OU.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "gpo",
+            "sysvol"
+          ]
+        },
+        {
+          "id": "l4-03-replication-metadata",
+          "module": "AD Evidence",
+          "title": "Artifact: Replication Metadata",
+          "summary": "Every object's own \"last changed, by whom, from where\" history baked into AD itself -- corroborating evidence that doesn't depend on logging being turned on.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "replication-metadata"
+          ]
+        },
+        {
+          "id": "l4-04-krbtgt-double-reset",
+          "module": "Domain Recovery",
+          "title": "krbtgt & the Double Reset",
+          "summary": "Why resetting the krbtgt password once doesn't invalidate a Golden Ticket, and the specific two-reset sequence, with the right wait between them, that actually does.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "krbtgt",
+            "golden-ticket",
+            "recovery"
+          ]
+        },
+        {
+          "id": "l4-05-dcsync-detection",
+          "module": "Credential Theft",
+          "title": "DCSync Detection",
+          "summary": "An attacker's own domain controller impersonating a real one to request every credential hash via legitimate replication traffic -- and the Event ID that's specifically designed to catch it.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "dcsync",
+            "t1003.006"
+          ]
+        },
+        {
+          "id": "l4-06-golden-silver-ticket",
+          "module": "Kerberos Abuse",
+          "title": "Golden Ticket / Silver Ticket",
+          "summary": "Forged Kerberos tickets built from a stolen krbtgt or service-account hash -- domain-wide access, or single-service access, that bypasses normal authentication entirely.",
+          "estimatedMinutes": 24,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "kerberos",
+            "golden-ticket",
+            "silver-ticket"
+          ]
+        },
+        {
+          "id": "l4-07-adminsdholder",
+          "module": "Privilege Persistence",
+          "title": "AdminSDHolder / SDProp Abuse",
+          "summary": "A protection mechanism for privileged-group permissions, repurposed by attackers into a self-healing backdoor that reverts every hour.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "adminsdholder",
+            "sdprop"
+          ]
+        },
+        {
+          "id": "l4-08-kerberoasting",
+          "module": "Credential Theft",
+          "title": "Kerberoasting",
+          "summary": "Requesting a service ticket for any account with an SPN, then cracking it offline -- no elevated privilege required to start the attack.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "kerberoasting",
+            "t1558.003"
+          ]
+        },
+        {
+          "id": "l4-09-adcs-abuse",
+          "module": "Escalation Paths",
+          "title": "AD CS Abuse (ESC1/ESC4/ESC8)",
+          "summary": "Misconfigured certificate templates as a domain-admin escalation path that most environments have never audited -- the three most common misconfiguration classes explained concretely.",
+          "estimatedMinutes": 26,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "adcs",
+            "esc1",
+            "esc8"
+          ]
+        },
+        {
+          "id": "l4-10-acl-delegation-abuse",
+          "module": "Escalation Paths",
+          "title": "ACL & Delegation Abuse",
+          "summary": "Legitimate-looking delegated permissions (reset password, write to a group) chained together into a full privilege-escalation path -- the kind of attack that never touches a single exploit.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "ad",
+            "acl",
+            "delegation"
+          ]
+        },
+        {
+          "id": "l4-11-pass-the-hash-pass-the-ticket",
+          "module": "Credential Theft",
+          "title": "Pass-the-Hash / Pass-the-Ticket",
+          "summary": "Reusing a stolen NTLM hash or Kerberos ticket directly for lateral movement \u2014 no password cracking, no privileged access required to start.",
+          "estimatedMinutes": 22,
+          "status": "ready",
+          "tags": [
+            "pth",
+            "ptt",
+            "t1550.002",
+            "t1550.003"
+          ],
+          "contentPath": "content/levels/04-active-directory/11-pass-the-hash-pass-the-ticket.md",
+          "quizPath": "content/levels/04-active-directory/11-pass-the-hash-pass-the-ticket.quiz.json",
+          "objectives": [
+            "Explain why Pass the Hash works without the attacker knowing the cleartext password",
+            "Distinguish Pass the Hash from Pass the Ticket by credential type used",
+            "Define overpass-the-hash and explain how it bridges the two techniques",
+            "Identify the log correlation pattern that most reliably surfaces either technique"
+          ]
+        },
+        {
+          "id": "l4-12-kerberos-delegation-abuse",
+          "module": "Escalation Paths",
+          "title": "Kerberos Delegation Abuse",
+          "summary": "Unconstrained, constrained, and resource-based constrained delegation (RBCD) \u2014 abusing a legitimate Kerberos feature to reach the same outcome as a forged ticket.",
+          "estimatedMinutes": 24,
+          "status": "ready",
+          "tags": [
+            "delegation",
+            "rbcd",
+            "kerberos"
+          ],
+          "contentPath": "content/levels/04-active-directory/12-kerberos-delegation-abuse.md",
+          "quizPath": "content/levels/04-active-directory/12-kerberos-delegation-abuse.quiz.json",
+          "objectives": [
+            "Distinguish unconstrained, constrained, and resource-based constrained delegation",
+            "Explain the full RBCD attack chain from GenericWrite to impersonating a Domain Admin",
+            "Identify the specific attributes and events that surface delegation abuse",
+            "Name the mitigations (Protected Users, NOT_DELEGATED, MachineAccountQuota) that prevent it"
+          ]
+        },
+        {
+          "id": "l4-13-ntlm-relay",
+          "module": "Credential Theft",
+          "title": "NTLM Relay",
+          "summary": "Forwarding a live authentication attempt to an unintended destination \u2014 no cracking, no hash theft, just exploiting NTLM's failure to bind authentication to a target.",
+          "estimatedMinutes": 22,
+          "status": "ready",
+          "tags": [
+            "ntlm-relay",
+            "t1557.001",
+            "t1187"
+          ],
+          "contentPath": "content/levels/04-active-directory/13-ntlm-relay.md",
+          "quizPath": "content/levels/04-active-directory/13-ntlm-relay.quiz.json",
+          "objectives": [
+            "Explain the core NTLM design flaw that makes relay possible",
+            "Describe the three-part chain: coercion/poisoning, relay tooling, and an unsigned target",
+            "Identify the two signing controls that make the entire relay chain fail regardless of earlier steps",
+            "Explain how NTLM relay can lead directly into RBCD abuse"
+          ]
+        },
+        {
+          "id": "l4-14-ad-attack-chain-overview",
+          "module": "Capstone",
+          "title": "The AD Attack Chain: Putting It Together",
+          "summary": "Every AD technique in this level, in the order they actually chain together \u2014 with a diagram walking foothold to domain compromise.",
+          "estimatedMinutes": 20,
+          "status": "ready",
+          "tags": [
+            "capstone",
+            "attack-chain",
+            "synthesis"
+          ],
+          "contentPath": "content/levels/04-active-directory/14-ad-attack-chain-overview.md",
+          "quizPath": "content/levels/04-active-directory/14-ad-attack-chain-overview.quiz.json",
+          "objectives": [
+            "Sequence the seven stages of a typical AD attack chain and what each stage produces for the next",
+            "Explain why the chain represents a common shape rather than a fixed script",
+            "Use the chain as an investigative tool for scoping evidence around a single found artifact",
+            "Explain why recovery scope depends on how far an intrusion travelled through the chain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05-memory-forensics",
+      "number": 5,
+      "title": "Windows Memory Forensics",
+      "tagline": "What only exists while the machine is running -- and disappears the moment it's powered off.",
+      "difficulty": "Intermediate-Advanced",
+      "description": "Acquisition through triage: process/thread internals, code injection techniques and how to actually find them in a memory image, and the network artifacts that survive in RAM even when the connection itself is long closed.",
+      "lessons": [
+        {
+          "id": "l5-01-acquisition",
+          "module": "Memory Fundamentals",
+          "title": "Acquisition",
+          "summary": "Getting a forensically sound memory image off a live, running system -- the tools, and what \"sound\" actually requires here.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "acquisition"
+          ]
+        },
+        {
+          "id": "l5-02-volatility-process-analysis",
+          "module": "Memory Fundamentals",
+          "title": "Process Analysis",
+          "summary": "Volatility's process-listing plugins and what a hidden or unlinked process actually looks like once you know where to look.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "volatility",
+            "process-analysis"
+          ]
+        },
+        {
+          "id": "l5-03-eprocess-internals",
+          "module": "Memory Fundamentals",
+          "title": "EPROCESS Internals",
+          "summary": "The kernel structure every process-listing plugin is actually walking -- and why understanding it explains why DKOM hiding works at all.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "eprocess",
+            "kernel-structures"
+          ]
+        },
+        {
+          "id": "l5-04-injected-code-detection",
+          "module": "Code Injection",
+          "title": "Injected Code Detection",
+          "summary": "Finding code that was never loaded from a legitimate file on disk -- the memory-region characteristics that give it away.",
+          "estimatedMinutes": 24,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "injection-detection"
+          ]
+        },
+        {
+          "id": "l5-05-injection-techniques",
+          "module": "Code Injection",
+          "title": "Injection Techniques",
+          "summary": "Process hollowing, DLL injection, and the other major techniques for running attacker code inside a legitimate process's address space.",
+          "estimatedMinutes": 24,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "injection-techniques"
+          ]
+        },
+        {
+          "id": "l5-06-thread-analysis",
+          "module": "Memory Fundamentals",
+          "title": "Thread Analysis",
+          "summary": "A thread with no backing module, or a start address that doesn't correspond to any loaded code -- one of the cleanest injection tells there is.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "thread-analysis"
+          ]
+        },
+        {
+          "id": "l5-07-mutex-analysis",
+          "module": "Memory Fundamentals",
+          "title": "Mutex (Mutant) Analysis",
+          "summary": "Malware families that name their own mutex, sometimes literally to prevent re-infecting the same machine -- a naming pattern that becomes a searchable indicator.",
+          "estimatedMinutes": 16,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "mutex"
+          ]
+        },
+        {
+          "id": "l5-08-lsass-memory-analysis",
+          "module": "Credential Theft",
+          "title": "LSASS Memory Analysis",
+          "summary": "Where Windows keeps live credential material in memory, and the specific access patterns (not just \"LSASS was touched\") that separate credential theft from normal system activity.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "lsass",
+            "credential-theft"
+          ]
+        },
+        {
+          "id": "l5-09-network-memory-artifacts",
+          "module": "Memory Fundamentals",
+          "title": "Network Artifacts in Memory",
+          "summary": "Connection state that outlives the connection itself -- what's still recoverable in RAM after a C2 channel has already closed.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "network-artifacts"
+          ]
+        },
+        {
+          "id": "l5-10-malware-triage-methodology",
+          "module": "Capstone",
+          "title": "Malware Triage Methodology",
+          "summary": "Putting the whole memory module together into an actual triage sequence -- what to check first, and when to stop and escalate to full reverse engineering instead.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "memory",
+            "triage",
+            "methodology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06-cloud-identity-email-defender",
+      "number": 6,
+      "title": "Cloud Identity, Email & the Defender Suite",
+      "tagline": "Where most enterprise intrusions actually live today: a mailbox, a token, and Microsoft's own telemetry about both.",
+      "difficulty": "Intermediate-Advanced",
+      "description": "Entra ID and hybrid identity investigation (including the double-reset-plus-token-revocation runbook this academy is built around), reading and authenticating email headers forensically, and the Defender product family's own telemetry for all of it.",
+      "lessons": [
+        {
+          "id": "l6-01-hybrid-runbook",
+          "module": "Cloud Identity",
+          "title": "Cloud Identity Overview & Hybrid Account-Compromise Runbook",
+          "summary": "The core hybrid recovery discipline this academy keeps coming back to: why the password has to be reset twice, and why PowerShell's session revocation does something the GUI simply can't.",
+          "estimatedMinutes": 24,
+          "status": "ready",
+          "tags": [
+            "cloud-identity",
+            "hybrid",
+            "runbook"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/01-hybrid-runbook.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/01-hybrid-runbook.quiz.json",
+          "objectives": [
+            "Explain why a single password reset leaves existing refresh tokens valid",
+            "State exactly what Revoke-MgUserSignInSession invalidates that a GUI-only reset does not",
+            "Explain why hybrid (AD-synced) accounts specifically require resetting the password twice",
+            "Sequence a full hybrid account-compromise response in the correct order"
+          ]
+        },
+        {
+          "id": "l6-02-sign-in-vs-audit-logs",
+          "module": "Cloud Identity",
+          "title": "Sign-In Logs vs. Audit Logs",
+          "summary": "Two separate logs answering two different questions -- and the retention trap between them that leaves investigations blind if Diagnostic Settings export was never configured ahead of time.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "cloud-identity",
+            "logging",
+            "retention"
+          ]
+        },
+        {
+          "id": "l6-03-conditional-access-investigation",
+          "module": "Cloud Identity",
+          "title": "Conditional Access in an Investigation",
+          "summary": "Reading which policies actually evaluated (and how) for a specific sign-in, not just whether MFA happened.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "cloud-identity",
+            "conditional-access"
+          ]
+        },
+        {
+          "id": "l6-04-identity-protection-risk",
+          "module": "Cloud Identity",
+          "title": "Identity Protection Risk Signals",
+          "summary": "Entra ID's own machine-learning-driven risk detections -- what triggers them, and how much to trust a single signal alone.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "cloud-identity",
+            "identity-protection"
+          ]
+        },
+        {
+          "id": "l6-05-hybrid-sync-mechanics",
+          "module": "Cloud Identity",
+          "title": "Hybrid Sync Mechanics",
+          "summary": "Password Hash Sync, Pass-Through Auth, and Federation compared -- because the right response playbook depends entirely on which one a tenant actually runs.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "cloud-identity",
+            "hybrid-sync"
+          ]
+        },
+        {
+          "id": "l6-06-entra-connect-as-target",
+          "module": "Cloud Identity",
+          "title": "The Entra Connect Server: A Target in Its Own Right",
+          "summary": "Why this one on-prem server, if compromised, can be worse than a Domain Admin credential -- it's the trust boundary between AD and the cloud.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "cloud-identity",
+            "entra-connect"
+          ]
+        },
+        {
+          "id": "l6-07-email-headers-authentication",
+          "module": "Email Forensics",
+          "title": "Email Headers & Authentication Forensics",
+          "summary": "Reading the Received chain, the From/Reply-To/Return-Path spoofing triangle, and what SPF/DKIM/DMARC each actually prove -- plus reading Microsoft 365's own compauth verdict directly.",
+          "estimatedMinutes": 26,
+          "status": "coming-soon",
+          "tags": [
+            "email",
+            "spf",
+            "dkim",
+            "dmarc"
+          ]
+        },
+        {
+          "id": "l6-08-message-source-attachments",
+          "module": "Email Forensics",
+          "title": "Message Source & Attachment Forensics",
+          "summary": "Parsing raw MIME structure, hashing attachments before opening them, and the HTML-vs-plaintext mismatch that's still one of the most reliable phishing tells in active use.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "email",
+            "mime",
+            "attachments"
+          ]
+        },
+        {
+          "id": "l6-09-advanced-hunting-kql",
+          "module": "Defender Suite",
+          "title": "Advanced Hunting with KQL",
+          "summary": "Querying Defender's own telemetry directly -- the query patterns that come up constantly enough to memorize.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "defender",
+            "kql",
+            "hunting"
+          ]
+        },
+        {
+          "id": "l6-10-detection-engineering",
+          "module": "Defender Suite",
+          "title": "Detection Engineering",
+          "summary": "Turning a one-off hunt query into a standing detection rule that fires automatically on the next occurrence.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "defender",
+            "detection-engineering"
+          ]
+        },
+        {
+          "id": "l6-11-defender-for-identity",
+          "module": "Defender Suite",
+          "title": "Defender for Identity Mapping",
+          "summary": "Mapping Defender for Identity's own alert catalog back onto the AD attack techniques earlier in this academy -- DCSync and Golden Ticket both have a specific alert name to know.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "defender",
+            "identity"
+          ]
+        },
+        {
+          "id": "l6-12-defender-cloud-apps-oauth",
+          "module": "Defender Suite",
+          "title": "Defender for Cloud Apps OAuth Alerts",
+          "summary": "Catching malicious OAuth consent grants and risky app behavior at the SaaS layer, beyond what Entra ID's own logs surface alone.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "defender",
+            "cloud-apps",
+            "oauth"
+          ]
+        },
+        {
+          "id": "l6-13-automated-investigation-remediation",
+          "module": "Defender Suite",
+          "title": "Automated Investigation & Remediation",
+          "summary": "What AIR actually does and doesn't do -- and the September 2026 platform change that folds it into always-on antivirus for Defender for Endpoint specifically.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "defender",
+            "air",
+            "automation"
+          ]
+        },
+        {
+          "id": "l6-14-cloud-discovery-entra-enumeration",
+          "module": "Cloud Identity",
+          "title": "Cloud-Side Discovery: Entra Enumeration",
+          "summary": "AzureHound and Graph API-based tenant enumeration \u2014 the cloud-native counterpart to Level 2's Windows discovery commands.",
+          "estimatedMinutes": 18,
+          "status": "ready",
+          "tags": [
+            "discovery",
+            "azurehound",
+            "t1087.004"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/14-cloud-discovery-entra-enumeration.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/14-cloud-discovery-entra-enumeration.quiz.json",
+          "objectives": [
+            "Explain what AzureHound enumerates and which legitimate APIs it uses to do so",
+            "Identify the default User-Agent indicator for unmodified AzureHound usage",
+            "Explain why AzureHound doesn't need to run from inside the victim's network",
+            "Map cloud-side discovery to its ATT&CK sub-techniques"
+          ]
+        },
+        {
+          "id": "l6-15-mailbox-message-trace-forensics",
+          "module": "Email Forensics",
+          "title": "Mailbox & Message-Trace Forensics",
+          "summary": "Get-MessageTrace, mailbox audit logging, and offline PST/OST/MBOX artifacts \u2014 finding messages and reconstructing mailbox activity, not just reading one message you already have.",
+          "estimatedMinutes": 22,
+          "status": "ready",
+          "tags": [
+            "message-trace",
+            "mailbox-audit",
+            "pst",
+            "ost"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/15-mailbox-message-trace-forensics.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/15-mailbox-message-trace-forensics.quiz.json",
+          "objectives": [
+            "Distinguish what Get-MessageTrace shows versus what mailbox audit logging shows",
+            "Explain the significance of the MailItemsAccessed operation in a BEC investigation",
+            "Distinguish PST, OST, and MBOX formats and identify libpff as the standard offline parsing tool",
+            "Connect mailbox audit log retention to the same retention trap covered in Level 6's logging lesson"
+          ]
+        },
+        {
+          "id": "l6-16-legacy-authentication-ca-bypass",
+          "module": "Cloud Identity",
+          "title": "Legacy Authentication: The Conditional Access Bypass",
+          "summary": "SMTP AUTH, POP3, and IMAP4 never touch the modern auth stack Conditional Access evaluates \u2014 a live, currently exploitable gap in most existing tenants today.",
+          "estimatedMinutes": 18,
+          "status": "ready",
+          "tags": [
+            "conditional-access",
+            "legacy-auth",
+            "t1078.004"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/16-legacy-authentication-ca-bypass.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/16-legacy-authentication-ca-bypass.quiz.json",
+          "objectives": [
+            "Explain why legacy authentication protocols bypass Conditional Access entirely",
+            "State the current default status of SMTP AUTH Basic Authentication for existing tenants",
+            "Distinguish Security Defaults from custom Conditional Access regarding legacy auth coverage",
+            "Identify where exception lists commonly reopen this gap in mature environments"
+          ]
+        },
+        {
+          "id": "l6-17-sharepoint-onedrive-exfiltration",
+          "module": "Email Forensics",
+          "title": "SharePoint & OneDrive Exfiltration Signals",
+          "summary": "FileDownloaded, FileSyncDownloadedFull, and the CSOM-based evasion that generates FileAccessed instead \u2014 detecting bulk data leaving through the other M365 exfiltration path.",
+          "estimatedMinutes": 20,
+          "status": "ready",
+          "tags": [
+            "sharepoint",
+            "onedrive",
+            "t1530",
+            "exfiltration"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/17-sharepoint-onedrive-exfiltration.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/17-sharepoint-onedrive-exfiltration.quiz.json",
+          "objectives": [
+            "Name the key SharePoint/OneDrive audit operations relevant to exfiltration",
+            "Explain the FileAccessed evasion technique and why it matters for detection coverage",
+            "Identify the mass-download detection threshold and the zip-download User-Agent tell",
+            "Distinguish the download-based and sharing-link-based exfiltration paths"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "07-network-anti-forensics",
+      "number": 7,
+      "title": "Network Forensics & Anti-Forensics",
+      "tagline": "What crossed the wire, and what happens when the attacker tries to make sure you never find out.",
+      "difficulty": "Advanced",
+      "description": "Log- and flow-level network evidence (deliberately scoped short of full packet capture -- that's its own discipline), then the anti-forensic techniques attackers use to cover their tracks, and how much of that cleanup is actually reversible.",
+      "lessons": [
+        {
+          "id": "l7-01-dns-analysis",
+          "module": "Network Forensics",
+          "title": "DNS Analysis",
+          "summary": "Tunneling, domain generation algorithms, and beaconing patterns -- all visible in query logs alone, no packet capture required.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "network",
+            "dns",
+            "beaconing"
+          ]
+        },
+        {
+          "id": "l7-02-proxy-firewall-triage",
+          "module": "Network Forensics",
+          "title": "Proxy & Firewall Log Triage",
+          "summary": "Reading a connection log for what actually matters: user-agent mismatches, beaconing intervals, byte-ratio anomalies, and TLS fingerprinting.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "network",
+            "proxy",
+            "firewall"
+          ]
+        },
+        {
+          "id": "l7-03-netflow-analysis",
+          "module": "Network Forensics",
+          "title": "NetFlow & Flow-Record Analysis",
+          "summary": "Connection metadata at scale -- who talked to whom, how much, for how long -- cheap enough to retain for months where full packet capture rarely is.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "network",
+            "netflow"
+          ]
+        },
+        {
+          "id": "l7-09-c2-framework-fingerprinting",
+          "module": "Network Forensics",
+          "title": "C2 Framework Fingerprinting",
+          "summary": "JA3/JA3S/JA4 TLS fingerprinting, named pipe indicators, and the behavioral tells that survive a Malleable C2 profile \u2014 identifying which C2 framework is behind a beaconing pattern.",
+          "estimatedMinutes": 22,
+          "status": "ready",
+          "tags": [
+            "c2",
+            "cobalt-strike",
+            "ja3",
+            "ja4"
+          ],
+          "contentPath": "content/levels/07-network-anti-forensics/09-c2-framework-fingerprinting.md",
+          "quizPath": "content/levels/07-network-anti-forensics/09-c2-framework-fingerprinting.quiz.json",
+          "objectives": [
+            "Explain what JA3/JA3S/JA4 fingerprint and why Malleable profiles don't defeat them",
+            "Identify Cobalt Strike's default named pipe patterns and the Sysmon events that capture them",
+            "Describe the beacon-rhythm behavioral signature that survives any network disguise",
+            "Explain why fingerprinting should be one signal among several, not relied on alone"
+          ]
+        },
+        {
+          "id": "l7-04-file-carving",
+          "module": "Anti-Forensics & Recovery",
+          "title": "File Carving",
+          "summary": "Recovering files from unallocated space by content signature alone, after the filesystem's own record of them is gone.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "anti-forensics",
+            "file-carving"
+          ]
+        },
+        {
+          "id": "l7-05-alternate-data-streams",
+          "module": "Anti-Forensics & Recovery",
+          "title": "Alternate Data Streams",
+          "summary": "NTFS's own hidden-storage feature, invisible to Explorer and `dir` by default -- a genuine blind spot most casual triage never checks.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "anti-forensics",
+            "ads"
+          ]
+        },
+        {
+          "id": "l7-06-log-artifact-recovery",
+          "module": "Anti-Forensics & Recovery",
+          "title": "Log & Artifact Recovery",
+          "summary": "What survives after an attacker clears the Security event log -- because \"cleared\" and \"unrecoverable\" are not the same thing.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "anti-forensics",
+            "log-recovery"
+          ]
+        },
+        {
+          "id": "l7-07-vss-recovery",
+          "module": "Anti-Forensics & Recovery",
+          "title": "Volume Shadow Copy Recovery",
+          "summary": "Windows' own built-in point-in-time backups, and what they preserve even after files are deleted or a ransomware note appears.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "anti-forensics",
+            "vss"
+          ]
+        },
+        {
+          "id": "l7-08-memory-based-file-recovery",
+          "module": "Anti-Forensics & Recovery",
+          "title": "Memory-Based File Recovery",
+          "summary": "Recovering a file's actual content from RAM when it was deliberately never written to disk at all.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "anti-forensics",
+            "memory-recovery"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08-capstone-playbooks",
+      "number": 8,
+      "title": "Capstone: Playbooks & Case Studies",
+      "tagline": "Everything above, run end to end against a realistic scenario.",
+      "difficulty": "Advanced",
+      "description": "Investigation playbooks by scenario type, two full case studies worked start to finish, and the practice drills that put specific artifacts from earlier levels under real time pressure.",
+      "lessons": [
+        {
+          "id": "l8-01-domain-compromise-case-study",
+          "module": "Case Studies",
+          "title": "Case Study: Domain Compromise, End to End",
+          "summary": "Every technique from Level 4, chained together into one realistic intrusion narrative from initial foothold to Domain Admin.",
+          "estimatedMinutes": 30,
+          "status": "coming-soon",
+          "tags": [
+            "case-study",
+            "domain-compromise"
+          ]
+        },
+        {
+          "id": "l8-02-bec-case-study",
+          "module": "Case Studies",
+          "title": "Case Study: Business Email Compromise, End to End",
+          "summary": "A single compromised mailbox, followed through mailbox rules, OAuth grants, and outbound fraud -- the email and cloud-identity levels applied together.",
+          "estimatedMinutes": 28,
+          "status": "coming-soon",
+          "tags": [
+            "case-study",
+            "bec"
+          ]
+        },
+        {
+          "id": "l8-03-playbook-bec",
+          "module": "Investigation Playbooks",
+          "title": "Playbook: Business Email Compromise",
+          "summary": "Trigger through lessons-learned for a BEC engagement specifically -- what to pull, in what order, and when it's actually contained.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "playbook",
+            "bec"
+          ]
+        },
+        {
+          "id": "l8-04-playbook-domain-compromise",
+          "module": "Investigation Playbooks",
+          "title": "Playbook: Domain Compromise / Lateral Movement",
+          "summary": "The domain-wide version of the same discipline -- scoping how far an attacker actually moved before you can honestly call it contained.",
+          "estimatedMinutes": 22,
+          "status": "coming-soon",
+          "tags": [
+            "playbook",
+            "domain-compromise"
+          ]
+        },
+        {
+          "id": "l8-05-playbook-ransomware",
+          "module": "Investigation Playbooks",
+          "title": "Playbook: Ransomware",
+          "summary": "The playbook that has to run under the most time pressure of any in this academy, with recovery decisions that can't wait for a complete investigation first.",
+          "estimatedMinutes": 24,
+          "status": "coming-soon",
+          "tags": [
+            "playbook",
+            "ransomware"
+          ]
+        },
+        {
+          "id": "l8-06-playbook-insider-threat",
+          "module": "Investigation Playbooks",
+          "title": "Playbook: Insider Threat",
+          "summary": "A fundamentally different investigative posture -- the subject already had legitimate access, so \"how did they get in\" isn't the question.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "playbook",
+            "insider-threat"
+          ]
+        },
+        {
+          "id": "l8-07-playbook-data-exfiltration",
+          "module": "Investigation Playbooks",
+          "title": "Playbook: Data Exfiltration",
+          "summary": "Proving what actually left, not just what could have -- and why that distinction matters enormously for breach-notification scope.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "playbook",
+            "exfiltration"
+          ]
+        },
+        {
+          "id": "l8-08-playbook-phishing",
+          "module": "Investigation Playbooks",
+          "title": "Playbook: Phishing (Initial Access)",
+          "summary": "The playbook for the most common initial-access vector of all -- and when a single phishing email needs to become an organization-wide search.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "playbook",
+            "phishing"
+          ]
+        },
+        {
+          "id": "l8-09-playbook-web-shell",
+          "module": "Investigation Playbooks",
+          "title": "Playbook: Web Shell / Server Compromise",
+          "summary": "A different attack surface entirely -- internet-facing servers, and the specific evidence a web shell leaves that a workstation compromise doesn't.",
+          "estimatedMinutes": 20,
+          "status": "coming-soon",
+          "tags": [
+            "playbook",
+            "web-shell"
+          ]
+        },
+        {
+          "id": "l8-10-drill-prefetch",
+          "module": "Practice Drills",
+          "title": "Drill: Prefetch Triage",
+          "summary": "A timed, hands-on exercise applying Level 2's Prefetch lesson to a realistic triage scenario.",
+          "estimatedMinutes": 15,
+          "status": "coming-soon",
+          "tags": [
+            "drill",
+            "prefetch"
+          ]
+        },
+        {
+          "id": "l8-11-drill-process-tree",
+          "module": "Practice Drills",
+          "title": "Drill: Process Tree Triage",
+          "summary": "Spot the abnormal parent-child chain against the baseline from Level 2.",
+          "estimatedMinutes": 15,
+          "status": "coming-soon",
+          "tags": [
+            "drill",
+            "process-trees"
+          ]
+        },
+        {
+          "id": "l8-12-drill-registry-persistence",
+          "module": "Practice Drills",
+          "title": "Drill: Registry Persistence Triage",
+          "summary": "Find the planted persistence mechanism among a realistic registry export.",
+          "estimatedMinutes": 15,
+          "status": "coming-soon",
+          "tags": [
+            "drill",
+            "persistence"
+          ]
+        },
+        {
+          "id": "l8-13-drill-powershell-decode",
+          "module": "Practice Drills",
+          "title": "Drill: PowerShell Decode",
+          "summary": "Decode an obfuscated command chain using exactly the technique from Level 3.",
+          "estimatedMinutes": 15,
+          "status": "coming-soon",
+          "tags": [
+            "drill",
+            "powershell"
+          ]
+        },
+        {
+          "id": "l8-14-drill-event-log-story",
+          "module": "Practice Drills",
+          "title": "Drill: Event Log Story",
+          "summary": "Reconstruct what happened on a host from Event IDs alone.",
+          "estimatedMinutes": 15,
+          "status": "coming-soon",
+          "tags": [
+            "drill",
+            "event-logs"
+          ]
+        },
+        {
+          "id": "l8-15-drill-timeline-correlation",
+          "module": "Practice Drills",
+          "title": "Drill: Timeline Correlation",
+          "summary": "Correlate multiple sources with mismatched clocks into one coherent timeline.",
+          "estimatedMinutes": 18,
+          "status": "coming-soon",
+          "tags": [
+            "drill",
+            "timeline"
+          ]
+        },
+        {
+          "id": "l8-16-certification-roadmap",
+          "module": "Capstone",
+          "title": "Certification Roadmap",
+          "summary": "Mapping this academy's levels onto real GIAC certifications \u2014 GCFE, GCFA, GCIH, GNFA \u2014 and a realistic order to pursue them in.",
+          "estimatedMinutes": 14,
+          "status": "ready",
+          "tags": [
+            "certification",
+            "giac",
+            "capstone"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/16-certification-roadmap.md",
+          "quizPath": "content/levels/08-capstone-playbooks/16-certification-roadmap.quiz.json",
+          "objectives": [
+            "Map GCFE, GCFA, and GCIH onto the specific academy levels each one corresponds to",
+            "Explain why GCFE is typically pursued before GCFA",
+            "Identify which academy content maps to GNFA and GCTI specifically",
+            "Determine a realistic certification sequence based on personal role and interest, not a fixed checklist"
+          ]
+        },
+        {
+          "id": "l8-17-practice-labs-next-steps",
+          "module": "Capstone",
+          "title": "Practice Labs and Next Steps",
+          "summary": "Real, free places to get hands-on with actual forensic evidence, and a concrete plan for what to do after finishing this academy.",
+          "estimatedMinutes": 16,
+          "status": "ready",
+          "tags": [
+            "practice",
+            "next-steps",
+            "capstone"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/17-practice-labs-next-steps.md",
+          "quizPath": "content/levels/08-capstone-playbooks/17-practice-labs-next-steps.quiz.json",
+          "objectives": [
+            "Name at least three legitimate, free sources of real forensic evidence for practice",
+            "Explain why NIST CFReDS's known-answer format matters for self-directed learning",
+            "Describe the minimum lab setup needed to practice this academy's tooling",
+            "Identify a concrete next step appropriate to personal role and goals"
+          ]
+        }
+      ]
+    }
+  ],
+  "reference": [
+    {
+      "id": "glossary",
+      "title": "Glossary",
+      "description": "Every term used across all eight levels, defined in one place.",
+      "icon": "book",
+      "kind": "glossary",
+      "contentPath": "content/glossary.json"
+    },
+    {
+      "id": "macb-calculator",
+      "title": "SI/FN Calculator",
+      "description": "Pick a file operation, see exactly which of the eight NTFS timestamps update.",
+      "icon": "calculator",
+      "kind": "markdown",
+      "contentPath": "content/reference/si-fn-calculator.md"
+    },
+    {
+      "id": "tools",
+      "title": "Tool Directory",
+      "description": "Every tool referenced in this academy \u2014 what it's for, and where to get it.",
+      "icon": "wrench",
+      "kind": "tools",
+      "contentPath": "content/tools.json"
+    },
+    {
+      "id": "cheat-sheets",
+      "title": "Windows IR Quick Reference",
+      "description": "The condensed field-reference poster: Event IDs, MACB rules, and the hybrid runbook on one page.",
+      "icon": "file-text",
+      "kind": "markdown",
+      "contentPath": "content/reference/cheat-sheets.md"
+    },
+    {
+      "id": "sources",
+      "title": "Sources & Attribution",
+      "description": "Every primary source this academy draws from \u2014 SANS, Microsoft, MSTIC, and 13cubed.",
+      "icon": "link",
+      "kind": "markdown",
+      "contentPath": "content/reference/sources.md"
+    },
+    {
+      "id": "ad-attack-chain-diagram",
+      "title": "AD Attack Chain Diagram",
+      "description": "The seven-stage diagram from Level 4's capstone lesson, for quick reference.",
+      "icon": "git-branch",
+      "kind": "markdown",
+      "contentPath": "content/reference/ad-attack-chain-diagram.md"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "incident-responder-fast-track",
+      "title": "Incident Responder Fast Track",
+      "description": "Skip straight to the containment-critical material \u2014 the hybrid runbook, endpoint execution evidence, and the playbooks \u2014 without the full novice-to-advanced sequence. Best if you already have IT/security fundamentals.",
+      "icon": "target",
+      "estimatedHours": 4.2,
+      "lessonIds": [
+        "l1-01-ir-lifecycle",
+        "l1-02-order-of-volatility",
+        "l2-01-prefetch",
+        "l2-02-mft-timestomping",
+        "l6-01-hybrid-runbook",
+        "l8-03-playbook-bec",
+        "l8-04-playbook-domain-compromise",
+        "l8-05-playbook-ransomware"
+      ]
+    },
+    {
+      "id": "cloud-identity-track",
+      "title": "Cloud & Hybrid Identity Track",
+      "description": "Everything Entra ID, hybrid sync, and email \u2014 for responders whose incidents are overwhelmingly M365/Entra-based rather than on-prem endpoint compromises.",
+      "icon": "cloud",
+      "estimatedHours": 3.6,
+      "lessonIds": [
+        "l6-01-hybrid-runbook",
+        "l6-02-sign-in-vs-audit-logs",
+        "l6-03-conditional-access-investigation",
+        "l6-04-identity-protection-risk",
+        "l6-05-hybrid-sync-mechanics",
+        "l6-06-entra-connect-as-target",
+        "l6-07-email-headers-authentication",
+        "l6-08-message-source-attachments",
+        "l3-14-oauth-consent-grants",
+        "l3-16-mailbox-forwarding-rules"
+      ]
+    },
+    {
+      "id": "domain-compromise-track",
+      "title": "Domain Compromise Track",
+      "description": "Active Directory attack techniques end to end \u2014 credential theft, ticket forgery, and the escalation paths that turn one low-privilege account into Domain Admin.",
+      "icon": "server",
+      "estimatedHours": 3.8,
+      "lessonIds": [
+        "l4-01-ntds-dit",
+        "l4-04-krbtgt-double-reset",
+        "l4-05-dcsync-detection",
+        "l4-06-golden-silver-ticket",
+        "l4-08-kerberoasting",
+        "l4-09-adcs-abuse",
+        "l4-10-acl-delegation-abuse",
+        "l8-01-domain-compromise-case-study"
+      ]
+    }
+  ]
+}

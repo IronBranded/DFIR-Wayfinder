@@ -1,0 +1,57 @@
+{
+  "lessonId": "l4-11-pass-the-hash-pass-the-ticket",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why does Pass the Hash work without the attacker ever knowing the user's actual password?",
+      "options": [
+        "NTLM authentication proves knowledge of the password hash, not the cleartext password itself \u2014 possessing the hash is sufficient",
+        "Pass the Hash actually requires cracking the password first",
+        "It only works on accounts with no password set",
+        "Windows automatically resets passwords to a known default during the attack"
+      ],
+      "correctIndex": 0,
+      "explanation": "NTLM challenge-response authentication is built around proving knowledge of the hash, not the cleartext password \u2014 which is exactly what makes a stolen hash directly usable."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What does \"overpass-the-hash\" specifically describe?",
+      "options": [
+        "Using a hash so many times it becomes invalid",
+        "Using a captured NTLM hash to request a legitimate Kerberos ticket, then using Pass-the-Ticket with that ticket",
+        "A brute-force attack against NTLM hashes",
+        "Passing a hash between two different domains simultaneously"
+      ],
+      "correctIndex": 1,
+      "explanation": "Overpass-the-hash is the bridge technique: converting a stolen NTLM hash into a Kerberos ticket, then reusing that ticket via Pass-the-Ticket."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why do strong password complexity and rotation policies fail to prevent either Pass-the-Hash or Pass-the-Ticket?",
+      "options": [
+        "These policies are actually effective against both techniques",
+        "Neither technique requires cracking or knowing the actual password at all \u2014 the hash or ticket is used directly",
+        "Both techniques only target accounts with weak passwords",
+        "Password policies only apply to local accounts, not domain accounts"
+      ],
+      "correctIndex": 1,
+      "explanation": "Both techniques reuse stolen authentication material directly \u2014 password strength is irrelevant since the password itself is never needed."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What log correlation is described as the strongest signal for detecting either technique?",
+      "options": [
+        "A single 4624 logon event alone, viewed in isolation",
+        "LSASS access immediately preceding an NTLM or Kerberos authentication event",
+        "Any successful logon during business hours",
+        "Password reset events occurring on a regular schedule"
+      ],
+      "correctIndex": 1,
+      "explanation": "LSASS access right before the authentication event is the strongest corroborating signal \u2014 it's how the hash or ticket was likely obtained in the first place."
+    }
+  ]
+}

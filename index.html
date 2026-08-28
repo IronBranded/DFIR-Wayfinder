@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DFIR Analysis Academy — Enterprise Digital Forensics & Incident Response, Novice to Advanced</title>
+<meta name="description" content="A free, modular, self-paced curriculum for enterprise DFIR — Windows endpoints, memory, Active Directory, email, network, and hybrid/cloud identity. Built from SANS course material and posters, Microsoft internals/Cloud/MSTIC documentation, and 13cubed.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+<a class="skip-link" href="#app-main">Skip to content</a>
+
+<header id="app-header">
+  <button id="sidebar-toggle" class="icon-btn" type="button" aria-label="Toggle navigation">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+
+  <a href="#/" class="brand">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/><path d="M9 12h6M12 9v6"/></svg>
+    </span>
+    <span>DFIR Analysis Academy<small>ENTERPRISE · NOVICE → ADVANCED</small></span>
+  </a>
+
+  <div class="header-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="global-search" placeholder="Search lessons, tools, terms..." autocomplete="off"
+      aria-label="Search lessons, tools, and terms" aria-expanded="false" aria-controls="search-results">
+    <div id="search-results" role="region" aria-label="Search results" aria-live="polite"></div>
+  </div>
+
+  <div class="header-progress">
+    <div class="header-progress-label" data-header-progress-label><strong>0%</strong>0/0 lessons</div>
+    <div class="header-progress-ring" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 34 34">
+        <circle class="track" cx="17" cy="17" r="15" fill="none" stroke-width="3"/>
+        <circle class="fill" cx="17" cy="17" r="15" fill="none" stroke-width="3" stroke-linecap="round" stroke-dasharray="94" stroke-dashoffset="94"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<nav id="app-sidebar" aria-label="Curriculum navigation"></nav>
+
+<main id="app-main">
+  <div class="main-inner"><p class="text-tertiary mono">Loading curriculum…</p></div>
+</main>
+
+<div class="site-footer" style="margin-left:var(--sidebar-width); padding-left:var(--sp-5); padding-right:var(--sp-5)">
+  <span>DFIR Analysis Academy — an open, community-editable curriculum. Not affiliated with SANS, Microsoft, or 13cubed. Not written for criminal-prosecution workflows.</span>
+  <span>
+    <a href="https://github.com/IronBranded/DFIR-Analysis-Academy" target="_blank" rel="noopener noreferrer">View on GitHub</a> ·
+    <a href="#/reference/sources">Sources &amp; attribution</a>
+  </span>
+</div>
+
+<script>
+/* Footer should collapse its offset in step with the sidebar on small screens. */
+(function () {
+  var mq = window.matchMedia("(max-width: 960px)");
+  function applyFooterOffset() {
+    var footer = document.querySelector(".site-footer");
+    if (footer) footer.style.marginLeft = mq.matches ? "0" : "var(--sidebar-width)";
+  }
+  mq.addEventListener("change", applyFooterOffset);
+  applyFooterOffset();
+})();
+</script>
+
+<script src="assets/js/markdown.js"></script>
+<script src="assets/js/progress.js"></script>
+<script src="assets/js/quiz.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/macb-calculator.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

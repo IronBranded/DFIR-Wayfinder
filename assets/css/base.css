@@ -1,0 +1,172 @@
+/* ==========================================================================
+   BASE
+   Reset, typography, and the persistent app shell layout (header + sidebar
+   + main). Component-level styling (cards, badges, quiz UI, etc.) lives in
+   components.css so the two can change independently.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+
+html {
+  background: var(--void);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(255, 45, 61, 0.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 10%, rgba(79, 163, 255, 0.05), transparent 55%),
+    var(--void);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--sp-3);
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 var(--sp-4); color: var(--text-secondary); }
+p:last-child { margin-bottom: 0; }
+
+ul, ol { margin: 0 0 var(--sp-4); padding-left: 1.3em; color: var(--text-secondary); }
+li { margin-bottom: var(--sp-2); }
+li:last-child { margin-bottom: 0; }
+
+code, kbd, pre, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--hairline);
+  margin: var(--sp-6) 0;
+}
+
+button { font-family: inherit; }
+
+::selection { background: var(--signal-teal-dim); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid var(--signal-teal);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Scrollbar (webkit) — kept subtle, matches the dark chrome */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--hairline-strong); border-radius: 8px; border: 2px solid var(--void); }
+::-webkit-scrollbar-thumb:hover { background: #47474f; }
+
+/* ---- App shell ----------------------------------------------------------
+   #app-header    fixed top bar
+   #app-sidebar   fixed left rail (nav tree)
+   #app-main      scrollable content area, offset to clear header+sidebar
+--------------------------------------------------------------------------- */
+
+#app-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: 0 var(--sp-5);
+  background: rgba(8, 8, 10, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hairline);
+  z-index: 100;
+}
+
+#app-sidebar {
+  position: fixed;
+  top: var(--header-height);
+  bottom: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  overflow-y: auto;
+  padding: var(--sp-5) var(--sp-3) var(--sp-9);
+  border-right: 1px solid var(--hairline);
+  background: var(--void);
+  z-index: 90;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+#app-main {
+  margin-left: var(--sidebar-width);
+  padding-top: var(--header-height);
+  min-height: 100%;
+}
+
+.main-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--sp-7) var(--sp-5) var(--sp-9);
+}
+
+.main-inner--wide {
+  max-width: 1180px;
+}
+
+#sidebar-toggle { display: none; }
+
+@media (max-width: 960px) {
+  #app-sidebar {
+    transform: translateX(-100%);
+    box-shadow: 24px 0 48px rgba(0,0,0,0.5);
+  }
+  body.nav-open #app-sidebar { transform: translateX(0); }
+  #app-main { margin-left: 0; }
+  #sidebar-toggle { display: inline-flex; }
+  .main-inner { padding: var(--sp-6) var(--sp-4) var(--sp-8); }
+}
+
+body.nav-open::after {
+  content: "";
+  position: fixed;
+  inset: var(--header-height) 0 0 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 80;
+}
+
+/* Utility classes ---------------------------------------------------------*/
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.skip-link:focus {
+  position: fixed; top: var(--sp-3); left: var(--sp-3); z-index: 200;
+  width: auto; height: auto; padding: var(--sp-3) var(--sp-5); margin: 0;
+  overflow: visible; clip: auto; white-space: normal;
+  background: var(--surface-raised); color: var(--text-primary);
+  border: 2px solid var(--signal-teal); border-radius: var(--radius-md);
+  font-family: var(--font-body); font-weight: 600; font-size: var(--fs-sm);
+  box-shadow: var(--shadow-glow-primary);
+}
+.mono { font-family: var(--font-mono); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }

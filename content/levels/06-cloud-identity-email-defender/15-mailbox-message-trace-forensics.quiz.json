@@ -1,0 +1,57 @@
+{
+  "lessonId": "l6-15-mailbox-message-trace-forensics",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What's the key difference between what Get-MessageTrace tells you and what mailbox audit logging tells you?",
+      "options": [
+        "They provide identical information",
+        "Get-MessageTrace shows whether a message arrived and its transport path; mailbox audit logging shows what happened to it inside the mailbox afterward",
+        "Get-MessageTrace only works for outbound mail, audit logging only for inbound",
+        "Mailbox audit logging replaced Get-MessageTrace entirely and it no longer works"
+      ],
+      "correctIndex": 1,
+      "explanation": "Message Trace confirms delivery and transport-path events; mailbox audit logging (via Search-UnifiedAuditLog) captures what happened after arrival \u2014 read, moved, forwarded, deleted."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why is the MailItemsAccessed operation specifically significant in a BEC investigation?",
+      "options": [
+        "It only logs when a user deletes an email",
+        "It fires when mailbox content is actually read, including via sync protocols like ActiveSync/EWS, not just Outlook \u2014 often the most direct evidence mail was genuinely accessed",
+        "It's only relevant for shared mailboxes, never individual accounts",
+        "It replaced Get-MessageTrace as of 2024"
+      ],
+      "correctIndex": 1,
+      "explanation": "MailItemsAccessed captures actual content access across multiple client/protocol types \u2014 direct evidence of reading, not just that the account existed and could have been used."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What's the relationship between PST and OST files?",
+      "options": [
+        "They are identical formats with different file extensions",
+        "PST is Outlook's portable export archive format; OST is the local cached copy for an Exchange/M365 account \u2014 structurally related but not directly interchangeable",
+        "OST is only used by Gmail, never Outlook",
+        "PST files can only be created after converting from MBOX"
+      ],
+      "correctIndex": 1,
+      "explanation": "The lesson is explicit that PST and OST are related PFF-format files but not directly interchangeable \u2014 libpff handles both, but they serve different purposes (portable export vs. local cache)."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why does this lesson connect back to the retention trap covered in the Sign-In vs Audit Logs lesson?",
+      "options": [
+        "They're unrelated topics that happen to be cross-referenced by mistake",
+        "Mailbox audit logging retention is governed by the same licensing-tier-dependent native retention window, meaning a late-starting BEC investigation can already be outside it",
+        "Sign-in logs and mailbox audit logs are stored in the exact same database table",
+        "The retention trap only applies to on-premises Exchange, not mailbox audit logging"
+      ],
+      "correctIndex": 1,
+      "explanation": "Native Unified Audit Log retention depends on licensing tier just like sign-in/audit log retention \u2014 an investigation starting weeks late can find itself outside that window if nothing was exported further back in advance."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "lessonId": "l6-14-cloud-discovery-entra-enumeration",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What APIs does AzureHound use to enumerate an Entra ID/Azure environment?",
+      "options": [
+        "It exploits a vulnerability in the Entra ID login page",
+        "The same Microsoft Graph API and Azure REST API that legitimate administration and reporting tools use every day",
+        "It requires physical access to a domain controller",
+        "It only works against on-premises Active Directory, not cloud"
+      ],
+      "correctIndex": 1,
+      "explanation": "AzureHound is built entirely on legitimate Graph and Azure REST API calls \u2014 nothing about it requires exploiting anything, which is exactly what makes it hard to distinguish from routine administration."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What is described as one of the highest-confidence single detection indicators for unmodified AzureHound usage?",
+      "options": [
+        "The specific time of day it runs",
+        "Its distinctive default User-Agent string, \"azurehound/<version>\", unless an operator deliberately changes it",
+        "The number of licenses assigned to the tenant",
+        "Whether MFA is enabled"
+      ],
+      "correctIndex": 1,
+      "explanation": "The default azurehound/<version> User-Agent string is a high-confidence indicator specifically because most operators don't bother changing it."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why doesn't AzureHound need to run from inside the victim's network?",
+      "options": [
+        "It doesn't actually work remotely",
+        "Both Microsoft Graph and Azure REST APIs are reachable externally with a valid token",
+        "It requires installation on a domain-joined device",
+        "It only works through a VPN connection to the tenant"
+      ],
+      "correctIndex": 1,
+      "explanation": "Since Graph and Azure REST APIs are externally reachable given a valid token, a stolen or forged token used from anywhere outside the victim's network still produces the same enumeration signature."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What real-world attribution does this lesson cite for AzureHound/BloodHound-suite misuse?",
+      "options": [
+        "It has only ever been used in authorized penetration tests",
+        "Microsoft has publicly attributed usage to the Russia-affiliated actor tracked as Void Blizzard",
+        "It has never been observed in a real intrusion",
+        "It's exclusively used by financially motivated ransomware groups"
+      ],
+      "correctIndex": 1,
+      "explanation": "Microsoft's own threat intelligence has documented this tooling's use by Void Blizzard \u2014 confirming this is a real, observed nation-state technique, not a hypothetical red-team-only concern."
+    }
+  ]
+}

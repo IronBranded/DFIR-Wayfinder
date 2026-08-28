@@ -1,0 +1,110 @@
+[
+  {
+    "term": "MACB Timestamps",
+    "definition": "The four NTFS timestamps \u2014 Modified, Accessed, Changed, Born \u2014 stored twice per file, once in $STANDARD_INFORMATION and once in $FILE_NAME, on different update rules."
+  },
+  {
+    "term": "$STANDARD_INFORMATION (SI)",
+    "definition": "The NTFS attribute (type 0x10) holding the MACB timestamps most tools display by default \u2014 easy for a user-mode tool to modify, which is why it's the usual timestomping target."
+  },
+  {
+    "term": "$FILE_NAME (FN)",
+    "definition": "The NTFS attribute (type 0x10) holding a second, independent MACB timestamp set, updated far more restrictively by the OS \u2014 the harder-to-reach control group for detecting timestomping."
+  },
+  {
+    "term": "Timestomping",
+    "definition": "Deliberately altering a file's timestamps to hide its true creation or modification time, usually to blend malicious activity into a legitimate-looking timeline."
+  },
+  {
+    "term": "Order of Volatility",
+    "definition": "The principle that evidence should be collected starting with what disappears fastest \u2014 CPU registers and RAM before disk, disk before backups."
+  },
+  {
+    "term": "Chain of Custody",
+    "definition": "Documentation proving who handled a piece of evidence, when, and what they did to it \u2014 in enterprise IR, scoped to what's actually needed for internal and regulatory accountability, not criminal-prosecution admissibility."
+  },
+  {
+    "term": "IOC (Indicator of Compromise)",
+    "definition": "A forensic artifact \u2014 a hash, IP, domain, file path, or registry key \u2014 indicating a system may be compromised by a specific threat."
+  },
+  {
+    "term": "TTP (Tactics, Techniques, and Procedures)",
+    "definition": "Attacker behavior described at three levels of specificity: the high-level goal, the general method, and the exact implementation."
+  },
+  {
+    "term": "MITRE ATT&CK",
+    "definition": "A vendor-neutral, publicly maintained framework cataloging attacker tactics and techniques \u2014 the shared vocabulary this academy's artifact pages map back to."
+  },
+  {
+    "term": "Pyramid of Pain",
+    "definition": "A model ranking indicator types by how costly they are for an attacker to change \u2014 hashes are cheap to burn, TTPs are expensive, which is where detection investment pays off most."
+  },
+  {
+    "term": "Diamond Model",
+    "definition": "An intrusion-analysis model built around four vertices \u2014 adversary, capability, infrastructure, victim \u2014 used to pivot between related indicators during an investigation."
+  },
+  {
+    "term": "Refresh Token",
+    "definition": "A long-lived credential issued at sign-in that silently renews short-lived access tokens in the background \u2014 not invalidated by a later password change unless explicitly revoked."
+  },
+  {
+    "term": "Revoke-MgUserSignInSession",
+    "definition": "The Microsoft Graph PowerShell cmdlet that forcibly invalidates a user's refresh tokens, ending active sessions across every device and application at once."
+  },
+  {
+    "term": "Password Hash Sync (PHS)",
+    "definition": "A hybrid identity sync method where a hash of the on-premises AD password hash is synced to Entra ID, which then authenticates independently using that synced hash."
+  },
+  {
+    "term": "Pass-Through Authentication (PTA)",
+    "definition": "A hybrid identity method where Entra ID validates each sign-in against on-premises AD directly via an agent, rather than syncing a password hash."
+  },
+  {
+    "term": "Federation (AD FS)",
+    "definition": "A hybrid identity method where authentication is delegated entirely to an on-premises federation server; Entra ID never sees or stores password material."
+  },
+  {
+    "term": "DCSync",
+    "definition": "A technique abusing legitimate AD replication permissions to request password hashes for any account, including krbtgt, without direct access to a real domain controller's files."
+  },
+  {
+    "term": "Golden Ticket",
+    "definition": "A forged Kerberos TGT built from a stolen krbtgt hash, granting domain-wide access that bypasses normal authentication until krbtgt is properly reset."
+  },
+  {
+    "term": "Kerberoasting",
+    "definition": "Requesting a service ticket for any account with a registered SPN, then attempting to crack the ticket offline \u2014 requires no elevated privilege to begin."
+  },
+  {
+    "term": "USN Journal",
+    "definition": "NTFS's append-only change journal, recording file-system events independently of the $MFT \u2014 a corroborating source that survives even when the $MFT record it describes has been altered."
+  },
+  {
+    "term": "Prefetch",
+    "definition": "A Windows performance feature that incidentally leaves forensic evidence of program execution, including run count and files/DLLs touched on first launch."
+  },
+  {
+    "term": "Shimcache (AppCompatCache)",
+    "definition": "A registry-backed cache of file metadata used for application-compatibility checks \u2014 evidence of file presence, not reliably evidence of execution."
+  },
+  {
+    "term": "LSASS",
+    "definition": "The Windows process that holds credential material in memory for active sessions \u2014 a primary credential-theft target and a key artifact in memory forensics."
+  },
+  {
+    "term": "SPF (Sender Policy Framework)",
+    "definition": "A DNS-published list of servers authorized to send mail for a domain, checked against the message's envelope sender \u2014 not the visible From header."
+  },
+  {
+    "term": "DKIM",
+    "definition": "A cryptographic signature proving a message's signed content wasn't altered in transit \u2014 says nothing on its own about who the envelope sender was."
+  },
+  {
+    "term": "DMARC",
+    "definition": "A policy requiring SPF or DKIM to align with the visible From domain, and telling receivers what to do when they don't \u2014 explicitly does not cover display-name spoofing."
+  },
+  {
+    "term": "NetFlow",
+    "definition": "Router/switch-generated connection metadata \u2014 who talked to whom, how much, for how long \u2014 without packet content, cheap enough to retain far longer than full packet capture."
+  }
+]

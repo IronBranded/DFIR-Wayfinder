@@ -1,0 +1,57 @@
+{
+  "lessonId": "l6-16-legacy-authentication-ca-bypass",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why do legacy protocols like SMTP AUTH, POP3, and IMAP4 bypass Conditional Access entirely?",
+      "options": [
+        "Conditional Access explicitly allowlists these protocols",
+        "Conditional Access is enforced after first-factor authentication completes through the modern auth stack, which legacy protocols never enter",
+        "These protocols are encrypted and therefore invisible to Conditional Access",
+        "Microsoft has never supported blocking these protocols"
+      ],
+      "correctIndex": 1,
+      "explanation": "Legacy protocols authenticate with raw username/password outside the modern auth stack entirely \u2014 there's nothing for Conditional Access to intercept or evaluate."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "As described in this lesson, what is the current state of SMTP AUTH Basic Authentication for most existing Exchange Online tenants?",
+      "options": [
+        "It was fully removed for all tenants back in 2022",
+        "It remains enabled by default for most existing tenants until it's disabled by default at the end of 2026 (though admins can still re-enable it)",
+        "It has never been available in Exchange Online at all",
+        "It is only available to tenants created before 2020"
+      ],
+      "correctIndex": 1,
+      "explanation": "SMTP AUTH was the long-standing exception to the 2022 Basic Auth disablement \u2014 it remains a live, currently exploitable gap in most existing tenants until the default changes."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What's the key difference between Security Defaults and custom Conditional Access regarding legacy authentication?",
+      "options": [
+        "They provide identical protection with no meaningful difference",
+        "Security Defaults blocks legacy auth automatically for most scenarios; custom Conditional Access requires an explicit policy, and organizations often carve out exceptions",
+        "Custom Conditional Access always blocks legacy auth automatically with no configuration needed",
+        "Security Defaults cannot be used alongside Exchange Online at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "Security Defaults is largely automatic; custom Conditional Access needs an explicit block policy, and real-world exceptions for printers/legacy apps are exactly where this gap tends to persist."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why does the lesson connect this topic to the hybrid account-compromise runbook?",
+      "options": [
+        "They are entirely unrelated topics grouped together by mistake",
+        "A password reset alone doesn't help if the compromised credential can still authenticate via a protocol Conditional Access never evaluates",
+        "The hybrid runbook only applies to accounts using legacy authentication",
+        "Legacy authentication automatically triggers the hybrid runbook's double password reset"
+      ],
+      "correctIndex": 1,
+      "explanation": "If legacy auth remains available and bypasses Conditional Access, a reset password can still be used to authenticate through that path \u2014 directly relevant to fully closing off a compromised account."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "lessonId": "l8-17-practice-labs-next-steps",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What specifically makes NIST CFReDS different from a typical downloadable disk image for practice?",
+      "options": [
+        "It's the only source that's actually free",
+        "It includes known, documented correct answers to check your own analysis against",
+        "It only contains memory images, no disk images",
+        "It requires a paid SANS course to access"
+      ],
+      "correctIndex": 1,
+      "explanation": "CFReDS's defining feature is documented known answers \u2014 letting you verify your own analysis is actually correct, not just plausible-looking."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "According to this lesson, does this academy currently ship its own bundled sample evidence files?",
+      "options": [
+        "Yes, every drill includes a sample file",
+        "No \u2014 this is stated as a real, acknowledged current gap, not hidden from the reader",
+        "Only Level 2 includes sample files",
+        "Yes, but only for memory forensics"
+      ],
+      "correctIndex": 1,
+      "explanation": "The lesson states this directly: no bundled sample evidence exists yet, and the external resources listed are how to close that gap yourself."
+    },
+    {
+      "id": "q3",
+      "type": "multi",
+      "prompt": "Which of these are named as legitimate, free places to get real practice evidence? (Select all that apply.)",
+      "options": [
+        "Digital Corpora",
+        "CyberDefenders",
+        "A random torrent tracker",
+        "NIST CFReDS"
+      ],
+      "correctIndices": [0, 1, 3],
+      "explanation": "Digital Corpora, CyberDefenders, and NIST CFReDS are all named as legitimate, purpose-built resources. Nothing in this lesson points toward informal or unverified sources."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "The suggested first hands-on exercise involves finding a file where SI and FN creation timestamps disagree. What's the point of also explaining *why* they disagree, rather than just finding one?",
+      "options": [
+        "There's no real reason \u2014 finding the mismatch alone is sufficient",
+        "It exercises the same baseline-vs-red-flag reasoning (copy, cross-volume move, or genuine tampering) the MACB lesson built, not just pattern-matching",
+        "SI/FN mismatches are always evidence of tampering, so explanation is redundant",
+        "The exercise is purely about learning MFTECmd's command-line syntax"
+      ],
+      "correctIndex": 1,
+      "explanation": "A mismatch alone isn't a finding \u2014 explaining whether it's a benign copy/move or a genuine anomaly is exactly the reasoning this academy's MACB content and SI/FN Calculator were built to support."
+    }
+  ]
+}

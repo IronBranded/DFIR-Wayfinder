@@ -1,0 +1,57 @@
+{
+  "lessonId": "l6-17-sharepoint-onedrive-exfiltration",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What evasion technique can cause bulk file retrieval to generate a FileAccessed event instead of FileDownloaded?",
+      "options": [
+        "Downloading files at night when logs aren't reviewed",
+        "Fetching files via SharePoint's client object model (CSOM) rather than a normal browser download",
+        "Using a VPN to hide the source IP address",
+        "Renaming files before downloading them"
+      ],
+      "correctIndex": 1,
+      "explanation": "CSOM-based retrieval can generate FileAccessed rather than FileDownloaded, meaning detection rules watching only FileDownloaded can miss this entirely."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What does the distinct User-Agent \"OneDriveMpc-Transform_Zip/1.0\" tell an investigator?",
+      "options": [
+        "The download came from a malicious third-party tool",
+        "A folder was downloaded as a zip file, rather than an individual file via standard browser download \u2014 informative for scoping how much data left",
+        "The file was encrypted before leaving",
+        "The download was blocked by Conditional Access"
+      ],
+      "correctIndex": 1,
+      "explanation": "This specific User-Agent string distinguishes a folder/zip download from a standard file download, which matters for accurately scoping the volume of data that actually left."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What threshold does the lesson cite as one well-known pattern for flagging mass SharePoint downloads?",
+      "options": [
+        "Any download at all outside business hours",
+        "More than roughly 50 files downloaded by one user within a single hour",
+        "Exactly 10 files per day per user",
+        "Any file larger than 1 GB"
+      ],
+      "correctIndex": 1,
+      "explanation": "More than ~50 files in one hour by a single user is well outside normal interactive browsing behavior and is a commonly used detection threshold."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Besides direct downloads, what separate exfiltration path does this lesson describe?",
+      "options": [
+        "Printing documents to a local printer",
+        "External sharing \u2014 creating an anonymous or targeted sharing link, which lets data leave without any download event at all",
+        "Copy-pasting text manually",
+        "Taking screenshots of documents"
+      ],
+      "correctIndex": 1,
+      "explanation": "AnonymousLinkCreated and SharingSet represent a distinct exfiltration path via external sharing links \u2014 data can leave without a download event being generated at all."
+    }
+  ]
+}

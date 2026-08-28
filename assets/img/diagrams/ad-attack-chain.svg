@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1180" font-family="IBM Plex Sans, sans-serif" role="img" aria-labelledby="title desc">
+<title id="title">Active Directory attack chain, foothold to domain compromise</title>
+<desc id="desc">Seven stages: initial foothold, local privilege escalation, discovery, credential theft, lateral movement, delegation abuse, domain compromise. Each stage lists the specific techniques covered in this academy.</desc>
+
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#2dd4bf"/>
+  </marker>
+</defs>
+
+<rect width="720" height="1180" fill="#0a0d0d"/>
+
+<!-- connecting spine -->
+<line x1="360" y1="118" x2="360" y2="1040" stroke="#223030" stroke-width="2"/>
+
+<!-- Stage boxes: x=60 width=600, each 130 tall with 40 gap, arrows between -->
+
+<!-- 1 Initial Foothold -->
+<rect x="60" y="20" width="600" height="90" rx="10" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="90" y="50" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">01 · NOT AD-SPECIFIC</text>
+<text x="90" y="75" fill="#f0f4f3" font-size="19" font-weight="600">Initial Foothold</text>
+<text x="90" y="97" fill="#a3b3b1" font-size="13">Phishing, spearphishing link/attachment · see Email Forensics &amp; Playbooks</text>
+
+<line x1="360" y1="110" x2="360" y2="150" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- 2 Local Privilege Escalation -->
+<rect x="60" y="150" width="600" height="100" rx="10" fill="#12191a" stroke="#2dd4bf" stroke-width="1.5"/>
+<text x="90" y="180" fill="#2dd4bf" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">02 · LEVEL 2</text>
+<text x="90" y="205" fill="#f0f4f3" font-size="19" font-weight="600">Local Privilege Escalation</text>
+<text x="90" y="227" fill="#a3b3b1" font-size="13">Unquoted service paths · weak service permissions</text>
+<text x="90" y="245" fill="#a3b3b1" font-size="13">Potato-family token impersonation → SYSTEM on one host</text>
+
+<line x1="360" y1="250" x2="360" y2="290" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- 3 Discovery -->
+<rect x="60" y="290" width="600" height="100" rx="10" fill="#12191a" stroke="#2dd4bf" stroke-width="1.5"/>
+<text x="90" y="320" fill="#2dd4bf" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">03 · LEVEL 2</text>
+<text x="90" y="345" fill="#f0f4f3" font-size="19" font-weight="600">Discovery</text>
+<text x="90" y="367" fill="#a3b3b1" font-size="13">whoami /all · net user/group · systeminfo · nltest /domain_trusts</text>
+<text x="90" y="385" fill="#a3b3b1" font-size="13">Attacker orients itself before deciding where to go next</text>
+
+<line x1="360" y1="390" x2="360" y2="430" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- 4 Credential Theft -->
+<rect x="60" y="430" width="600" height="110" rx="10" fill="#12191a" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="90" y="460" fill="#f59e0b" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">04 · LEVELS 4 &amp; 5</text>
+<text x="90" y="485" fill="#f0f4f3" font-size="19" font-weight="600">Credential Theft</text>
+<text x="90" y="507" fill="#a3b3b1" font-size="13">LSASS memory access · Kerberoasting · DCSync</text>
+<text x="90" y="525" fill="#a3b3b1" font-size="13">Attacker now holds usable credential material, not just a foothold</text>
+
+<line x1="360" y1="540" x2="360" y2="580" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- 5 Lateral Movement -->
+<rect x="60" y="580" width="600" height="110" rx="10" fill="#12191a" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="90" y="610" fill="#f59e0b" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">05 · LEVEL 4</text>
+<text x="90" y="635" fill="#f0f4f3" font-size="19" font-weight="600">Lateral Movement</text>
+<text x="90" y="657" fill="#a3b3b1" font-size="13">Pass-the-Hash / Pass-the-Ticket · NTLM Relay (Responder,</text>
+<text x="90" y="675" fill="#a3b3b1" font-size="13">PetitPotam/PrinterBug coercion, ntlmrelayx)</text>
+
+<line x1="360" y1="690" x2="360" y2="730" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- 6 Delegation / Escalation within AD -->
+<rect x="60" y="730" width="600" height="120" rx="10" fill="#12191a" stroke="#ef4444" stroke-width="1.5"/>
+<text x="90" y="760" fill="#ef4444" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">06 · LEVEL 4</text>
+<text x="90" y="785" fill="#f0f4f3" font-size="19" font-weight="600">Delegation Abuse / RBCD</text>
+<text x="90" y="807" fill="#a3b3b1" font-size="13">Unconstrained/constrained delegation · Resource-Based</text>
+<text x="90" y="825" fill="#a3b3b1" font-size="13">Constrained Delegation (msDS-AllowedToActOnBehalfOfOtherIdentity)</text>
+<text x="90" y="843" fill="#a3b3b1" font-size="13">Escalates trust within AD without forging anything yet</text>
+
+<line x1="360" y1="850" x2="360" y2="890" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- 7 Domain Compromise -->
+<rect x="60" y="890" width="600" height="130" rx="10" fill="#1a0f10" stroke="#ef4444" stroke-width="2"/>
+<text x="90" y="922" fill="#ef4444" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">07 · LEVEL 4 · FULL COMPROMISE</text>
+<text x="90" y="948" fill="#f0f4f3" font-size="20" font-weight="700">Domain Compromise</text>
+<text x="90" y="972" fill="#a3b3b1" font-size="13">Golden Ticket (forged TGT from stolen krbtgt hash) or a full</text>
+<text x="90" y="990" fill="#a3b3b1" font-size="13">DCSync of every credential in the domain</text>
+<text x="90" y="1010" fill="#a3b3b1" font-size="13">Recovery requires the double krbtgt reset — see the krbtgt lesson</text>
+
+<!-- footer -->
+<text x="60" y="1060" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="11">Not every intrusion uses every stage, and stages can repeat (discovery happens again</text>
+<text x="60" y="1078" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="11">at each new foothold). This shows the common shape, not a fixed script.</text>
+<text x="60" y="1110" fill="#2dd4bf" font-family="IBM Plex Mono, monospace" font-size="11">— teal: escalation/lateral movement · amber: credential material obtained · red: domain-wide impact</text>
+</svg>

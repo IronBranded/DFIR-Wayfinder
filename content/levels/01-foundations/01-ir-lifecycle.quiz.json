@@ -1,0 +1,57 @@
+{
+  "lessonId": "l1-01-ir-lifecycle",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Which phase feeds directly back into Preparation, closing the IR lifecycle into a loop rather than a straight line?",
+      "options": [
+        "Containment",
+        "Eradication",
+        "Lessons Learned (Post-Incident Activity)",
+        "Identification"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lessons Learned is specifically about identifying what would have made Preparation better for the next incident \u2014 that's what closes the loop instead of leaving it a one-way line."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "A responder wants to immediately delete a malicious scheduled task the moment it's found, before finishing the search for other persistence mechanisms. What's the concern with doing that right away?",
+      "options": [
+        "Deleting a scheduled task requires domain admin rights",
+        "It risks tipping off the attacker before containment is confirmed and the rest of their footholds are found",
+        "Scheduled tasks can't actually be deleted while a system is live",
+        "It violates chain-of-custody requirements in every case"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the Containment-before-Eradication sequencing problem: loud eradication actions taken before containment is solid can alert an attacker who still has other access, causing them to accelerate or go quieter."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What's the practical difference between short-term and long-term Containment?",
+      "options": [
+        "There is no real difference \u2014 it's one continuous step",
+        "Short-term buys time (isolate, disable, block); long-term restores stable operation while eradication is planned",
+        "Short-term applies only to cloud incidents, long-term only to on-prem",
+        "Long-term containment always happens before short-term"
+      ],
+      "correctIndex": 1,
+      "explanation": "Short-term containment is about stopping active damage fast. Long-term containment is about reaching a stable state that holds while the eradication plan is actually built \u2014 conflating the two is what leads to premature eradication."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is Preparation often the easiest phase to under-invest in?",
+      "options": [
+        "It's the most expensive phase to fund",
+        "It's invisible when done well \u2014 there's no incident happening to show its value in the moment",
+        "It only matters for organizations larger than 500 employees",
+        "It's not actually part of most published IR frameworks"
+      ],
+      "correctIndex": 1,
+      "explanation": "Good preparation (logging, baselines, an accurate asset inventory) has no visible payoff until an incident happens \u2014 which makes it easy to deprioritize against work with more immediate, visible results."
+    }
+  ]
+}

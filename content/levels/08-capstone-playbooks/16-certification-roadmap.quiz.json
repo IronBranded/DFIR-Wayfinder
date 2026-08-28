@@ -1,0 +1,52 @@
+{
+  "lessonId": "l8-16-certification-roadmap",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Which GIAC certification is most directly the foundational, Windows-focused forensics certification that Level 2 of this academy maps onto?",
+      "options": ["GCFA", "GCFE", "GCIH", "GNFA"],
+      "correctIndex": 1,
+      "explanation": "GCFE (Certified Forensic Examiner) is the foundational Windows-forensics certification \u2014 evidence acquisition, user activity, browser artifacts \u2014 the standard first step before GCFA."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "GCFA is tied to which SANS course, and builds on which certification as a starting foundation?",
+      "options": [
+        "FOR572, building on GNFA",
+        "FOR508, building on GCFE-level material",
+        "FOR500, building on GCIH",
+        "FOR610, building on GREM"
+      ],
+      "correctIndex": 1,
+      "explanation": "GCFA maps to SANS FOR508 (Advanced Incident Response, Threat Hunting, and Digital Forensics) and is the advanced step up from GCFE."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does GNFA extend beyond what this academy's own Network Forensics level (Level 7) covers?",
+      "options": [
+        "GNFA doesn't actually relate to network forensics at all",
+        "Level 7 deliberately stops at log- and flow-level evidence, not full packet capture \u2014 which is where GNFA's fuller discipline picks up",
+        "GNFA is a beginner certification that Level 7 already exceeds",
+        "GNFA only covers cloud networking, unrelated to this academy's Windows scope"
+      ],
+      "correctIndex": 1,
+      "explanation": "Level 7 is intentionally scoped to logs and flow records, not full packet dissection \u2014 GNFA (tied to SANS FOR572) is where that deeper packet-level discipline actually lives."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Is completing every lesson in this academy a prerequisite for starting certification study?",
+      "options": [
+        "Yes, GIAC requires proof of academy completion",
+        "No \u2014 by the time Levels 2 and 5 specifically are complete, the GCFE/GCFA study foundation already exists",
+        "Yes, but only for GCIH specifically",
+        "No, certification study should always come before any hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "The lesson is explicit that this isn't a requirement \u2014 Levels 2 and 5 alone already build the core GCFE/GCFA foundation."
+    }
+  ]
+}
