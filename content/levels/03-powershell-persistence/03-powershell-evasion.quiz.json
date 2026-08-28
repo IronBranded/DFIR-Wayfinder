@@ -1,0 +1,57 @@
+{
+  "lessonId": "l3-03-powershell-evasion",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What gap did AMSI (Antimalware Scan Interface) specifically close for security products?",
+      "options": [
+        "It let antivirus products scan network traffic for the first time",
+        "It let a security product inspect script content immediately before execution, even for code generated dynamically and never written to disk",
+        "It replaced Windows Defender entirely",
+        "It only applies to files downloaded from the internet"
+      ],
+      "correctIndex": 1,
+      "explanation": "Before AMSI, security products could scan files at rest but had no reliable way to inspect script content built and executed entirely in memory. AMSI gives them a hook to inspect that content right before it runs."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What is the actual purpose of PowerShell's -ExecutionPolicy Bypass flag?",
+      "options": [
+        "It disables Windows Defender for the current session",
+        "It is a convenience/safety feature controlling script-signing prompts, not a security boundary -- Microsoft's own documentation says so directly",
+        "It grants administrator privileges automatically",
+        "It is required to run any PowerShell script at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "Execution Policy governs whether scripts need a signature or confirmation prompt to run. It's explicitly not a security boundary, which is why its presence alone is a weak signal compared to other indicators in this lesson."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does invoking the PowerShell 2.0 engine (powershell -version 2) evade both AMSI and modern Script Block Logging in one step?",
+      "options": [
+        "PowerShell 2.0 has stronger security than later versions",
+        "Both AMSI and Script Block Logging were added to PowerShell after version 2.0 existed, so the legacy engine predates them entirely",
+        "Version 2 requires administrator rights to invoke, which blocks most attackers",
+        "PowerShell 2.0 has been completely removed from all modern Windows versions"
+      ],
+      "correctIndex": 1,
+      "explanation": "AMSI and Script Block Logging were both introduced well after PowerShell 2.0. Explicitly invoking the legacy engine sidesteps both by running code in an environment that never had either capability."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "In an environment where Constrained Language Mode (CLM) is the documented, expected policy, what should a session running in Full Language Mode suggest to an analyst?",
+      "options": [
+        "Nothing -- Full Language Mode is always the default and expected",
+        "Either a policy gap or an active attempt to escape the intended restriction, worth investigating",
+        "That the host has PowerShell 7 installed",
+        "That Script Block Logging is disabled"
+      ],
+      "correctIndex": 1,
+      "explanation": "Constrained Language Mode is an actual hardening control via WDAC/AppLocker. Full Language Mode where CLM is expected indicates either a misconfiguration or a deliberate bypass -- either way, worth investigating."
+    }
+  ]
+}

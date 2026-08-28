@@ -1,0 +1,57 @@
+{
+  "lessonId": "l6-20-observable-evasion-bypass",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "How does using a vulnerable driver (BYOVD) to blind Defender differ from the PowerShell Set-MpPreference/Add-MpPreference tampering cluster?",
+      "options": [
+        "They are functionally identical techniques",
+        "BYOVD operates at the kernel level, below where user-mode Tamper Protection can see it, while the PowerShell cmdlets operate at the software/user-mode layer",
+        "BYOVD only works on Windows Server, never workstations",
+        "Set-MpPreference requires kernel-level driver access to function"
+      ],
+      "correctIndex": 1,
+      "explanation": "BYOVD's second use case (beyond local privilege escalation) is terminating or blinding Defender's kernel-mode components directly -- a fundamentally different threat model than user-mode PowerShell cmdlet tampering, which Tamper Protection can resist."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why is a gap in Defender's own event log with no corresponding 5001 (real-time protection disabled) event considered a stronger signal than a 5001 event itself?",
+      "options": [
+        "It isn't -- a 5001 event is always the stronger signal",
+        "It suggests the tampering happened below the layer that would normally log its own disabling, such as a kernel-level driver attack",
+        "Gaps in event logs are always caused by disk space issues",
+        "5001 events are logged more reliably than gaps"
+      ],
+      "correctIndex": 1,
+      "explanation": "A 5001 event means Defender itself logged being disabled through a normal channel. A silent gap with no such event suggests something bypassed the layer that would normally generate that log entry -- a more advanced and concerning technique."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does registry-based disabling (DisableRealtimeMonitoring/DisableAntiSpyware keys) leave a different evidence trail than the PowerShell cmdlet route?",
+      "options": [
+        "Registry changes are never logged anywhere",
+        "It leaves a registry key write visible in the hive itself and via registry-event logging, rather than a command line or script block an analyst focused on PowerShell logging might be watching for",
+        "Registry-based disabling is impossible on modern Windows",
+        "Both routes leave identical evidence"
+      ],
+      "correctIndex": 1,
+      "explanation": "An environment monitoring PowerShell activity closely but not registry writes has a blind spot -- the registry route bypasses PowerShell-specific logging entirely, similar to how Windows Script Host bypasses it in Level 3."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why does a tampering attempt against a Tamper-Protected host still deserve full investigation even when the control successfully held?",
+      "options": [
+        "Failed attempts are never worth investigating",
+        "The intent to disable or evade Defender was still present, even though the control prevented the change from taking effect",
+        "Tamper Protection failures are always false positives",
+        "Only successful bypasses generate any logs at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "A failed tampering attempt still demonstrates clear malicious intent on the host. Confirming the control held is important, but the attempt itself is a red flag independent of whether it succeeded."
+    }
+  ]
+}
