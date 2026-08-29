@@ -12,9 +12,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/tokens.css">
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/components.css">
+<!-- No build step on this site -- ?v=N on local assets is a manual cache-bust.
+     Bump it (here and in 404.html) whenever you push a CSS/JS change, or
+     browsers and GitHub Pages' CDN can keep serving the old file for a
+     while after the push, making a real fix look like it "didn't work". -->
+<link rel="stylesheet" href="assets/css/tokens.css?v=2">
+<link rel="stylesheet" href="assets/css/base.css?v=2">
+<link rel="stylesheet" href="assets/css/components.css?v=2">
 </head>
 <body>
 
@@ -77,12 +81,12 @@
 })();
 </script>
 
-<script src="assets/js/markdown.js"></script>
-<script src="assets/js/progress.js"></script>
-<script src="assets/js/quiz.js"></script>
-<script src="assets/js/nav.js"></script>
-<script src="assets/js/search.js"></script>
-<script src="assets/js/macb-calculator.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/markdown.js?v=2"></script>
+<script src="assets/js/progress.js?v=2"></script>
+<script src="assets/js/quiz.js?v=2"></script>
+<script src="assets/js/nav.js?v=2"></script>
+<script src="assets/js/search.js?v=2"></script>
+<script src="assets/js/macb-calculator.js?v=2"></script>
+<script src="assets/js/app.js?v=2"></script>
 </body>
 </html>
