@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-07-mutex-analysis",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why do many malware families create a mutex with a hardcoded, distinctive name?",
+      "options": [
+        "It's a Windows requirement for all running programs",
+        "So a second copy of the same malware can check for it and exit if it's already present, avoiding wasted effort re-infecting a machine",
+        "To encrypt the malware's own memory",
+        "Mutexes are required for network communication"
+      ],
+      "correctIndex": 1,
+      "explanation": "A hardcoded mutex name lets malware check whether it's already running on a machine and avoid deploying multiple competing copies -- a design choice that happens to create a fingerprintable indicator."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why can a mutex name sometimes be a more durable indicator than a file hash?",
+      "options": [
+        "Mutex names are cryptographically signed and cannot be forged",
+        "A file hash changes with every recompile or repack, while a hardcoded string in source code often survives across many variants and campaigns unchanged",
+        "File hashes are never useful for malware identification",
+        "Mutex names are always identical across every malware family"
+      ],
+      "correctIndex": 1,
+      "explanation": "Since there's typically no functional reason to vary a hardcoded mutex name, it can persist across recompiles and variants where a file hash would change completely -- making it a more durable indicator in some cases."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What is the historical Windows kernel term for what's commonly called a mutex?",
+      "options": [
+        "Semaphore",
+        "Mutant",
+        "Lockdown",
+        "Barrier"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Mutant\" is the historical internal NT kernel name for this object type, which is why Volatility's own plugin and output refer to it that way even though everyone says \"mutex\" out loud."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is \"a named mutex exists\" not, by itself, a red flag?",
+      "options": [
+        "Named mutexes never actually appear in real memory images",
+        "Legitimate software creates named mutexes constantly as standard practice for preventing multiple instances or synchronizing threads -- the baseline is knowing which names are expected, not treating all mutexes as suspicious",
+        "Mutexes are always encrypted and unreadable",
+        "Only malware creates mutexes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Creating named mutexes is completely standard, routine Windows programming practice. The investigative question is whether a specific mutex name is explainable given what's actually installed, not whether any mutex exists at all."
+    }
+  ]
+}

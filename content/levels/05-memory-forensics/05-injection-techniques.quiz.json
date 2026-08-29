@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-05-injection-techniques",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What is the key memory signature of process hollowing?",
+      "options": [
+        "A remote thread with a start address in kernel32.dll",
+        "A mismatch between what a process claims to be running (its reported image path) and what's actually mapped at its image base address",
+        "A named mutex with a suspicious string",
+        "A process running with SYSTEM privileges"
+      ],
+      "correctIndex": 1,
+      "explanation": "Process hollowing unmaps a legitimate process's original image and writes a different PE into the same address space -- the process looks legitimate at the process level, but what's actually mapped at its image base doesn't match what it claims to be."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why doesn't reflective DLL injection appear in a process's normal module list?",
+      "options": [
+        "It's encrypted and hidden from all analysis",
+        "It implements its own PE-loading logic rather than calling LoadLibrary, so it never touches disk and never registers through the normal module-loading mechanism",
+        "Reflective injection only works on 32-bit systems",
+        "It always terminates the process immediately after loading"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because reflective loading bypasses LoadLibrary entirely -- parsing its own headers, resolving its own imports -- it's mapped in memory but never appears in the self-reported module list, exactly the kind of mismatch ldrmodules is built to catch."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What makes the \"Early Bird\" APC injection variant specifically effective at evasion?",
+      "options": [
+        "It only works on outdated Windows versions",
+        "It queues the APC before a newly-created process's main thread has even started running, aiming to execute before security tooling that hooks normal startup has a chance to engage",
+        "It requires no suspended thread at all",
+        "It exclusively targets network processes"
+      ],
+      "correctIndex": 1,
+      "explanation": "By queuing the APC before the target's own code starts running, Early Bird aims to execute before security tooling gets a chance to hook into the process's normal startup sequence."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "How does thread execution hijacking differ from the other injection techniques covered in this lesson?",
+      "options": [
+        "It requires creating multiple new threads",
+        "It doesn't create anything new -- it suspends an already-running thread, redirects its instruction pointer with SetThreadContext, then resumes it",
+        "It only works against suspended processes",
+        "It always crashes the target process"
+      ],
+      "correctIndex": 1,
+      "explanation": "Unlike DLL injection or APC injection, thread execution hijacking never creates a new thread -- it takes an existing, previously legitimate thread and redirects it mid-flight."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-08-lsass-memory-analysis",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Under what condition can WDigest cache plaintext-recoverable credentials in LSASS memory?",
+      "options": [
+        "This happens by default on all current Windows versions",
+        "Only if the UseLogonCredential registry value has been set to re-enable it, since Microsoft disabled this caching by default starting with Windows 8.1/Server 2012 R2",
+        "WDigest never caches any credential material under any circumstances",
+        "Only on Windows Server, never on workstations"
+      ],
+      "correctIndex": 1,
+      "explanation": "WDigest plaintext credential caching was disabled by default starting with Windows 8.1/Server 2012 R2, but can be re-enabled via the UseLogonCredential registry key -- checking whether it's been re-enabled is a worthwhile investigative step."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why is \"LSASS was accessed\" the wrong question to ask when investigating potential credential theft?",
+      "options": [
+        "LSASS should never be accessed by any process under any circumstances",
+        "LSASS is accessed constantly by ordinary system components as part of normal operation -- the kind of access requested, not whether access happened, is what actually distinguishes theft from routine activity",
+        "LSASS access cannot be logged in any way",
+        "Only Sysmon can detect LSASS access, no other tool can"
+      ],
+      "correctIndex": 1,
+      "explanation": "Treating any LSASS access as suspicious produces overwhelming noise, since routine system processes access it constantly. The GrantedAccess rights requested is what separates a credential-dumping attempt from background activity."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What does LSA Protection (RunAsPPL) specifically prevent?",
+      "options": [
+        "It prevents any process from ever running on the system",
+        "It makes LSASS a Protected Process Light, so ordinary usermode code -- even running as SYSTEM -- cannot open a full-access handle to it without a signed, Microsoft-trusted driver",
+        "It encrypts all files on the system",
+        "It disables the WDigest protocol entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "RunAsPPL elevates LSASS to a Protected Process Light, blocking ordinary usermode access regardless of privilege level -- which is exactly why attackers turn to BYOVD (a signed but vulnerable driver) to work around it."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is checking for an existing LSASS dump file on disk often more directly actionable than live memory analysis?",
+      "options": [
+        "Dump files never actually contain useful evidence",
+        "A dump file is the finished product of a successful (or attempted) dumping tool run, making it a direct artifact rather than something requiring live memory analysis to confirm",
+        "LSASS memory can never be analyzed after the fact",
+        "Dump files are automatically deleted by Windows within seconds"
+      ],
+      "correctIndex": 1,
+      "explanation": "A dump file left behind by a tool like ProcDump or comsvcs.dll's MiniDump is direct, concrete evidence of an attempt -- often faster to find and more conclusive than reconstructing the same conclusion from live memory analysis."
+    }
+  ]
+}

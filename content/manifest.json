@@ -1017,10 +1017,18 @@
           "title": "Injection Techniques",
           "summary": "Process hollowing, DLL injection, and the other major techniques for running attacker code inside a legitimate process's address space.",
           "estimatedMinutes": 24,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "injection-techniques"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/05-injection-techniques.md",
+          "quizPath": "content/levels/05-memory-forensics/05-injection-techniques.quiz.json",
+          "objectives": [
+            "Identify the memory signature of process hollowing versus classic DLL injection",
+            "Explain why reflective DLL injection doesn't appear in a process's normal module list",
+            "Explain what makes the \"Early Bird\" APC injection variant specifically effective at evasion",
+            "Distinguish thread execution hijacking from techniques that create a new thread"
           ]
         },
         {
@@ -1029,10 +1037,18 @@
           "title": "Thread Analysis",
           "summary": "A thread with no backing module, or a start address that doesn't correspond to any loaded code -- one of the cleanest injection tells there is.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "thread-analysis"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/06-thread-analysis.md",
+          "quizPath": "content/levels/05-memory-forensics/06-thread-analysis.quiz.json",
+          "objectives": [
+            "Explain what a thread start address in private, unbacked memory indicates",
+            "Explain why a persistently suspended thread is worth flagging even though suspension itself is normal",
+            "Identify a mid-function start-address offset as a distinct injection tell",
+            "Explain how thread-level analysis complements process- and memory-region-level findings"
           ]
         },
         {
@@ -1041,10 +1057,18 @@
           "title": "Mutex (Mutant) Analysis",
           "summary": "Malware families that name their own mutex, sometimes literally to prevent re-infecting the same machine -- a naming pattern that becomes a searchable indicator.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "mutex"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/07-mutex-analysis.md",
+          "quizPath": "content/levels/05-memory-forensics/07-mutex-analysis.quiz.json",
+          "objectives": [
+            "Explain why malware families commonly create a mutex with a hardcoded, distinctive name",
+            "Explain why a mutex name can be a more durable indicator than a file hash",
+            "Identify \"Mutant\" as the underlying Windows kernel term for a mutex",
+            "Explain why the mere presence of a named mutex is not itself a red flag"
           ]
         },
         {
@@ -1053,11 +1077,19 @@
           "title": "LSASS Memory Analysis",
           "summary": "Where Windows keeps live credential material in memory, and the specific access patterns (not just \"LSASS was touched\") that separate credential theft from normal system activity.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "lsass",
             "credential-theft"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/08-lsass-memory-analysis.md",
+          "quizPath": "content/levels/05-memory-forensics/08-lsass-memory-analysis.quiz.json",
+          "objectives": [
+            "Explain the condition under which WDigest can cache plaintext-recoverable credentials",
+            "Explain why \"LSASS was accessed\" is the wrong question, and what actually distinguishes theft from routine access",
+            "Explain what LSA Protection (RunAsPPL) specifically prevents, and why BYOVD exists partly as a response to it",
+            "Name at least three distinct LSASS-dumping methods, including the LOLBin variant"
           ]
         },
         {
