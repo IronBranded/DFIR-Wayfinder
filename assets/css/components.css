@@ -302,6 +302,30 @@
 .lesson-card-desc { font-size: var(--fs-sm); color: var(--text-secondary); }
 .lesson-card-meta { flex-shrink: 0; text-align: right; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-tertiary); }
 
+.module-card {
+  display: block;
+  position: relative;
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+  transition: border-color var(--dur-base), transform var(--dur-base) var(--ease-out);
+  overflow: hidden;
+}
+.module-card::before {
+  content: "";
+  position: absolute; inset: 0 auto 0 0; width: 3px;
+  background: var(--tier-color, var(--signal-teal));
+}
+.module-card:hover { border-color: var(--hairline-strong); transform: translateY(-2px); }
+.module-card-top { margin-bottom: var(--sp-3); }
+.module-card-num { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--tier-color, var(--text-tertiary)); letter-spacing: 0.08em; text-transform: uppercase; }
+.module-card h3 { font-size: var(--fs-lg); margin-bottom: var(--sp-2); }
+.module-card-meta { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); font-size: var(--fs-xs); color: var(--text-tertiary); font-family: var(--font-mono); }
+.module-card-progress-track { height: 4px; border-radius: 2px; background: var(--hairline); margin-top: var(--sp-4); overflow: hidden; }
+.module-card-progress-fill { height: 100%; border-radius: 2px; background: var(--tier-color, var(--signal-teal)); }
+
 /* ---- Breadcrumb / eyebrow ------------------------------------------------*/
 .crumb {
   display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap;

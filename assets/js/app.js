@@ -68,6 +68,9 @@
   function numberWord(n) {
     return NUMBER_WORDS[n] || String(n);
   }
+  function slugify(str) {
+    return String(str).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
 
   /* ---------------------------------------------------------------------- */
   /* Router                                                                  */
@@ -80,6 +83,9 @@
     if (parts[0] === "lesson" && parts[1]) {
       const lesson = findLesson(parts[1]);
       return { name: "lesson", lessonId: parts[1], levelId: lesson ? lesson.levelId : null };
+    }
+    if (parts[0] === "level" && parts[1] && parts[2] === "module" && parts[3]) {
+      return { name: "module", levelId: parts[1], moduleSlug: parts[3] };
     }
     if (parts[0] === "level" && parts[1]) return { name: "level", levelId: parts[1] };
     if (parts[0] === "reference" && parts[1]) return { name: "reference", refId: parts[1] };
@@ -96,6 +102,7 @@
     try {
       if (route.name === "home") await renderHome(main);
       else if (route.name === "level") await renderLevel(main, route.levelId);
+      else if (route.name === "module") await renderModule(main, route.levelId, route.moduleSlug);
       else if (route.name === "lesson") await renderLesson(main, route.lessonId);
       else if (route.name === "reference") await renderReference(main, route.refId);
       else if (route.name === "track") await renderTrack(main, route.trackId);
@@ -294,12 +301,12 @@
         <div class="eyebrow">Level ${String(level.number).padStart(2, "0")}</div>
         <h1>${level.title}</h1>
         <p class="hero-lede" style="margin-bottom:var(--sp-6)">${level.description}</p>
-        ${hasModules ? renderGroupedLessons(level.lessons) : `<div style="display:flex; flex-direction:column; gap:var(--sp-3)">${level.lessons.map((lesson) => lessonCardHTML(lesson)).join("")}</div>`}
+        ${hasModules ? renderModuleCards(level) : `<div style="display:flex; flex-direction:column; gap:var(--sp-3)">${level.lessons.map((lesson) => lessonCardHTML(lesson)).join("")}</div>`}
       </div>
     `;
   }
 
-  function renderGroupedLessons(lessons) {
+  function groupByModule(lessons) {
     const groups = [];
     lessons.forEach((lesson) => {
       const label = lesson.module || "";
@@ -307,15 +314,60 @@
       if (!group) { group = { label, items: [] }; groups.push(group); }
       group.items.push(lesson);
     });
-    return groups
-      .map(
-        (g) => `
-      ${g.label ? `<div class="section-head" style="margin-top:var(--sp-6)"><h2 style="font-size:var(--fs-md)">${g.label}</h2></div>` : ""}
-      <div style="display:flex; flex-direction:column; gap:var(--sp-3)">
-        ${g.items.map((lesson) => lessonCardHTML(lesson)).join("")}
-      </div>`
-      )
-      .join("");
+    return groups;
+  }
+
+  function renderModuleCards(level) {
+    return `<div class="path-grid">${groupByModule(level.lessons)
+      .map((g) => moduleCardHTML(level, g.label, g.items))
+      .join("")}</div>`;
+  }
+
+  function moduleCardHTML(level, moduleLabel, lessons) {
+    const done = lessons.filter((l) => window.Progress.isComplete(l.id)).length;
+    const pct = lessons.length ? Math.round((done / lessons.length) * 100) : 0;
+    const isSingleton = lessons.length === 1;
+    const href = isSingleton ? `#/lesson/${lessons[0].id}` : `#/level/${level.id}/module/${slugify(moduleLabel)}`;
+    const preview = isSingleton ? lessons[0].summary : lessons.slice(0, 3).map((l) => l.title).join(" · ") + (lessons.length > 3 ? ` + ${lessons.length - 3} more` : "");
+    return `<a class="module-card" href="${href}" style="--tier-color:var(--tier-${level.difficulty.toLowerCase()})">
+      <div class="module-card-top"><span class="module-card-num">${isSingleton ? "Lesson" : "Module"}</span></div>
+      <h3>${moduleLabel}</h3>
+      <p class="text-tertiary" style="font-size:var(--fs-sm); margin-bottom:var(--sp-4)">${escapeHtml(preview)}</p>
+      <div class="module-card-meta">
+        <span>${lessons.length} lesson${lessons.length === 1 ? "" : "s"}</span>
+        <span>${done}/${lessons.length} done</span>
+      </div>
+      <div class="module-card-progress-track"><div class="module-card-progress-fill" style="width:${pct}%"></div></div>
+    </a>`;
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* Page: Module drill-down (one module's lessons, reached from a level)    */
+  /* ---------------------------------------------------------------------- */
+
+  async function renderModule(main, levelId, moduleSlug) {
+    const level = findLevel(levelId);
+    if (!level) return renderNotFound(main);
+    const lessons = level.lessons.filter((l) => l.module && slugify(l.module) === moduleSlug);
+    if (!lessons.length) return renderNotFound(main);
+    const moduleLabel = lessons[0].module;
+    const done = lessons.filter((l) => window.Progress.isComplete(l.id)).length;
+
+    main.innerHTML = `
+      <div class="main-inner">
+        <div class="crumb">
+          <a href="#/">Overview</a> ${icon("arrowRight", "")}
+          <a href="#/level/${level.id}">Level ${String(level.number).padStart(2, "0")} · ${level.title}</a> ${icon("arrowRight", "")}
+          <span>${moduleLabel}</span>
+        </div>
+        <div class="eyebrow">Level ${String(level.number).padStart(2, "0")} · ${level.title}</div>
+        <h1>${moduleLabel}</h1>
+        <p class="hero-lede" style="margin-bottom:var(--sp-6)">${lessons.length} lesson${lessons.length === 1 ? "" : "s"} in this module · ${done}/${lessons.length} done</p>
+        <div style="display:flex; flex-direction:column; gap:var(--sp-3)">
+          ${lessons.map((lesson) => lessonCardHTML(lesson)).join("")}
+        </div>
+      </div>
+    `;
   }
 
   /* ---------------------------------------------------------------------- */
@@ -456,9 +508,15 @@
 
   function crumbHTML(level, lesson) {
     if (!level) return "";
+    const sameModuleCount = lesson.module ? level.lessons.filter((l) => l.module === lesson.module).length : 0;
+    const moduleCrumb =
+      sameModuleCount > 1
+        ? `<a href="#/level/${level.id}/module/${slugify(lesson.module)}">${lesson.module}</a> ${icon("arrowRight")}`
+        : "";
     return `<div class="crumb">
       <a href="#/">Overview</a> ${icon("arrowRight")}
       <a href="#/level/${level.id}">Level ${String(level.number).padStart(2, "0")} · ${level.title}</a> ${icon("arrowRight")}
+      ${moduleCrumb}
       <span>${lesson.title}</span>
     </div>`;
   }
