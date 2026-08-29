@@ -496,7 +496,7 @@ p code, li code, td code {
   border-radius: var(--radius-lg);
   padding: var(--sp-5);
   margin: var(--sp-6) 0;
-  background: linear-gradient(180deg, rgba(45,212,191,0.04), transparent 15%), var(--surface);
+  background: linear-gradient(180deg, rgba(29,131,175,0.04), transparent 15%), var(--surface);
 }
 .quiz-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-5); }
 .quiz-header h3 { font-size: var(--fs-md); margin: 0; display: flex; align-items: center; gap: var(--sp-2); }
@@ -571,7 +571,7 @@ p code, li code, td code {
   color: var(--signal-teal); text-transform: uppercase; letter-spacing: 0.12em;
   padding: 6px 12px; border: 1px solid var(--signal-teal-dim); border-radius: 100px;
   margin-bottom: var(--sp-5);
-  background: rgba(45,212,191,0.06);
+  background: rgba(29,131,175,0.06);
 }
 .hero-eyebrow .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--signal-teal); animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
