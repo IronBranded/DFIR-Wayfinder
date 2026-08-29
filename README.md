@@ -33,7 +33,7 @@ A **Reference hub** (Glossary, Tool Directory, Windows IR Quick Reference, Sourc
 
 MIT — see [`LICENSE`](LICENSE). Free to use, modify, and redistribute, including commercially, with the original copyright notice retained.
 
-The lesson/level engine (progress tracking, quizzes, search, markdown rendering) is adapted from IronBranded's [Malware Analysis Academy](https://ironbranded.github.io/Malware-Analysis-Academy/), also MIT-licensed. The DFIR content itself is original writing carried forward from the [Enterprise DFIR Field Guide](https://github.com/IronBranded/Microsoft-DFIR-Wayfinder).
+The lesson/level engine (progress tracking, quizzes, search, markdown rendering) is adapted from IronBranded's [Malware Analysis Academy](https://ironbranded.github.io/Malware-Analysis-Academy/), also MIT-licensed. The DFIR content itself is original writing, restructured and re-authored lesson by lesson from this project's earlier, MkDocs-based form into this interactive format.
 
 ## How to use it locally
 

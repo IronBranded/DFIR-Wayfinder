@@ -1,10 +1,9 @@
 /* ==========================================================================
    DESIGN TOKENS
-   Palette carries forward the Enterprise DFIR Field Guide's own established
+   Palette carries forward this project's earlier, established color
    identity: dark graphite surfaces with teal as the primary signal, amber
-   for red-flag/caution semantics (matching that guide's admonition
-   convention exactly, so anyone crossing between the two properties reads
-   the same color language). All color, type and spacing decisions for the
+   for red-flag/caution semantics, matching the admonition convention used
+   throughout this academy. All color, type and spacing decisions for the
    site are driven from this one file — retheme the whole academy by
    editing only what's here.
    ========================================================================== */
