@@ -4,7 +4,7 @@
 
 <defs>
   <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-    <path d="M0,0 L10,5 L0,10 z" fill="#2dd4bf"/>
+    <path d="M0,0 L10,5 L0,10 z" fill="#1d83af"/>
   </marker>
 </defs>
 
@@ -21,25 +21,25 @@
 <text x="90" y="75" fill="#f0f4f3" font-size="19" font-weight="600">Initial Foothold</text>
 <text x="90" y="97" fill="#a3b3b1" font-size="13">Phishing, spearphishing link/attachment · see Email Forensics &amp; Playbooks</text>
 
-<line x1="360" y1="110" x2="360" y2="150" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="360" y1="110" x2="360" y2="150" stroke="#1d83af" stroke-width="2" marker-end="url(#arrow)"/>
 
 <!-- 2 Local Privilege Escalation -->
-<rect x="60" y="150" width="600" height="100" rx="10" fill="#12191a" stroke="#2dd4bf" stroke-width="1.5"/>
-<text x="90" y="180" fill="#2dd4bf" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">02 · LEVEL 2</text>
+<rect x="60" y="150" width="600" height="100" rx="10" fill="#12191a" stroke="#1d83af" stroke-width="1.5"/>
+<text x="90" y="180" fill="#1d83af" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">02 · LEVEL 2</text>
 <text x="90" y="205" fill="#f0f4f3" font-size="19" font-weight="600">Local Privilege Escalation</text>
 <text x="90" y="227" fill="#a3b3b1" font-size="13">Unquoted service paths · weak service permissions</text>
 <text x="90" y="245" fill="#a3b3b1" font-size="13">Potato-family token impersonation → SYSTEM on one host</text>
 
-<line x1="360" y1="250" x2="360" y2="290" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="360" y1="250" x2="360" y2="290" stroke="#1d83af" stroke-width="2" marker-end="url(#arrow)"/>
 
 <!-- 3 Discovery -->
-<rect x="60" y="290" width="600" height="100" rx="10" fill="#12191a" stroke="#2dd4bf" stroke-width="1.5"/>
-<text x="90" y="320" fill="#2dd4bf" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">03 · LEVEL 2</text>
+<rect x="60" y="290" width="600" height="100" rx="10" fill="#12191a" stroke="#1d83af" stroke-width="1.5"/>
+<text x="90" y="320" fill="#1d83af" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">03 · LEVEL 2</text>
 <text x="90" y="345" fill="#f0f4f3" font-size="19" font-weight="600">Discovery</text>
 <text x="90" y="367" fill="#a3b3b1" font-size="13">whoami /all · net user/group · systeminfo · nltest /domain_trusts</text>
 <text x="90" y="385" fill="#a3b3b1" font-size="13">Attacker orients itself before deciding where to go next</text>
 
-<line x1="360" y1="390" x2="360" y2="430" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="360" y1="390" x2="360" y2="430" stroke="#1d83af" stroke-width="2" marker-end="url(#arrow)"/>
 
 <!-- 4 Credential Theft -->
 <rect x="60" y="430" width="600" height="110" rx="10" fill="#12191a" stroke="#f59e0b" stroke-width="1.5"/>
@@ -48,7 +48,7 @@
 <text x="90" y="507" fill="#a3b3b1" font-size="13">LSASS memory access · Kerberoasting · DCSync</text>
 <text x="90" y="525" fill="#a3b3b1" font-size="13">Attacker now holds usable credential material, not just a foothold</text>
 
-<line x1="360" y1="540" x2="360" y2="580" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="360" y1="540" x2="360" y2="580" stroke="#1d83af" stroke-width="2" marker-end="url(#arrow)"/>
 
 <!-- 5 Lateral Movement -->
 <rect x="60" y="580" width="600" height="110" rx="10" fill="#12191a" stroke="#f59e0b" stroke-width="1.5"/>
@@ -57,7 +57,7 @@
 <text x="90" y="657" fill="#a3b3b1" font-size="13">Pass-the-Hash / Pass-the-Ticket · NTLM Relay (Responder,</text>
 <text x="90" y="675" fill="#a3b3b1" font-size="13">PetitPotam/PrinterBug coercion, ntlmrelayx)</text>
 
-<line x1="360" y1="690" x2="360" y2="730" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="360" y1="690" x2="360" y2="730" stroke="#1d83af" stroke-width="2" marker-end="url(#arrow)"/>
 
 <!-- 6 Delegation / Escalation within AD -->
 <rect x="60" y="730" width="600" height="120" rx="10" fill="#12191a" stroke="#ef4444" stroke-width="1.5"/>
@@ -80,5 +80,5 @@
 <!-- footer -->
 <text x="60" y="1060" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="11">Not every intrusion uses every stage, and stages can repeat (discovery happens again</text>
 <text x="60" y="1078" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="11">at each new foothold). This shows the common shape, not a fixed script.</text>
-<text x="60" y="1110" fill="#2dd4bf" font-family="IBM Plex Mono, monospace" font-size="11">— teal: escalation/lateral movement · amber: credential material obtained · red: domain-wide impact</text>
+<text x="60" y="1110" fill="#1d83af" font-family="IBM Plex Mono, monospace" font-size="11">— teal: escalation/lateral movement · amber: credential material obtained · red: domain-wide impact</text>
 </svg>

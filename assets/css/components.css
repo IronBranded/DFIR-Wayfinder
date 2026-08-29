@@ -390,8 +390,8 @@
 .callout--lab { border-left-color: var(--text-primary); border-style: dashed; }
 .callout--lab .callout-title { color: var(--text-primary); }
 
-.callout--plain { border-left-color: #2dd4bf; background: linear-gradient(180deg, rgba(45,212,191,.07), transparent 60%); }
-.callout--plain .callout-title { color: #2dd4bf; }
+.callout--plain { border-left-color: var(--signal-teal); background: linear-gradient(180deg, rgba(29,131,175,.07), transparent 60%); }
+.callout--plain .callout-title { color: var(--signal-teal); }
 .callout--plain p, .callout--plain li { font-size: var(--fs-base); color: var(--text-primary); }
 
 /* ---- Code blocks -----------------------------------------------------------*/

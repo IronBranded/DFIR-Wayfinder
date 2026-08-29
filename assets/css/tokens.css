@@ -23,9 +23,9 @@
      red     = critical severity only — reserved, used sparingly
      blue    = informational, used sparingly for links & neutral tags
   ------------------------------------------------------------------------- */
-  --signal-teal: #2dd4bf;
-  --signal-teal-dim: #0f4a43;
-  --signal-teal-glow: rgba(45, 212, 191, 0.35);
+  --signal-teal: #1d83af;
+  --signal-teal-dim: #0b3546;
+  --signal-teal-glow: rgba(29, 131, 175, 0.35);
   --signal-amber: #f59e0b;
   --signal-amber-dim: #6b4712;
   --signal-red: #ef4444;
@@ -90,7 +90,7 @@
    and the progress dashboard so severity language stays coherent site-wide. */
 :root {
   --tier-novice: var(--signal-teal);
-  --tier-beginner: #6bc9bb;
+  --tier-beginner: #6baec9;
   --tier-intermediate: var(--signal-amber);
   --tier-advanced: var(--signal-red);
 }
