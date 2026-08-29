@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-04-injected-code-detection",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What three co-occurring properties does malfind look for when flagging a memory region?",
+      "options": [
+        "Large size, recent creation time, and high entropy",
+        "Private (not file-backed), executable, and containing recognizable executable content",
+        "Encrypted, compressed, and password-protected",
+        "Owned by SYSTEM, network-connected, and persistent"
+      ],
+      "correctIndex": 1,
+      "explanation": "No single property is unusual alone -- plenty of memory is private, plenty is executable -- but the combination of all three is rare outside injected code, since legitimate code is almost always backed by a file on disk."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why does malfind sometimes flag a browser process even when nothing malicious is happening?",
+      "options": [
+        "malfind always produces random false positives with no pattern",
+        "JIT (just-in-time) compilation legitimately allocates private, executable memory to write freshly-compiled code into, which matches malfind's detection heuristic",
+        "Browsers are never actually flagged by malfind",
+        "malfind only works on non-browser processes"
+      ],
+      "correctIndex": 1,
+      "explanation": "JIT compilation in browsers, .NET, and Java legitimately needs private executable memory. Telling this apart from real injection requires checking which process (is JIT expected here?) and what the flagged content actually looks like."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What is a VAD (Virtual Address Descriptor), and how does it relate to malfind?",
+      "options": [
+        "A VAD is a type of malware, unrelated to malfind",
+        "A VAD entry describes a region of a process's virtual address space, including protection level and whether it's file-backed -- malfind is essentially a heuristic for walking the VAD tree looking for the injection profile",
+        "VAD stands for Virtual Antivirus Detection, a separate scanning engine",
+        "VAD entries only exist for kernel-mode processes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every region of a process's address space has a VAD entry with metadata like protection and file-backing status. malfind's automated flagging is built on walking this same VAD tree, which means regions it doesn't flag can still be manually inspected with vadinfo."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why does a malfind hit on lsass.exe deserve more concern than an identical hit on chrome.exe?",
+      "options": [
+        "malfind treats all processes identically with no distinction possible",
+        "lsass.exe has no legitimate reason for JIT compilation or similar dynamic code generation, unlike a browser where private executable memory is an expected, routine occurrence",
+        "chrome.exe is immune to code injection",
+        "lsass.exe never actually appears in malfind results"
+      ],
+      "correctIndex": 1,
+      "explanation": "Distinguishing real injection from false positives depends heavily on which process is flagged -- a browser has routine, explainable reasons for private executable memory that a process like lsass.exe simply doesn't have."
+    }
+  ]
+}

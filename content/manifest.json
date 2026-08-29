@@ -935,10 +935,18 @@
           "title": "Acquisition",
           "summary": "Getting a forensically sound memory image off a live, running system -- the tools, and what \"sound\" actually requires here.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "acquisition"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/01-acquisition.md",
+          "quizPath": "content/levels/05-memory-forensics/01-acquisition.quiz.json",
+          "objectives": [
+            "Explain why RAM acquisition necessarily changes the system being acquired, and what \"forensically sound\" requires as a result",
+            "Name at least three live acquisition tools and one situation where each would be preferred",
+            "Explain what hiberfil.sys and a crash dump each provide as cold, alternate memory sources",
+            "Explain why a hypervisor-side VM snapshot can be preferable to an in-guest acquisition tool"
           ]
         },
         {
@@ -947,11 +955,19 @@
           "title": "Process Analysis",
           "summary": "Volatility's process-listing plugins and what a hidden or unlinked process actually looks like once you know where to look.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "volatility",
             "process-analysis"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/02-volatility-process-analysis.md",
+          "quizPath": "content/levels/05-memory-forensics/02-volatility-process-analysis.quiz.json",
+          "objectives": [
+            "Explain why pslist and psscan should always be run as a pair, and what a mismatch between them means",
+            "Explain what ldrmodules adds beyond what dlllist alone shows",
+            "Explain why cmdline recovery from memory is valuable even when process-creation logging was enabled",
+            "Name the Volatility 3 plugins for process listing, tree view, command-line recovery, and handle enumeration"
           ]
         },
         {
@@ -960,11 +976,19 @@
           "title": "EPROCESS Internals",
           "summary": "The kernel structure every process-listing plugin is actually walking -- and why understanding it explains why DKOM hiding works at all.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "eprocess",
             "kernel-structures"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/03-eprocess-internals.md",
+          "quizPath": "content/levels/05-memory-forensics/03-eprocess-internals.quiz.json",
+          "objectives": [
+            "Explain why InheritedFromUniqueProcessId alone cannot prove a live parent-child relationship",
+            "Explain how DKOM hides a process from enumeration without stopping it from running",
+            "Explain why psscan defeats DKOM hiding when pslist does not",
+            "Identify what the PEB pointer in an EPROCESS structure leads to and why it matters"
           ]
         },
         {
@@ -973,10 +997,18 @@
           "title": "Injected Code Detection",
           "summary": "Finding code that was never loaded from a legitimate file on disk -- the memory-region characteristics that give it away.",
           "estimatedMinutes": 24,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "injection-detection"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/04-injected-code-detection.md",
+          "quizPath": "content/levels/05-memory-forensics/04-injected-code-detection.quiz.json",
+          "objectives": [
+            "Name the three co-occurring properties malfind looks for in a flagged memory region",
+            "Explain what a VAD is and how malfind relates to it",
+            "Recognize JIT compilation as a common, legitimate cause of malfind false positives and how to distinguish it from real injection",
+            "Explain why the same malfind finding carries different weight depending on which process it appears in"
           ]
         },
         {

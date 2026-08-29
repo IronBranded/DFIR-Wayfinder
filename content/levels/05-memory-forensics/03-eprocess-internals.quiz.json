@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-03-eprocess-internals",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why is InheritedFromUniqueProcessId alone not sufficient to prove a live parent-child relationship existed at the time of acquisition?",
+      "options": [
+        "It's always inaccurate and should never be trusted",
+        "It's a stored value recorded once at process creation, not a live pointer -- it says nothing about whether that parent PID still exists or was ever reused",
+        "It only exists on Windows Server, not workstations",
+        "It's encrypted and cannot be read from memory"
+      ],
+      "correctIndex": 1,
+      "explanation": "InheritedFromUniqueProcessId is a stored PID value from process creation time. Since PIDs get reused constantly, a stored parent PID that no longer maps to any running process is expected behavior, not automatically suspicious on its own."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "How does DKOM (Direct Kernel Object Manipulation) hide a process while it keeps running?",
+      "options": [
+        "It terminates the process and creates a hidden replacement",
+        "It patches the Flink/Blink pointers in ActiveProcessLinks so list-walking tools skip over the process entirely, without affecting the separate scheduling mechanism that keeps it executing",
+        "It encrypts the process's memory space",
+        "It changes the process's PID to a random value"
+      ],
+      "correctIndex": 1,
+      "explanation": "Unlinking from ActiveProcessLinks only affects enumeration -- tools that walk that list simply never encounter the process. The Windows scheduler uses a separate mechanism, so the process keeps running normally, just invisible to standard enumeration."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does psscan successfully find a DKOM-hidden process that pslist misses?",
+      "options": [
+        "psscan asks the process directly whether it's hidden",
+        "psscan scans the raw memory image for the EPROCESS pool tag signature rather than walking the ActiveProcessLinks list, finding the structure regardless of whether anything currently links to it",
+        "psscan only works after a system reboot",
+        "psscan and pslist actually use the identical method"
+      ],
+      "correctIndex": 1,
+      "explanation": "A DKOM-hidden process is unlinked from the list pslist reads, but its EPROCESS structure -- with the same pool tag as any other -- is still sitting in memory, which is exactly what psscan's pool-tag scan is designed to find."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What does the PEB (Process Environment Block) pointer in an EPROCESS structure lead to?",
+      "options": [
+        "The process's network connection history",
+        "User-mode-accessible memory holding the process's own self-reported view of its loaded modules and command line",
+        "A list of all other processes running on the system",
+        "The process's encryption keys"
+      ],
+      "correctIndex": 1,
+      "explanation": "The PEB is what dlllist and cmdline actually read from -- it's the process's own self-report of its modules and command line, which is why cross-referencing it against other sources (like ldrmodules does) can reveal discrepancies."
+    }
+  ]
+}
