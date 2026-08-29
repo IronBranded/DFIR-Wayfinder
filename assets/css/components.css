@@ -611,8 +611,8 @@ p code, li code, td code {
 .console-verdict {
   margin-top: var(--sp-4); padding: var(--sp-3) var(--sp-4);
   border-radius: var(--radius-md);
-  background: color-mix(in srgb, var(--signal-red-dim) 25%, transparent); border: 1px solid var(--signal-red-dim);
-  color: #ffb4bb; font-size: var(--fs-sm); display: flex; align-items: center; gap: var(--sp-2);
+  background: color-mix(in srgb, var(--signal-teal-dim) 25%, transparent); border: 1px solid var(--signal-teal-dim);
+  color: #b1def1; font-size: var(--fs-sm); display: flex; align-items: center; gap: var(--sp-2);
 }
 .console-meter-track { height: 6px; border-radius: 3px; background: var(--hairline); overflow: hidden; margin-top: 6px; }
 .console-meter-fill { height: 100%; background: linear-gradient(90deg, var(--signal-amber), var(--signal-red)); border-radius: 3px; }
