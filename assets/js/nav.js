@@ -24,6 +24,33 @@
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><polyline points="9 18 15 12 9 6"/></svg>';
   }
 
+  function groupByModule(lessons) {
+    const groups = [];
+    lessons.forEach((lesson) => {
+      const label = lesson.module || "";
+      let group = groups.find((g) => g.label === label);
+      if (!group) { group = { label, items: [] }; groups.push(group); }
+      group.items.push(lesson);
+    });
+    return groups;
+  }
+
+  function slugify(str) {
+    return String(str).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+
+  function lessonLinkHTML(lesson, currentRoute) {
+    const soon = lesson.status !== "ready";
+    const isActive = currentRoute && currentRoute.lessonId === lesson.id;
+    const done = window.Progress ? window.Progress.isComplete(lesson.id) : false;
+    return `<li>
+      <a href="#/lesson/${lesson.id}" class="nav-lesson-link ${isActive ? "active" : ""} ${done ? "done" : ""} ${soon ? "soon" : ""}">
+        <span class="nav-lesson-check">${done ? checkSvg() : ""}</span>
+        <span>${lesson.title}</span>
+      </a>
+    </li>`;
+  }
+
   function build(manifest, currentRoute) {
     const sidebar = document.getElementById("app-sidebar");
     if (!sidebar) return;
@@ -40,6 +67,16 @@
     manifest.levels.forEach((level) => {
       const isOpen = level.id === openLevelId;
       const tierColor = TIER_COLOR_VAR[level.difficulty] || "var(--text-tertiary)";
+
+      const groups = groupByModule(level.lessons);
+      const currentLessonInLevel =
+        currentRoute && currentRoute.lessonId ? level.lessons.find((l) => l.id === currentRoute.lessonId) : null;
+      const openModuleLabel = currentLessonInLevel
+        ? currentLessonInLevel.module
+        : currentRoute && currentRoute.name === "module" && currentRoute.levelId === level.id
+          ? (groups.find((g) => slugify(g.label) === currentRoute.moduleSlug) || {}).label
+          : null;
+
       html += `<div class="nav-level ${isOpen ? "open" : ""}" data-level="${level.id}">
         <button class="nav-level-head" type="button" data-toggle-level="${level.id}">
           <span class="nav-level-num" style="--tier-color:${tierColor}; color:${tierColor}; border-color:${tierColor}44;">${String(level.number).padStart(2, "0")}</span>
@@ -49,20 +86,24 @@
         <div class="nav-level-progress-track"><div class="nav-level-progress-fill" style="--tier-color:${tierColor}; width:0%" data-level-progress-fill="${level.id}"></div></div>
         <ul class="nav-lessons">`;
 
-      let lastModule = null;
-      level.lessons.forEach((lesson) => {
-        const soon = lesson.status !== "ready";
-        const isActive = currentRoute && currentRoute.lessonId === lesson.id;
-        const done = window.Progress ? window.Progress.isComplete(lesson.id) : false;
-        if (lesson.module && lesson.module !== lastModule) {
-          html += `<li class="nav-module-label">${lesson.module}</li>`;
-          lastModule = lesson.module;
+      groups.forEach((group) => {
+        if (!group.label || group.items.length === 1) {
+          // No module, or a module with exactly one lesson -- a sub-accordion for one
+          // item is pure friction, so these render as plain top-level lesson links
+          // (same rule the main content area's module drill-down uses).
+          group.items.forEach((lesson) => { html += lessonLinkHTML(lesson, currentRoute); });
+          return;
         }
-        html += `<li>
-          <a href="#/lesson/${lesson.id}" class="nav-lesson-link ${isActive ? "active" : ""} ${done ? "done" : ""} ${soon ? "soon" : ""}">
-            <span class="nav-lesson-check">${done ? checkSvg() : ""}</span>
-            <span>${lesson.title}</span>
-          </a>
+        const moduleOpen = group.label === openModuleLabel;
+        html += `<li class="nav-module ${moduleOpen ? "open" : ""}">
+          <button class="nav-module-head" type="button" data-toggle-module="${level.id}::${slugify(group.label)}">
+            <span class="nav-module-title">${group.label}</span>
+            <span class="nav-module-count">${group.items.length}</span>
+            <span class="nav-module-chevron">${chevronSvg()}</span>
+          </button>
+          <ul class="nav-module-lessons">
+            ${group.items.map((lesson) => lessonLinkHTML(lesson, currentRoute)).join("")}
+          </ul>
         </li>`;
       });
 
@@ -84,6 +125,12 @@
     sidebar.querySelectorAll("[data-toggle-level]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const el = btn.closest(".nav-level");
+        el.classList.toggle("open");
+      });
+    });
+    sidebar.querySelectorAll("[data-toggle-module]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const el = btn.closest(".nav-module");
         el.classList.toggle("open");
       });
     });

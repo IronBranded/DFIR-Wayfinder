@@ -107,16 +107,30 @@
 .header-progress-label strong { color: var(--text-primary); display: block; font-size: var(--fs-sm); }
 
 /* ---- Sidebar nav ----------------------------------------------------------*/
-.nav-module-label {
+.nav-module {
+  margin: 2px 0;
+}
+.nav-module-head {
+  width: 100%;
+  display: flex; align-items: center; gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3) var(--sp-2) calc(var(--sp-3) + 22px);
+  border: none; background: transparent; cursor: pointer;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-tertiary);
-  padding: var(--sp-3) var(--sp-3) 4px calc(var(--sp-3) + 22px);
-  opacity: 0.8;
+  text-align: left;
 }
-.nav-module-label:first-child { padding-top: var(--sp-2); }
+.nav-module-head:hover { background: var(--surface); color: var(--text-primary); }
+.nav-module-title { flex: 1; }
+.nav-module-count { font-size: var(--fs-2xs); color: var(--text-tertiary); }
+.nav-module-chevron { width: 11px; height: 11px; color: var(--text-tertiary); transition: transform var(--dur-fast); flex-shrink: 0; }
+.nav-module.open .nav-module-chevron { transform: rotate(90deg); }
+.nav-module-lessons { list-style: none; margin: 0; padding: 0; display: none; }
+.nav-module.open .nav-module-lessons { display: block; }
+.nav-module-lessons .nav-lesson-link { padding-left: calc(2.35rem + var(--sp-3)); }
 
 .nav-section-label {
   font-family: var(--font-mono);
