@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-02-scheduled-tasks",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "How can a scheduled task be hidden from schtasks /query and the Task Scheduler GUI while still running?",
+      "options": [
+        "By setting its start type to disabled",
+        "By deleting the SD (security descriptor) value under TaskCache\\Tasks\\{GUID} in the registry",
+        "By renaming the XML file",
+        "It cannot be hidden"
+      ],
+      "correctIndex": 1,
+      "explanation": "Removing the security descriptor value hides the task from enumeration tools while the scheduler continues to execute it -- so a task present in the XML directory or registry but absent from schtasks output is deliberately hidden."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Which scheduled task registration event is most reliably available during an investigation?",
+      "options": [
+        "Security 4698, because it is always enabled",
+        "TaskScheduler/Operational 106, because that log is on by default while 4698 depends on audit policy",
+        "System 7045",
+        "Application 1000"
+      ],
+      "correctIndex": 1,
+      "explanation": "Security log event 4698 requires 'Audit Other Object Access Events' to be enabled, which frequently is not. The Operational log is enabled by default, making 106 the more dependable record."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Where do scheduled task XML definitions live on disk?",
+      "options": [
+        "C:\\Windows\\System32\\Tasks\\, as extensionless XML files",
+        "C:\\Program Files\\Tasks\\",
+        "The registry only; there are no files",
+        "C:\\Users\\Public\\Tasks\\"
+      ],
+      "correctIndex": 0,
+      "explanation": "Task definitions are stored as extensionless XML files under C:\\Windows\\System32\\Tasks\\, with subfolders mirroring the Task Scheduler tree."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is a task located in the root \\ folder more suspicious than one under \\Microsoft\\Windows\\?",
+      "options": [
+        "Root-folder tasks cannot run as SYSTEM",
+        "Legitimate installers rarely place tasks in the root folder, while attackers routinely do",
+        "Root-folder tasks are not logged",
+        "The root folder does not exist by default"
+      ],
+      "correctIndex": 1,
+      "explanation": "Well-behaved software places its tasks in a Microsoft or vendor-named subfolder. A task sitting directly in the root is an outlier worth explaining."
+    }
+  ]
+}

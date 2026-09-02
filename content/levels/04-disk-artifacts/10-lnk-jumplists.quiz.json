@@ -1,0 +1,57 @@
+{
+  "lessonId": "l4-10-lnk-jumplists",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What makes a LNK file valuable after its target is gone?",
+      "options": [
+        "It contains a compressed copy of the target file",
+        "It retains the full original path, file size, target MAC timestamps, and the volume serial number of the drive the target lived on",
+        "It automatically restores deleted files",
+        "It blocks the target from being deleted"
+      ],
+      "correctIndex": 1,
+      "explanation": "That combination frequently proves a specific file existed on a specific removable device at a specific time, when nothing else on the system references it."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "A LNK holds two timestamp sets. What does each answer?",
+      "options": [
+        "Creation and deletion of the shortcut",
+        "The LNK's own times show when the user first and last opened the target; the embedded target MAC times snapshot what the target's timestamps were at that moment",
+        "Both record the same thing redundantly",
+        "One is local time and one is UTC"
+      ],
+      "correctIndex": 1,
+      "explanation": "The embedded snapshot compared against the file's current $MFT values can reveal timestomping the LNK captured incidentally before the alteration."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What does the DestList stream in an AutomaticDestinations Jump List record?",
+      "options": [
+        "The application's installation path",
+        "Access order and access count -- how many times each entry was opened and in what sequence",
+        "The user's password hash",
+        "The file's SHA-256"
+      ],
+      "correctIndex": 1,
+      "explanation": "Access counts and ordering make Jump Lists uniquely useful for establishing how repeatedly a specific document was opened."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "How do LNK files and Jump Lists differ from ShellBags?",
+      "options": [
+        "They record the same information in a different format",
+        "ShellBags prove a folder was browsed in Explorer; LNK and Jump Lists prove a file was opened, by which application, how often, and from which volume",
+        "ShellBags survive deletion but LNK files do not",
+        "LNK files only exist for system files"
+      ],
+      "correctIndex": 1,
+      "explanation": "They are complementary -- and Jump Lists additionally capture files opened via an application's own File-Open dialog, which generates no ShellBag at all."
+    }
+  ]
+}

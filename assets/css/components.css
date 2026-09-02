@@ -739,3 +739,33 @@ p code, li code, td code {
 .macb-legend-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: middle; }
 .macb-legend-swatch--update { background: var(--signal-teal); }
 .macb-legend-swatch--nochange { background: var(--hairline-strong); }
+
+/* ---- Header actions: restart + exit ----------------------------------- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  margin-left: auto;
+}
+.header-actions .icon-btn { color: var(--text-tertiary); }
+.header-actions .icon-btn:hover { color: var(--text-primary); background: var(--surface); }
+#header-exit-link { text-decoration: none; }
+
+/* ---- Restart lesson button in the mark-complete bar -------------------- */
+.mark-complete-bar { flex-wrap: wrap; }
+#restart-lesson-btn { flex-shrink: 0; }
+
+@media (max-width: 720px) {
+  .header-actions { gap: 0; }
+}
+
+.header-flash {
+  font-size: var(--fs-xs);
+  color: var(--signal-teal);
+  margin-right: var(--sp-2);
+  white-space: nowrap;
+  max-width: 22ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 720px) { .header-flash { display: none; } }

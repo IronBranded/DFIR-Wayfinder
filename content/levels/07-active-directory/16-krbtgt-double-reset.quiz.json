@@ -1,0 +1,57 @@
+{
+  "lessonId": "l7-16-krbtgt-double-reset",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why does resetting the krbtgt password only once fail to invalidate an existing Golden Ticket?",
+      "options": [
+        "Because the reset takes 30 days to take effect",
+        "Because Active Directory retains both the current and previous krbtgt hash, so a ticket signed with the old hash still decrypts successfully",
+        "Because Golden Tickets are stored on domain controllers permanently",
+        "It does invalidate it; a second reset is purely optional hygiene"
+      ],
+      "correctIndex": 1,
+      "explanation": "AD keeps two krbtgt hashes for backward compatibility. A single reset makes the compromised hash the 'previous' one, which DCs still accept -- only the second reset flushes it out entirely."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why is the recommended wait between the two krbtgt resets 10 hours specifically?",
+      "options": [
+        "It is an arbitrary number chosen for convenience",
+        "It corresponds to the default Maximum lifetime for user ticket and service ticket policy settings, and allows all DCs to replicate the change",
+        "Because Kerberos requires exactly 10 hours to regenerate keys",
+        "Because domain controllers only replicate once per 10 hours"
+      ],
+      "correctIndex": 1,
+      "explanation": "The 10-hour figure tracks the default Kerberos ticket lifetime settings and gives replication time to converge. Where those lifetime policies have been changed, the wait should exceed the configured value."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What is the tradeoff of resetting krbtgt twice in rapid succession rather than waiting?",
+      "options": [
+        "There is no tradeoff; rapid succession is always preferred",
+        "It invalidates all existing TGTs immediately, forcing every client to re-authenticate and likely requiring application service restarts -- disruptive, but sometimes warranted by a confirmed compromise",
+        "It permanently corrupts the krbtgt account",
+        "It only works on domains with a single domain controller"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rapid succession is the emergency breach-recovery path: it kills forged tickets immediately at the cost of domain-wide authentication disruption. The staged approach is safer but leaves forged tickets valid longer."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why should domain controller replication health be verified before the first reset?",
+      "options": [
+        "Because replication health has no bearing on the reset",
+        "Because a reset that doesn't replicate cleanly leaves some DCs holding the new key and others the old one, causing intermittent authentication failures on top of an active incident",
+        "Because replication must be manually disabled first",
+        "Because the reset script requires an offline domain"
+      ],
+      "correctIndex": 1,
+      "explanation": "Partial replication of a krbtgt change produces inconsistent key state across DCs, which manifests as intermittent, hard-to-diagnose authentication failures -- especially damaging mid-incident."
+    }
+  ]
+}

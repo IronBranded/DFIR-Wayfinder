@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-12-break-glass-abuse",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why are break-glass accounts excluded from Conditional Access by design?",
+      "options": [
+        "Because they are service accounts",
+        "So they remain usable when Conditional Access, MFA, or federation is exactly what has failed",
+        "To reduce licensing costs",
+        "Because they are never actually used"
+      ],
+      "correctIndex": 1,
+      "explanation": "The exclusion is the point -- these accounts exist to restore access when the protective controls themselves are broken. It is also precisely what makes them attractive as backdoors."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What is the control that makes break-glass accounts safe to have?",
+      "options": [
+        "Rotating their passwords weekly",
+        "Alerting on every sign-in at high priority, since there is no routine use and a single authentication is an incident until proven otherwise",
+        "Assigning them through PIM",
+        "Disabling them when not in use"
+      ],
+      "correctIndex": 1,
+      "explanation": "Given they should never authenticate outside a declared emergency, a single successful sign-in is directly actionable with no further correlation needed."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What is the more durable attacker variant of break-glass abuse?",
+      "options": [
+        "Guessing the break-glass password",
+        "Creating an ordinary-looking privileged account and adding it to Conditional Access exclusion lists, giving it the same protection profile",
+        "Disabling all Conditional Access policies",
+        "Deleting the genuine break-glass accounts"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nothing about the account itself looks unusual -- the anomaly lives in the policy configuration rather than the identity, which is why exclusion-list diffing is the needed detection."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why should break-glass accounts be cloud-only rather than synced from on-premises AD?",
+      "options": [
+        "Synced accounts cannot hold Global Administrator",
+        "So an on-premises compromise cannot reach them",
+        "Cloud-only accounts are cheaper to license",
+        "Synced accounts cannot be excluded from Conditional Access"
+      ],
+      "correctIndex": 1,
+      "explanation": "Keeping them outside the sync boundary means a full on-premises Active Directory compromise does not automatically deliver the emergency access accounts as well."
+    }
+  ]
+}

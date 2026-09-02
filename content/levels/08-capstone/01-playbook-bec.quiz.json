@@ -1,0 +1,57 @@
+{
+  "lessonId": "l8-01-playbook-bec",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What is the single most commonly botched step in BEC response?",
+      "options": [
+        "Failing to notify law enforcement",
+        "Resetting the password without revoking sessions, leaving existing refresh tokens valid so the attacker retains access",
+        "Collecting message trace data too early",
+        "Contacting the bank before completing technical scoping"
+      ],
+      "correctIndex": 1,
+      "explanation": "A GUI-only password reset does not invalidate existing refresh tokens. Without explicit session revocation, the attacker continues working through tokens issued before the reset."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why must attacker-registered MFA methods be checked during initial containment?",
+      "options": [
+        "MFA methods expire automatically after 24 hours",
+        "An attacker who enrolled their own authenticator retains access through your password reset",
+        "MFA registration is never possible for an attacker",
+        "Only Global Admins can register MFA methods"
+      ],
+      "correctIndex": 1,
+      "explanation": "Enrolling an additional MFA method is a persistence technique that survives credential rotation entirely, so enumeration and removal must happen as part of the reset rather than afterward."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Which operation is key to making a defensible statement about what data was actually exposed in a BEC?",
+      "options": [
+        "MailItemsAccessed",
+        "UserLoggedIn",
+        "FileDeleted",
+        "SendAs"
+      ],
+      "correctIndex": 0,
+      "explanation": "MailItemsAccessed is what distinguishes 'the account was accessed' from a supportable statement about which mail items the attacker actually read."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why do OAuth consent grants need reviewing even after a full password reset and session revocation?",
+      "options": [
+        "They do not; the reset covers them",
+        "OAuth grants survive password resets entirely and are a frequently-missed persistence path",
+        "They expire after one hour automatically",
+        "They only apply to on-premises accounts"
+      ],
+      "correctIndex": 1,
+      "explanation": "A granted OAuth application retains its own access independent of the user's password and sessions, making it durable persistence unless explicitly revoked."
+    }
+  ]
+}

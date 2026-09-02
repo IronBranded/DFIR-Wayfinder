@@ -16,7 +16,7 @@ The condensed field reference — the handful of facts worth having memorized be
 ## MACB timestamp quick rules
 
 - **SI creation earlier than FN creation** → the textbook timestomping signature.
-- **A cross-volume move produces the same shape, benignly** — rule this out first. See [Level 2: $MFT & Timestomping](#/lesson/l2-02-mft-timestomping).
+- **A cross-volume move produces the same shape, benignly** — rule this out first. See [Level 2: $MFT & Timestomping](#/lesson/l4-05-mft-timestomping).
 - **Modified earlier than Created is normal for a copy** — not evidence on its own.
 
 ## The hybrid account-compromise runbook, condensed
@@ -28,7 +28,7 @@ The condensed field reference — the handful of facts worth having memorized be
 5. Revoke sessions again.
 6. Review MFA methods and mailbox rules added during the compromise window.
 
-Full reasoning: [Level 6: Hybrid Account-Compromise Runbook](#/lesson/l6-01-hybrid-runbook).
+Full reasoning: [Level 6: Hybrid Account-Compromise Runbook](#/lesson/l2-04-hybrid-runbook).
 
 ## Order of Volatility, short form
 

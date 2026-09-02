@@ -1,0 +1,57 @@
+{
+  "lessonId": "l8-09-bec-case-study",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "MFA was enforced and worked correctly. Why did it not prevent the compromise?",
+      "options": [
+        "The attacker bypassed MFA with a stolen token",
+        "The attack never needed a password -- the user authenticated properly and then authorized a malicious application, which MFA is not a control against",
+        "MFA was only enforced for administrators",
+        "The attacker registered their own MFA method first"
+      ],
+      "correctIndex": 1,
+      "explanation": "An illicit consent grant obtains access through legitimate authorization rather than credential theft, so authentication controls are simply not in the path."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why did the immediate password reset fail to terminate access?",
+      "options": [
+        "The reset did not replicate to the cloud",
+        "The refresh token granted by offline_access was unaffected, and the OAuth grant had never depended on the password at all",
+        "The attacker had already changed the password back",
+        "The reset required a second application to take effect"
+      ],
+      "correctIndex": 1,
+      "explanation": "Audit logs showed the attacker still reading mail forty minutes after the reset -- access ended only once the grant, service principal, and refresh tokens were all addressed."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why did the fraudulent wire instruction message pass SPF, DKIM, and DMARC?",
+      "options": [
+        "The attacker forged the DKIM signature",
+        "It was genuinely sent from the real mailbox on the real tenant -- the authentication was correct because the message actually was from Contoso",
+        "The client's mail server had authentication disabled",
+        "The attacker used a lookalike domain for that message"
+      ],
+      "correctIndex": 1,
+      "explanation": "Email authentication verifies the sending domain, not the sender's intent. A compromised legitimate mailbox passes every check by design."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Which single control would have removed the entire attack surface?",
+      "options": [
+        "Requiring stronger passwords",
+        "Restricting user consent to verified publishers and low-impact permissions",
+        "Enabling DMARC at p=reject",
+        "Blocking all external email forwarding"
+      ],
+      "correctIndex": 1,
+      "explanation": "A tenant-level consent restriction prevents ordinary users granting the permissions the attack depends on, eliminating the initial step entirely."
+    }
+  ]
+}

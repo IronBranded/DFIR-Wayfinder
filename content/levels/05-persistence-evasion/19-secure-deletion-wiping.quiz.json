@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-19-secure-deletion-wiping",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why is secure deletion described as a bad trade for an attacker?",
+      "options": [
+        "Wiping tools frequently fail to overwrite anything",
+        "It destroys content while creating an execution record of the wiping tool, recoverable original filenames, a datable activity window, and a volume-level artifact that is hard to explain innocently",
+        "Wiping always triggers an EDR alert",
+        "Wiped files can always be fully recovered"
+      ],
+      "correctIndex": 1,
+      "explanation": "The same dynamic as log clearing: an anti-forensic action that destroys one thing while generating several others."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why does secure deletion behave unpredictably on SSDs?",
+      "options": [
+        "SSDs encrypt all data by default",
+        "Wear levelling and TRIM mean the drive controller decides which physical cells hold data, so an overwrite may land elsewhere than the original",
+        "SSDs ignore all delete commands",
+        "Overwriting is disabled on SSDs by firmware"
+      ],
+      "correctIndex": 1,
+      "explanation": "This cuts both ways -- wiped data may survive in cells the OS cannot address, and normally-deleted data may be genuinely gone once TRIM fires."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "How can original filenames survive a secure deletion?",
+      "options": [
+        "Wiping tools maintain a log of what they deleted",
+        "Most tools rename files repeatedly before deleting, and those renames appear as USN rename pairs and in $I30 index slack",
+        "The filenames are stored in the pagefile",
+        "They cannot; filenames are always destroyed"
+      ],
+      "correctIndex": 1,
+      "explanation": "The content is unrecoverable but the naming trail is not, which frequently identifies what was destroyed even when it cannot be recovered."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Which registry artifact indicates SDelete was run on a host?",
+      "options": [
+        "HKLM\\SYSTEM\\CurrentControlSet\\Services\\SDelete",
+        "HKCU\\Software\\Sysinternals\\SDelete, an EULA-accepted value written on first run",
+        "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+        "There is no registry artifact"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sysinternals tools write an EULA acceptance value per user on first execution, which persists as evidence the tool ran even after the binary is removed."
+    }
+  ]
+}

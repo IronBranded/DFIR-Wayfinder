@@ -1,58 +1,450 @@
 [
   {
-    "name": "MFTECmd",
-    "category": "Endpoint Triage",
+    "name": "BloodHound / SharpHound",
+    "category": "Active Directory",
     "platform": "Windows",
-    "description": "Eric Zimmerman's $MFT parser, outputting SI and FN timestamp sets side by side plus the SI<FN, Copied, and uSecZeros flags used throughout Level 2.",
-    "url": "https://binaryforay.blogspot.com/2018/06/introducing-mftecmd.html"
+    "description": "Graphs AD ACLs and group nesting to answer 'shortest path to Domain Admins' -- equally a defender's tool and an attacker's, and the way shadow admins are found.",
+    "url": "https://bloodhound.readthedocs.io/"
   },
   {
-    "name": "KAPE",
-    "category": "Endpoint Triage",
-    "platform": "Windows",
-    "description": "Kroll's targeted collection and processing tool, used to gather and parse endpoint artifacts at scale during triage.",
-    "url": "https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape"
-  },
-  {
-    "name": "Volatility 3",
-    "category": "Memory Forensics",
+    "name": "Certipy",
+    "category": "Active Directory",
     "platform": "Cross-platform",
-    "description": "The standard open-source memory-forensics framework used throughout Level 5's process, injection, and LSASS analysis lessons.",
-    "url": "https://volatilityfoundation.org/"
+    "description": "Enumerates AD CS certificate template misconfigurations and flags them by ESC number -- certipy find -vulnerable is the standing-exposure audit.",
+    "url": "https://github.com/ly4k/Certipy"
   },
   {
-    "name": "Timeline Explorer",
-    "category": "Timeline Analysis",
+    "name": "repadmin",
+    "category": "Active Directory",
     "platform": "Windows",
-    "description": "Eric Zimmerman's fast CSV/timeline viewer, used for filtering and sorting parsed artifact output across nearly every Level 2 and 3 lesson.",
-    "url": "https://ericzimmerman.github.io/#!index.md"
+    "description": "Built-in replication tool. /showobjmeta dumps per-attribute replication metadata that survives Security log clearing and exposes DCShadow.",
+    "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/repadmin"
+  },
+  {
+    "name": "Reset-KrbTgt-Password script",
+    "category": "Active Directory",
+    "platform": "Windows",
+    "description": "Community-maintained krbtgt reset script that enforces the wait period between resets and handles read-only DC krbtgt accounts correctly.",
+    "url": "https://github.com/zjorz/Public-AD-Scripts"
+  },
+  {
+    "name": "AzureHound",
+    "category": "Adversary Tooling (recognition)",
+    "platform": "Cross-platform",
+    "description": "BloodHound's Entra ID collector. Enumerates tenant objects and relationships through legitimate APIs, so it need not run from inside the victim network at all.",
+    "url": "https://github.com/SpecterOps/AzureHound"
+  },
+  {
+    "name": "Certipy / Certify",
+    "category": "Adversary Tooling (recognition)",
+    "platform": "Cross-platform",
+    "description": "AD CS enumeration and abuse tooling. Also the practical defensive audit path -- certipy find -vulnerable enumerates the ESC misconfigurations before an attacker does.",
+    "url": "https://github.com/ly4k/Certipy"
+  },
+  {
+    "name": "Impacket / secretsdump",
+    "category": "Adversary Tooling (recognition)",
+    "platform": "Cross-platform",
+    "description": "Python implementations of Windows network protocols. secretsdump.py performs both remote DCSync and offline NTDS.dit parsing -- recognizable by the service-creation and authentication traces it leaves.",
+    "url": "https://github.com/fortra/impacket"
+  },
+  {
+    "name": "Invoke-Obfuscation",
+    "category": "Adversary Tooling (recognition)",
+    "platform": "Windows",
+    "description": "PowerShell obfuscation framework. Its output has a recognizable shape -- dense backtick-splitting, layered format strings, and compression stacked under encoding.",
+    "url": "https://github.com/danielbohannon/Invoke-Obfuscation"
+  },
+  {
+    "name": "Mimikatz",
+    "category": "Adversary Tooling (recognition)",
+    "platform": "Windows",
+    "description": "The reference credential-theft tool. Listed here so analysts recognize its command syntax in logs -- sekurlsa::logonpasswords, lsadump::dcsync, misc::memssp each map to a distinct technique in this academy.",
+    "url": "https://github.com/gentilkiwi/mimikatz"
   },
   {
     "name": "Microsoft Graph PowerShell SDK",
     "category": "Cloud Identity",
     "platform": "Cross-platform",
-    "description": "The current, supported PowerShell module for Entra ID administration and investigation \u2014 including Revoke-MgUserSignInSession, central to Level 6's hybrid runbook.",
+    "description": "Revoke-MgUserSignInSession for forced token revocation, plus the Get-Mg cmdlets used to audit app registrations, OAuth grants and credentials.",
     "url": "https://learn.microsoft.com/en-us/powershell/microsoftgraph/"
   },
   {
     "name": "CyberChef",
     "category": "Decoding",
-    "platform": "Web / Cross-platform",
-    "description": "A browser-based data-manipulation toolkit used throughout Level 3 for decoding obfuscated PowerShell and extracting MIME attachments.",
+    "platform": "Cross-platform",
+    "description": "Recipe-chaining decode workbench. From Base64 then Decode text UTF-16LE handles the simple PowerShell case; add Gunzip or Raw Inflate when compression is layered on.",
     "url": "https://gchq.github.io/CyberChef/"
+  },
+  {
+    "name": "Atomic Red Team",
+    "category": "Detection & Hunting",
+    "platform": "Cross-platform",
+    "description": "Small scoped tests mapped to ATT&CK techniques, for turning 'detection exists' into 'detection validated'.",
+    "url": "https://atomicredteam.io/"
+  },
+  {
+    "name": "ATT&CK Navigator",
+    "category": "Detection & Hunting",
+    "platform": "Cross-platform",
+    "description": "Renders coverage as a colour-coded layer over the ATT&CK matrix, exportable and version-controllable as a JSON layer file.",
+    "url": "https://mitre-attack.github.io/attack-navigator/"
+  },
+  {
+    "name": "DetectionLab",
+    "category": "Detection & Hunting",
+    "platform": "Cross-platform",
+    "description": "Pre-instrumented Active Directory lab with Sysmon, logging, and an EDR already deployed -- a practice environment where the telemetry this academy relies on already exists.",
+    "url": "https://github.com/clong/DetectionLab"
+  },
+  {
+    "name": "MISP",
+    "category": "Detection & Hunting",
+    "platform": "Cross-platform",
+    "description": "Open-source threat intelligence platform for storing, correlating, and sharing indicators -- including within sector-specific sharing communities.",
+    "url": "https://www.misp-project.org/"
+  },
+  {
+    "name": "MpCmdRun",
+    "category": "Detection & Hunting",
+    "platform": "Windows",
+    "description": "Microsoft Defender's command-line interface. -GetFiles produces a full diagnostic package including detection history; -Restore -ListAll enumerates quarantined items locally.",
+    "url": "https://learn.microsoft.com/en-us/defender-endpoint/command-line-arguments-microsoft-defender-antivirus"
+  },
+  {
+    "name": "Sigma",
+    "category": "Detection & Hunting",
+    "platform": "Cross-platform",
+    "description": "Tool-agnostic detection rule format with converters for most SIEM and EDR query languages -- write the logic once, deploy it anywhere.",
+    "url": "https://github.com/SigmaHQ/sigma"
+  },
+  {
+    "name": "Sysmon",
+    "category": "Detection & Hunting",
+    "platform": "Windows",
+    "description": "System Monitor. Event ID 1 process creation with full lineage, 3 network, 6 driver load, 7 image load, 10 process access, 11 file create, 15 ADS, 19-21 WMI, 22 DNS.",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon"
+  },
+  {
+    "name": "libpff",
+    "category": "Email Forensics",
+    "platform": "Cross-platform",
+    "description": "Parses PST and OST files -- the OST case matters when a mailbox has been wiped server-side and the endpoint cache is the only surviving copy.",
+    "url": "https://github.com/libyal/libpff"
+  },
+  {
+    "name": "MFCMAPI",
+    "category": "Email Forensics",
+    "platform": "Windows",
+    "description": "Direct access to underlying MAPI properties, which is how inbox rules hidden from the Outlook interface are found.",
+    "url": "https://github.com/microsoft/mfcmapi"
+  },
+  {
+    "name": "AmcacheParser",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Parses Amcache.hve including its SHA-1 hashes -- the one execution-adjacent artifact that survives deletion of the binary and enables threat-intel pivoting.",
+    "url": "https://ericzimmerman.github.io/"
+  },
+  {
+    "name": "AppCompatCacheParser",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Extracts ShimCache entries preserving their most-recent-first ordering, from a live system or an offline SYSTEM hive.",
+    "url": "https://ericzimmerman.github.io/"
+  },
+  {
+    "name": "Autoruns",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Enumerates roughly a hundred autostart locations with signature verification -- 'Hide Microsoft entries' plus 'Verify code signatures' collapses it to a reviewable list.",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns"
+  },
+  {
+    "name": "EvtxECmd",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Normalizes Windows event logs into timeline-friendly CSV, and parses recovered EVTX fragments as well as intact files.",
+    "url": "https://ericzimmerman.github.io/"
+  },
+  {
+    "name": "JLECmd",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Jump List parser for AutomaticDestinations and CustomDestinations, resolving AppIDs and exposing DestList access counts and ordering.",
+    "url": "https://ericzimmerman.github.io/"
+  },
+  {
+    "name": "LECmd",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "LNK file parser exposing target path, size, embedded target MAC times, volume serial number, and originating machine name.",
+    "url": "https://ericzimmerman.github.io/"
+  },
+  {
+    "name": "MFTECmd",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Eric Zimmerman's $MFT, $J and $Boot parser, outputting SI and FN timestamp sets side by side plus the SI<FN, Copied, and uSecZeros flags used throughout Level 4.",
+    "url": "https://ericzimmerman.github.io/"
+  },
+  {
+    "name": "PECmd",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Prefetch parser recovering all eight execution timestamps, run counts, and the referenced-file list that reveals what a since-deleted binary touched.",
+    "url": "https://ericzimmerman.github.io/"
+  },
+  {
+    "name": "ProcDump",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Sysinternals process dump utility. A legitimate troubleshooting tool routinely repurposed for LSASS credential dumping -- recognize procdump -ma lsass.exe in command lines.",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/procdump"
+  },
+  {
+    "name": "Process Explorer / Process Hacker",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Live process tree inspection with signature verification -- the fastest way to spot a misparented svchost.exe or a child of lsass.exe on a running host.",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer"
+  },
+  {
+    "name": "python-cim",
+    "category": "Endpoint Triage",
+    "platform": "Cross-platform",
+    "description": "Parses the WMI CIM repository (OBJECTS.DATA) offline -- the only route to WMI event subscription persistence when the host cannot be queried live.",
+    "url": "https://github.com/fireeye/flare-wmi"
+  },
+  {
+    "name": "Registry Explorer / RECmd",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Registry hive browser and command-line parser handling dirty hives, transaction log replay, and deleted-key recovery from hive slack.",
+    "url": "https://ericzimmerman.github.io/"
+  },
+  {
+    "name": "ShellBagsExplorer / SBECmd",
+    "category": "Endpoint Triage",
+    "platform": "Windows",
+    "description": "Reconstructs the folder tree a user browsed in Explorer from UsrClass.dat and NTUSER.DAT -- including paths that no longer exist.",
+    "url": "https://ericzimmerman.github.io/"
   },
   {
     "name": "Sysinternals Suite",
     "category": "Endpoint Triage",
     "platform": "Windows",
-    "description": "Microsoft's own process, autoruns, and system-internals utilities \u2014 baseline tooling referenced across the Windows Endpoint and Persistence levels.",
+    "description": "Process Explorer, Autoruns, ProcMon, SDelete and the rest -- signed Microsoft tooling that appears in both legitimate administration and intrusions.",
     "url": "https://learn.microsoft.com/en-us/sysinternals/"
   },
   {
-    "name": "Registry Explorer",
-    "category": "Endpoint Triage",
+    "name": "F-Response",
+    "category": "Enterprise Collection",
+    "platform": "Cross-platform",
+    "description": "Mounts remote disks and memory as read-only local volumes over the network, so existing forensic tools work against a live remote host.",
+    "url": "https://www.f-response.com/"
+  },
+  {
+    "name": "Kansa",
+    "category": "Enterprise Collection",
     "platform": "Windows",
-    "description": "Eric Zimmerman's offline registry-hive viewer, used across the Registry Hives, ShellBags, and UserAssist lessons in Level 2.",
-    "url": "https://ericzimmerman.github.io/#!index.md"
+    "description": "PowerShell Remoting framework for fleet-wide sweeps, shipping frequency-analysis scripts that stack results across thousands of hosts to surface outliers.",
+    "url": "https://github.com/davehull/Kansa"
+  },
+  {
+    "name": "KAPE",
+    "category": "Enterprise Collection",
+    "platform": "Windows",
+    "description": "Targeted artifact collection at speed. Targets define what to collect, Modules define what to run against it -- a full triage set in minutes rather than a full disk image in hours.",
+    "url": "https://www.kroll.com/kape"
+  },
+  {
+    "name": "osquery",
+    "category": "Enterprise Collection",
+    "platform": "Cross-platform",
+    "description": "Exposes the operating system as a relational database queryable with SQL -- useful for standing inventory and state questions across mixed platforms.",
+    "url": "https://osquery.io/"
+  },
+  {
+    "name": "Redline",
+    "category": "Enterprise Collection",
+    "platform": "Windows",
+    "description": "Mandiant's memory capture plus triage collector with a built-in analysis GUI, suiting responders who need capture and review in one tool.",
+    "url": "https://fireeye.market/apps/211364"
+  },
+  {
+    "name": "Velociraptor",
+    "category": "Enterprise Collection",
+    "platform": "Cross-platform",
+    "description": "Endpoint visibility platform with its own query language (VQL) for real-time hunting and scheduled collection across an estate.",
+    "url": "https://docs.velociraptor.app/"
+  },
+  {
+    "name": "bulk_extractor",
+    "category": "Filesystem & Recovery",
+    "platform": "Cross-platform",
+    "description": "Scans images for features -- email addresses, URLs, card numbers -- rather than whole files, which is often more directly useful for scoping.",
+    "url": "https://github.com/simsong/bulk_extractor"
+  },
+  {
+    "name": "DeXRAY",
+    "category": "Filesystem & Recovery",
+    "platform": "Cross-platform",
+    "description": "Decodes quarantined files from Defender and other AV products back to their original bytes for offline analysis.",
+    "url": "https://www.hexacorn.com/blog/2016/11/09/dexray-2-11/"
+  },
+  {
+    "name": "EVTXtract",
+    "category": "Filesystem & Recovery",
+    "platform": "Cross-platform",
+    "description": "Recovers individual EVTX event records from unallocated space and slack after a log has been cleared.",
+    "url": "https://github.com/williballenthin/EVTXtract"
+  },
+  {
+    "name": "INDXRipper",
+    "category": "Filesystem & Recovery",
+    "platform": "Cross-platform",
+    "description": "Extracts $I30 directory index entries including slack, recovering filenames and $FN timestamps of deleted files after their MFT records were reused.",
+    "url": "https://github.com/harelsegev/INDXRipper"
+  },
+  {
+    "name": "LogFileParser",
+    "category": "Filesystem & Recovery",
+    "platform": "Windows",
+    "description": "Parses the NTFS $LogFile transaction log, recovering redo/undo records for recent filesystem operations -- the highest-resolution and most perishable disk artifact.",
+    "url": "https://github.com/jschicht/LogFileParser"
+  },
+  {
+    "name": "PhotoRec / TestDisk",
+    "category": "Filesystem & Recovery",
+    "platform": "Cross-platform",
+    "description": "Signature-based file carving with broad format support, for recovering content when the filesystem record is gone.",
+    "url": "https://www.cgsecurity.org/wiki/PhotoRec"
+  },
+  {
+    "name": "scalpel / foremost",
+    "category": "Filesystem & Recovery",
+    "platform": "Cross-platform",
+    "description": "Classic header/footer file carvers. Simpler than PhotoRec and easy to point at a custom signature set when you know exactly what you are looking for.",
+    "url": "https://github.com/sleuthkit/scalpel"
+  },
+  {
+    "name": "SDelete",
+    "category": "Filesystem & Recovery",
+    "platform": "Windows",
+    "description": "Sysinternals secure-deletion utility. Legitimate and signed, which is why it appears in intrusions -- and why its execution artifacts and HKCU\\Software\\Sysinternals\\SDelete EULA key are worth hunting.",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/sdelete"
+  },
+  {
+    "name": "Streams",
+    "category": "Filesystem & Recovery",
+    "platform": "Windows",
+    "description": "Sysinternals utility that recursively enumerates NTFS alternate data streams -- the streams dir /R shows one directory at a time.",
+    "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/streams"
+  },
+  {
+    "name": "Belkasoft RAM Capturer",
+    "category": "Memory Forensics",
+    "platform": "Windows",
+    "description": "Free GUI memory acquisition, an alternative when a responder needs something simple and fast.",
+    "url": "https://belkasoft.com/ram-capturer"
+  },
+  {
+    "name": "DumpIt",
+    "category": "Memory Forensics",
+    "platform": "Windows",
+    "description": "Single-executable memory capture requiring no arguments -- useful when a non-specialist has to run it over the phone.",
+    "url": "https://www.comae.com/"
+  },
+  {
+    "name": "FTK Imager",
+    "category": "Memory Forensics",
+    "platform": "Windows",
+    "description": "Disk imaging with a memory-capture feature, convenient when it is already part of a standard triage kit.",
+    "url": "https://www.exterro.com/digital-forensics-software/ftk-imager"
+  },
+  {
+    "name": "Magnet RAM Capture",
+    "category": "Memory Forensics",
+    "platform": "Windows",
+    "description": "Free GUI memory capture with a small footprint, usable without command-line setup.",
+    "url": "https://www.magnetforensics.com/resources/magnet-ram-capture/"
+  },
+  {
+    "name": "Volatility 3",
+    "category": "Memory Forensics",
+    "platform": "Cross-platform",
+    "description": "The reference memory analysis framework. pslist/psscan, malfind, ldrmodules, netscan, threads, mutantscan, dumpfiles and the rootkit plugins used across Level 3.",
+    "url": "https://volatilityfoundation.org/"
+  },
+  {
+    "name": "WinPmem",
+    "category": "Memory Forensics",
+    "platform": "Windows",
+    "description": "Open-source kernel-driver memory acquisition -- the most commonly cited baseline live-capture tool.",
+    "url": "https://github.com/Velocidex/WinPmem"
+  },
+  {
+    "name": "YARA",
+    "category": "Memory Forensics",
+    "platform": "Cross-platform",
+    "description": "Pattern-matching rules for identifying malware families in files and memory. Use 'wide ascii' for memory, where .NET and PowerShell hold strings as UTF-16.",
+    "url": "https://yara.readthedocs.io/"
+  },
+  {
+    "name": "nfdump",
+    "category": "Network Forensics",
+    "platform": "Cross-platform",
+    "description": "Lightweight NetFlow capture and analysis, a common alternative to SiLK for flow-based investigation.",
+    "url": "https://github.com/phaag/nfdump"
+  },
+  {
+    "name": "RITA",
+    "category": "Network Forensics",
+    "platform": "Cross-platform",
+    "description": "Beaconing detection through statistical analysis of connection inter-arrival timing and byte consistency in Zeek logs.",
+    "url": "https://github.com/activecm/rita"
+  },
+  {
+    "name": "SiLK",
+    "category": "Network Forensics",
+    "platform": "Cross-platform",
+    "description": "NetFlow/IPFIX collection and analysis toolset for volume analysis, lateral movement mapping, and long-window retention.",
+    "url": "https://tools.netsa.cert.org/silk/"
+  },
+  {
+    "name": "Wireshark",
+    "category": "Network Forensics",
+    "platform": "Cross-platform",
+    "description": "Packet capture and protocol analysis, for the cases where flow metadata is not enough and full payload is available.",
+    "url": "https://www.wireshark.org/"
+  },
+  {
+    "name": "Zeek",
+    "category": "Network Forensics",
+    "platform": "Cross-platform",
+    "description": "Network monitoring producing protocol-parsed logs including conn.log, dns.log and ssl.log with JA3 fingerprints.",
+    "url": "https://zeek.org/"
+  },
+  {
+    "name": "Plaso / log2timeline",
+    "category": "Timeline Analysis",
+    "platform": "Cross-platform",
+    "description": "Super timeline engine. log2timeline parses an image once into a storage file; psort then filters and exports it repeatedly in seconds.",
+    "url": "https://plaso.readthedocs.io/"
+  },
+  {
+    "name": "The Sleuth Kit",
+    "category": "Timeline Analysis",
+    "platform": "Cross-platform",
+    "description": "fls and mactime produce a filesystem timeline via bodyfile format in minutes -- filesystem metadata only, but fast.",
+    "url": "https://www.sleuthkit.org/sleuthkit/"
+  },
+  {
+    "name": "Timeline Explorer",
+    "category": "Timeline Analysis",
+    "platform": "Windows",
+    "description": "Viewer for large forensic CSV output with column filtering, search, and tagging across millions of rows -- the tagging is what preserves analytical work.",
+    "url": "https://ericzimmerman.github.io/"
   }
 ]

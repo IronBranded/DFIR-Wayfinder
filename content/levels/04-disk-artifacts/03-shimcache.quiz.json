@@ -1,0 +1,57 @@
+{
+  "lessonId": "l4-03-shimcache",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What does the timestamp stored in a ShimCache entry actually represent?",
+      "options": [
+        "The time the program was executed",
+        "The file's $STANDARD_INFORMATION last-modified time -- describing the file, not the run",
+        "The time the entry was written to the registry",
+        "The system boot time"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the most common ShimCache misreading. The stored value is the file's modified time and inherits every weakness of $SI timestamps, including susceptibility to timestomping."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why does ShimCache prove presence rather than execution on modern Windows?",
+      "options": [
+        "It only records files that failed to launch",
+        "Windows 10 and later lack a reliable execution flag, and entries can be created when the shim engine examines a file for reasons other than execution, including folder browsing",
+        "The execution flag is encrypted",
+        "Only kernel-mode processes are recorded"
+      ],
+      "correctIndex": 1,
+      "explanation": "Older versions carried an insertion flag indicating execution; modern versions do not, so an entry establishes that the file was present and examined, nothing stronger."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why might a ShimCache entry for recent activity be missing from a live system's registry?",
+      "options": [
+        "The registry value is capped at 64 entries",
+        "The cache is maintained in kernel memory and only flushed to the registry at shutdown, so recent entries exist only in memory until the host reboots",
+        "ShimCache is disabled by default on workstations",
+        "Live systems never write ShimCache data"
+      ],
+      "correctIndex": 1,
+      "explanation": "On a machine running since before the activity of interest, the relevant entries are still in memory -- which makes memory analysis the only route to them prior to a reboot."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is an entry's position in the ShimCache list itself useful evidence?",
+      "options": [
+        "Position determines whether the file executed",
+        "Entries are ordered most-recent-first, so position establishes relative recency even where timestamps are unreliable or manipulated",
+        "Position indicates the file's size",
+        "Position corresponds to the drive letter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Since the stored timestamp describes the file rather than the event, the ordering provides an independent recency signal that timestomping does not affect."
+    }
+  ]
+}

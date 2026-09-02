@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-20-vss-deletion-ransomware-precursor",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What is ransomware's actual strategic reason for deleting shadow copies before encryption?",
+      "options": [
+        "Shadow copies slow down the encryption process technically",
+        "It removes the easy recovery option, turning \"we got encrypted\" into \"we may have no choice but to consider paying\"",
+        "Shadow copies contain the encryption key needed by the ransomware",
+        "It's required to bypass antivirus detection"
+      ],
+      "correctIndex": 1,
+      "explanation": "The point isn't technical — it's leverage. Removing the free, fast recovery path is what makes paying feel like the only option."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What is the stealthier alternative to an explicit vssadmin delete shadows command?",
+      "options": [
+        "Renaming the vssadmin.exe binary",
+        "Shrinking allocated shadow copy storage via vssadmin resize shadowstorage until existing snapshots are automatically deleted",
+        "Disabling the Windows Backup service entirely",
+        "Running vssadmin as a scheduled task"
+      ],
+      "correctIndex": 1,
+      "explanation": "Resizing shadow storage down toward the 320 MB minimum causes Windows to auto-delete snapshots exceeding that allocation — achieving deletion without a single explicit delete command in the log."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does the lesson emphasize this is fundamentally a prevention/early-detection topic rather than a post-incident recovery one?",
+      "options": [
+        "Because shadow copies can always be recovered even after deletion",
+        "Because by the time you're looking for this pattern after the fact, the shadow copies and the recovery option are likely already gone",
+        "Because this technique is purely theoretical and rarely used",
+        "Because Windows automatically recreates deleted shadow copies within 24 hours"
+      ],
+      "correctIndex": 1,
+      "explanation": "Real-time alerting on these command patterns, before encryption completes, is where the actual value is — finding them afterward confirms what happened but doesn't change the outcome."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "How does T1490 (Inhibit System Recovery) typically relate to T1486 (Data Encrypted for Impact) in a real ransomware timeline?",
+      "options": [
+        "They are unrelated techniques that never co-occur",
+        "T1490 almost always precedes T1486 by minutes, specifically to augment the impact of the encryption that follows",
+        "T1486 always happens first, with T1490 as cleanup afterward",
+        "They are two names for the exact same technique"
+      ],
+      "correctIndex": 1,
+      "explanation": "T1490 exists specifically to augment T1486's impact and typically precedes it by minutes — which is exactly why catching T1490 in progress is a real chance to interrupt the attack before encryption completes."
+    }
+  ]
+}

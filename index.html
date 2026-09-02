@@ -16,9 +16,9 @@
      Bump it (here and in 404.html) whenever you push a CSS/JS change, or
      browsers and GitHub Pages' CDN can keep serving the old file for a
      while after the push, making a real fix look like it "didn't work". -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=2">
-<link rel="stylesheet" href="assets/css/base.css?v=2">
-<link rel="stylesheet" href="assets/css/components.css?v=2">
+<link rel="stylesheet" href="assets/css/tokens.css?v=3">
+<link rel="stylesheet" href="assets/css/base.css?v=3">
+<link rel="stylesheet" href="assets/css/components.css?v=3">
 </head>
 <body>
 
@@ -43,6 +43,18 @@
     <div id="search-results" role="region" aria-label="Search results" aria-live="polite"></div>
   </div>
 
+  <div class="header-actions">
+    <span id="header-flash" class="header-flash" role="status" aria-live="polite"></span>
+    <button id="header-restart-btn" class="icon-btn" type="button"
+      title="Restart the whole academy" aria-label="Restart the whole academy">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/></svg>
+    </button>
+    <a id="header-exit-link" class="icon-btn" href="https://github.com/IronBranded/Microsoft-DFIR-Academy"
+      target="_blank" rel="noopener noreferrer" title="Exit to the GitHub repository" aria-label="Exit to the GitHub repository">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    </a>
+  </div>
+
   <div class="header-progress">
     <div class="header-progress-label" data-header-progress-label><strong>0%</strong>0/0 lessons</div>
     <div class="header-progress-ring" aria-hidden="true">
@@ -63,7 +75,7 @@
 <div class="site-footer" style="margin-left:var(--sidebar-width); padding-left:var(--sp-5); padding-right:var(--sp-5)">
   <span>DFIR Analysis Academy — an open, community-editable curriculum. Not affiliated with SANS, Microsoft, or 13cubed. Not written for criminal-prosecution workflows.</span>
   <span>
-    <a href="https://github.com/IronBranded/DFIR-Analysis-Academy" target="_blank" rel="noopener noreferrer">View on GitHub</a> ·
+    <a href="https://github.com/IronBranded/Microsoft-DFIR-Academy" target="_blank" rel="noopener noreferrer">View on GitHub</a> ·
     <a href="#/reference/sources">Sources &amp; attribution</a>
   </span>
 </div>
@@ -81,12 +93,12 @@
 })();
 </script>
 
-<script src="assets/js/markdown.js?v=2"></script>
-<script src="assets/js/progress.js?v=2"></script>
-<script src="assets/js/quiz.js?v=2"></script>
-<script src="assets/js/nav.js?v=2"></script>
-<script src="assets/js/search.js?v=2"></script>
-<script src="assets/js/macb-calculator.js?v=2"></script>
-<script src="assets/js/app.js?v=2"></script>
+<script src="assets/js/markdown.js?v=3"></script>
+<script src="assets/js/progress.js?v=3"></script>
+<script src="assets/js/quiz.js?v=3"></script>
+<script src="assets/js/nav.js?v=3"></script>
+<script src="assets/js/search.js?v=3"></script>
+<script src="assets/js/macb-calculator.js?v=3"></script>
+<script src="assets/js/app.js?v=3"></script>
 </body>
 </html>

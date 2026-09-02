@@ -1,0 +1,57 @@
+{
+  "lessonId": "l3-07-thread-analysis",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What does it mean when a thread's start address falls in private memory with no backing module?",
+      "options": [
+        "This is completely normal and expected for all threads",
+        "It's the same private-and-executable signature malfind looks for at the memory-region level, examined instead at the individual thread level -- a strong injection indicator",
+        "The thread has simply not finished initializing",
+        "Private memory threads only occur in kernel-mode processes"
+      ],
+      "correctIndex": 1,
+      "explanation": "A normal thread's start address falls inside a loaded, file-backed module. An injected thread frequently starts in private, unbacked memory -- the same signature malfind checks for regions, applied to threads."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why is a persistently suspended thread worth flagging, even though thread suspension itself is normal?",
+      "options": [
+        "Suspended threads are always malicious",
+        "A thread created suspended and staying that way with no clear lifecycle explanation is exactly the setup APC injection and thread execution hijacking both depend on",
+        "Windows never suspends threads under normal operation",
+        "Suspended threads cannot be analyzed with Volatility"
+      ],
+      "correctIndex": 1,
+      "explanation": "Brief, explainable thread suspension is routine. A thread that stays suspended indefinitely with no obvious reason is the specific setup that injection techniques relying on thread control use."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What does it mean when a thread's start address falls within a legitimate module, but at an offset with no corresponding exported function?",
+      "options": [
+        "This is a normal occurrence with no significance",
+        "It suggests a mid-function injection point rather than a normal thread entry point",
+        "The module itself must be corrupted",
+        "This only happens with 64-bit applications"
+      ],
+      "correctIndex": 1,
+      "explanation": "A normal thread starts at a recognized entry point or exported function. Starting mid-function within an otherwise legitimate module is a distinct tell from starting in fully unbacked private memory."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "How does thread-level analysis complement the process-level and memory-region-level techniques from earlier lessons?",
+      "options": [
+        "It replaces the need for malfind and vadinfo entirely",
+        "It's often the cleanest single confirmation once a process-level or memory-region finding already looks suspicious",
+        "Thread analysis can only be performed on live systems, never memory images",
+        "Threads have no relationship to the injection techniques covered elsewhere"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every injection technique eventually has to create or redirect a thread to execute. Thread-level analysis provides direct confirmation that complements the process- and memory-region-level findings from malfind and process analysis."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-03-windows-services",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why can a triage that only reads ImagePath miss a malicious svchost-hosted service?",
+      "options": [
+        "ImagePath is encrypted for svchost services",
+        "For svchost-hosted services ImagePath is legitimately 'svchost.exe -k <group>' -- the malicious code is in the ServiceDll value one level down under Parameters",
+        "ImagePath is not recorded for services",
+        "svchost services have no ImagePath at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "The process genuinely is svchost.exe with a genuine -k argument and a genuine services.exe parent. Only the ServiceDll value under the Parameters subkey reveals what is actually being loaded."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why is Event ID 7045 particularly valuable for service-based persistence detection?",
+      "options": [
+        "It requires no audit policy configuration and records service name, image path, and start type at installation",
+        "It is only generated on domain controllers",
+        "It captures the full binary content of the service",
+        "It is written to the Security log with tamper protection"
+      ],
+      "correctIndex": 0,
+      "explanation": "7045 is logged by default in the System log by the Service Control Manager, unlike Security event 4697 which depends on audit policy being enabled."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why is a 7045 event a useful lateral-movement detection?",
+      "options": [
+        "It only fires during lateral movement",
+        "PsExec and similar tools work by installing a service on the target, so a service installation on a machine nobody administers is worth investigating",
+        "7045 records the source IP address of the attacker",
+        "Lateral movement always disables 7045 logging"
+      ],
+      "correctIndex": 1,
+      "explanation": "Service installation is how PsExec-style remote execution works. The service name is trivially changed, but the installation event itself still fires."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What does a service Type value of 1 indicate, and why does it matter?",
+      "options": [
+        "An automatic-start service, meaning it runs at boot",
+        "A kernel driver, which raises a different set of concerns covered in the BYOVD lesson",
+        "A disabled service that can be safely ignored",
+        "A service owned by a standard user"
+      ],
+      "correctIndex": 1,
+      "explanation": "Type 1 means the entry is a kernel driver rather than an application service, which puts it in the vulnerable-driver threat model rather than ordinary service persistence."
+    }
+  ]
+}

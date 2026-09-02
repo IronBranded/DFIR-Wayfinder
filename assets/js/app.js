@@ -72,6 +72,16 @@
     return String(str).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
   }
 
+  /* Small status line used by the progress panel and by both restart paths.
+     Falls back to the header when the home-page panel isn't on screen, so a
+     restart triggered from a lesson page still confirms itself. */
+  function flash(text) {
+    const el = document.getElementById("progress-action-msg") || document.getElementById("header-flash");
+    if (!el) return;
+    el.textContent = text;
+    setTimeout(() => { if (el.textContent === text) el.textContent = ""; }, 4000);
+  }
+
   /* ---------------------------------------------------------------------- */
   /* Router                                                                  */
   /* ---------------------------------------------------------------------- */
@@ -231,11 +241,6 @@
       </div>
     `;
 
-    const msgEl = document.getElementById("progress-action-msg");
-    const flash = (text) => {
-      msgEl.textContent = text;
-      setTimeout(() => { if (msgEl.textContent === text) msgEl.textContent = ""; }, 4000);
-    };
 
     document.getElementById("export-progress-btn").addEventListener("click", () => {
       window.Progress.downloadExport();
@@ -257,14 +262,28 @@
       }
     });
 
+    // The header restart is available on every route; the panel button only exists
+    // on the home page. Both run the same full reset.
+    const headerRestart = document.getElementById("header-restart-btn");
+    if (headerRestart) headerRestart.addEventListener("click", restartEverything);
+
     document.getElementById("reset-progress-btn").addEventListener("click", () => {
-      if (!confirm("Reset all progress on this device? This can't be undone — export a backup first if you want to keep it.")) return;
-      window.Progress.resetAll();
-      window.SidebarNav.build(MANIFEST, parseRoute());
-      updateHeaderProgress();
-      router();
-      flash("Progress reset.");
+      restartEverything();
     });
+  }
+
+  function restartEverything() {
+    const total = FLAT_LESSONS.length;
+    if (!confirm(
+      `Restart the whole academy?\n\nThis marks all ${total} lessons incomplete, clears every quiz score, ` +
+      `and returns overall progress to 0%.\n\nIt can't be undone — export a backup first if you want to keep it.`
+    )) return;
+    window.Progress.resetAll();
+    window.SidebarNav.build(MANIFEST, parseRoute());
+    updateHeaderProgress();
+    router();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    flash("Academy restarted — all lessons marked incomplete.");
   }
 
   function levelCardHTML(level) {
@@ -484,6 +503,10 @@
           <button class="btn ${done ? "btn--ghost" : "btn--primary"}" id="mark-complete-btn" type="button">
             ${icon("check")} <span>${done ? "Marked complete" : "Mark lesson complete"}</span>
           </button>
+          <button class="btn btn--ghost" id="restart-lesson-btn" type="button"
+            title="Clear this lesson's completion and quiz score">
+            ${icon("refresh")} <span>Restart lesson</span>
+          </button>
           <span class="text-tertiary mono" style="font-size:var(--fs-xs)">Progress saves to this browser only.</span>
         </div>
 
@@ -504,6 +527,26 @@
       window.SidebarNav.build(MANIFEST, parseRoute());
       updateHeaderProgress();
     });
+
+    const restartBtn = document.getElementById("restart-lesson-btn");
+    if (restartBtn) {
+      restartBtn.addEventListener("click", () => {
+        // Clears completion and the recorded quiz score, then re-renders the quiz
+        // so the questions are answerable again from a clean state.
+        window.Progress.resetLesson(lesson.id);
+        btn.className = "btn btn--primary";
+        btn.querySelector("span").textContent = "Mark lesson complete";
+        const mount = document.getElementById("quiz-mount");
+        if (mount && quiz) {
+          mount.innerHTML = "";
+          window.Quiz.render(mount, quiz, lesson.id);
+        }
+        window.SidebarNav.build(MANIFEST, parseRoute());
+        updateHeaderProgress();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        flash("Lesson restarted.");
+      });
+    }
   }
 
   function crumbHTML(level, lesson) {

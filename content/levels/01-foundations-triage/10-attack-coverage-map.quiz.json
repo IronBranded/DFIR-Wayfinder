@@ -1,0 +1,57 @@
+{
+  "lessonId": "l1-10-attack-coverage-map",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What is the main failure mode when scoring an ATT&CK coverage map?",
+      "options": [
+        "Using too many colors in the Navigator",
+        "Scoring by tool ownership rather than demonstrated detection capability -- 'we have an EDR so Credential Access is covered'",
+        "Updating the map too frequently",
+        "Sharing the map with leadership"
+      ],
+      "correctIndex": 1,
+      "explanation": "Scoring by inventory produces a document that reassures people while describing nothing about what would actually be detected."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why does the gap between 'detection exists' and 'detection validated' matter so much?",
+      "options": [
+        "Validated detections run faster",
+        "An untested detection is a hypothesis -- a rule referencing a changed field name or a no-longer-emitted event type looks identical to a working one until someone tests it",
+        "Validation is required for compliance",
+        "Untested detections consume more storage"
+      ],
+      "correctIndex": 1,
+      "explanation": "Most programs quietly live in this gap, and the failure is invisible precisely because a broken rule and a working rule look the same in a rule list."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why should vendor-supplied coverage layers be treated skeptically?",
+      "options": [
+        "Vendors deliberately misrepresent coverage",
+        "They typically mark a technique covered if the product could detect it in some configuration -- not whether it does in yours, with your policy and log levels",
+        "They are not compatible with Navigator",
+        "They only cover Windows techniques"
+      ],
+      "correctIndex": 1,
+      "explanation": "A vendor layer is a claim to test rather than a measurement to adopt, since it describes product capability rather than your deployment."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is a documented gap more valuable than a flattering coverage score?",
+      "options": [
+        "Documentation is required by regulators",
+        "A documented gap is a decision someone weighed and accepted, revisitable when priorities change -- an undocumented gap is a surprise discovered during an incident",
+        "Gaps are easier to score",
+        "It reduces the number of red cells"
+      ],
+      "correctIndex": 1,
+      "explanation": "The honest map directs prioritization by relevance to the threat model, while a flattering one provides false assurance until it fails under real conditions."
+    }
+  ]
+}

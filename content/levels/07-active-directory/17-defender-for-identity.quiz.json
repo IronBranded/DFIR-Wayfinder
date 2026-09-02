@@ -1,0 +1,57 @@
+{
+  "lessonId": "l7-17-defender-for-identity",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What can Defender for Identity detect that endpoint EDR structurally cannot?",
+      "options": [
+        "Malware on the local disk",
+        "Activity from an unmanaged host with no EDR agent, because the sensor sits on the domain controller where the authentication actually happens",
+        "Encrypted network traffic contents",
+        "User keystrokes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because detection occurs at the authentication and directory layer rather than the endpoint, an attacker operating from a machine with no agent is still visible when they talk to a DC."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why are there multiple distinct Golden Ticket alert variants?",
+      "options": [
+        "It is a product bug generating duplicates",
+        "Each corresponds to a different anomaly in a forged ticket -- a nonexistent account, an implausible lifetime, inconsistent authorization data -- so which one fired tells you something about how it was forged",
+        "Each covers a different Windows version",
+        "They fire in sequence as the attack progresses"
+      ],
+      "correctIndex": 1,
+      "explanation": "The variants are distinct tells rather than duplicates, and identifying which anomaly triggered narrows how the forgery was constructed."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What makes a honeytoken account such a high-signal detection?",
+      "options": [
+        "It automatically blocks the attacker",
+        "It is never used legitimately, so any authentication involving it is actionable without further correlation",
+        "It captures the attacker's password",
+        "It cannot be disabled"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the inverse of break-glass alerting -- an account that exists only to be watched, producing essentially zero false positives."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why does an alert not replace understanding the underlying technique?",
+      "options": [
+        "Alerts are frequently inaccurate",
+        "An alert names a technique but does not investigate it -- a DCSync alert still requires reading 4662 events, establishing which account, when rights were granted, and what else was touched",
+        "Alerts cannot be exported",
+        "Alerts expire after 24 hours"
+      ],
+      "correctIndex": 1,
+      "explanation": "The product is a detection layer over techniques an analyst still needs to understand, which is why this content follows Level 4 rather than substituting for it."
+    }
+  ]
+}

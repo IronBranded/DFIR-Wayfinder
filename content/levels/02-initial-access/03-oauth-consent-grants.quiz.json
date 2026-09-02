@@ -1,0 +1,57 @@
+{
+  "lessonId": "l2-03-oauth-consent-grants",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why does a password reset fail to remove illicit OAuth consent grant access?",
+      "options": [
+        "Password resets take 24 hours to propagate to applications",
+        "The application holds tokens the user authorized -- no credential was ever stolen, so rotating the credential is irrelevant",
+        "OAuth grants are stored on the attacker's server",
+        "The reset must be performed twice"
+      ],
+      "correctIndex": 1,
+      "explanation": "The user never typed a password into anything attacker-controlled. Access derives from an authorization they granted, which persists independently of the credential."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Which OAuth scope specifically converts access into durable persistence?",
+      "options": [
+        "Mail.Read",
+        "offline_access, which grants a refresh token allowing indefinite renewal without the user present",
+        "User.Read",
+        "openid"
+      ],
+      "correctIndex": 1,
+      "explanation": "Without offline_access, access tokens expire quickly. With it, the application can obtain new tokens indefinitely, which is what makes the grant persistence rather than a temporary session."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What makes the illicit consent grant attack effective against security-aware users?",
+      "options": [
+        "It uses a convincing fake login page",
+        "The consent page is the real Microsoft page, at a genuine Microsoft domain with a valid certificate -- there is nothing visually wrong to notice",
+        "It exploits a vulnerability in OAuth 2.0",
+        "It requires no user interaction at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because the mechanism is used honestly rather than spoofed, the usual phishing indicators -- wrong domain, bad certificate, odd URL -- are all absent."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What three steps are required to fully remediate an illicit consent grant?",
+      "options": [
+        "Reset the password, enable MFA, and notify the user",
+        "Remove the permission grant, disable or delete the service principal, and revoke the user's refresh tokens",
+        "Delete the mailbox rules and reset the password",
+        "Block the sender and purge the phishing message"
+      ],
+      "correctIndex": 1,
+      "explanation": "Removing the grant alone can leave already-issued tokens valid until expiry, so all three steps are needed to actually terminate access."
+    }
+  ]
+}

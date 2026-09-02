@@ -1,0 +1,57 @@
+{
+  "lessonId": "l7-12-local-privilege-escalation",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "In an unquoted service path like C:\\Program Files\\My App\\service.exe, why does the missing quotation mark matter?",
+      "options": [
+        "It doesn't — Windows always resolves the correct path regardless",
+        "Windows tries each space-delimited segment as a potential executable in turn, and an attacker who can write to an earlier segment's path can hijack execution",
+        "It only matters for services running as a standard user account",
+        "It causes the service to fail to start entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Windows attempts C:\\Program.exe, then C:\\Program Files\\My.exe, before the real path — writable access to any earlier segment lets an attacker's binary run instead, often as SYSTEM."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What do the \"Potato\" family exploits (JuicyPotato, RoguePotato, etc.) actually abuse?",
+      "options": [
+        "A buffer overflow in the Windows kernel",
+        "Coercing a privileged local service holding SeImpersonatePrivilege into authenticating to an attacker-controlled listener, then capturing that token",
+        "A weakness in NTLM password hashing",
+        "Default credentials on IIS servers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Potato-family exploits coerce a service with SeImpersonatePrivilege into authenticating locally to an attacker listener, then reuse the captured token — no exploit of a memory vulnerability required."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why is there no single 'privilege escalated' event to alert on for token-impersonation-based escalation specifically?",
+      "options": [
+        "Windows doesn't log privilege escalation at all",
+        "The token was already legitimately available to the service — it was just used somewhere it shouldn't have been, not stolen through an alertable event",
+        "These attacks always disable event logging first",
+        "Token impersonation only works on domain controllers"
+      ],
+      "correctIndex": 1,
+      "explanation": "The privilege wasn't stolen through a distinct malicious act — it was legitimately available via SeImpersonatePrivilege and simply directed somewhere unintended, leaving no dedicated escalation event."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why does the lesson connect local privilege escalation to the earlier Discovery and LOLBin lessons?",
+      "options": [
+        "They're entirely unrelated topics placed together by coincidence",
+        "Attackers rarely bother enumerating a domain from an account with no local administrative rights — escalation often precedes and enables that activity",
+        "Discovery commands are only possible after privilege escalation succeeds",
+        "LOLBins require SYSTEM privileges to execute at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "Local privilege escalation is frequently the step that makes the subsequent Discovery and LOLBin activity worthwhile — an attacker with only low-privilege access has much less reason to enumerate broadly."
+    }
+  ]
+}

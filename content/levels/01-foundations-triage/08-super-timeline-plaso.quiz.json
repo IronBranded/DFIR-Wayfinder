@@ -1,0 +1,57 @@
+{
+  "lessonId": "l1-08-super-timeline-plaso",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why is Plaso split into log2timeline and psort as two stages?",
+      "options": [
+        "They were written by different authors",
+        "Parsing is expensive and filtering is cheap -- log2timeline runs once into a storage file, and psort then queries that file repeatedly in seconds",
+        "psort must run before log2timeline",
+        "Only one of them is still maintained"
+      ],
+      "correctIndex": 1,
+      "explanation": "Re-running log2timeline to change a date range is the most common beginner mistake, and can cost an afternoon for a result psort produces instantly."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What is a bodyfile in the Sleuth Kit workflow?",
+      "options": [
+        "A carved file recovered from unallocated space",
+        "The pipe-delimited intermediate format fls emits, holding MACB times per file, which mactime then converts into a sorted timeline",
+        "A memory image header",
+        "The output of a YARA scan"
+      ],
+      "correctIndex": 1,
+      "explanation": "fls walks the filesystem into bodyfile format and mactime renders it as a timeline -- fast, but filesystem metadata only."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What timezone mistake can your own tooling introduce?",
+      "options": [
+        "Plaso silently converts everything to local time",
+        "mactime requires -z explicitly and will emit local-time output if omitted, producing exactly the mixed-timezone merge error to be avoided",
+        "fls always uses the system timezone regardless of flags",
+        "psort cannot output UTC"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mixing a UTC Plaso export with a timezone-defaulted mactime export creates a corrupted timeline from your own commands rather than from a source log."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "When is the Zimmerman-tools route preferable to Plaso?",
+      "options": [
+        "Never; Plaso is always better",
+        "When you already know which artifacts you need -- MFTECmd, EvtxECmd, PECmd and LECmd all emit CSV designed to load into Timeline Explorer together",
+        "When analyzing Linux images",
+        "When the image exceeds 1 TB"
+      ],
+      "correctIndex": 1,
+      "explanation": "It is a lighter-weight route to a merged timeline that skips the expensive full-image parse when the relevant artifact set is already known."
+    }
+  ]
+}

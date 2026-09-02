@@ -86,6 +86,23 @@
     return { total, done, pct: total ? Math.round((done / total) * 100) : 0, perLevel };
   }
 
+  function clearQuizScore(lessonId) {
+    const data = read();
+    if (data.quizScores && lessonId in data.quizScores) {
+      delete data.quizScores[lessonId];
+      write(data);
+    }
+  }
+
+  // Full per-lesson reset: clears completion AND the recorded quiz score, so the
+  // lesson returns to the exact state it was in before the user ever opened it.
+  function resetLesson(lessonId) {
+    const data = read();
+    if (data.completedLessons) delete data.completedLessons[lessonId];
+    if (data.quizScores) delete data.quizScores[lessonId];
+    write(data);
+  }
+
   function resetAll() {
     write({ completedLessons: {}, quizScores: {} });
   }
@@ -154,6 +171,8 @@
     markComplete,
     markIncomplete,
     toggleComplete,
+    clearQuizScore,
+    resetLesson,
     recordQuizScore,
     getQuizScore,
     countCompleted,

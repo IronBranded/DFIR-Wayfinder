@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-15-byovd-loldrivers",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why does Windows Driver Signature Enforcement fail to stop a BYOVD attack?",
+      "options": [
+        "Signature enforcement can always be bypassed with local admin rights alone",
+        "It checks that a driver is properly signed, not that it's actually safe — a signed, known-vulnerable driver passes the same check as a trustworthy one",
+        "BYOVD attacks never involve signed drivers",
+        "Signature enforcement was removed in recent Windows versions"
+      ],
+      "correctIndex": 1,
+      "explanation": "Signature enforcement verifies authenticity of the signature, not safety of the driver's code — a legitimately signed but vulnerable driver passes cleanly."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Is BYOVD typically used as an initial-access technique?",
+      "options": [
+        "Yes, it's the most common way attackers first gain entry",
+        "No — it requires the attacker to already have local administrator privileges, obtained through a separate technique first",
+        "Yes, but only against unpatched systems",
+        "No, it can only be performed by someone with physical access"
+      ],
+      "correctIndex": 1,
+      "explanation": "BYOVD requires existing local admin privileges to install the vulnerable driver — it's a privilege-escalation and defense-evasion technique, not an initial-access one."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What is the primary detection surface for catching BYOVD at the moment it happens, rather than after the fact?",
+      "options": [
+        "Antivirus signature scanning",
+        "Sysmon Event ID 6 (Driver Loaded)",
+        "Windows Update logs",
+        "Firewall connection logs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sysmon Event ID 6 logs every kernel driver load with hash, path, and signing status — the practical primary detection surface, especially important given BYOVD's goal is often killing the tools that would otherwise generate telemetry."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What does HVCI (Hypervisor-Protected Code Integrity) actually prevent, as opposed to just detect?",
+      "options": [
+        "It prevents phishing emails from being delivered",
+        "It prevents unauthorized modification of kernel memory, enforced at the hypervisor level below the OS",
+        "It only works on Windows Server, not workstations",
+        "It blocks all driver installations entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "HVCI enforces kernel memory protection below the OS itself — even with a successfully exploited vulnerable driver, an attacker can't write shellcode to or overwrite protected kernel memory."
+    }
+  ]
+}

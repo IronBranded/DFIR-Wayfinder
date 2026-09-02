@@ -1,0 +1,57 @@
+{
+  "lessonId": "l4-07-ntfs-advanced-artifacts",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What can $I30 index slack recover that the $MFT and USN journal cannot?",
+      "options": [
+        "The full content of deleted files",
+        "Filenames and $FN timestamps of deleted files even after their MFT records have been reused and overwritten",
+        "The user who deleted the file",
+        "Encrypted file keys"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deleted index entries frequently remain in the unused space of allocated index pages, naming files that no longer exist anywhere else on the volume."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "How does $LogFile differ from the USN journal in coverage and detail?",
+      "options": [
+        "They are functionally identical",
+        "$LogFile holds full redo/undo transaction detail over a much shorter window; the USN journal holds a summary per change over a longer one",
+        "$LogFile covers a longer window than the USN journal",
+        "$LogFile only records file deletions"
+      ],
+      "correctIndex": 1,
+      "explanation": "$LogFile is the highest-resolution filesystem artifact and the most perishable, often covering only hours on a busy volume."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does $LogFile rank near the top of the order of volatility for disk-side evidence?",
+      "options": [
+        "It is stored in RAM rather than on disk",
+        "Its window is measured in hours on a busy volume, so it wraps far faster than other filesystem artifacts",
+        "It is deleted at every shutdown",
+        "It requires a live system to read"
+      ],
+      "correctIndex": 1,
+      "explanation": "Heavy write volume means the transaction log recycles quickly, making early collection essential if it is to be useful at all."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "An attacker created, filled, archived, and deleted a staging directory. Nothing is in the MFT, the USN journal wrapped, and carving found nothing. What may still identify the files?",
+      "options": [
+        "Nothing; the evidence is gone",
+        "$I30 index slack, which may still list the filenames with their original $FN timestamps",
+        "The Windows event log",
+        "The pagefile"
+      ],
+      "correctIndex": 1,
+      "explanation": "Index slack will not recover content, but proving a specifically-named file existed in a specific directory is frequently the entire question."
+    }
+  ]
+}

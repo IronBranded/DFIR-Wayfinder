@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-11-mailbox-forwarding-rules",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What are the three layers where forwarding can be configured?",
+      "options": [
+        "Inbox, Outbox, and Archive",
+        "Inbox rules, mailbox-level forwarding via Set-Mailbox, and organization-wide transport rules",
+        "Client, server, and gateway rules",
+        "User, group, and tenant rules"
+      ],
+      "correctIndex": 1,
+      "explanation": "Each is configured in a different place with different cmdlets and appears in different audit records, so checking inbox rules alone is the most common incomplete response."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why do BEC rules typically combine forwarding with a move-and-mark-read action?",
+      "options": [
+        "To improve mail delivery performance",
+        "Moving intercepted messages out of the Inbox and marking them read prevents the victim from seeing the fraud or the replies to it",
+        "Outlook requires both actions to be set",
+        "To avoid triggering spam filters"
+      ],
+      "correctIndex": 1,
+      "explanation": "The concealment half is what makes the fraud work -- forwarding alone would leave the victim seeing the same messages the attacker is acting on."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why might a malicious rule not appear in Outlook's rules interface?",
+      "options": [
+        "Outlook only displays the ten most recent rules",
+        "Rules created via MAPI or EWS can carry properties Outlook does not render, making them invisible in the normal interface",
+        "Rules older than 30 days are hidden automatically",
+        "Hidden rules require administrator privileges to display"
+      ],
+      "correctIndex": 1,
+      "explanation": "A rule that exists at the MAPI layer but is absent from Outlook was almost certainly created deliberately to be invisible -- MFCMAPI or Get-InboxRule -IncludeHidden is needed to see it."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is a forwarding rule such effective persistence?",
+      "options": [
+        "It reinstalls itself if deleted",
+        "It survives the password reset that removes the attacker's ability to log in, continuing to copy mail externally",
+        "It grants Global Administrator rights",
+        "It cannot be deleted by the mailbox owner"
+      ],
+      "correctIndex": 1,
+      "explanation": "Losing account access does not remove the configuration change, which is why rule removal must be an explicit containment step rather than assumed."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-06-appinit-ifeo",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What happens when an IFEO Debugger value is set for an executable?",
+      "options": [
+        "Windows blocks that executable from running",
+        "Windows launches the specified debugger instead, passing the original executable as an argument",
+        "Windows logs every launch of that executable",
+        "The executable runs with elevated privileges"
+      ],
+      "correctIndex": 1,
+      "explanation": "IFEO's Debugger value is a legitimate debugging feature that redirects execution -- the abuse is that the specified 'debugger' can be any program at all."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why is the accessibility backdoor (sethc.exe / utilman.exe) especially serious?",
+      "options": [
+        "It requires Domain Admin to plant",
+        "Those tools are reachable from the lock screen before authentication, so an IFEO Debugger set to cmd.exe yields a SYSTEM shell with no credentials at all",
+        "It only works on domain controllers",
+        "It automatically disables Windows Defender"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because Sticky Keys and Ease of Access are invokable pre-authentication, this becomes a standing backdoor -- particularly on any host reachable over RDP."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why is AppInit_DLLs still worth checking despite being disabled by default on Secure Boot systems?",
+      "options": [
+        "It is actually enabled by default on all systems",
+        "Broadly disabled mechanisms are exactly the ones organizations lack detections for, and older or specially-configured systems still honour it",
+        "It cannot be disabled at all",
+        "Secure Boot has no effect on it"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mechanisms assumed dead tend to be unmonitored, and legacy or non-Secure-Boot systems remain vulnerable."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why would an attacker set an IFEO Debugger value pointing at a non-existent path for a security product's executable?",
+      "options": [
+        "To make the security product run faster",
+        "To prevent that binary from launching at all -- defence evasion rather than persistence",
+        "To redirect its logs to the attacker",
+        "This has no effect"
+      ],
+      "correctIndex": 1,
+      "explanation": "Since Windows tries to launch the specified debugger instead, an invalid path means the original executable never runs -- effectively disabling the tool."
+    }
+  ]
+}

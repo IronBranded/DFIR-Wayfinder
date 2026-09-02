@@ -1,0 +1,57 @@
+{
+  "lessonId": "l7-11-golden-saml",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What does an attacker need to execute a Golden SAML attack?",
+      "options": [
+        "A Global Administrator password",
+        "The federation token-signing certificate's private key, obtainable from the ADFS server or the DKM container in Active Directory",
+        "A valid MFA token",
+        "Physical access to a domain controller"
+      ],
+      "correctIndex": 1,
+      "explanation": "The trust between the identity provider and the cloud rests entirely on that signature, so possession of the signing key allows forging assertions the cloud will accept."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What is the primary detection signal for Golden SAML?",
+      "options": [
+        "A spike in failed sign-ins",
+        "An Entra federated sign-in with no corresponding authentication event at the identity provider",
+        "Multiple password resets in a short window",
+        "Unusual mailbox rule creation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because the forged assertion is generated offline and presented directly to the cloud, the IdP never authenticates anyone -- leaving a gap between the two log sources."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does enforcing MFA fail to stop a Golden SAML attack?",
+      "options": [
+        "MFA is not supported in federated tenants",
+        "The assertion itself declares which authentication methods were performed, so it can simply claim MFA was satisfied",
+        "MFA only applies to cloud-only accounts",
+        "The attacker steals the MFA token separately"
+      ],
+      "correctIndex": 1,
+      "explanation": "Since the assertion asserts the authentication method rather than proving it, an attacker forging the assertion controls that claim."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why must the token-signing certificate be rotated twice?",
+      "options": [
+        "To satisfy compliance requirements",
+        "ADFS maintains a primary and secondary certificate and will accept assertions signed with the previous one until it is cycled out",
+        "The first rotation always fails",
+        "Twice-rotation is required by the SAML specification"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is structurally identical to the krbtgt double reset -- the previous key remains trusted until a second rotation flushes it out."
+    }
+  ]
+}

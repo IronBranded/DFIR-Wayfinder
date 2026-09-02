@@ -1,0 +1,57 @@
+{
+  "lessonId": "l3-16-powershell-malicious-patterns",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What makes the pattern IEX (New-Object Net.WebClient).DownloadString(...) worth recognizing on sight?",
+      "options": [
+        "It is the only way to download a file in PowerShell",
+        "It fetches remote content and executes it in the same step, without writing anything to disk for a scanner to catch",
+        "It only works on PowerShell 7 and later",
+        "It requires administrator privileges to run"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the classic fileless download-cradle pattern -- IEX evaluates the fetched content as code immediately, meaning the payload never exists as a file that static antivirus scanning could catch."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why are Set-MpPreference and Add-MpPreference tampering calls considered a particularly high-signal pattern?",
+      "options": [
+        "They are undocumented, hidden cmdlets",
+        "They are legitimate, documented Defender-management cmdlets -- which is exactly what makes them effective when an attacker uses them to clear the way before staging a payload",
+        "They only exist in PowerShell 2.0",
+        "They automatically alert Microsoft when used"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because these cmdlets are legitimate and documented, they blend into normal admin activity -- but an attacker disabling real-time monitoring or excluding a path immediately before dropping a payload is one of the most direct signals available."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why can PowerShell code execute without a powershell.exe or pwsh.exe process ever appearing in a process tree?",
+      "options": [
+        "This is not actually possible under any circumstances",
+        "PowerShell's automation engine is a .NET library that can be hosted directly inside a different process, without requiring the standalone executable",
+        "Only Windows Server supports this behavior",
+        "It requires disabling Windows entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because System.Management.Automation is a .NET library, any process that embeds it directly can run full PowerShell functionality -- which is exactly why engine-level logging (Script Block Logging) catches activity that process-creation monitoring alone would miss."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is a flag like -NoProfile considered a weak signal on its own, but part of a red flag when clustered with -WindowStyle Hidden?",
+      "options": [
+        "-NoProfile is always malicious regardless of context",
+        "Legitimate unattended automation routinely uses -NoProfile, so it's the combination and context -- not any single flag -- that actually signals something abnormal",
+        "-WindowStyle Hidden cannot be used legitimately under any circumstances",
+        "These flags only appear in PowerShell 2.0"
+      ],
+      "correctIndex": 1,
+      "explanation": "This lesson's recurring theme: individual flags used routinely by legitimate automation only become meaningful red flags in combination with each other and with context like the parent process."
+    }
+  ]
+}

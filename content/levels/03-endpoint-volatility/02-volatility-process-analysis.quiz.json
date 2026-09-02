@@ -1,0 +1,57 @@
+{
+  "lessonId": "l3-02-volatility-process-analysis",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why should windows.pslist and windows.psscan always be run as a pair rather than relying on just one?",
+      "options": [
+        "They always return identical results, so running both is just a formality",
+        "pslist walks a linked list that a hidden process can be unlinked from, while psscan scans memory directly for the EPROCESS pool tag and finds processes regardless of linkage",
+        "psscan is faster and pslist is only needed for older Windows versions",
+        "pslist only works on crash dumps, not live captures"
+      ],
+      "correctIndex": 1,
+      "explanation": "pslist walks ActiveProcessLinks, which a hidden process can be unlinked from via DKOM. psscan finds every EPROCESS-shaped structure in memory by its pool tag, regardless of list linkage -- any process psscan finds that pslist doesn't is a high-priority finding."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What does it mean when windows.ldrmodules shows a DLL mapped in memory that's absent from that process's own dlllist output?",
+      "options": [
+        "This is a normal, expected occurrence with no investigative significance",
+        "A strong signal of reflective loading or deliberate module-list tampering",
+        "The DLL has simply not finished loading yet",
+        "dlllist and ldrmodules always show identical results by design"
+      ],
+      "correctIndex": 1,
+      "explanation": "dlllist reads a process's own self-reported module list from its PEB, while ldrmodules cross-references that against actual mapped memory. A mismatch suggests something was loaded in a way that bypassed the normal, self-reporting mechanism."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why is windows.cmdline valuable even when process-creation logging (like Sysmon Event ID 1 or 4688) was enabled?",
+      "options": [
+        "It's never actually useful if logging was already enabled",
+        "It can confirm the log entry and the live memory state actually agree, and recovers command lines even if logs have since rotated out of retention",
+        "cmdline only works when logging was disabled",
+        "It replaces the need for any event log analysis entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recovering command lines directly from memory provides an independent cross-check against log-based evidence, and remains available even after logs have aged out of retention."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What does windows.pstree add that windows.pslist alone does not?",
+      "options": [
+        "pstree shows completely different processes than pslist",
+        "The same process data, rendered as a parent-child tree, useful for spotting the wrong-parent red flags covered elsewhere in this academy",
+        "pstree only works on 64-bit systems",
+        "pstree requires a live system and cannot be used on a memory image"
+      ],
+      "correctIndex": 1,
+      "explanation": "pstree uses the same underlying data as pslist but renders it as a tree, making parent-child relationship anomalies (like the ones covered in Level 2's LOLBins content) directly visible."
+    }
+  ]
+}

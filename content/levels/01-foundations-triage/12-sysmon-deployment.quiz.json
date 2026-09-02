@@ -1,0 +1,57 @@
+{
+  "lessonId": "l1-12-sysmon-deployment",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What does Sysmon Event ID 6 log, and which earlier lesson depends on it directly?",
+      "options": [
+        "Network connections; the NetFlow lesson",
+        "Driver loads; the BYOVD/LOLDrivers lesson",
+        "Process creation; the Discovery lesson",
+        "DNS queries; the DNS Analysis lesson"
+      ],
+      "correctIndex": 1,
+      "explanation": "Event ID 6 (Driver Loaded) is the primary detection surface the BYOVD/LOLDrivers lesson relies on directly."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why can Windows Event ID 4688 alone be insufficient compared to Sysmon, even with command-line auditing enabled?",
+      "options": [
+        "4688 is deprecated in current Windows versions",
+        "4688 doesn't natively capture network connections, driver loads, or several other event types Sysmon provides",
+        "4688 only works on domain controllers",
+        "4688 requires a third-party license to enable"
+      ],
+      "correctIndex": 1,
+      "explanation": "Even with command-line auditing on, 4688 is limited to process creation — it doesn't cover network connections, driver loads, named pipes, or several other event types Sysmon adds."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does the lesson warn against deploying Sysmon with a default, unfiltered configuration?",
+      "options": [
+        "The default configuration doesn't actually log anything",
+        "It generates an enormous volume of noise that can bury genuinely useful signal, making it not obviously better than no Sysmon at all",
+        "The default configuration is incompatible with most Windows versions",
+        "Unfiltered configurations require a paid license"
+      ],
+      "correctIndex": 1,
+      "explanation": "Excessive noise from an untuned configuration can bury real signal fast enough that logs never get reviewed — a tuned baseline (like SwiftOnSecurity's) is the practical starting point instead."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why does reviewing Sysmon logs only from local disk after an incident defeat much of their value?",
+      "options": [
+        "Local Sysmon logs are automatically encrypted and unreadable",
+        "An attacker with sufficient access can tamper with or clear the local log the same way any other local artifact can be altered",
+        "Sysmon logs are only stored in memory, never on disk",
+        "Local logs expire after 24 hours automatically"
+      ],
+      "correctIndex": 1,
+      "explanation": "Local-only Sysmon logs are just as vulnerable to tampering or clearing as any other local artifact — central forwarding to a SIEM is what actually preserves their value for investigation."
+    }
+  ]
+}

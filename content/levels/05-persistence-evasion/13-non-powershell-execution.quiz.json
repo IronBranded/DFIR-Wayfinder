@@ -1,0 +1,57 @@
+{
+  "lessonId": "l5-13-non-powershell-execution",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why might an attacker deliberately choose VBScript or JScript over PowerShell in an environment with strong PowerShell logging?",
+      "options": [
+        "VBScript is more powerful than PowerShell",
+        "Strong PowerShell-specific logging doesn't cover Windows Script Host execution at all — it's a genuine, exploitable blind spot",
+        "VBScript is a newer technology than PowerShell",
+        "PowerShell can't be used to download files"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the core premise of the lesson: an environment that heavily invests in PowerShell logging but ignores Windows Script Host has a real gap attackers specifically route around."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What makes wscript.exe a preferred delivery mechanism over a visible cmd.exe or PowerShell window?",
+      "options": [
+        "wscript.exe requires administrator privileges to run",
+        "wscript.exe runs completely silently by default, with no visible console window",
+        "wscript.exe cannot execute downloaded content",
+        "wscript.exe is blocked on all modern Windows versions"
+      ],
+      "correctIndex": 1,
+      "explanation": "wscript.exe's default silent execution (no console window) makes it far less likely to prompt a user's second look compared to a visible shell window."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Beyond execution, what persistence mechanism from earlier in this level does WMI also enable?",
+      "options": [
+        "Registry Run Keys",
+        "WMI Event Subscription persistence",
+        "Scheduled Tasks",
+        "BITS Jobs"
+      ],
+      "correctIndex": 1,
+      "explanation": "The same WMI interface used for remote execution is also how WMI Event Subscription persistence gets established — one interface serving both roles."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What dedicated event log channel captures WMI method calls independent of standard process-creation logging?",
+      "options": [
+        "Security.evtx only",
+        "WMI-Activity/Operational",
+        "System.evtx only",
+        "PowerShell/Operational"
+      ],
+      "correctIndex": 1,
+      "explanation": "WMI-Activity/Operational is the dedicated channel that records WMI method calls, including remote ones, that standard process-creation logging alone won't fully capture."
+    }
+  ]
+}

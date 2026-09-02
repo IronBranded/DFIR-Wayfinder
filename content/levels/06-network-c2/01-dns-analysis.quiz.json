@@ -1,0 +1,57 @@
+{
+  "lessonId": "l6-01-dns-analysis",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What is the primary detection signature of a domain generation algorithm?",
+      "options": [
+        "Successful resolution of many domains",
+        "A high NXDOMAIN rate from a single host, since most generated domains were never registered",
+        "Exclusive use of TXT records",
+        "Queries occurring only at midnight"
+      ],
+      "correctIndex": 1,
+      "explanation": "DGA detection keys on failure rather than success -- the malware tries many generated names, nearly all of which do not exist, before finding the one the operator registered."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why does Sysmon Event ID 22 change what you can conclude from DNS data?",
+      "options": [
+        "It captures the full DNS response payload",
+        "It attributes the query to a specific process, turning 'this host resolved a suspicious domain' into 'this process did'",
+        "It works without any DNS server present",
+        "It prevents DNS tunneling entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Server-side DNS logs identify a client host. Process attribution is what elevates a lead into a finding, since rundll32.exe resolving a domain means something a host-level record cannot express."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does DNS over HTTPS defeat the analysis in this lesson?",
+      "options": [
+        "It encrypts the query name with a key only the attacker holds",
+        "The query travels as HTTPS to a public resolver, so the internal DNS server never sees it and query logs never record it",
+        "It changes the DNS protocol version",
+        "It only works for malicious domains"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because DoH bypasses internal resolvers entirely, detection shifts to the connection layer -- HTTPS to known DoH endpoints, particularly from non-browser processes."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why does jitter fail to fully conceal beaconing?",
+      "options": [
+        "Jitter is rarely implemented in real malware",
+        "Jitter widens the distribution of inter-arrival times rather than removing the pattern, so low-variance analysis still surfaces it",
+        "Jitter only affects the first callback",
+        "DNS does not record timestamps"
+      ],
+      "correctIndex": 1,
+      "explanation": "Randomized delay of 20-30% remains statistically visible when inter-arrival times are computed across many queries to the same domain."
+    }
+  ]
+}

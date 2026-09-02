@@ -1,0 +1,57 @@
+{
+  "lessonId": "l6-03-netflow-analysis",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why does NetFlow often prove more useful than full packet capture in practice?",
+      "options": [
+        "It captures more detail per connection",
+        "Flow records are small enough to retain for months, so they still exist when an investigation begins weeks later -- PCAP at scale fills storage in days",
+        "It decrypts TLS automatically",
+        "It requires no sensors to collect"
+      ],
+      "correctIndex": 1,
+      "explanation": "The value of an evidence source is not only its detail but how long it survives. A perfect record that expired before you looked is worth less than a partial one still available."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why is workstation-to-workstation traffic on port 445 notable?",
+      "options": [
+        "Port 445 is never used legitimately",
+        "Endpoints normally talk to servers rather than to each other, so peer-to-peer SMB is abnormal in most environments and indicates lateral movement",
+        "It always indicates a misconfigured firewall",
+        "Workstations cannot open port 445"
+      ],
+      "correctIndex": 1,
+      "explanation": "East-west connectivity between endpoints breaks the normal hub-and-spoke pattern, and flow data shows it across the whole environment in a way host-by-host telemetry does not."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What is the blind spot in an environment that collects flow only at the perimeter?",
+      "options": [
+        "It cannot see any outbound traffic",
+        "Lateral movement is east-west and never crosses the boundary, so the initial callout and eventual exfiltration are visible while everything between them is not",
+        "Perimeter collection misses DNS entirely",
+        "Perimeter flow records lack byte counts"
+      ],
+      "correctIndex": 1,
+      "explanation": "Internal flow collection at core switches, or cloud VPC/NSG flow logs, is what makes the middle of an intrusion visible."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What can flow data establish about exfiltration, and what can it not?",
+      "options": [
+        "Both the content and the volume of what left",
+        "The volume, destination, and timing -- a defensible upper bound -- but not the content, since there is no payload",
+        "Neither volume nor destination",
+        "Only the destination, never the volume"
+      ],
+      "correctIndex": 1,
+      "explanation": "This maps directly onto the three-tier scope statement: flow supports 'a transfer of this size went here at this time' rather than a content inventory, and reporting it as more is where scope statements go wrong."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "lessonId": "l3-04-process-trees",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What is the only legitimate parent of svchost.exe?",
+      "options": [
+        "explorer.exe",
+        "services.exe",
+        "winlogon.exe",
+        "smss.exe"
+      ],
+      "correctIndex": 1,
+      "explanation": "services.exe is the sole legitimate parent of svchost.exe, and every legitimate instance also carries a -k argument naming its service group."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why are orphaned processes like explorer.exe and csrss.exe normal rather than suspicious?",
+      "options": [
+        "They are not normal and always indicate compromise",
+        "Their parents (userinit.exe and smss.exe) exit deliberately after doing their jobs, leaving the parent PID pointing at a process that no longer exists",
+        "Windows randomly reassigns parent PIDs at boot",
+        "Orphaned processes cannot exist in Windows"
+      ],
+      "correctIndex": 1,
+      "explanation": "userinit.exe and smss.exe both exit by design once their startup work is complete, so tools flagging 'missing parent' will report their children every time on a healthy system."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why is a parent PID alone insufficient to establish process lineage?",
+      "options": [
+        "Parent PIDs are encrypted",
+        "PIDs are reused, so you also need the parent's process creation time to be earlier than the child's",
+        "Parent PIDs are only recorded on servers",
+        "Parent PIDs change every few seconds"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because Windows reuses PIDs, a parent PID can point at an unrelated process that started later. Sysmon Event ID 1 records both creation times, which is why it is preferred over 4688 for tree reconstruction."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is any child process of lsass.exe among the strongest indicators in Windows forensics?",
+      "options": [
+        "lsass.exe legitimately spawns many children during logon",
+        "lsass.exe never spawns child processes under normal operation, so any child is anomalous",
+        "Children of lsass.exe are always signed by Microsoft",
+        "lsass.exe only has children on domain controllers"
+      ],
+      "correctIndex": 1,
+      "explanation": "There is exactly one lsass.exe, parented by wininit.exe, and it has no legitimate children. Any child process is a strong credential-access signal."
+    }
+  ]
+}

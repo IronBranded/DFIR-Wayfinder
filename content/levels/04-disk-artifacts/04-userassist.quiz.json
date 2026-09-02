@@ -1,0 +1,57 @@
+{
+  "lessonId": "l4-04-userassist",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What does UserAssist capture that Prefetch does not?",
+      "options": [
+        "The SHA-1 hash of the executable",
+        "That a human deliberately launched the program via the GUI, plus how long they kept it in focus",
+        "The full command line used",
+        "Every DLL the program loaded"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prefetch records execution regardless of origin. UserAssist isolates the subset a user actively clicked, and uniquely records focus time -- how long the application was genuinely engaged with."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why are UserAssist value names ROT13-encoded?",
+      "options": [
+        "To provide meaningful security against tampering",
+        "It is a legacy design choice, not security -- it merely keeps names out of a plain string search, and every parsing tool decodes it automatically",
+        "To compress the data",
+        "To support non-English character sets"
+      ],
+      "correctIndex": 1,
+      "explanation": "ROT13 offers no real obfuscation value. It is worth recognizing only so a hex-level look at the hive is not confusing."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What does UserAssist NOT record?",
+      "options": [
+        "Programs launched from the Start menu",
+        "Command-line execution, scheduled task or service execution, and programs launched by other programs",
+        "Shortcut file launches",
+        "Run counts"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because it is scoped to Explorer-initiated launches, anything started by a shell, a task, a service, or another process leaves no UserAssist entry."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is a binary appearing in Prefetch but absent from UserAssist informative?",
+      "options": [
+        "It indicates the Prefetch entry is corrupt",
+        "It ran without a human clicking it -- consistent with script, service, scheduled task, or parent-process execution",
+        "It proves the binary is malicious",
+        "It means UserAssist has been tampered with"
+      ],
+      "correctIndex": 1,
+      "explanation": "The disagreement between the two artifacts narrows how the program was launched, which is often as useful as knowing that it ran at all."
+    }
+  ]
+}

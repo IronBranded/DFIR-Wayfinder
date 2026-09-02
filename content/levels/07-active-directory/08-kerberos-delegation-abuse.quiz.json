@@ -1,0 +1,57 @@
+{
+  "lessonId": "l7-08-kerberos-delegation-abuse",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why is a compromised unconstrained-delegation host particularly dangerous?",
+      "options": [
+        "It grants access only to a single, specific service",
+        "Domain Controllers periodically authenticate to such hosts, meaning the compromised host may hold a DC's own cached TGT",
+        "It only works against workstations, never servers",
+        "It requires krbtgt access to exploit at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "DCs routinely authenticate to hosts with unconstrained delegation as part of normal operation — a compromised host can end up holding a DC's own TGT, a direct path to full domain compromise."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What attribute does an attacker need write access to in order to stage a Resource-Based Constrained Delegation (RBCD) attack?",
+      "options": [
+        "msDS-AllowedToDelegateTo",
+        "msDS-AllowedToActOnBehalfOfOtherIdentity",
+        "userAccountControl",
+        "servicePrincipalName"
+      ],
+      "correctIndex": 1,
+      "explanation": "RBCD is configured via msDS-AllowedToActOnBehalfOfOtherIdentity on the TARGET resource — write access to this attribute is the core prerequisite."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why does the default MachineAccountQuota value of 10 matter for RBCD specifically?",
+      "options": [
+        "It has no relevance to RBCD",
+        "It means any domain user can create a machine account by default — exactly what's needed to control the account named in the delegation attribute",
+        "It limits how many times RBCD can be exploited per day",
+        "It only affects Exchange-related accounts"
+      ],
+      "correctIndex": 1,
+      "explanation": "Any domain user can create up to 10 machine accounts by default — giving a low-privilege attacker a controllable identity to name in the RBCD attribute, no credential theft required."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What's the most direct mitigation that prevents RBCD abuse for standard users, rather than just detecting it?",
+      "options": [
+        "Enabling BitLocker on all domain controllers",
+        "Reducing MachineAccountQuota to 0 for standard users",
+        "Requiring longer passwords domain-wide",
+        "Disabling Kerberos entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reducing MachineAccountQuota to 0 removes the prerequisite of being able to create an attacker-controlled machine account, closing off the RBCD path for standard users entirely."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "lessonId": "l2-06-attack-surface-reduction",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Which named ASR rule directly protects against the LSASS-access technique covered in Level 5's memory forensics content?",
+      "options": [
+        "Block Office applications from creating child processes",
+        "Block credential stealing from the Windows local security authority subsystem (lsass.exe)",
+        "Block executable content from email and webmail",
+        "Block JavaScript or VBScript from launching downloaded executable content"
+      ],
+      "correctIndex": 1,
+      "explanation": "This rule exists specifically to stop the LSASS-access pattern that Level 5's LSASS memory analysis lesson covers from the artifact side -- ASR blocks it at the behavior level before it happens."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "An ASR rule fires in Audit mode rather than Block mode for a credential-theft attempt. What actually happened?",
+      "options": [
+        "The attempt was fully blocked and prevented",
+        "The action was logged (Event ID 1122) but not actually stopped -- Audit mode provides visibility without prevention",
+        "Nothing was logged at all",
+        "Audit mode only applies to non-credential-related rules"
+      ],
+      "correctIndex": 1,
+      "explanation": "Audit mode logs what would have been blocked without stopping it. A 1122 event for a credential-theft rule is exactly as urgent as a 1121 (Block mode) event -- the only difference is the action wasn't actually prevented."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why is Tamper Protection specifically designed to resist changes from a local administrator account, not just a standard user?",
+      "options": [
+        "Local administrators are never able to change any Windows settings",
+        "A compromised administrator account is one of the most common points an intrusion reaches, so Tamper Protection is built to resist exactly that threat model",
+        "Tamper Protection only applies to guest accounts",
+        "Administrator accounts are automatically trusted by all security products"
+      ],
+      "correctIndex": 1,
+      "explanation": "Local admin rights normally allow changing almost any security product's behavior. Tamper Protection is a deliberate exception, controlled by cloud-managed policy, precisely because attackers frequently do reach local admin during an intrusion."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What does a 1121/1122 event immediately followed by a 5007 exclusion-added event for the same path suggest?",
+      "options": [
+        "This is completely routine and requires no investigation",
+        "Someone hit a real ASR block or audit trigger, then engineered around it with an exclusion rather than reporting a false positive",
+        "The 5007 event is unrelated to the ASR event",
+        "This pattern only occurs during scheduled maintenance windows"
+      ],
+      "correctIndex": 1,
+      "explanation": "This sequence -- a real detection followed by a targeted exclusion for the same path -- suggests deliberate evasion of a control that just fired, rather than a legitimate false-positive resolution process."
+    }
+  ]
+}

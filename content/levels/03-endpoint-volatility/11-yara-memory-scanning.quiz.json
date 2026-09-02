@@ -1,0 +1,57 @@
+{
+  "lessonId": "l3-11-yara-memory-scanning",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why must YARA rules for memory use 'wide ascii' rather than ASCII alone?",
+      "options": [
+        "Memory images are always UTF-8",
+        "..NET and PowerShell hold strings as UTF-16, so an ASCII-only rule misses them entirely",
+        "wide ascii makes scanning faster",
+        "It is required by Volatility"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is the same UTF-16LE property behind PowerShell encoded-command decoding -- a rule matching only ASCII will not find managed-code strings in memory."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why does scanning memory with YARA find things a disk scan cannot?",
+      "options": [
+        "Disk scanners are slower",
+        "A reflectively-loaded assembly never existed as a file for a disk scan to examine, but its strings are resident in memory",
+        "YARA cannot scan disks at all",
+        "Memory scans bypass antivirus exclusions"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is what makes YARA effective against fileless payloads that leave no on-disk artifact whatsoever."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What does a driver appearing in windows.modscan but absent from windows.modules indicate?",
+      "options": [
+        "A normal driver loading race condition",
+        "An unlinked kernel module -- the same list-versus-pool-scan logic as pslist versus psscan, applied to drivers",
+        "The driver is digitally signed",
+        "A corrupted memory image"
+      ],
+      "correctIndex": 1,
+      "explanation": "One walks a linked list and the other scans for pool tags, so a scan-only hit means the module was deliberately unlinked -- the kernel-tampering and BYOVD signature."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is the pagefile worth collecting even when memory acquisition never happened?",
+      "options": [
+        "It contains a full copy of RAM at shutdown",
+        "Paged-out memory content survives a reboot, so a machine restarted before anyone responded may still hold fragments of what was resident",
+        "It is smaller and faster to analyze",
+        "It contains the Windows event logs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Unlike RAM, the pagefile persists across reboots -- and while it has no memory-image structure, it is directly scannable with YARA and carvable with strings or bulk_extractor."
+    }
+  ]
+}

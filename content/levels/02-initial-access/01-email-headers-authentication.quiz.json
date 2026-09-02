@@ -1,0 +1,57 @@
+{
+  "lessonId": "l2-01-email-headers-authentication",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why is 'SPF passed' not equivalent to 'this message is not spoofed'?",
+      "options": [
+        "SPF is frequently misconfigured",
+        "SPF checks the Return-Path (envelope sender) domain, not the From header the user sees -- an attacker's own domain can pass SPF perfectly while displaying any From address",
+        "SPF only applies to internal mail",
+        "SPF results are not recorded in headers"
+      ],
+      "correctIndex": 1,
+      "explanation": "SPF validates that the sending IP is authorized by the envelope sender's domain. It says nothing about the display address, which is what the user actually reads."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What does DMARC add that SPF and DKIM alone do not?",
+      "options": [
+        "Encryption of the message body",
+        "Alignment -- it requires SPF or DKIM to pass AND to align with the From domain, making it the only mechanism protecting the header the user sees",
+        "Attachment scanning",
+        "Delivery confirmation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because both SPF and DKIM validate domains that need not match the From header, alignment is what ties authentication back to what is actually displayed."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Which Received headers can be trusted during analysis?",
+      "options": [
+        "All of them, since they are cryptographically signed",
+        "Only those added by infrastructure you control -- anything below your trust boundary could have been fabricated by the sender",
+        "Only the topmost one",
+        "Only the bottommost one, which shows the true origin"
+      ],
+      "correctIndex": 1,
+      "explanation": "An attacker can prepend as many plausible-looking Received headers as they like before sending, so the analysis begins at the point your own gateway took over."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "What is the classic BEC header construction?",
+      "options": [
+        "A forged DKIM signature",
+        "From shows the legitimate sender, Return-Path is the attacker's domain, and Reply-To quietly redirects the victim's response to attacker infrastructure",
+        "All three addresses identical to the target organization",
+        "No From header at all"
+      ],
+      "correctIndex": 1,
+      "explanation": "The victim verifies the sender, sees the expected name, and replies -- straight into the attacker's inbox, because Reply-To is a different address they never checked."
+    }
+  ]
+}

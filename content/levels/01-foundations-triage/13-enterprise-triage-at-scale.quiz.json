@@ -1,0 +1,57 @@
+{
+  "lessonId": "l1-13-enterprise-triage-at-scale",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "How does enterprise triage invert the single-host collection strategy?",
+      "options": [
+        "It images every endpoint in parallel",
+        "It collects a small targeted artifact set from many hosts, rather than everything from one, to decide which few warrant deep analysis",
+        "It relies entirely on EDR alerts",
+        "It collects nothing until a host is confirmed compromised"
+      ],
+      "correctIndex": 1,
+      "explanation": "The question shifts from 'what happened here' to 'which machines does this apply to', which requires kilobytes per host rather than full disk images."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What is frequency analysis (stacking), and why does it work without signatures?",
+      "options": [
+        "Counting how often an alert fires per day",
+        "Aggregating one artifact type across the fleet, sorting by count, and examining the rarest values -- a service on 3 machines out of 4,000 is an outlier regardless of whether anyone has seen it before",
+        "Measuring CPU frequency for anomalies",
+        "Ranking hosts by patch level"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because a healthy estate is overwhelmingly homogeneous, rarity itself becomes the signal -- which is precisely where signature-based detection fails."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What distinguishes Kansa's role from KAPE's?",
+      "options": [
+        "They are interchangeable",
+        "KAPE is targeted per-host collection; Kansa is a PowerShell Remoting framework for fleet-wide sweeps that also ships frequency-analysis scripts for stacking results",
+        "Kansa only works on Linux",
+        "KAPE performs remote sweeps and Kansa does local collection"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kansa's real strength is the analysis half -- stacking results across the estate to surface outliers, not just gathering them."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is collection that sprays local admin credentials across the estate a red flag?",
+      "options": [
+        "It is too slow to be practical",
+        "It recreates the credential-exposure problem that enables pass-the-hash lateral movement",
+        "It violates GDPR in all jurisdictions",
+        "It requires too much bandwidth"
+      ],
+      "correctIndex": 1,
+      "explanation": "Distributing privileged credentials to every endpoint to enable collection creates exactly the harvestable-credential condition attackers rely on."
+    }
+  ]
+}
