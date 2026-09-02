@@ -1,5 +1,7 @@
 David Bianco's Pyramid of Pain answers a question most detection programs never explicitly ask: **when we build a detection, how much does it actually cost the adversary to evade it?** The answer varies enormously, and the variance explains why some detections stay useful for years and others are dead within hours.
 
+![The Pyramid of Pain: hash values, IP addresses, domain names, network and host artifacts, tools, and TTPs — ordered by how much it costs an adversary to change each one](assets/img/diagrams/pyramid-of-pain.svg)
+
 ## The six levels
 
 From the bottom — trivial for an adversary to change — to the top:

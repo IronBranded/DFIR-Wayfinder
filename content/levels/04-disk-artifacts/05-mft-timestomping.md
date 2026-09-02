@@ -1,5 +1,7 @@
 NTFS stores every file's timestamps **twice**, in two different attributes, updated by two different mechanisms. One of them is writable through a documented Windows API; the other is not. That asymmetry is the entire basis of timestomping detection, and it is why this artifact rewards understanding the structure rather than just reading a tool's output.
 
+![The NTFS dual timestamp split: STANDARD_INFORMATION at 0x10 is writable through the Windows API while FILE_NAME at 0x30 is kernel-maintained, which is why an SI Born earlier than FN Born indicates timestomping](assets/img/diagrams/si-fn-timestamps.svg)
+
 ## The two attributes
 
 Every `$MFT` record carries both:

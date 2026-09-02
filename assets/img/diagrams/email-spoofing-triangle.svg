@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" font-family="IBM Plex Sans, sans-serif" role="img" aria-labelledby="title desc">
+<title id="title">Which address each email authentication mechanism actually checks</title>
+<desc id="desc">Three addresses in a message serve different purposes: the From header is what the user sees, the Return-Path is the envelope sender that SPF validates, and Reply-To is where replies are addressed. SPF checks Return-Path and DKIM checks its signing domain, so neither validates the From header the user reads. Only DMARC requires alignment with the From header. A note shows the classic business email compromise construction using all three.</desc>
+<rect width="720" height="470" fill="#0a0d0d"/>
+<defs><marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#86a19d"/></marker></defs>
+
+<rect x="252" y="26" width="216" height="72" rx="10" fill="#0b3546" stroke="#1d83af" stroke-width="2"/>
+<text x="360" y="50" fill="#1d83af" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1" text-anchor="middle">WHAT THE USER SEES</text>
+<text x="360" y="74" fill="#f0f4f3" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="600" text-anchor="middle">From:</text>
+<text x="360" y="91" fill="#a3b3b1" font-size="11.5" text-anchor="middle">RFC 5322 header — trivially forged</text>
+
+<rect x="24" y="182" width="216" height="72" rx="10" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="132" y="206" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">WHERE BOUNCES GO</text>
+<text x="132" y="230" fill="#f0f4f3" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="600" text-anchor="middle">Return-Path</text>
+<text x="132" y="247" fill="#a3b3b1" font-size="11.5" text-anchor="middle">RFC 5321 envelope sender</text>
+
+<rect x="480" y="182" width="216" height="72" rx="10" fill="#12191a" stroke="#6b4712" stroke-width="1.5"/>
+<text x="588" y="206" fill="#f59e0b" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">WHERE REPLIES GO</text>
+<text x="588" y="230" fill="#f0f4f3" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="600" text-anchor="middle">Reply-To:</text>
+<text x="588" y="247" fill="#a3b3b1" font-size="11.5" text-anchor="middle">Nobody checks it until they reply</text>
+
+<line x1="252" y1="80" x2="176" y2="182" stroke="#304444" stroke-width="1.5" stroke-dasharray="4 4"/>
+<line x1="468" y1="80" x2="544" y2="182" stroke="#304444" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+<rect x="24" y="278" width="216" height="52" rx="8" fill="#0d1213" stroke="#ef4444" stroke-width="1.5"/>
+<text x="132" y="300" fill="#ef4444" font-size="13" font-weight="600" text-anchor="middle">SPF checks THIS</text>
+<text x="132" y="319" fill="#a3b3b1" font-size="11.5" text-anchor="middle">…not the From header</text>
+<path d="M 132 274 L 132 258" stroke="#ef4444" stroke-width="2" marker-end="url(#c)"/>
+
+<rect x="252" y="278" width="216" height="52" rx="8" fill="#0b3546" stroke="#1d83af" stroke-width="2"/>
+<text x="360" y="300" fill="#1d83af" font-size="13" font-weight="600" text-anchor="middle">DMARC checks alignment</text>
+<text x="360" y="319" fill="#f0f4f3" font-size="11.5" text-anchor="middle">The only one protecting From:</text>
+<path d="M 360 274 L 360 106" stroke="#1d83af" stroke-width="2" marker-end="url(#c)"/>
+
+<rect x="480" y="278" width="216" height="52" rx="8" fill="#0d1213" stroke="#304444" stroke-width="1.5"/>
+<text x="588" y="300" fill="#a3b3b1" font-size="13" text-anchor="middle">DKIM signs for its d= domain</text>
+<text x="588" y="319" fill="#a3b3b1" font-size="11.5" text-anchor="middle">…which need not be From:</text>
+
+<rect x="24" y="354" width="672" height="90" rx="10" fill="#12191a" stroke="#ef4444" stroke-width="1.5"/>
+<text x="44" y="378" fill="#ef4444" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1">THE CLASSIC BEC CONSTRUCTION</text>
+<text x="44" y="400" fill="#f0f4f3" font-size="12.5">From: shows the real CEO · Return-Path: is the attacker's own domain (so SPF passes) · Reply-To: redirects the victim's reply</text>
+<text x="44" y="422" fill="#a3b3b1" font-size="12.5">The user verifies the sender, sees the expected name, hits reply — and answers the attacker.</text>
+<text x="44" y="438" fill="#f59e0b" font-size="12" font-weight="600">"SPF passed" is not "not spoofed."</text>
+</svg>

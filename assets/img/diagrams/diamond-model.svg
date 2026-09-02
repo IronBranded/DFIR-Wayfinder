@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" font-family="IBM Plex Sans, sans-serif" role="img" aria-labelledby="title desc">
+<title id="title">The Diamond Model and the pivots between its four vertices</title>
+<desc id="desc">Four vertices arranged as a diamond: Adversary at the top, Capability on the left, Infrastructure on the right, and Victim at the bottom. Edges connect every pair, and labels describe the practical pivots an investigator makes between them. Infrastructure to other victims is highlighted as the pivot that converts one compromised host into an accurate incident scope.</desc>
+<rect width="720" height="520" fill="#0a0d0d"/>
+
+<line x1="360" y1="118" x2="152" y2="252" stroke="#304444" stroke-width="1.5"/>
+<line x1="360" y1="118" x2="568" y2="252" stroke="#304444" stroke-width="1.5"/>
+<line x1="152" y1="252" x2="360" y2="386" stroke="#304444" stroke-width="1.5"/>
+<line x1="568" y1="252" x2="360" y2="386" stroke="#1d83af" stroke-width="2.5"/>
+<line x1="152" y1="252" x2="568" y2="252" stroke="#304444" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+<rect x="268" y="58" width="184" height="62" rx="10" fill="#12191a" stroke="#7a1620" stroke-width="1.5"/>
+<text x="360" y="82" fill="#ef4444" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1" text-anchor="middle">HARDEST · OFTEN OPTIONAL</text>
+<text x="360" y="106" fill="#f0f4f3" font-size="18" font-weight="600" text-anchor="middle">Adversary</text>
+
+<rect x="34" y="222" width="184" height="62" rx="10" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="126" y="248" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">MALWARE · TOOLING</text>
+<text x="126" y="271" fill="#f0f4f3" font-size="18" font-weight="600" text-anchor="middle">Capability</text>
+
+<rect x="502" y="222" width="184" height="62" rx="10" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="594" y="248" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">DOMAINS · IPS · ACCOUNTS</text>
+<text x="594" y="271" fill="#f0f4f3" font-size="18" font-weight="600" text-anchor="middle">Infrastructure</text>
+
+<rect x="268" y="386" width="184" height="62" rx="10" fill="#0b3546" stroke="#1d83af" stroke-width="2"/>
+<text x="360" y="412" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">WHERE YOU START</text>
+<text x="360" y="435" fill="#f0f4f3" font-size="18" font-weight="600" text-anchor="middle">Victim</text>
+
+<text x="222" y="176" fill="#a3b3b1" font-size="11.5" text-anchor="middle">who uses this?</text>
+<text x="500" y="176" fill="#a3b3b1" font-size="11.5" text-anchor="middle">who operates this?</text>
+<text x="206" y="336" fill="#a3b3b1" font-size="11.5" text-anchor="middle">what ran here?</text>
+<text x="360" y="242" fill="#a3b3b1" font-size="11.5" text-anchor="middle">what was hosted there?</text>
+<text x="524" y="330" fill="#1d83af" font-size="12" font-weight="600" text-anchor="middle">what did it connect to?</text>
+
+<rect x="34" y="466" width="652" height="38" rx="8" fill="#0d1213" stroke="#1d83af" stroke-width="1.5"/>
+<text x="360" y="490" fill="#f0f4f3" font-size="12.5" text-anchor="middle">The scoping pivot: Infrastructure → other Victims. Which of your other hosts touched the same infrastructure?</text>
+</svg>

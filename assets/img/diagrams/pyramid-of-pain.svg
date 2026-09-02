@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" font-family="IBM Plex Sans, sans-serif" role="img" aria-labelledby="title desc">
+<title id="title">The Pyramid of Pain: adversary cost to evade each indicator type</title>
+<desc id="desc">Six tiers from bottom to top: hash values (trivial to change), IP addresses (easy), domain names (simple), network and host artifacts (annoying), tools (challenging), and TTPs (tough). Cost to the adversary rises toward the top; detections built on the lower tiers are cheap to build and cheap to evade, while TTP-level detections survive.</desc>
+<rect width="720" height="560" fill="#0a0d0d"/>
+<defs><marker id="up" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#86a19d"/></marker></defs>
+
+<line x1="30" y1="470" x2="30" y2="52" stroke="#304444" stroke-width="2" marker-end="url(#up)"/>
+<text x="20" y="380" fill="#86a19d" font-size="11" font-family="IBM Plex Mono, monospace" transform="rotate(-90 20 380)">ADVERSARY COST RISES</text>
+
+<polygon points="360,44 452,110 268,110" fill="#0b3546" stroke="#1d83af" stroke-width="2"/>
+<text x="360" y="86" fill="#f0f4f3" font-size="17" font-weight="700" text-anchor="middle">TTPs</text>
+<text x="480" y="82" fill="#1d83af" font-size="13" font-weight="600">Tough!</text>
+<text x="480" y="100" fill="#a3b3b1" font-size="12">Must change how they operate</text>
+
+<polygon points="268,116 452,116 490,178 230,178" fill="#12191a" stroke="#1d83af" stroke-width="1.6"/>
+<text x="360" y="153" fill="#f0f4f3" font-size="16" font-weight="600" text-anchor="middle">Tools</text>
+<text x="510" y="152" fill="#a3b3b1" font-size="12">Challenging — find or build new</text>
+
+<polygon points="230,184 490,184 528,246 192,246" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="360" y="221" fill="#f0f4f3" font-size="15" font-weight="600" text-anchor="middle">Network / host artifacts</text>
+<text x="546" y="220" fill="#a3b3b1" font-size="12">Annoying — modify tooling</text>
+
+<polygon points="192,252 528,252 566,314 154,314" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="360" y="289" fill="#f0f4f3" font-size="15" text-anchor="middle">Domain names</text>
+<text x="584" y="288" fill="#a3b3b1" font-size="12">Simple</text>
+
+<polygon points="154,320 566,320 604,382 116,382" fill="#12191a" stroke="#6b4712" stroke-width="1.5"/>
+<text x="360" y="357" fill="#f0f4f3" font-size="15" text-anchor="middle">IP addresses</text>
+<text x="622" y="356" fill="#f59e0b" font-size="12">Easy</text>
+
+<polygon points="116,388 604,388 642,452 78,452" fill="#12191a" stroke="#7a1620" stroke-width="1.5"/>
+<text x="360" y="424" fill="#f0f4f3" font-size="15" text-anchor="middle">Hash values</text>
+<text x="656" y="423" fill="#ef4444" font-size="12">Trivial</text>
+
+<line x1="78" y1="466" x2="642" y2="466" stroke="#223030" stroke-width="1"/>
+<text x="78" y="490" fill="#ef4444" font-size="12.5" font-weight="600">Cheap to build, cheap to evade</text>
+<text x="642" y="490" fill="#1d83af" font-size="12.5" font-weight="600" text-anchor="end">Expensive both ways — and it lasts</text>
+<text x="360" y="524" fill="#86a19d" font-size="12" text-anchor="middle">This academy phrases its red flags as behaviours, which is why they sit at the top tier.</text>
+<text x="360" y="544" fill="#86a19d" font-size="12" text-anchor="middle">Lower tiers still earn their place: cheap detections catch commodity volume at scale.</text>
+</svg>

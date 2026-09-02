@@ -1,5 +1,7 @@
 Some evidence is gone the moment you make the wrong move, and the wrong move is often the instinctive one. Order of volatility is the discipline that decides what you collect first — a decision made once, early, under pressure, with no opportunity to revisit it.
 
+![Order of volatility ladder: CPU registers and cache, RAM and volatile state, temporary filesystems, disk, remote logging, archival media — with a line marking what powering off destroys, and a second panel for retention-limited log sources](assets/img/diagrams/order-of-volatility.svg)
+
 ## The classic ordering
 
 RFC 3227 lays out the sequence, from most volatile to least:

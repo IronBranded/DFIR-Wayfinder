@@ -1,5 +1,7 @@
 [ATT&CK](#/lesson/l1-03-attack-primer) describes *what* an adversary does. The Diamond Model describes *who and what is involved* and, more usefully, **how to get from one to the others**. It is a pivoting framework, and pivoting is what turns a single indicator into an understood intrusion.
 
+![The Diamond Model: Adversary, Capability, Infrastructure and Victim vertices with the investigative pivots between them, highlighting Infrastructure to other Victims as the scoping pivot](assets/img/diagrams/diamond-model.svg)
+
 ## The four vertices
 
 Every intrusion event connects four things:

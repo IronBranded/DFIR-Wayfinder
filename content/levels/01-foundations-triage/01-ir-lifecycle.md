@@ -5,6 +5,8 @@ The Incident Response lifecycle is six phases, and the version worth internalizi
 > [!PLAIN]
 > If you've only ever heard "the IR lifecycle" as a diagram in a slide deck, here's what it means in practice: it's the answer to "what do I actually do, in what order, on my worst day at work." Every artifact lesson elsewhere in this academy — Prefetch, the $MFT, LSASS memory — is a tool you reach for *during* one specific phase of this cycle. This lesson is the map that tells you which phase you're in and what "done" looks like before you move to the next one.
 
+![The incident response lifecycle as a continuous six-phase cycle: Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned — with Lessons Learned feeding back into Preparation](assets/img/diagrams/ir-lifecycle.svg)
+
 ## The six phases
 
 **Preparation.** Everything that happens before an incident, so that when one starts, you're not improvising: logging actually turned on and retained long enough to matter, an asset inventory that's accurate, a contact list that doesn't have three people who left the company on it, and — critically — practiced familiarity with exactly the kind of artifacts this academy covers. Preparation is invisible when it's done well, which is exactly why it's the easiest phase to under-invest in.

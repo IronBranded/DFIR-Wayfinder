@@ -1,5 +1,7 @@
 Email headers are the primary evidence in every phishing and BEC investigation, and the single most common analytical error is treating "SPF passed" as "this message is legitimate." Understanding why that inference is wrong requires knowing which address each mechanism actually checks.
 
+![Which address each email authentication mechanism checks: SPF validates Return-Path, DKIM signs for its own d= domain, and only DMARC requires alignment with the From header the user actually sees](assets/img/diagrams/email-spoofing-triangle.svg)
+
 ## Reading the Received chain
 
 Received headers are **prepended** by each hop, so the chain reads **bottom-up**: the oldest hop is at the bottom, the most recent at the top.

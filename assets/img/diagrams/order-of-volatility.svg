@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 620" font-family="IBM Plex Sans, sans-serif" role="img" aria-labelledby="title desc">
+<title id="title">Order of volatility: what to collect first, and why</title>
+<desc id="desc">A ladder of evidence sources ordered from most volatile at the top to least volatile at the bottom: CPU registers and cache, RAM and volatile system state, temporary filesystems, disk, remote logging, and archival media. A downward arrow marks decreasing volatility and a separate note shows that power-off destroys everything above the disk line. A parallel column shows retention-limited sources such as proxy, NetFlow and cloud audit logs, which expire on a schedule rather than on power loss.</desc>
+
+<rect width="720" height="620" fill="#0a0d0d"/>
+
+<defs>
+  <marker id="dn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0,0 L10,5 L0,10 z" fill="#86a19d"/>
+  </marker>
+</defs>
+
+<text x="34" y="34" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1.5">COLLECT IN THIS ORDER</text>
+
+<!-- volatility axis -->
+<line x1="24" y1="58" x2="24" y2="470" stroke="#304444" stroke-width="2" marker-end="url(#dn)"/>
+<text x="14" y="150" fill="#86a19d" font-size="11" font-family="IBM Plex Mono, monospace" transform="rotate(-90 14 150)">MOST VOLATILE</text>
+<text x="14" y="430" fill="#86a19d" font-size="11" font-family="IBM Plex Mono, monospace" transform="rotate(-90 14 430)">LEAST VOLATILE</text>
+
+<!-- 1 registers -->
+<rect x="44" y="56" width="420" height="52" rx="8" fill="#12191a" stroke="#7a1620" stroke-width="1.5"/>
+<text x="62" y="80" fill="#ef4444" font-size="15" font-weight="600">CPU registers &amp; cache</text>
+<text x="62" y="98" fill="#a3b3b1" font-size="12">Nanoseconds. Not practically collectable in enterprise IR.</text>
+
+<!-- 2 RAM -->
+<rect x="44" y="118" width="420" height="66" rx="8" fill="#12191a" stroke="#ef4444" stroke-width="2"/>
+<text x="62" y="142" fill="#ef4444" font-size="15" font-weight="600">RAM &amp; volatile state</text>
+<text x="62" y="160" fill="#a3b3b1" font-size="12">Processes, connections, injected code, decrypted data.</text>
+<text x="62" y="176" fill="#f0f4f3" font-size="12" font-weight="600">Gone on power loss. Capture before anything else runs.</text>
+
+<!-- 3 temp fs -->
+<rect x="44" y="194" width="420" height="46" rx="8" fill="#12191a" stroke="#6b4712" stroke-width="1.5"/>
+<text x="62" y="216" fill="#f59e0b" font-size="15" font-weight="600">Temporary filesystems</text>
+<text x="62" y="233" fill="#a3b3b1" font-size="12">Cleared on reboot.</text>
+
+<!-- 4 disk -->
+<rect x="44" y="250" width="420" height="46" rx="8" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="62" y="272" fill="#f0f4f3" font-size="15" font-weight="600">Disk</text>
+<text x="62" y="289" fill="#a3b3b1" font-size="12">$MFT, registry, Prefetch — survives reboot.</text>
+
+<!-- 5 remote logging -->
+<rect x="44" y="306" width="420" height="46" rx="8" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="62" y="328" fill="#f0f4f3" font-size="15" font-weight="600">Remote logging &amp; monitoring</text>
+<text x="62" y="345" fill="#a3b3b1" font-size="12">SIEM, forwarded events — beyond the attacker's reach.</text>
+
+<!-- 6 archival -->
+<rect x="44" y="362" width="420" height="46" rx="8" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="62" y="384" fill="#f0f4f3" font-size="15" font-weight="600">Archival media &amp; backups</text>
+<text x="62" y="401" fill="#a3b3b1" font-size="12">Slowest to change, longest retention.</text>
+
+<!-- power-off line -->
+<line x1="44" y1="244" x2="464" y2="244" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="470" y="230" fill="#ef4444" font-size="11.5" font-family="IBM Plex Mono, monospace">POWERING OFF</text>
+<text x="470" y="246" fill="#ef4444" font-size="11.5" font-family="IBM Plex Mono, monospace">DESTROYS ABOVE</text>
+<text x="470" y="262" fill="#a3b3b1" font-size="11.5">Isolate instead —</text>
+<text x="470" y="277" fill="#a3b3b1" font-size="11.5">contains without loss.</text>
+
+<!-- second axis: retention volatility -->
+<rect x="44" y="440" width="632" height="118" rx="10" fill="#0d1213" stroke="#1d83af" stroke-width="1.5"/>
+<text x="62" y="466" fill="#1d83af" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1.2">THE SECOND CLOCK</text>
+<text x="62" y="490" fill="#f0f4f3" font-size="13.5">Proxy logs · NetFlow · cloud audit logs · mailbox audit data</text>
+<text x="62" y="512" fill="#a3b3b1" font-size="12.5">These expire on a retention schedule, not on power loss — sometimes in days.</text>
+<text x="62" y="533" fill="#f0f4f3" font-size="12.5" font-weight="600">A log deleted next Tuesday is as volatile as RAM. Collect it in the first hour too.</text>
+
+<text x="360" y="588" fill="#86a19d" font-size="12" text-anchor="middle">General rule: collect first whatever will exist for the shortest time — whatever the mechanism.</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" font-family="IBM Plex Sans, sans-serif" role="img" aria-labelledby="title desc">
+<title id="title">The NTFS dual timestamp split and how timestomping is detected</title>
+<desc id="desc">Every MFT record stores MACB timestamps twice: in the STANDARD_INFORMATION attribute at 0x10, which is writable through the Windows API, and in the FILE_NAME attribute at 0x30, which only the kernel updates. A timestomping tool backdates the first but cannot reach the second, so a creation time in STANDARD_INFORMATION earlier than the one in FILE_NAME is structurally impossible without manipulation. A note warns that copy inheritance produces a similar-looking but benign pattern.</desc>
+<rect width="720" height="500" fill="#0a0d0d"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/></marker></defs>
+
+<rect x="34" y="30" width="652" height="44" rx="8" fill="#12191a" stroke="#304444" stroke-width="1.5"/>
+<text x="360" y="52" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1" text-anchor="middle">ONE $MFT RECORD</text>
+<text x="360" y="68" fill="#a3b3b1" font-size="12" text-anchor="middle">Every file stores its MACB timestamps twice, in two different attributes</text>
+
+<rect x="34" y="98" width="316" height="196" rx="10" fill="#12191a" stroke="#ef4444" stroke-width="2"/>
+<text x="54" y="124" fill="#ef4444" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600">$STANDARD_INFORMATION</text>
+<text x="54" y="142" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="12">attribute 0x10 · "$SI"</text>
+<line x1="54" y1="154" x2="330" y2="154" stroke="#223030"/>
+<text x="54" y="176" fill="#f0f4f3" font-size="12.5">M · Modified</text>
+<text x="54" y="196" fill="#f0f4f3" font-size="12.5">A · Accessed</text>
+<text x="54" y="216" fill="#f0f4f3" font-size="12.5">C · Changed (record)</text>
+<text x="54" y="236" fill="#f0f4f3" font-size="12.5">B · Born (created)</text>
+<rect x="54" y="250" width="276" height="30" rx="6" fill="#7a1620" opacity="0.35"/>
+<text x="66" y="270" fill="#ef4444" font-size="12" font-weight="600">Writable via SetFileTime — attacker reachable</text>
+
+<rect x="370" y="98" width="316" height="196" rx="10" fill="#12191a" stroke="#1d83af" stroke-width="2"/>
+<text x="390" y="124" fill="#1d83af" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600">$FILE_NAME</text>
+<text x="390" y="142" fill="#86a19d" font-family="IBM Plex Mono, monospace" font-size="12">attribute 0x30 · "$FN"</text>
+<line x1="390" y1="154" x2="666" y2="154" stroke="#223030"/>
+<text x="390" y="176" fill="#f0f4f3" font-size="12.5">M · Modified</text>
+<text x="390" y="196" fill="#f0f4f3" font-size="12.5">A · Accessed</text>
+<text x="390" y="216" fill="#f0f4f3" font-size="12.5">C · Changed (record)</text>
+<text x="390" y="236" fill="#f0f4f3" font-size="12.5">B · Born (created)</text>
+<rect x="390" y="250" width="276" height="30" rx="6" fill="#0b3546"/>
+<text x="402" y="270" fill="#1d83af" font-size="12" font-weight="600">Kernel-maintained — no normal API reaches it</text>
+
+<path d="M 192 300 L 192 336" stroke="#ef4444" stroke-width="2" marker-end="url(#ar)"/>
+<text x="206" y="322" fill="#ef4444" font-size="12">timestomp backdates only this side</text>
+
+<rect x="34" y="344" width="652" height="60" rx="10" fill="#0d1213" stroke="#ef4444" stroke-width="2"/>
+<text x="54" y="368" fill="#ef4444" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600">SI &lt; FN</text>
+<text x="128" y="368" fill="#f0f4f3" font-size="13">$SI Born earlier than $FN Born is structurally impossible without manipulation.</text>
+<text x="54" y="390" fill="#a3b3b1" font-size="12.5">A file cannot have been created before its own filename record was written. MFTECmd exposes this as a boolean column.</text>
+
+<rect x="34" y="416" width="652" height="60" rx="10" fill="#12191a" stroke="#6b4712" stroke-width="1.5"/>
+<text x="54" y="440" fill="#f59e0b" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="600">FALSE POSITIVE · COPY INHERITANCE</text>
+<text x="54" y="462" fill="#a3b3b1" font-size="12.5">Copying a file gives it a fresh $FN while $SI Modified is inherited from the source — normal, and flagged separately as "Copied".</text>
+</svg>
