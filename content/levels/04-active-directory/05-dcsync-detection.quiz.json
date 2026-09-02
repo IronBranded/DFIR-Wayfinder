@@ -1,0 +1,57 @@
+{
+  "lessonId": "l4-05-dcsync-detection",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "What makes DCSync fundamentally harder to detect than file-based NTDS.dit extraction?",
+      "options": [
+        "It requires physical access to the domain controller",
+        "It uses the legitimate directory replication protocol as designed -- no malware, no file to find, and no shadow copy to spot",
+        "It only works during scheduled replication windows",
+        "It permanently disables all domain controller logging"
+      ],
+      "correctIndex": 1,
+      "explanation": "DCSync asks a real DC for credential data through MS-DRSR, the same protocol DCs legitimately use with each other. There is no malicious file or process to detect -- only an authorized-looking request."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Which Event ID, filtered for replication extended-right GUIDs, is the core DCSync detection?",
+      "options": [
+        "Event ID 4624",
+        "Event ID 4662",
+        "Event ID 4768",
+        "Event ID 1102"
+      ],
+      "correctIndex": 1,
+      "explanation": "Event ID 4662 records an operation performed on an object. Filtered for the Replicating Directory Changes GUIDs and checked against whether the requesting account is a DC computer account, it is the primary DCSync detection."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "What specifically distinguishes a malicious replication request from a legitimate one in 4662 events?",
+      "options": [
+        "The time of day the request was made",
+        "Whether the requesting account is a domain controller computer account -- legitimate replication comes from DCs, not user accounts or workstations",
+        "The size of the data returned",
+        "Whether the request used TCP or UDP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Replication between DCs is normal and constant. A replication request from a user account, workstation, or member server rather than a DC computer account is the anomaly that signals DCSync."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why can DCSync be executed from any domain-joined machine rather than requiring access to a DC?",
+      "options": [
+        "Because it exploits a vulnerability in domain controllers",
+        "Because it issues a standard protocol call that any host can make; what matters is holding an account with the replication extended rights, not where the request originates",
+        "Because Windows replicates all credentials to every machine by default",
+        "It cannot -- DCSync requires code running on a domain controller"
+      ],
+      "correctIndex": 1,
+      "explanation": "The attack depends on permissions, not position. An account holding the replication rights can issue DRSGetNCChanges from anywhere in the domain, which is exactly why file-based DC monitoring misses it."
+    }
+  ]
+}

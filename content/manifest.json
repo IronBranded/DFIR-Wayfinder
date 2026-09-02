@@ -36,10 +36,18 @@
           "title": "Order of Volatility",
           "summary": "Which evidence disappears first, and why collection order is a decision you make once, under pressure, with no do-overs.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "methodology",
             "evidence-handling"
+          ],
+          "contentPath": "content/levels/01-foundations/02-order-of-volatility.md",
+          "quizPath": "content/levels/01-foundations/02-order-of-volatility.quiz.json",
+          "objectives": [
+            "Recall the RFC 3227 ordering and its practical enterprise collapse",
+            "Explain why network isolation is preferable to power-off in most cases",
+            "Extend the volatility concept to retention-limited log sources",
+            "Sequence a live response so irreversible steps happen first"
           ]
         },
         {
@@ -48,10 +56,18 @@
           "title": "MITRE ATT&CK Primer",
           "summary": "Tactics vs. techniques vs. sub-techniques, and how to read a technique ID (T1055.012) as more than a label -- the shared vocabulary every artifact page in this academy maps back to.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "attack",
             "frameworks"
+          ],
+          "contentPath": "content/levels/01-foundations/03-attack-primer.md",
+          "quizPath": "content/levels/01-foundations/03-attack-primer.quiz.json",
+          "objectives": [
+            "Distinguish tactics, techniques, and sub-techniques and read an ATT&CK ID",
+            "Explain why one technique can serve multiple tactics",
+            "Use the Data Sources section to identify instrumentation gaps",
+            "Explain why percentage coverage of ATT&CK is a misleading metric"
           ]
         },
         {
@@ -60,10 +76,18 @@
           "title": "Pyramid of Pain",
           "summary": "Why a hash is a cheap indicator and a TTP is an expensive one for the adversary to change -- and what that means for where you should actually invest detection effort.",
           "estimatedMinutes": 14,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "frameworks",
             "detection-strategy"
+          ],
+          "contentPath": "content/levels/01-foundations/04-pyramid-of-pain.md",
+          "quizPath": "content/levels/01-foundations/04-pyramid-of-pain.quiz.json",
+          "objectives": [
+            "Recall the six levels and the adversary cost associated with each",
+            "Explain why hash-based detection is cheap to build and cheap to evade",
+            "Explain why this academy phrases red flags as behaviors",
+            "Avoid the error of dismissing low-level indicators entirely"
           ]
         },
         {
@@ -72,10 +96,18 @@
           "title": "The Diamond Model",
           "summary": "Adversary, capability, infrastructure, victim -- the four vertices that turn a pile of indicators into an analyzable intrusion, with the pivoting logic that makes it useful mid-investigation.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "frameworks",
             "threat-intel"
+          ],
+          "contentPath": "content/levels/01-foundations/05-diamond-model.md",
+          "quizPath": "content/levels/01-foundations/05-diamond-model.quiz.json",
+          "objectives": [
+            "Name the four vertices and the meta-features that link events",
+            "Execute the pivots that expand one indicator into a scoped incident",
+            "Explain why attribution is optional in enterprise IR",
+            "Position the Diamond Model alongside ATT&CK and the Kill Chain"
           ]
         },
         {
@@ -84,10 +116,18 @@
           "title": "Evidence Handling & Chain of Custody",
           "summary": "What actually needs documenting in enterprise IR (versus what's theater left over from criminal-prosecution workflows this academy isn't built for), and where hashing fits.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "evidence-handling",
             "chain-of-custody"
+          ],
+          "contentPath": "content/levels/01-foundations/06-evidence-handling.md",
+          "quizPath": "content/levels/01-foundations/06-evidence-handling.quiz.json",
+          "objectives": [
+            "Distinguish admissibility from defensibility as operating standards",
+            "Identify the practices that are genuinely load-bearing in enterprise IR",
+            "Explain what a chain of custody means in an enterprise context",
+            "Recognize the handoff point where Legal must be involved"
           ]
         },
         {
@@ -96,10 +136,18 @@
           "title": "Timeline Construction & Correlation",
           "summary": "Building a super-timeline from multiple sources with different clocks, different precision, and the clock-skew calibration trick that makes cross-source correlation actually trustworthy.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "timeline",
             "correlation"
+          ],
+          "contentPath": "content/levels/01-foundations/07-timeline-construction.md",
+          "quizPath": "content/levels/01-foundations/07-timeline-construction.quiz.json",
+          "objectives": [
+            "Normalize multiple sources to UTC and state the timezone in reporting",
+            "Calibrate host clock skew using a cross-recorded event",
+            "Use pivot-and-expand rather than sequential reading",
+            "Corroborate a suspect $SI-based timeline against $FN and the USN journal"
           ]
         },
         {
@@ -108,10 +156,18 @@
           "title": "Operationalizing Threat Intelligence",
           "summary": "Turning a feed of indicators into something that actually changes what your SOC does today, not a PDF nobody opens.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "threat-intel",
             "operationalization"
+          ],
+          "contentPath": "content/levels/01-foundations/08-threat-intel-operationalization.md",
+          "quizPath": "content/levels/01-foundations/08-threat-intel-operationalization.quiz.json",
+          "objectives": [
+            "Apply the test for whether intelligence is operational",
+            "Explain why new indicators require retrospective search",
+            "Explain why an aging policy prevents false positives against third parties",
+            "Explain why tactical-only consumption is the least durable approach"
           ]
         },
         {
@@ -120,10 +176,18 @@
           "title": "Building an ATT&CK Coverage Map",
           "summary": "Turning this academy's own artifact-by-artifact coverage into a single tactic-level view -- and why naming your own gaps openly is more useful than pretending you don't have any.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "attack",
             "self-assessment"
+          ],
+          "contentPath": "content/levels/01-foundations/09-attack-coverage-map.md",
+          "quizPath": "content/levels/01-foundations/09-attack-coverage-map.quiz.json",
+          "objectives": [
+            "Score coverage by demonstrated capability rather than tool ownership",
+            "Distinguish the four honest coverage levels including validated detection",
+            "Treat vendor coverage layers as claims to test",
+            "Explain why a documented gap beats a flattering score"
           ]
         },
         {
@@ -132,10 +196,18 @@
           "title": "Reporting & Communication",
           "summary": "The same finding, written twice -- once for the engineer who has to fix it, once for the executive who has to decide something because of it -- and why conflating the two audiences is how good findings get ignored.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "reporting",
             "dual-audience"
+          ],
+          "contentPath": "content/levels/01-foundations/10-reporting-communication.md",
+          "quizPath": "content/levels/01-foundations/10-reporting-communication.quiz.json",
+          "objectives": [
+            "Write the same finding for technical and executive audiences",
+            "Lead with the answer rather than methodology or chronology",
+            "Apply consistent confidence language and never state hypotheses as fact",
+            "Document what could not be determined and why it matters"
           ]
         },
         {
@@ -175,10 +247,18 @@
           "title": "Artifact: Prefetch",
           "summary": "Proof a program ran, when, how many times, and what files/DLLs it touched on first launch -- and the one registry key that silently turns this artifact off on servers.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "prefetch",
             "execution-evidence"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/01-prefetch.md",
+          "quizPath": "content/levels/02-windows-endpoint/01-prefetch.quiz.json",
+          "objectives": [
+            "Explain what a .pf file records and why the hash suffix encodes the executable path",
+            "Explain why an empty Prefetch directory on a server is expected rather than suspicious",
+            "Use the referenced-file list to characterize a since-deleted binary",
+            "State what Prefetch proves compared to Amcache and ShimCache"
           ]
         },
         {
@@ -187,11 +267,19 @@
           "title": "Artifact: $MFT & Timestomping",
           "summary": "MACB timestamps split across two attributes ($SI and $FN) that update on different rules -- and why that split is exactly what makes timestomping detectable.",
           "estimatedMinutes": 26,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "mft",
             "timestomping",
             "macb"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/02-mft-timestomping.md",
+          "quizPath": "content/levels/02-windows-endpoint/02-mft-timestomping.quiz.json",
+          "objectives": [
+            "Explain why the $SI/$FN split makes timestomping structurally detectable",
+            "Recognize copy inheritance as the primary false positive and how MFTECmd separates it",
+            "Interpret the SI<FN, Copied, and uSecZeros indicators",
+            "Explain why $SI Accessed is unreliable on most modern systems"
           ]
         },
         {
@@ -200,10 +288,18 @@
           "title": "Artifact: USN Journal",
           "summary": "The append-only change log that survives even when the $MFT record it's describing gets rewritten -- reason codes, and why it's the corroborating source of first resort.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "usn-journal",
             "corroboration"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/03-usn-journal.md",
+          "quizPath": "content/levels/02-windows-endpoint/03-usn-journal.quiz.json",
+          "objectives": [
+            "Explain the state-versus-events distinction between $MFT and the USN journal",
+            "Identify BASIC_INFO_CHANGE as the timestomping corroboration signal",
+            "Explain why the journal must be collected early because it wraps",
+            "Explain why $MFT must be parsed alongside $J to resolve paths"
           ]
         },
         {
@@ -212,10 +308,18 @@
           "title": "Artifact: Amcache",
           "summary": "First-execution evidence with a SHA-1 hash attached -- and the specific ways it disagrees with Prefetch that tell you something real.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "amcache",
             "execution-evidence"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/04-amcache.md",
+          "quizPath": "content/levels/02-windows-endpoint/04-amcache.quiz.json",
+          "objectives": [
+            "Identify the SHA-1 hash as Amcache's unique investigative value",
+            "Explain why an Amcache entry establishes presence rather than execution",
+            "Reconcile disagreements between Prefetch, Amcache, and ShimCache",
+            "Collect Amcache.hve correctly including its transaction logs"
           ]
         },
         {
@@ -224,10 +328,18 @@
           "title": "Artifact: Shimcache",
           "summary": "Evidence of presence, not necessarily execution -- the nuance that trips up almost everyone the first time they use this artifact in a report.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "shimcache",
             "execution-evidence"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/05-shimcache.md",
+          "quizPath": "content/levels/02-windows-endpoint/05-shimcache.quiz.json",
+          "objectives": [
+            "Explain what the ShimCache timestamp actually represents",
+            "Explain why modern ShimCache proves presence rather than execution",
+            "Explain the shutdown-flush behavior and its collection implications",
+            "Use entry ordering as a recency signal independent of timestamps"
           ]
         },
         {
@@ -236,10 +348,18 @@
           "title": "Artifact: Registry Hives",
           "summary": "Where the hives actually live on disk, ControlSet numbering and which one was actually live at boot, and reading raw hives from an offline image.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "registry",
             "controlsets"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/06-registry-hives.md",
+          "quizPath": "content/levels/02-windows-endpoint/06-registry-hives.quiz.json",
+          "objectives": [
+            "Locate every major hive and its on-disk path",
+            "Explain why transaction logs must be collected with each hive",
+            "Use SYSTEM\\Select\\Current rather than assuming ControlSet001",
+            "Explain why deleted keys are often still recoverable from hive slack"
           ]
         },
         {
@@ -248,10 +368,18 @@
           "title": "Artifact: ShellBags",
           "summary": "Folder-access history that survives folder deletion -- proof a user (or an attacker with that user's session) browsed to a path that no longer exists.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "shellbags",
             "user-activity"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/07-shellbags.md",
+          "quizPath": "content/levels/02-windows-endpoint/07-shellbags.quiz.json",
+          "objectives": [
+            "Explain why ShellBags survive deletion of the folder they describe",
+            "State the GUI-only limitation and why absence proves nothing",
+            "Locate ShellBag data in both UsrClass.dat and NTUSER.DAT",
+            "Explain the account-versus-person attribution nuance"
           ]
         },
         {
@@ -260,10 +388,18 @@
           "title": "Artifact: UserAssist",
           "summary": "GUI-launched program history with a ROT13-encoded key and a run count -- what it captures that Prefetch doesn't, and vice versa.",
           "estimatedMinutes": 14,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "userassist",
             "execution-evidence"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/08-userassist.md",
+          "quizPath": "content/levels/02-windows-endpoint/08-userassist.quiz.json",
+          "objectives": [
+            "Explain what UserAssist captures that Prefetch does not",
+            "Recognize ROT13 encoding as legacy design rather than security",
+            "State what UserAssist does not record and why that scopes its use",
+            "Interpret a Prefetch entry with no matching UserAssist entry"
           ]
         },
         {
@@ -272,10 +408,18 @@
           "title": "Event Log Key IDs Reference",
           "summary": "The Event IDs worth memorizing cold -- 4624/4625, 4688, 7045, 4104 -- and what each one actually guarantees versus merely suggests.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "event-logs",
             "reference"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/09-event-log-key-ids.md",
+          "quizPath": "content/levels/02-windows-endpoint/09-event-log-key-ids.quiz.json",
+          "objectives": [
+            "Interpret 4624 correctly using its Logon Type field",
+            "Explain why 4688 requires separate command-line auditing to be useful",
+            "Explain why 1102 survives the log clearing it records",
+            "Recognize 4648 explicit credential use as a lateral movement signal"
           ]
         },
         {
@@ -284,10 +428,18 @@
           "title": "Baseline Process Trees",
           "summary": "What a normal parent-child chain looks like for the processes attackers abuse most (services.exe, explorer.exe spawning shells) -- the baseline every 'weird process tree' red flag in this academy is measured against.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "process-trees",
             "baseline"
+          ],
+          "contentPath": "content/levels/02-windows-endpoint/10-process-trees.md",
+          "quizPath": "content/levels/02-windows-endpoint/10-process-trees.quiz.json",
+          "objectives": [
+            "Reproduce the Windows boot process chain from System through explorer.exe",
+            "Explain why orphaned processes like explorer.exe and csrss.exe are expected",
+            "Explain why parent PID alone cannot establish lineage without creation times",
+            "Identify the highest-value tree anomalies including lsass children and misparented svchost"
           ]
         },
         {
@@ -315,7 +467,7 @@
           "id": "l2-12-lolbins",
           "module": "Reconnaissance",
           "title": "LOLBin Catalog",
-          "summary": "Five Microsoft-signed, legitimate binaries attackers proxy execution through \u2014 and the argument/parent-process patterns that separate abuse from normal use.",
+          "summary": "Five Microsoft-signed, legitimate binaries attackers proxy execution through — and the argument/parent-process patterns that separate abuse from normal use.",
           "estimatedMinutes": 20,
           "status": "ready",
           "tags": [
@@ -336,7 +488,7 @@
           "id": "l2-13-byovd-loldrivers",
           "module": "Reconnaissance",
           "title": "BYOVD & the LOLDrivers Catalog",
-          "summary": "Legitimately signed, genuinely vulnerable drivers attackers exploit for kernel-mode code execution \u2014 usually to kill EDR and antivirus outright.",
+          "summary": "Legitimately signed, genuinely vulnerable drivers attackers exploit for kernel-mode code execution — usually to kill EDR and antivirus outright.",
           "estimatedMinutes": 20,
           "status": "ready",
           "tags": [
@@ -357,7 +509,7 @@
           "id": "l2-14-local-privilege-escalation",
           "module": "Reconnaissance",
           "title": "Local Privilege Escalation",
-          "summary": "Unquoted service paths, weak service permissions, and token impersonation \u2014 turning a low-privilege foothold into SYSTEM before AD is ever touched.",
+          "summary": "Unquoted service paths, weak service permissions, and token impersonation — turning a low-privilege foothold into SYSTEM before AD is ever touched.",
           "estimatedMinutes": 22,
           "status": "ready",
           "tags": [
@@ -378,7 +530,7 @@
           "id": "l2-15-vss-deletion-ransomware-precursor",
           "module": "Reconnaissance",
           "title": "VSS Deletion: The Ransomware Precursor",
-          "summary": "The attacker's side of Volume Shadow Copy \u2014 deliberately destroying the recovery option right before encryption, and the exact commands that give it away.",
+          "summary": "The attacker's side of Volume Shadow Copy — deliberately destroying the recovery option right before encryption, and the exact commands that give it away.",
           "estimatedMinutes": 18,
           "status": "ready",
           "tags": [
@@ -497,11 +649,19 @@
           "title": "Persistence: Registry Run Keys",
           "summary": "The oldest, still most common persistence mechanism -- Run/RunOnce, and the baseline of what's normally there versus what isn't.",
           "estimatedMinutes": 14,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "registry",
             "t1547.001"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/05-registry-run-keys.md",
+          "quizPath": "content/levels/03-powershell-persistence/05-registry-run-keys.quiz.json",
+          "objectives": [
+            "Name the four primary Run/RunOnce key paths including HKCU and HKLM",
+            "Explain why RunOnce both helps and hinders an investigator",
+            "Use a Run key's LastWriteTime to date a persistence installation",
+            "Distinguish legitimate vendor entries from attacker-planted ones"
           ]
         },
         {
@@ -510,11 +670,19 @@
           "title": "Persistence: Scheduled Tasks",
           "summary": "Task Scheduler as an attacker's cron -- where the evidence lives beyond just `schtasks /query`.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "scheduled-tasks",
             "t1053.005"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/06-scheduled-tasks.md",
+          "quizPath": "content/levels/03-powershell-persistence/06-scheduled-tasks.quiz.json",
+          "objectives": [
+            "Locate scheduled task evidence in all three places it exists",
+            "Explain how deleting the SD registry value hides a task that still runs",
+            "Identify TaskScheduler 106 as more reliably available than Security 4698",
+            "Recognize root-folder placement and interpreter actions as red flags"
           ]
         },
         {
@@ -523,10 +691,18 @@
           "title": "Persistence: Windows Services",
           "summary": "A malicious service dressed up to look legitimate -- what actually distinguishes it from the 200 real ones on any given host.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "services"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/07-windows-services.md",
+          "quizPath": "content/levels/03-powershell-persistence/07-windows-services.quiz.json",
+          "objectives": [
+            "Explain why ServiceDll must be read for svchost-hosted services",
+            "Identify Event ID 7045 as a default-enabled service installation record",
+            "Explain why 7045 doubles as a lateral-movement detection",
+            "Interpret the Start and Type registry values including the kernel-driver case"
           ]
         },
         {
@@ -535,10 +711,18 @@
           "title": "Persistence: WMI Event Subscriptions",
           "summary": "Fileless, triggered-by-event persistence that survives a full disk wipe of the file it originally came from.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "wmi"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/08-wmi-subscriptions.md",
+          "quizPath": "content/levels/03-powershell-persistence/08-wmi-subscriptions.quiz.json",
+          "objectives": [
+            "Name the three objects required for a WMI subscription to fire",
+            "Explain why deleting the dropper does not remove this persistence",
+            "Name the Sysmon and native event IDs covering subscription registration",
+            "Explain why legitimate management tooling makes existence the wrong baseline question"
           ]
         },
         {
@@ -547,10 +731,18 @@
           "title": "Persistence: COM & DLL Hijacking",
           "summary": "Redirecting a trusted lookup path so legitimate software loads an attacker's code -- and why it's so hard to spot from the process tree alone.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "dll-hijacking"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/09-com-dll-hijacking.md",
+          "quizPath": "content/levels/03-powershell-persistence/09-com-dll-hijacking.quiz.json",
+          "objectives": [
+            "Explain why HKCU CLSID entries override machine-wide COM registrations",
+            "Explain why process-creation logging is blind to this technique class",
+            "Distinguish search order hijacking, phantom DLL hijacking, and side-loading",
+            "Identify Sysmon Event ID 7 as the required detection source"
           ]
         },
         {
@@ -559,10 +751,18 @@
           "title": "Persistence: AppInit_DLLs & IFEO",
           "summary": "Two older but still-live mechanisms for forcing code to load into every process, or hijacking a debugger key to redirect execution entirely.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "ifeo"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/10-appinit-ifeo.md",
+          "quizPath": "content/levels/03-powershell-persistence/10-appinit-ifeo.quiz.json",
+          "objectives": [
+            "Explain what an IFEO Debugger value does to program execution",
+            "Describe the accessibility backdoor and why pre-authentication reachability matters",
+            "Explain why AppInit_DLLs remains worth checking despite being disabled by default",
+            "Recognize IFEO used for defence evasion rather than persistence"
           ]
         },
         {
@@ -571,10 +771,18 @@
           "title": "Persistence: LSA Provider / SSP Abuse",
           "summary": "Registering a malicious security package that gets loaded directly into LSASS -- persistence with credential-theft built in for free.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "lsass"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/11-lsa-ssp.md",
+          "quizPath": "content/levels/03-powershell-persistence/11-lsa-ssp.quiz.json",
+          "objectives": [
+            "Explain why a malicious SSP delivers persistence and credential theft together",
+            "Recall the known-good Security Packages baseline and audit against it",
+            "Explain why a registry-only check misses the memory-injected SSP variant",
+            "Explain how LSA Protection blocks both variants and what event it generates"
           ]
         },
         {
@@ -583,10 +791,18 @@
           "title": "Persistence: BITS Jobs",
           "summary": "Background Intelligent Transfer Service repurposed as a stealthy, throttled download-and-persist channel.",
           "estimatedMinutes": 14,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "bits"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/12-bits-jobs.md",
+          "quizPath": "content/levels/03-powershell-persistence/12-bits-jobs.quiz.json",
+          "objectives": [
+            "Explain why BITS transfers obscure attribution of network activity",
+            "Identify SetNotifyCmdLine as the option converting a download job into persistence",
+            "Locate the BITS queue database and explain why autorun-focused triage misses it",
+            "Explain why the /allusers flag is required when enumerating jobs"
           ]
         },
         {
@@ -595,10 +811,18 @@
           "title": "Persistence: Winlogon Shell/Userinit",
           "summary": "Hijacking the two registry values that fire on every single logon, before most endpoint monitoring has fully initialized.",
           "estimatedMinutes": 14,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "winlogon"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/13-winlogon-helper.md",
+          "quizPath": "content/levels/03-powershell-persistence/13-winlogon-helper.quiz.json",
+          "objectives": [
+            "State the exact correct values of Userinit and Shell",
+            "Explain why attackers append rather than replace these values",
+            "Explain why Winlogon execution timing favours the attacker",
+            "Recognize HKCU Winlogon overrides missed by an HKLM-only check"
           ]
         },
         {
@@ -607,12 +831,20 @@
           "title": "Persistence: OAuth Consent Grants",
           "summary": "Standing access that survives a password reset entirely -- because it was never a password to begin with.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "cloud",
             "oauth",
             "t1098.003"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/14-oauth-consent-grants.md",
+          "quizPath": "content/levels/03-powershell-persistence/14-oauth-consent-grants.quiz.json",
+          "objectives": [
+            "Explain why a password reset does not revoke OAuth-granted access",
+            "Identify offline_access as the scope that converts access into persistence",
+            "Distinguish delegated from application permissions and why the latter is more serious",
+            "State the three remediation steps required to fully terminate a grant"
           ]
         },
         {
@@ -621,11 +853,19 @@
           "title": "Persistence: Backdoor App Registrations",
           "summary": "A malicious app registration hiding among hundreds of legitimate ones -- what actually distinguishes it on inspection.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "cloud",
             "app-registrations"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/15-backdoor-app-registrations.md",
+          "quizPath": "content/levels/03-powershell-persistence/15-backdoor-app-registrations.quiz.json",
+          "objectives": [
+            "Explain why adding a credential to an existing app is stealthier than creating one",
+            "Use credential-versus-application creation dates as the detection tell",
+            "Identify the application permissions that enable self-escalation to Global Admin",
+            "Explain why application permissions survive all user credential resets"
           ]
         },
         {
@@ -634,12 +874,20 @@
           "title": "Persistence: Mailbox Forwarding Rules",
           "summary": "The single most common BEC persistence mechanism -- a configuration change that survives being locked out of the account entirely.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "cloud",
             "bec",
             "t1114.003"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/16-mailbox-forwarding-rules.md",
+          "quizPath": "content/levels/03-powershell-persistence/16-mailbox-forwarding-rules.quiz.json",
+          "objectives": [
+            "Check all three forwarding layers rather than inbox rules alone",
+            "Recognize the forward-plus-conceal pattern characteristic of BEC",
+            "Detect hidden MAPI-layer rules invisible to Outlook",
+            "Explain why forwarding rules survive account containment"
           ]
         },
         {
@@ -648,12 +896,20 @@
           "title": "Persistence: Golden SAML",
           "summary": "Forging SAML assertions with a stolen federation signing certificate -- access that doesn't touch Entra ID's own authentication path at all.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "cloud",
             "saml",
             "federation"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/17-golden-saml.md",
+          "quizPath": "content/levels/03-powershell-persistence/17-golden-saml.quiz.json",
+          "objectives": [
+            "Explain what the token-signing certificate enables an attacker to forge",
+            "Identify the Entra-sign-in-without-ADFS-event detection signal",
+            "Explain why MFA enforcement and password resets are ineffective",
+            "Explain why the signing certificate must be rotated twice"
           ]
         },
         {
@@ -662,11 +918,19 @@
           "title": "Persistence: Break-Glass Account Abuse",
           "summary": "Turning the emergency-access account meant to save you during an outage into the attacker's own permanent backdoor.",
           "estimatedMinutes": 16,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "persistence",
             "cloud",
             "break-glass"
+          ],
+          "contentPath": "content/levels/03-powershell-persistence/18-break-glass-abuse.md",
+          "quizPath": "content/levels/03-powershell-persistence/18-break-glass-abuse.quiz.json",
+          "objectives": [
+            "Explain why break-glass accounts are deliberately excluded from Conditional Access",
+            "Identify sign-in alerting as the control that makes them safe to maintain",
+            "Recognize exclusion-list modification as the durable attacker variant",
+            "Explain why break-glass accounts should be cloud-only"
           ]
         },
         {
@@ -708,11 +972,19 @@
           "title": "Artifact: NTDS.dit",
           "summary": "The database holding every domain credential -- how it's actually extracted (and why doing so live is itself a red flag), and what the extraction methods themselves leave behind.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "ntds",
             "credential-theft"
+          ],
+          "contentPath": "content/levels/04-active-directory/01-ntds-dit.md",
+          "quizPath": "content/levels/04-active-directory/01-ntds-dit.quiz.json",
+          "objectives": [
+            "Explain why NTDS.dit extraction requires the SYSTEM registry hive alongside the database",
+            "Name the main extraction methods (shadow copy, ntdsutil IFM, secretsdump) and the trace each leaves",
+            "Explain why any extraction on a live production DC warrants investigation regardless of context",
+            "Explain why confirmed extraction makes the krbtgt double reset mandatory rather than precautionary"
           ]
         },
         {
@@ -721,11 +993,19 @@
           "title": "Artifact: SYSVOL & GPO Abuse",
           "summary": "Group Policy as a domain-wide code execution mechanism -- and how to tell a legitimate GPO change from one that just pushed a backdoor to every machine in an OU.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "gpo",
             "sysvol"
+          ],
+          "contentPath": "content/levels/04-active-directory/02-sysvol-gpo.md",
+          "quizPath": "content/levels/04-active-directory/02-sysvol-gpo.quiz.json",
+          "objectives": [
+            "Explain why SYSVOL is readable by every authenticated domain user and what that implies",
+            "Describe how write access to a linked GPO becomes domain-wide code execution",
+            "Explain why MS14-025 did not fully resolve the GPP cpassword exposure",
+            "Use GPO version-number mismatches between the directory and SYSVOL halves as a tamper signal"
           ]
         },
         {
@@ -734,10 +1014,18 @@
           "title": "Artifact: Replication Metadata",
           "summary": "Every object's own \"last changed, by whom, from where\" history baked into AD itself -- corroborating evidence that doesn't depend on logging being turned on.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "replication-metadata"
+          ],
+          "contentPath": "content/levels/04-active-directory/03-replication-metadata.md",
+          "quizPath": "content/levels/04-active-directory/03-replication-metadata.quiz.json",
+          "objectives": [
+            "Explain why replication metadata survives Security log clearing",
+            "Interpret version number, originating DSA, and originating change time for an attribute",
+            "Identify the originating-DSA anomaly that exposes DCShadow",
+            "Explain why this is corroborating rather than primary evidence"
           ]
         },
         {
@@ -746,12 +1034,20 @@
           "title": "krbtgt & the Double Reset",
           "summary": "Why resetting the krbtgt password once doesn't invalidate a Golden Ticket, and the specific two-reset sequence, with the right wait between them, that actually does.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "krbtgt",
             "golden-ticket",
             "recovery"
+          ],
+          "contentPath": "content/levels/04-active-directory/04-krbtgt-double-reset.md",
+          "quizPath": "content/levels/04-active-directory/04-krbtgt-double-reset.quiz.json",
+          "objectives": [
+            "Explain why a single krbtgt reset leaves an existing Golden Ticket valid",
+            "State the recommended wait between resets and explain what that interval corresponds to",
+            "Distinguish the maintenance reset strategy from emergency breach recovery, and the tradeoff each carries",
+            "Explain why replication health must be verified before the first reset"
           ]
         },
         {
@@ -760,11 +1056,19 @@
           "title": "DCSync Detection",
           "summary": "An attacker's own domain controller impersonating a real one to request every credential hash via legitimate replication traffic -- and the Event ID that's specifically designed to catch it.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "dcsync",
             "t1003.006"
+          ],
+          "contentPath": "content/levels/04-active-directory/05-dcsync-detection.md",
+          "quizPath": "content/levels/04-active-directory/05-dcsync-detection.quiz.json",
+          "objectives": [
+            "Explain how DCSync obtains credentials without ever touching NTDS.dit as a file",
+            "Name the three replication extended rights that make DCSync possible",
+            "Identify Event ID 4662 with replication GUIDs as the core detection, and what distinguishes malicious from legitimate",
+            "Explain why DCSync can run from any domain-joined machine rather than requiring DC access"
           ]
         },
         {
@@ -773,12 +1077,20 @@
           "title": "Golden Ticket / Silver Ticket",
           "summary": "Forged Kerberos tickets built from a stolen krbtgt or service-account hash -- domain-wide access, or single-service access, that bypasses normal authentication entirely.",
           "estimatedMinutes": 24,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "kerberos",
             "golden-ticket",
             "silver-ticket"
+          ],
+          "contentPath": "content/levels/04-active-directory/06-golden-silver-ticket.md",
+          "quizPath": "content/levels/04-active-directory/06-golden-silver-ticket.quiz.json",
+          "objectives": [
+            "Explain why a Golden Ticket survives password resets of the impersonated account",
+            "Distinguish Golden from Silver Tickets by key used, scope, and whether a DC is contacted",
+            "Explain why a 4769 with no preceding 4768 is a forged-ticket indicator",
+            "Identify RC4 encryption in an AES environment as a common forging tell"
           ]
         },
         {
@@ -787,11 +1099,19 @@
           "title": "AdminSDHolder / SDProp Abuse",
           "summary": "A protection mechanism for privileged-group permissions, repurposed by attackers into a self-healing backdoor that reverts every hour.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "adminsdholder",
             "sdprop"
+          ],
+          "contentPath": "content/levels/04-active-directory/07-adminsdholder.md",
+          "quizPath": "content/levels/04-active-directory/07-adminsdholder.quiz.json",
+          "objectives": [
+            "Explain what SDProp does and its default 60-minute interval",
+            "Explain how modifying AdminSDHolder's ACL creates a self-healing backdoor",
+            "Recognize a permission reappearing after roughly an hour as an AdminSDHolder signal",
+            "Use orphaned adminCount=1 values as a historical privilege trail"
           ]
         },
         {
@@ -800,11 +1120,19 @@
           "title": "Kerberoasting",
           "summary": "Requesting a service ticket for any account with an SPN, then cracking it offline -- no elevated privilege required to start the attack.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "kerberoasting",
             "t1558.003"
+          ],
+          "contentPath": "content/levels/04-active-directory/08-kerberoasting.md",
+          "quizPath": "content/levels/04-active-directory/08-kerberoasting.quiz.json",
+          "objectives": [
+            "Explain why any authenticated domain user can begin a Kerberoasting attack",
+            "Explain why the offline cracking phase is invisible to domain-side controls",
+            "Identify the RC4 downgrade request as a detection signal",
+            "Explain why gMSAs effectively neutralize the attack"
           ]
         },
         {
@@ -813,12 +1141,21 @@
           "title": "AD CS Abuse (ESC1/ESC4/ESC8)",
           "summary": "Misconfigured certificate templates as a domain-admin escalation path that most environments have never audited -- the three most common misconfiguration classes explained concretely.",
           "estimatedMinutes": 26,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "adcs",
             "esc1",
             "esc8"
+          ],
+          "contentPath": "content/levels/04-active-directory/09-adcs-abuse.md",
+          "quizPath": "content/levels/04-active-directory/09-adcs-abuse.quiz.json",
+          "objectives": [
+            "Explain why a stolen certificate survives password resets and requires revocation instead",
+            "Identify the four conditions that make a template ESC1-vulnerable",
+            "Explain why ESC4 can evade a point-in-time template audit",
+            "Trace the ESC8 path from NTLM relay to a DC certificate to DCSync",
+            "Name the Certificate Services event IDs relevant to detection"
           ]
         },
         {
@@ -827,18 +1164,26 @@
           "title": "ACL & Delegation Abuse",
           "summary": "Legitimate-looking delegated permissions (reset password, write to a group) chained together into a full privilege-escalation path -- the kind of attack that never touches a single exploit.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "ad",
             "acl",
             "delegation"
+          ],
+          "contentPath": "content/levels/04-active-directory/10-acl-delegation-abuse.md",
+          "quizPath": "content/levels/04-active-directory/10-acl-delegation-abuse.quiz.json",
+          "objectives": [
+            "Explain why WriteDacl and WriteOwner are equivalent to full control",
+            "Explain why access reviews structurally miss chained ACL escalation paths",
+            "Define a shadow admin and why membership-based reviews miss them",
+            "Recognize servicePrincipalName writes as GenericWrite converted into a Kerberoasting opportunity"
           ]
         },
         {
           "id": "l4-11-pass-the-hash-pass-the-ticket",
           "module": "Credential Theft",
           "title": "Pass-the-Hash / Pass-the-Ticket",
-          "summary": "Reusing a stolen NTLM hash or Kerberos ticket directly for lateral movement \u2014 no password cracking, no privileged access required to start.",
+          "summary": "Reusing a stolen NTLM hash or Kerberos ticket directly for lateral movement — no password cracking, no privileged access required to start.",
           "estimatedMinutes": 22,
           "status": "ready",
           "tags": [
@@ -860,7 +1205,7 @@
           "id": "l4-12-kerberos-delegation-abuse",
           "module": "Escalation Paths",
           "title": "Kerberos Delegation Abuse",
-          "summary": "Unconstrained, constrained, and resource-based constrained delegation (RBCD) \u2014 abusing a legitimate Kerberos feature to reach the same outcome as a forged ticket.",
+          "summary": "Unconstrained, constrained, and resource-based constrained delegation (RBCD) — abusing a legitimate Kerberos feature to reach the same outcome as a forged ticket.",
           "estimatedMinutes": 24,
           "status": "ready",
           "tags": [
@@ -881,7 +1226,7 @@
           "id": "l4-13-ntlm-relay",
           "module": "Credential Theft",
           "title": "NTLM Relay",
-          "summary": "Forwarding a live authentication attempt to an unintended destination \u2014 no cracking, no hash theft, just exploiting NTLM's failure to bind authentication to a target.",
+          "summary": "Forwarding a live authentication attempt to an unintended destination — no cracking, no hash theft, just exploiting NTLM's failure to bind authentication to a target.",
           "estimatedMinutes": 22,
           "status": "ready",
           "tags": [
@@ -902,7 +1247,7 @@
           "id": "l4-14-ad-attack-chain-overview",
           "module": "Capstone",
           "title": "The AD Attack Chain: Putting It Together",
-          "summary": "Every AD technique in this level, in the order they actually chain together \u2014 with a diagram walking foothold to domain compromise.",
+          "summary": "Every AD technique in this level, in the order they actually chain together — with a diagram walking foothold to domain compromise.",
           "estimatedMinutes": 20,
           "status": "ready",
           "tags": [
@@ -1098,10 +1443,18 @@
           "title": "Network Artifacts in Memory",
           "summary": "Connection state that outlives the connection itself -- what's still recoverable in RAM after a C2 channel has already closed.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "network-artifacts"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/09-network-memory-artifacts.md",
+          "quizPath": "content/levels/05-memory-forensics/09-network-memory-artifacts.quiz.json",
+          "objectives": [
+            "Explain why a closed network connection can still be recoverable from a memory image",
+            "Explain what the Owner field in netscan output adds when correlated against other findings in this level",
+            "Relate netscan's recovery of closed connections to the DKOM/psscan concept from earlier in this level",
+            "Explain why a recovered remote address should be checked against C2 fingerprinting content rather than judged in isolation"
           ]
         },
         {
@@ -1110,11 +1463,19 @@
           "title": "Malware Triage Methodology",
           "summary": "Putting the whole memory module together into an actual triage sequence -- what to check first, and when to stop and escalate to full reverse engineering instead.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "memory",
             "triage",
             "methodology"
+          ],
+          "contentPath": "content/levels/05-memory-forensics/10-malware-triage-methodology.md",
+          "quizPath": "content/levels/05-memory-forensics/10-malware-triage-methodology.quiz.json",
+          "objectives": [
+            "Sequence a full memory triage from acquisition verification through fingerprinting in the correct order",
+            "Explain why LSASS is checked as its own dedicated step rather than only as a follow-up to other findings",
+            "Distinguish what memory triage answers from what requires full reverse engineering",
+            "Identify at least two concrete signals that indicate a triage should escalate to reverse engineering"
           ]
         }
       ]
@@ -1154,12 +1515,20 @@
           "title": "Email Headers & Authentication Forensics",
           "summary": "Reading the Received chain, the From/Reply-To/Return-Path spoofing triangle, and what SPF/DKIM/DMARC each actually prove -- plus reading Microsoft 365's own compauth verdict directly.",
           "estimatedMinutes": 26,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "email",
             "spf",
             "dkim",
             "dmarc"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/07-email-headers-authentication.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/07-email-headers-authentication.quiz.json",
+          "objectives": [
+            "Read a Received chain bottom-up and identify the trust boundary",
+            "Distinguish From, Return-Path, and Reply-To and the spoofing triangle they form",
+            "Explain why SPF pass does not mean not-spoofed, and what DMARC alignment adds",
+            "Interpret Microsoft 365 composite authentication results"
           ]
         },
         {
@@ -1168,11 +1537,19 @@
           "title": "Message Source & Attachment Forensics",
           "summary": "Parsing raw MIME structure, hashing attachments before opening them, and the HTML-vs-plaintext mismatch that's still one of the most reliable phishing tells in active use.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "email",
             "mime",
             "attachments"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/08-message-source-attachments.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/08-message-source-attachments.quiz.json",
+          "objectives": [
+            "Parse MIME structure and identify plain-text versus HTML mismatches",
+            "Recognize double extensions, RTL override, and container-format delivery",
+            "Hash and extract attachments safely before any analysis",
+            "Identify PST, OST, and MBOX offline formats and when the OST is the only surviving copy"
           ]
         },
         {
@@ -1268,11 +1645,19 @@
           "title": "Advanced Hunting with KQL",
           "summary": "Querying Defender's Device* tables directly (DeviceProcessEvents, DeviceNetworkEvents, DeviceFileEvents, DeviceRegistryEvents, DeviceImageLoadEvents) -- the query patterns that come up constantly enough to memorize.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "defender",
             "kql",
             "hunting"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/09-advanced-hunting-kql.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/09-advanced-hunting-kql.quiz.json",
+          "objectives": [
+            "Select the correct Device* table for a given detection question",
+            "Write filter-first KQL and explain why ordering matters for performance",
+            "Apply the memorizable query patterns for Office-spawned shells and encoded PowerShell",
+            "Use prevalence counting to find anomalies without a prior signature"
           ]
         },
         {
@@ -1281,10 +1666,18 @@
           "title": "Detection Engineering",
           "summary": "Turning a one-off endpoint hunt query into a standing Sigma-style detection rule that fires automatically on the next occurrence.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "defender",
             "detection-engineering"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/10-detection-engineering.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/10-detection-engineering.quiz.json",
+          "objectives": [
+            "Walk the detection lifecycle and identify the steps teams usually skip",
+            "Explain why an untuned rule is worse than no rule",
+            "Scope exclusions narrowly and document them with review dates",
+            "Explain the portability argument for writing detections in Sigma"
           ]
         },
         {
@@ -1293,10 +1686,18 @@
           "title": "Defender for Identity Mapping",
           "summary": "Mapping Defender for Identity's own alert catalog back onto the AD attack techniques earlier in this academy -- DCSync and Golden Ticket both have a specific alert name to know.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "defender",
             "identity"
+          ],
+          "contentPath": "content/levels/06-cloud-identity-email-defender/11-defender-for-identity.md",
+          "quizPath": "content/levels/06-cloud-identity-email-defender/11-defender-for-identity.quiz.json",
+          "objectives": [
+            "Explain what DC-level sensors detect that endpoint EDR cannot",
+            "Map Defender for Identity alert concepts onto Level 4 techniques",
+            "Explain why honeytoken activity is actionable without correlation",
+            "Explain why an alert does not replace understanding the technique"
           ]
         }
       ]
@@ -1315,11 +1716,19 @@
           "title": "DNS Analysis",
           "summary": "Tunneling, domain generation algorithms, and beaconing patterns -- all visible in query logs alone, no packet capture required.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "network",
             "dns",
             "beaconing"
+          ],
+          "contentPath": "content/levels/07-network-anti-forensics/01-dns-analysis.md",
+          "quizPath": "content/levels/07-network-anti-forensics/01-dns-analysis.quiz.json",
+          "objectives": [
+            "Identify DNS tunnelling by query length, entropy, record type, and volume",
+            "Recognize the NXDOMAIN signature of a domain generation algorithm",
+            "Explain why jitter fails to conceal beaconing from inter-arrival analysis",
+            "Explain why Sysmon Event ID 22 changes what DNS data can prove"
           ]
         },
         {
@@ -1328,11 +1737,19 @@
           "title": "Proxy & Firewall Log Triage",
           "summary": "Reading a connection log for what actually matters: user-agent mismatches, beaconing intervals, byte-ratio anomalies, and TLS fingerprinting.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "network",
             "proxy",
             "firewall"
+          ],
+          "contentPath": "content/levels/07-network-anti-forensics/02-proxy-firewall-triage.md",
+          "quizPath": "content/levels/07-network-anti-forensics/02-proxy-firewall-triage.quiz.json",
+          "objectives": [
+            "Interpret byte-ratio patterns to distinguish browsing, beaconing, and exfiltration",
+            "Recognize library-default User-Agents as client-identifying indicators",
+            "Explain why a JA3 fingerprint is more durable than an IP or domain",
+            "Use destination rarity and domain age as prevalence-based triage signals"
           ]
         },
         {
@@ -1341,17 +1758,25 @@
           "title": "NetFlow & Flow-Record Analysis",
           "summary": "Connection metadata at scale -- who talked to whom, how much, for how long -- cheap enough to retain for months where full packet capture rarely is.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "network",
             "netflow"
+          ],
+          "contentPath": "content/levels/07-network-anti-forensics/03-netflow-analysis.md",
+          "quizPath": "content/levels/07-network-anti-forensics/03-netflow-analysis.quiz.json",
+          "objectives": [
+            "Explain why flow retention often beats PCAP detail in practice",
+            "Identify east-west workstation-to-workstation traffic as lateral movement",
+            "Explain the perimeter-only collection blind spot",
+            "State precisely what flow data can and cannot establish about exfiltration"
           ]
         },
         {
           "id": "l7-09-c2-framework-fingerprinting",
           "module": "Network Forensics",
           "title": "C2 Framework Fingerprinting",
-          "summary": "JA3/JA3S/JA4 TLS fingerprinting, named pipe indicators, and the behavioral tells that survive a Malleable C2 profile \u2014 identifying which C2 framework is behind a beaconing pattern.",
+          "summary": "JA3/JA3S/JA4 TLS fingerprinting, named pipe indicators, and the behavioral tells that survive a Malleable C2 profile — identifying which C2 framework is behind a beaconing pattern.",
           "estimatedMinutes": 22,
           "status": "ready",
           "tags": [
@@ -1375,10 +1800,18 @@
           "title": "File Carving",
           "summary": "Recovering files from unallocated space by content signature alone, after the filesystem's own record of them is gone.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "anti-forensics",
             "file-carving"
+          ],
+          "contentPath": "content/levels/07-network-anti-forensics/04-file-carving.md",
+          "quizPath": "content/levels/07-network-anti-forensics/04-file-carving.quiz.json",
+          "objectives": [
+            "Explain how header/footer signature carving works without the filesystem",
+            "Explain why fragmentation is the defining limitation of carving",
+            "Prefer MFT-record recovery over carving when the record survives",
+            "Recognize resident storage as a third recovery path for small files"
           ]
         },
         {
@@ -1387,10 +1820,18 @@
           "title": "Alternate Data Streams",
           "summary": "NTFS's own hidden-storage feature, invisible to Explorer and `dir` by default -- a genuine blind spot most casual triage never checks.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "anti-forensics",
             "ads"
+          ],
+          "contentPath": "content/levels/07-network-anti-forensics/05-alternate-data-streams.md",
+          "quizPath": "content/levels/07-network-anti-forensics/05-alternate-data-streams.quiz.json",
+          "objectives": [
+            "Explain how a named stream conceals content without changing reported file size",
+            "Use Zone.Identifier as origin evidence, including what its absence implies",
+            "Explain why container formats became a MOTW-stripping delivery path",
+            "Detect streams with dir /R, PowerShell, and Sysmon Event ID 15"
           ]
         },
         {
@@ -1399,10 +1840,18 @@
           "title": "Log & Artifact Recovery",
           "summary": "What survives after an attacker clears the Security event log -- because \"cleared\" and \"unrecoverable\" are not the same thing.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "anti-forensics",
             "log-recovery"
+          ],
+          "contentPath": "content/levels/07-network-anti-forensics/06-log-artifact-recovery.md",
+          "quizPath": "content/levels/07-network-anti-forensics/06-log-artifact-recovery.quiz.json",
+          "objectives": [
+            "Explain why 1102 cannot be suppressed by repeated clearing",
+            "Recover event records by carving EVTX structures from unallocated space",
+            "Explain why Windows Event Forwarding inverts the value of log clearing",
+            "Enumerate the non-log artifact set unaffected by log clearing"
           ]
         },
         {
@@ -1411,10 +1860,18 @@
           "title": "Volume Shadow Copy Recovery",
           "summary": "Windows' own built-in point-in-time backups, and what they preserve even after files are deleted or a ransomware note appears.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "anti-forensics",
             "vss"
+          ],
+          "contentPath": "content/levels/07-network-anti-forensics/07-vss-recovery.md",
+          "quizPath": "content/levels/07-network-anti-forensics/07-vss-recovery.quiz.json",
+          "objectives": [
+            "Explain copy-on-write and what a shadow copy actually stores",
+            "Use a pre-intrusion hive diff to produce a persistence inventory",
+            "Explain why bulk shadow copy deletion is a high-confidence indicator",
+            "State the limitations that prevent relying on snapshot history"
           ]
         },
         {
@@ -1423,10 +1880,18 @@
           "title": "Memory-Based File Recovery",
           "summary": "Recovering a file's actual content from RAM when it was deliberately never written to disk at all.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "anti-forensics",
             "memory-recovery"
+          ],
+          "contentPath": "content/levels/07-network-anti-forensics/08-memory-based-file-recovery.md",
+          "quizPath": "content/levels/07-network-anti-forensics/08-memory-based-file-recovery.quiz.json",
+          "objectives": [
+            "Explain why memory is the only recovery path for filesystem-avoiding artifacts",
+            "Use malfind --dump and dumpfiles to extract payloads from memory",
+            "Explain why encrypted-at-rest files can be recovered in plaintext",
+            "Characterize memory-recovered content correctly in reporting"
           ]
         }
       ]
@@ -1445,10 +1910,18 @@
           "title": "Case Study: Domain Compromise, End to End",
           "summary": "Every technique from Level 4, chained together into one realistic intrusion narrative from initial foothold to Domain Admin.",
           "estimatedMinutes": 30,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "case-study",
             "domain-compromise"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/01-domain-compromise-case-study.md",
+          "quizPath": "content/levels/08-capstone-playbooks/01-domain-compromise-case-study.quiz.json",
+          "objectives": [
+            "Trace a full intrusion from phishing through Golden Ticket using the artifacts at each stage",
+            "Explain why 4662 firing correctly did not prevent the compromise",
+            "Evaluate the staged-versus-rapid krbtgt reset decision in context",
+            "Identify cloud persistence as the gap an on-premises remediation plan missed"
           ]
         },
         {
@@ -1457,10 +1930,18 @@
           "title": "Case Study: Business Email Compromise, End to End",
           "summary": "A single compromised mailbox, followed through mailbox rules, OAuth grants, and outbound fraud -- the email and cloud-identity levels applied together.",
           "estimatedMinutes": 28,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "case-study",
             "bec"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/02-bec-case-study.md",
+          "quizPath": "content/levels/08-capstone-playbooks/02-bec-case-study.quiz.json",
+          "objectives": [
+            "Explain why MFA did not prevent an illicit consent grant",
+            "Explain why the immediate password reset failed to terminate access",
+            "Explain why the fraudulent message passed all email authentication checks",
+            "Identify the single tenant setting that would have removed the attack surface"
           ]
         },
         {
@@ -1469,10 +1950,18 @@
           "title": "Playbook: Business Email Compromise",
           "summary": "Trigger through lessons-learned for a BEC engagement specifically -- what to pull, in what order, and when it's actually contained.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "playbook",
             "bec"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/03-playbook-bec.md",
+          "quizPath": "content/levels/08-capstone-playbooks/03-playbook-bec.quiz.json",
+          "objectives": [
+            "Sequence BEC containment so session revocation accompanies the password reset",
+            "Check for attacker-registered MFA methods as part of initial containment",
+            "Use MailItemsAccessed to make a defensible data-exposure statement",
+            "Identify OAuth grants as persistence that survives credential rotation"
           ]
         },
         {
@@ -1481,10 +1970,18 @@
           "title": "Playbook: Domain Compromise / Lateral Movement",
           "summary": "The domain-wide version of the same discipline -- scoping how far an attacker actually moved before you can honestly call it contained.",
           "estimatedMinutes": 22,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "playbook",
             "domain-compromise"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/04-playbook-domain-compromise.md",
+          "quizPath": "content/levels/08-capstone-playbooks/04-playbook-domain-compromise.quiz.json",
+          "objectives": [
+            "Explain why scoping precedes remediation here, and the one stated exception",
+            "Assemble the coordinated remediation event in the correct order",
+            "Explain why certificate revocation must be included alongside credential rotation",
+            "Articulate what makes the rebuild-versus-remediate decision answerable"
           ]
         },
         {
@@ -1493,10 +1990,18 @@
           "title": "Playbook: Ransomware",
           "summary": "The playbook that has to run under the most time pressure of any in this academy, with recovery decisions that can't wait for a complete investigation first.",
           "estimatedMinutes": 24,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "playbook",
             "ransomware"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/05-playbook-ransomware.md",
+          "quizPath": "content/levels/08-capstone-playbooks/05-playbook-ransomware.quiz.json",
+          "objectives": [
+            "Explain why encryption marks the end of an intrusion and what that implies for scoping",
+            "Choose network isolation over power-off and justify the tradeoff",
+            "Explain why exfiltration determination belongs in the first hour",
+            "Explain why restoring before identifying initial access risks re-encryption"
           ]
         },
         {
@@ -1505,10 +2010,18 @@
           "title": "Playbook: Insider Threat",
           "summary": "A fundamentally different investigative posture -- the subject already had legitimate access, so \"how did they get in\" isn't the question.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "playbook",
             "insider-threat"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/06-playbook-insider-threat.md",
+          "quizPath": "content/levels/08-capstone-playbooks/06-playbook-insider-threat.quiz.json",
+          "objectives": [
+            "Reframe the investigative question around exceeded authorization rather than intrusion",
+            "Explain why baseline establishment must precede review of the subject's activity",
+            "Explain why access-revocation timing is coordinated with HR and Legal",
+            "Explain why documenting what was not found matters in this playbook specifically"
           ]
         },
         {
@@ -1517,10 +2030,18 @@
           "title": "Playbook: Data Exfiltration",
           "summary": "Proving what actually left, not just what could have -- and why that distinction matters enormously for breach-notification scope.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "playbook",
             "exfiltration"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/07-playbook-data-exfiltration.md",
+          "quizPath": "content/levels/08-capstone-playbooks/07-playbook-data-exfiltration.quiz.json",
+          "objectives": [
+            "Distinguish access from exfiltration, including the FileAccessed/FileDownloaded case",
+            "Prioritize short-retention egress log collection in the first hour",
+            "Produce a three-tier scope statement with stated confidence and gaps",
+            "Explain why encrypted egress remains analyzable by volume and destination"
           ]
         },
         {
@@ -1529,10 +2050,18 @@
           "title": "Playbook: Phishing (Initial Access)",
           "summary": "The playbook for the most common initial-access vector of all -- and when a single phishing email needs to become an organization-wide search.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "playbook",
             "phishing"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/08-playbook-phishing.md",
+          "quizPath": "content/levels/08-capstone-playbooks/08-playbook-phishing.quiz.json",
+          "objectives": [
+            "Explain why the original message rather than a forward is required",
+            "Distinguish received, opened, clicked, and submitted as four separate populations",
+            "Apply the criteria that escalate one email to an organization-wide incident",
+            "Explain why every clicker is treated as a possible submitter"
           ]
         },
         {
@@ -1541,10 +2070,18 @@
           "title": "Playbook: Web Shell / Server Compromise",
           "summary": "A different attack surface entirely -- internet-facing servers, and the specific evidence a web shell leaves that a workstation compromise doesn't.",
           "estimatedMinutes": 20,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "playbook",
             "web-shell"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/09-playbook-web-shell.md",
+          "quizPath": "content/levels/08-capstone-playbooks/09-playbook-web-shell.quiz.json",
+          "objectives": [
+            "Explain why a web shell requires no persistence mechanism or callback",
+            "Identify w3wp.exe spawning a command interpreter as a near-definitive indicator",
+            "Use IIS logs to date shell activation when the Security log does not reach",
+            "Explain why closing the write path, not deleting the shell, is the closure criterion"
           ]
         },
         {
@@ -1553,10 +2090,18 @@
           "title": "Drill: Prefetch Triage",
           "summary": "A timed, hands-on exercise applying Level 2's Prefetch lesson to a realistic triage scenario.",
           "estimatedMinutes": 15,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "drill",
             "prefetch"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/10-drill-prefetch.md",
+          "quizPath": "content/levels/08-capstone-playbooks/10-drill-prefetch.quiz.json",
+          "objectives": [
+            "Identify two .pf files for one executable name as evidence of two execution paths",
+            "Use run counts and timestamp clustering to isolate a suspicious sequence",
+            "Distinguish the legitimate high-count svchost entry from the anomalous one",
+            "Determine what to extract next from the candidate .pf files"
           ]
         },
         {
@@ -1565,10 +2110,18 @@
           "title": "Drill: Process Tree Triage",
           "summary": "Spot the abnormal parent-child chain against the baseline from Level 2.",
           "estimatedMinutes": 15,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "drill",
             "process-trees"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/11-drill-process-tree.md",
+          "quizPath": "content/levels/08-capstone-playbooks/11-drill-process-tree.quiz.json",
+          "objectives": [
+            "Prioritize lsass.exe with a child as the highest-value finding",
+            "Recognize the explorer.exe orphan as expected rather than anomalous",
+            "Identify both violations in a misparented svchost.exe",
+            "Explain why the Office-to-PowerShell branch is a compound indicator"
           ]
         },
         {
@@ -1577,10 +2130,18 @@
           "title": "Drill: Registry Persistence Triage",
           "summary": "Find the planted persistence mechanism among a realistic registry export.",
           "estimatedMinutes": 15,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "drill",
             "persistence"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/12-drill-registry-persistence.md",
+          "quizPath": "content/levels/08-capstone-playbooks/12-drill-registry-persistence.quiz.json",
+          "objectives": [
+            "Detect an appended path in the Winlogon Userinit value",
+            "Recognize an IFEO Debugger on an accessibility binary as a pre-authentication backdoor",
+            "Interpret service Type and Start values correctly",
+            "Explain why redundant persistence means removing one mechanism is insufficient"
           ]
         },
         {
@@ -1589,10 +2150,18 @@
           "title": "Drill: PowerShell Decode",
           "summary": "Decode an obfuscated command chain using exactly the technique from Level 3.",
           "estimatedMinutes": 15,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "drill",
             "powershell"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/13-drill-powershell-decode.md",
+          "quizPath": "content/levels/08-capstone-playbooks/13-drill-powershell-decode.quiz.json",
+          "objectives": [
+            "Decode a Base64/UTF-16LE payload including the step most people skip",
+            "Read a download cradle and explain why it leaves no disk artifact",
+            "Identify what remains unknown after decoding the first stage",
+            "Explain the configuration dependency that made the command line available at all"
           ]
         },
         {
@@ -1601,10 +2170,18 @@
           "title": "Drill: Event Log Story",
           "summary": "Reconstruct what happened on a host from Event IDs alone.",
           "estimatedMinutes": 15,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "drill",
             "event-logs"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/14-drill-event-log-story.md",
+          "quizPath": "content/levels/08-capstone-playbooks/14-drill-event-log-story.quiz.json",
+          "objectives": [
+            "Distinguish password spraying from brute forcing by event pattern",
+            "Explain why System log events survive a Security log clear",
+            "Recognize account creation plus privileged group addition as persistence",
+            "State what authentication-only telemetry cannot establish"
           ]
         },
         {
@@ -1613,17 +2190,25 @@
           "title": "Drill: Timeline Correlation",
           "summary": "Correlate multiple sources with mismatched clocks into one coherent timeline.",
           "estimatedMinutes": 18,
-          "status": "coming-soon",
+          "status": "ready",
           "tags": [
             "drill",
             "timeline"
+          ],
+          "contentPath": "content/levels/08-capstone-playbooks/15-drill-timeline-correlation.md",
+          "quizPath": "content/levels/08-capstone-playbooks/15-drill-timeline-correlation.quiz.json",
+          "objectives": [
+            "Normalize sources to UTC and calibrate host clock skew separately",
+            "Use a cross-recorded event to derive a constant offset",
+            "Explain how an uncorrected source inverts a causal chain",
+            "Read a byte-ratio profile to distinguish beaconing from exfiltration"
           ]
         },
         {
           "id": "l8-16-certification-roadmap",
           "module": "Capstone",
           "title": "Certification Roadmap",
-          "summary": "Mapping this academy's levels onto real GIAC certifications \u2014 GCFE, GCFA, GCIH, GNFA \u2014 and a realistic order to pursue them in.",
+          "summary": "Mapping this academy's levels onto real GIAC certifications — GCFE, GCFA, GCIH, GNFA — and a realistic order to pursue them in.",
           "estimatedMinutes": 14,
           "status": "ready",
           "tags": [
@@ -1684,7 +2269,7 @@
     {
       "id": "tools",
       "title": "Tool Directory",
-      "description": "Every tool referenced in this academy \u2014 what it's for, and where to get it.",
+      "description": "Every tool referenced in this academy — what it's for, and where to get it.",
       "icon": "wrench",
       "kind": "tools",
       "contentPath": "content/tools.json"
@@ -1700,7 +2285,7 @@
     {
       "id": "sources",
       "title": "Sources & Attribution",
-      "description": "Every primary source this academy draws from \u2014 SANS, Microsoft, MSTIC, and 13cubed.",
+      "description": "Every primary source this academy draws from — SANS, Microsoft, MSTIC, and 13cubed.",
       "icon": "link",
       "kind": "markdown",
       "contentPath": "content/reference/sources.md"
@@ -1718,7 +2303,7 @@
     {
       "id": "incident-responder-fast-track",
       "title": "Incident Responder Fast Track",
-      "description": "Skip straight to the containment-critical material \u2014 the hybrid runbook, endpoint execution evidence, and the playbooks \u2014 without the full novice-to-advanced sequence. Best if you already have IT/security fundamentals.",
+      "description": "Skip straight to the containment-critical material — the hybrid runbook, endpoint execution evidence, and the playbooks — without the full novice-to-advanced sequence. Best if you already have IT/security fundamentals.",
       "icon": "target",
       "estimatedHours": 4.2,
       "lessonIds": [
@@ -1749,7 +2334,7 @@
     {
       "id": "domain-compromise-track",
       "title": "Domain Compromise Track",
-      "description": "Active Directory attack techniques end to end \u2014 credential theft, ticket forgery, and the escalation paths that turn one low-privilege account into Domain Admin.",
+      "description": "Active Directory attack techniques end to end — credential theft, ticket forgery, and the escalation paths that turn one low-privilege account into Domain Admin.",
       "icon": "server",
       "estimatedHours": 3.8,
       "lessonIds": [

@@ -50,3 +50,9 @@ Maps primarily to [System Binary Proxy Execution (T1218)](https://attack.mitre.o
 > [!TIP]
 > Cross-reference this lesson against [Level 3's non-PowerShell execution content](#/lesson/l3-19-non-powershell-execution) — LOLBins and alternate scripting engines are frequently paired in the same intrusion, specifically because both exist to route around PowerShell-specific logging.
 
+## Sources
+
+- [LOLBAS Project — Living Off The Land Binaries, Scripts and Libraries](https://lolbas-project.github.io/)
+- MITRE ATT&CK — [T1218 System Binary Proxy Execution](https://attack.mitre.org/techniques/T1218/)
+- [Microsoft Security Blog — living-off-the-land techniques (MSTIC)](https://www.microsoft.com/en-us/security/blog/)
+- SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics

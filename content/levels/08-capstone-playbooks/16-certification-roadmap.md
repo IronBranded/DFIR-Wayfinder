@@ -25,3 +25,16 @@ None of this requires waiting until you've finished every lesson in this academy
 
 > [!NOTE]
 > No lab for this lesson — it's a map, not a skill. The skill practice is the rest of this academy and, if you pursue it, the certification's own hands-on exam.
+
+## Sources
+
+- [GIAC Certified Forensic Examiner (GCFE)](https://www.giac.org/certifications/certified-forensic-examiner-gcfe/) — pairs with SANS FOR500
+- [GIAC Certified Forensic Analyst (GCFA)](https://www.giac.org/certifications/certified-forensic-analyst-gcfa/) — pairs with SANS FOR508
+- [GIAC Network Forensic Analyst (GNFA)](https://www.giac.org/certifications/network-forensic-analyst-gnfa/) — pairs with SANS FOR572
+- [GIAC Cyber Threat Intelligence (GCTI)](https://www.giac.org/certifications/cyber-threat-intelligence-gcti/)
+- [GIAC Certified Incident Handler (GCIH)](https://www.giac.org/certifications/certified-incident-handler-gcih/)
+- [SANS DFIR curriculum](https://www.sans.org/cyber-security-courses/?focus-area=digital-forensics)
+
+> [!TIP]
+> Certification is optional and expensive. Everything these exams test is covered in this academy's eight levels; the certificate buys external validation and, in some organizations, a hiring filter — not additional knowledge. Weigh it accordingly.
+

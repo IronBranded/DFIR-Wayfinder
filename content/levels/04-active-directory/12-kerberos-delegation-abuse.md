@@ -49,3 +49,10 @@ Event ID 4742 and 4738 (computer/user account attribute modifications) surface d
 The coercion primitives (PetitPotam, Printer Bug) map to [Forced Authentication (T1187)](https://attack.mitre.org/techniques/T1187/), under Credential Access. Delegation abuse itself sits alongside [Pass-the-Hash/Pass-the-Ticket](#/lesson/l4-11-pass-the-hash-pass-the-ticket) as alternate-authentication-material abuse under Lateral Movement — all three exploit the same underlying reality that Kerberos trusts possession of the right ticket or the right attribute over re-proving identity from scratch.
 
 **Mitigations worth knowing, not just the attack:** Protected Users group membership and the "Account is sensitive and cannot be delegated" flag for every Tier-0 account prevent their TGTs from ever being forwarded, neutralizing capture even on a compromised delegation host. Reducing `MachineAccountQuota` to 0 removes the RBCD prerequisite entirely for standard users.
+
+## Sources
+
+- MITRE ATT&CK — [T1558 Steal or Forge Kerberos Tickets](https://attack.mitre.org/techniques/T1558/), [T1134.001 Token Impersonation](https://attack.mitre.org/techniques/T1134/001/)
+- [Microsoft Learn — Kerberos constrained delegation overview](https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-constrained-delegation-overview)
+- [Microsoft Learn — MS-SFU: Kerberos Protocol Extensions](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-sfu/)
+- SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics

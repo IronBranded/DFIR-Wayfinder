@@ -14,7 +14,7 @@ Built for SOC analysts, incident responders, and threat hunters. Every lesson is
 
 ## Chapters covered
 
-Eight levels, novice through advanced. Each lesson is either fully written (`ready`) or scoped with a real title, summary, and objectives awaiting a full write-up (`coming-soon`) — see `content/manifest.json` for the authoritative, current status of every lesson.
+Eight levels, novice through advanced — **105 lessons, all fully written**, each with learning objectives and a knowledge check. See `content/manifest.json` for the authoritative status of every lesson.
 
 | Level | Title | Difficulty | Focus |
 |---|---|---|---|
@@ -23,11 +23,11 @@ Eight levels, novice through advanced. Each lesson is either fully written (`rea
 | 3 | PowerShell & Persistence | Beginner | Decoding what actually executed, and how attackers survive a reboot |
 | 4 | Active Directory & Domain Controllers | Intermediate | Domain compromise, credential theft, and the double-reset recovery discipline |
 | 5 | Windows Memory Forensics | Intermediate–Advanced | What only exists while the machine is running |
-| 6 | Cloud Identity, Email & the Defender Suite | Intermediate–Advanced | Entra ID, hybrid identity, email header forensics, and Microsoft's own telemetry |
+| 6 | Email Forensics, Hybrid Response & Microsoft Defender | Intermediate–Advanced | Hybrid account-compromise recovery, email header forensics, and Defender's endpoint mechanics |
 | 7 | Network Forensics & Anti-Forensics | Advanced | Log- and flow-level network evidence, and what survives an attacker's cleanup |
 | 8 | Capstone: Playbooks & Case Studies | Advanced | Everything above, run end to end against realistic scenarios |
 
-A **Reference hub** (Glossary, Tool Directory, Windows IR Quick Reference, Sources) and three **curated tracks** (Incident Responder Fast Track, Cloud & Hybrid Identity Track, Domain Compromise Track) sit alongside the levels for readers who want a shorter path through specific material.
+A **Reference hub** (Glossary, Tool Directory, Windows IR Quick Reference, Sources) and three **curated tracks** (Incident Responder Fast Track, Hybrid Identity & Email Compromise Track, Domain Compromise Track) sit alongside the levels for readers who want a shorter path through specific material.
 
 ## License
 

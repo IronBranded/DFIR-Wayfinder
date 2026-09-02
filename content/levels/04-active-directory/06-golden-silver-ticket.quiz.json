@@ -1,0 +1,57 @@
+{
+  "lessonId": "l4-06-golden-silver-ticket",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why does changing the impersonated user's password fail to invalidate a Golden Ticket?",
+      "options": [
+        "Because password changes take 30 days to replicate",
+        "Because the ticket is signed with the krbtgt key and isn't tied to that user's credential at all",
+        "Because Golden Tickets automatically re-sign themselves",
+        "It does invalidate it, immediately"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Golden Ticket is forged using the krbtgt hash and asserts an identity rather than proving one. The impersonated account's password is never involved, so changing it has no effect."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "What makes a Silver Ticket stealthier than a Golden Ticket, despite being narrower in scope?",
+      "options": [
+        "It uses stronger encryption that cannot be logged",
+        "It is presented directly to the target service and never contacts a domain controller, so DC-side authentication logging never records it",
+        "It automatically deletes relevant event logs",
+        "It only works outside business hours"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because a Silver Ticket forges the service ticket itself using a service account's hash, the attacker skips the DC entirely -- removing the DC's opportunity to log the authentication at all."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why is a 4769 (service ticket requested) with no preceding 4768 (TGT requested) suspicious?",
+      "options": [
+        "It indicates the domain controller is misconfigured",
+        "It suggests the TGT being used was never actually issued by the DC -- consistent with a forged ticket",
+        "It means the user's password expired",
+        "It is completely normal and expected behavior"
+      ],
+      "correctIndex": 1,
+      "explanation": "Normally a client obtains a TGT (4768) before requesting service tickets (4769). A service ticket request with no corresponding TGT issuance suggests the TGT was forged rather than granted."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why is an arbitrary ticket lifetime possible with a Golden Ticket?",
+      "options": [
+        "Domain policy is applied only to interactive logons",
+        "The DC trusts the forged ticket's contents rather than enforcing domain Kerberos lifetime policy against it -- default tooling often issues 10-year tickets",
+        "Kerberos has no concept of ticket lifetime",
+        "The attacker must still honor the 10-hour domain default"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because the ticket decrypts correctly with the krbtgt key, the DC accepts its asserted contents -- including a lifetime far beyond what domain policy would ever issue."
+    }
+  ]
+}

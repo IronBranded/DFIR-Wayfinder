@@ -229,10 +229,6 @@
   white-space: nowrap;
 }
 .badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-.badge--novice { color: var(--tier-novice); border-color: color-mix(in srgb, var(--tier-novice) 40%, transparent); }
-.badge--beginner { color: var(--tier-beginner); border-color: color-mix(in srgb, var(--tier-beginner) 40%, transparent); }
-.badge--intermediate { color: var(--tier-intermediate); border-color: color-mix(in srgb, var(--tier-intermediate) 40%, transparent); }
-.badge--advanced { color: var(--tier-advanced); border-color: color-mix(in srgb, var(--tier-advanced) 40%, transparent); }
 .badge--neutral { color: var(--text-secondary); }
 .badge--soon { color: var(--text-tertiary); border-style: dashed; }
 .badge--soon::before { display: none; }
@@ -710,15 +706,8 @@ p code, li code, td code {
 .naming-builder-head h3 { margin: 0 0 var(--sp-2); font-size: var(--fs-lg); }
 .naming-builder-head p { margin: 0 0 var(--sp-5); color: var(--text-secondary); font-size: var(--fs-sm); max-width: 62ch; }
 
-.naming-builder-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--sp-4);
-  margin-bottom: var(--sp-5);
-}
 .naming-field { display: flex; flex-direction: column; gap: 6px; }
 .naming-field > span { font-family: var(--font-mono); font-size: var(--fs-2xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary); }
-.naming-optional { text-transform: none; letter-spacing: normal; color: var(--text-tertiary); font-weight: 400; }
 .naming-field select, .naming-field input {
   background: var(--surface-sunken);
   border: 1px solid var(--hairline-strong);
@@ -728,31 +717,9 @@ p code, li code, td code {
   font-size: var(--fs-sm);
   padding: var(--sp-2) var(--sp-3);
 }
-.naming-field select:focus, .naming-field input:focus { border-color: var(--signal-red); }
+.naming-field select:focus, .naming-field input:focus { border-color: var(--signal-teal); }
 .naming-field small { color: var(--text-tertiary); font-size: var(--fs-2xs); line-height: 1.4; min-height: 2.6em; }
 
-.naming-builder-output {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-4);
-  flex-wrap: wrap;
-  padding-top: var(--sp-5);
-  border-top: 1px dashed var(--hairline-strong);
-}
-.naming-builder-output-label { font-family: var(--font-mono); font-size: var(--fs-2xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary); }
-.naming-builder-preview {
-  flex: 1;
-  min-width: 220px;
-  font-family: var(--font-mono);
-  font-size: var(--fs-md);
-  font-weight: 600;
-  color: var(--signal-red);
-  padding: var(--sp-3) var(--sp-4);
-  background: var(--surface-sunken);
-  border: 1px solid var(--signal-red-dim);
-  border-radius: var(--radius-md);
-  word-break: break-all;
-}
 
 /* ---- SI/FN MACB calculator (Reference hub) -------------------------------*/
 .macb-calc { background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: var(--sp-6); }

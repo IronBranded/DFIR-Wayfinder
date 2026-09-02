@@ -34,3 +34,10 @@ Windows Event ID 4624 filtered to Logon Type 3, cross-referenced against source 
 [Man-in-the-Middle: LLMNR/NBT-NS Poisoning and SMB Relay (T1557.001)](https://attack.mitre.org/techniques/T1557/001/) covers the poisoning-and-relay chain directly; [Forced Authentication (T1187)](https://attack.mitre.org/techniques/T1187/) covers the coercion primitives that trigger it on demand — the same technique underlying unconstrained delegation abuse in the previous lesson.
 
 **The durable fix, not just detection:** require SMB signing and LDAP signing plus channel binding domain-wide, and disable LLMNR/NBT-NS/mDNS broadcast name resolution where legacy compatibility doesn't require it. Get those two controls right and there's nothing left for `ntlmrelayx` to relay to, regardless of how successful the poisoning or coercion step was.
+
+## Sources
+
+- MITRE ATT&CK — [T1557.001 LLMNR/NBT-NS Poisoning and SMB Relay](https://attack.mitre.org/techniques/T1557/001/)
+- [Microsoft Learn — Mitigating NTLM relay attacks (Extended Protection for Authentication and SMB signing)](https://learn.microsoft.com/en-us/security-updates/securityadvisories/2009/973811)
+- [Microsoft Security Blog — coerced authentication and relay tradecraft (MSTIC)](https://www.microsoft.com/en-us/security/blog/)
+- SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics

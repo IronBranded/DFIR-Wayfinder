@@ -29,3 +29,10 @@ Legitimate drivers load from `%SystemRoot%\System32\drivers\`, correspond to act
 ## ATT&CK mapping
 
 BYOVD maps to [Exploitation for Privilege Escalation (T1068)](https://attack.mitre.org/techniques/T1068/) and commonly overlaps with [Impair Defenses: Disable or Modify Tools (T1562.001)](https://attack.mitre.org/techniques/T1562/001/) once the driver is loaded and used to kill security products. **HVCI (Hypervisor-Protected Code Integrity / Memory Integrity)**, enforced at the hypervisor level below the OS, and Microsoft's own Vulnerable Driver Blocklist are the two mitigations that actually prevent this rather than just detect it after the fact.
+
+## Sources
+
+- [LOLDrivers — the community catalogue of known-vulnerable drivers](https://www.loldrivers.io/)
+- [Microsoft Learn — Microsoft recommended driver block rules](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules)
+- MITRE ATT&CK — [T1068 Exploitation for Privilege Escalation](https://attack.mitre.org/techniques/T1068/)
+- Windows Internals (Russinovich, Solomon, Ionescu) — kernel-mode drivers and code integrity

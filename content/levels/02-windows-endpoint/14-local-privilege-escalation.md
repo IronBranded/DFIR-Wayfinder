@@ -33,3 +33,9 @@ Event ID 7045 (new service installed) and Event ID 4697 (service installed, if a
 ## ATT&CK mapping
 
 Unquoted service paths and weak service permissions both fall under [Hijack Execution Flow: Path Interception (T1574.007)](https://attack.mitre.org/techniques/T1574/) and related Path Interception sub-techniques. Token impersonation maps to [Access Token Manipulation (T1134)](https://attack.mitre.org/techniques/T1134/). A successful local privilege escalation is frequently the step that immediately precedes — and enables — the [Discovery](#/lesson/l2-11-discovery) and [LOLBin](#/lesson/l2-12-lolbins) activity covered earlier in this level, since an attacker rarely bothers enumerating a domain from an account with no local administrative rights at all.
+
+## Sources
+
+- MITRE ATT&CK — [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004/), [T1543.003 Windows Service](https://attack.mitre.org/techniques/T1543/003/), [T1574 Hijack Execution Flow](https://attack.mitre.org/techniques/T1574/)
+- Windows Internals (Russinovich, Solomon, Ionescu) — tokens, privileges, and the Service Control Manager
+- SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics

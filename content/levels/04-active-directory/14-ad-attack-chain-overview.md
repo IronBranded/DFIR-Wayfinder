@@ -25,3 +25,10 @@ When you find a single artifact mid-investigation — a Kerberoasting attempt, a
 ## Recovery has to match the chain's depth
 
 The remediation effort for an intrusion that reached stage 7 (domain compromise) is categorically different from one contained at stage 2 — this is exactly why the [krbtgt double-reset](#/lesson/l4-04-krbtgt-double-reset) exists as its own dedicated lesson: a Golden Ticket forged from krbtgt survives a single credential reset entirely, because krbtgt itself has to be invalidated twice, with a wait between resets, to actually close it. Scoping *how far* an intrusion travelled through this chain is what determines how far the recovery has to reach.
+
+## Sources
+
+- MITRE ATT&CK — Enterprise matrix, used throughout this level as the technique taxonomy
+- [Microsoft Learn — Securing privileged access and the tiered access model](https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-access-model)
+- [Microsoft Security Blog — human-operated intrusion patterns (MSTIC)](https://www.microsoft.com/en-us/security/blog/)
+- SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics

@@ -30,3 +30,25 @@ This is deliberately not a closed loop. The realistic next steps, in roughly the
 4. **Keep this academy's Reference hub as a working desk reference**, not a one-time read — the Glossary, Tool Directory, and Quick Reference are built to be reopened mid-investigation, not just read once and closed.
 
 There's no final exam here, and no certificate this site can issue you. The actual test is the next real investigation you're part of — this academy's job was making sure you walk into it recognizing what you're looking at.
+
+## Sources
+
+**Free datasets with known answers — the ones worth starting on:**
+
+- [CyberDefenders](https://cyberdefenders.org/) — guided blue-team challenges with published solutions
+- [Digital Corpora](https://digitalcorpora.org/) — realistic disk and memory images built for teaching
+- [NIST CFReDS](https://cfreds.nist.gov/) — reference datasets with documented ground truth
+- [DFIR Madness case studies](https://dfirmadness.com/) — full intrusion scenarios with images and walkthroughs
+- [Ali Hadi's DFIR challenge images](https://www.ashemery.com/dfir.html)
+- [MemLabs — memory forensics challenges](https://github.com/stuxnet999/MemLabs)
+
+**Build your own lab:**
+
+- [Microsoft Evaluation Center](https://www.microsoft.com/en-us/evalcenter/) — time-limited Windows Server and client ISOs
+- [DetectionLab](https://github.com/clong/DetectionLab) — pre-instrumented AD lab with Sysmon and logging deployed
+- [Atomic Red Team](https://atomicredteam.io/) — safe, scoped technique execution mapped to ATT&CK
+
+**Competitive practice:**
+
+- [SANS NetWars](https://www.sans.org/cyber-ranges/) and the Magnet Virtual Summit CTF
+

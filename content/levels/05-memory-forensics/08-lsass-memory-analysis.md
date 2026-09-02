@@ -45,3 +45,4 @@ Maps directly to [OS Credential Dumping: LSASS Memory (T1003.001)](https://attac
 - [Microsoft Learn — Credential Guard](https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/)
 - MITRE ATT&CK — T1003.001: OS Credential Dumping: LSASS Memory
 - SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics
+- Windows Internals (Russinovich, Solomon, Ionescu) — LSA, logon sessions, and protected processes

@@ -1,0 +1,57 @@
+{
+  "lessonId": "l4-01-ntds-dit",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "prompt": "Why does every NTDS.dit extraction method also require the SYSTEM registry hive?",
+      "options": [
+        "The SYSTEM hive contains a backup copy of the database",
+        "Password hashes are encrypted with the PEK, which is itself encrypted with the boot key stored in the SYSTEM hive -- without it, the hashes stay locked",
+        "The SYSTEM hive is only needed on domain controllers running older Windows versions",
+        "It isn't required; NTDS.dit alone is sufficient"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Password Encryption Key protecting the hashes is itself encrypted with the boot key, which lives in the SYSTEM hive rather than the database. An attacker with only NTDS.dit has an encrypted database and no way to unlock it."
+    },
+    {
+      "id": "q2",
+      "type": "single",
+      "prompt": "Why is a Volume Shadow Copy typically involved in extracting NTDS.dit from a running domain controller?",
+      "options": [
+        "Shadow copies encrypt the database for safe transport",
+        "NTDS.dit is locked by the operating system while AD is running, so a shadow copy provides a consistent, copyable point-in-time version",
+        "Shadow copies are the only way to decrypt the PEK",
+        "Windows requires a shadow copy before any file can be read"
+      ],
+      "correctIndex": 1,
+      "explanation": "Because the live database file is locked while AD is running, attackers create a shadow copy (via vssadmin or ntdsutil's IFM functionality) to obtain a readable, consistent copy."
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "prompt": "Why is the investigative baseline for NTDS.dit extraction different from most other artifacts in this academy?",
+      "options": [
+        "Because extraction happens constantly and must be filtered aggressively",
+        "Because there is essentially no legitimate reason to extract it from a live production DC outside documented promotion or recovery work, so any occurrence warrants investigation",
+        "Because the events are never logged at all",
+        "Because only Domain Admins can trigger the relevant events"
+      ],
+      "correctIndex": 1,
+      "explanation": "Unlike artifacts where the skill is distinguishing normal from abnormal volume, NTDS.dit extraction on a live DC has almost no legitimate operational cause outside planned maintenance -- so the bar for investigating is simply any occurrence."
+    },
+    {
+      "id": "q4",
+      "type": "single",
+      "prompt": "Why does confirmed NTDS.dit extraction make the krbtgt double reset mandatory rather than precautionary?",
+      "options": [
+        "It doesn't; user password resets are sufficient",
+        "The extraction includes the krbtgt hash, letting an attacker forge Golden Tickets indefinitely regardless of how many user passwords are changed",
+        "Because NTDS.dit extraction automatically corrupts the krbtgt account",
+        "Because Microsoft requires it after every shadow copy operation"
+      ],
+      "correctIndex": 1,
+      "explanation": "NTDS.dit contains every domain hash including krbtgt. With that hash, forged Golden Tickets remain valid no matter what else is remediated, until the krbtgt key itself is invalidated via the double reset."
+    }
+  ]
+}

@@ -47,3 +47,4 @@ All of the above sit under [Process Injection (T1055)](https://attack.mitre.org/
 - MITRE ATT&CK — T1055 and sub-techniques
 - SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics
 - 13cubed — process injection technique walkthroughs (YouTube)
+- Windows Internals (Russinovich, Solomon, Ionescu) — virtual address space, sections, and thread creation

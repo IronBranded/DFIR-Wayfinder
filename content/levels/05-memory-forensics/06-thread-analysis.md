@@ -41,3 +41,4 @@ Supports detection of the [Process Injection (T1055)](https://attack.mitre.org/t
 
 - [Volatility 3 — Windows plugin documentation](https://volatility3.readthedocs.io/en/latest/)
 - SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics
+- Windows Internals (Russinovich, Solomon, Ionescu) — thread objects, scheduling, and start addresses

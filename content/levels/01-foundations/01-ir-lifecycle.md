@@ -43,3 +43,9 @@ Here's why that's dangerous: eradication actions (killing processes, deleting fi
 | Lessons Learned | Feeding gaps back into Preparation | [Reporting & Communication](#/lesson/l1-10-reporting-communication) |
 
 Every artifact page you'll read from here forward assumes you know which of these six phases it's supporting. That context is what turns "I found something interesting" into "I know exactly what to do next."
+
+## Sources
+
+- [NIST SP 800-61 Rev. 2 — Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- SANS Incident Handler's Handbook — the six-step PICERL model
+- SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics

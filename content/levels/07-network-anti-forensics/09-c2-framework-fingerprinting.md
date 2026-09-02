@@ -35,3 +35,10 @@ Zeek or equivalent network-monitoring tooling for JA3/JA4 computation at the poi
 ## ATT&CK mapping
 
 Falls under [Application Layer Protocol (T1071)](https://attack.mitre.org/techniques/T1071/) for the network-disguise techniques and [Process Injection (T1055)](https://attack.mitre.org/techniques/T1055/) for the host-side execution — the same technique family covered in [Level 5](#/lesson/l5-05-injection-techniques), confirming these two layers of evidence (network fingerprint, host injection artifact) are describing the same underlying activity from two different vantage points.
+
+## Sources
+
+- MITRE ATT&CK — [T1071 Application Layer Protocol](https://attack.mitre.org/techniques/T1071/), [T1573 Encrypted Channel](https://attack.mitre.org/techniques/T1573/)
+- [Salesforce JA3 — TLS client fingerprinting](https://github.com/salesforce/ja3) and the JA4+ successor suite
+- [Microsoft Security Blog — command-and-control infrastructure tracking (MSTIC)](https://www.microsoft.com/en-us/security/blog/)
+- SANS FOR572 — Advanced Network Forensics and Analysis

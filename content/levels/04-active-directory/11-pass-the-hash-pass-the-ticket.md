@@ -35,3 +35,10 @@ Windows Security Event ID 4624 (successful logon) filtered to Logon Type 3 (netw
 ## ATT&CK mapping
 
 Both are sub-techniques of [Use Alternate Authentication Material (T1550)](https://attack.mitre.org/techniques/T1550/): [Pass the Hash (T1550.002)](https://attack.mitre.org/techniques/T1550/002/) and [Pass the Ticket (T1550.003)](https://attack.mitre.org/techniques/T1550/003/), both filed under Lateral Movement. Directly related to [DCSync](#/lesson/l4-05-dcsync-detection) and [Golden/Silver Ticket](#/lesson/l4-06-golden-silver-ticket) elsewhere in this level — all four techniques exploit the same underlying reality that Windows authentication trusts possession of specific secret material over re-proving identity from scratch each time.
+
+## Sources
+
+- MITRE ATT&CK — [T1550.002 Pass the Hash](https://attack.mitre.org/techniques/T1550/002/), [T1550.003 Pass the Ticket](https://attack.mitre.org/techniques/T1550/003/)
+- [Microsoft Learn — Mitigating Pass-the-Hash and other credential theft](https://learn.microsoft.com/en-us/windows-server/security/securing-privileged-access/securing-privileged-access)
+- Windows Internals (Russinovich, Solomon, Ionescu) — logon sessions and credential storage
+- SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics

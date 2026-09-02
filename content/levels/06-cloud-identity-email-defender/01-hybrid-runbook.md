@@ -41,8 +41,8 @@ A hybrid account's authoritative password source depends on which sync mechanism
 2. Before you've confirmed which direction the sync actually needs to run, or before a sync cycle has completed, there's a real window where the *effective* live password on one side doesn't match what you think you just set.
 3. A second, deliberate reset — done *after* you've confirmed sync direction and let a cycle complete — is what actually guarantees the password the attacker may have observed or logged during their access is not the one that ends up live.
 
-> [!LAB]
-> The [Hybrid Sync Mechanics lesson](#/lesson/l6-05-hybrid-sync-mechanics) walks through Password Hash Sync, Pass-Through Auth, and Federation individually — worth reading right after this one, since which mechanism a tenant runs changes exactly where the authoritative reset needs to happen first.
+> [!IMPORTANT]
+> Which sync mechanism the tenant runs changes where the authoritative reset must happen first. **Password Hash Sync** — on-premises AD is authoritative, so reset there and let sync carry it up. **Pass-Through Authentication** — validation happens against on-premises AD in real time, so the on-premises reset is immediately effective. **Federation (AD FS)** — authentication never reaches Entra at all, which means a compromised token-signing certificate makes password resets irrelevant entirely; see [Golden SAML](#/lesson/l3-17-golden-saml). Confirm the mechanism before starting, not during.
 
 ## The full runbook, in order
 
@@ -57,3 +57,10 @@ A hybrid account's authoritative password source depends on which sync mechanism
 > None of this is a substitute for reviewing MFA methods registered on the account. An attacker who registered their own MFA method during their access window can simply re-authenticate through it later, session revocation and password resets notwithstanding. Remove any authentication method you don't recognize as part of this same runbook, not as an afterthought.
 
 This sequence — revoke, reset, sync, reset again, revoke again — is the one runbook in this academy worth memorizing well enough to execute correctly at 2 a.m. under real pressure, because the two failure modes it prevents (a session that silently survives, and a password reset that silently reverts) are exactly the two things that turn a contained incident back into an active one.
+
+## Sources
+
+- [Microsoft Learn — Revoke user access in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access)
+- [Microsoft Learn — Revoke-MgUserSignInSession](https://learn.microsoft.com/en-us/powershell/microsoftgraph/)
+- [Microsoft Learn — Microsoft Entra Connect: password hash synchronization](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization)
+- MITRE ATT&CK — [T1078.004 Valid Accounts: Cloud Accounts](https://attack.mitre.org/techniques/T1078/004/)

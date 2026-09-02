@@ -37,3 +37,10 @@ Event ID 4688 (process creation) with command-line auditing enabled, or Sysmon E
 ## ATT&CK mapping
 
 Maps directly to [Inhibit System Recovery (T1490)](https://attack.mitre.org/techniques/T1490/), which explicitly exists to *augment* the impact of [Data Encrypted for Impact (T1486)](https://attack.mitre.org/techniques/T1486/) — the two techniques are almost always paired in a real ransomware timeline, with T1490 preceding T1486 by minutes, not hours. Detecting T1490 in progress is one of the few realistic chances to interrupt a ransomware deployment before encryption completes rather than only investigating after the fact.
+
+## Sources
+
+- MITRE ATT&CK — [T1490 Inhibit System Recovery](https://attack.mitre.org/techniques/T1490/)
+- [Microsoft Learn — Volume Shadow Copy Service](https://learn.microsoft.com/en-us/windows-server/storage/file-server/volume-shadow-copy-service)
+- [Microsoft Security Blog — human-operated ransomware (MSTIC)](https://www.microsoft.com/en-us/security/blog/)
+- SANS FOR528 — Ransomware for Incident Responders

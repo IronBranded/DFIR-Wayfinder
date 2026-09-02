@@ -41,3 +41,9 @@ Windows Security Event ID 4688 with command-line auditing still catches `wscript
 ## ATT&CK mapping
 
 [Visual Basic (T1059.005)](https://attack.mitre.org/techniques/T1059/005/) and [JavaScript (T1059.007)](https://attack.mitre.org/techniques/T1059/007/) are sub-techniques of Command and Scripting Interpreter (T1059) — the same parent technique PowerShell (T1059.001) falls under, confirming these are recognized as siblings, not edge cases. WMI execution maps to [Windows Management Instrumentation (T1047)](https://attack.mitre.org/techniques/T1047/) directly.
+
+## Sources
+
+- MITRE ATT&CK — [T1059.005 Visual Basic](https://attack.mitre.org/techniques/T1059/005/), [T1059.007 JavaScript](https://attack.mitre.org/techniques/T1059/007/), [T1047 Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047/)
+- [Microsoft Learn — WMI troubleshooting and the WMI-Activity operational log](https://learn.microsoft.com/en-us/windows/win32/wmisdk/wmi-troubleshooting)
+- SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics

@@ -45,3 +45,4 @@ Maps to [Rootkit (T1014)](https://attack.mitre.org/techniques/T1014/) specifical
 - Windows Internals (Russinovich, Solomon, Ionescu) — EPROCESS and process internals
 - [Volatility 3 — Windows plugin documentation](https://volatility3.readthedocs.io/en/latest/)
 - SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics
+- 13cubed — memory structures and process hiding (YouTube)

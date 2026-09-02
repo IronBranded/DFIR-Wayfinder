@@ -42,3 +42,9 @@ Windows Security Event ID 4688 (process creation) with command-line auditing ena
 ## ATT&CK mapping
 
 Discovery is its own MITRE ATT&CK tactic ([TA0007](https://attack.mitre.org/tactics/TA0007/)), not a single technique — the table above maps five of its most common Windows-native sub-techniques. [Account Discovery (T1087)](https://attack.mitre.org/techniques/T1087/) and [Domain Trust Discovery (T1482)](https://attack.mitre.org/techniques/T1482/) specifically feed directly into the AD attack chain covered in [Level 4](#/lesson/l4-01-ntds-dit).
+
+## Sources
+
+- MITRE ATT&CK — [Discovery (TA0007)](https://attack.mitre.org/tactics/TA0007/), [T1087 Account Discovery](https://attack.mitre.org/techniques/T1087/), [T1018 Remote System Discovery](https://attack.mitre.org/techniques/T1018/)
+- [Microsoft Security Blog — living-off-the-land and hands-on-keyboard activity (MSTIC)](https://www.microsoft.com/en-us/security/blog/)
+- SANS FOR508 — Advanced Incident Response, Threat Hunting, and Digital Forensics
